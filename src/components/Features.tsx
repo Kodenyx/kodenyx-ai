@@ -1,5 +1,5 @@
 import { Bot, Target, ChartLine, Users } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
   {
@@ -26,19 +26,28 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="features" className="py-20 bg-white">
-      <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-center text-secondary mb-12">
-          Features that Drive Growth
-        </h2>
+    <section className="py-24 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
+            Features that Drive Growth
+          </h2>
+          <p className="text-gray-600 text-lg">
+            Our platform combines powerful features to help you generate and nurture leads automatically.
+          </p>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
-              <CardHeader>
-                <feature.icon className="w-12 h-12 text-primary mb-4" />
-                <CardTitle>{feature.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
+            <Card 
+              key={index} 
+              className="border-none shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slide-up" 
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <feature.icon className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-secondary mb-3">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
               </CardContent>
             </Card>

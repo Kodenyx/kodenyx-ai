@@ -1,21 +1,23 @@
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="min-h-screen flex items-center pt-20 bg-gradient-to-br from-white to-primary/5">
-      <div className="container mx-auto">
-        <div className="max-w-3xl animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-bold text-secondary mb-6">
-            Attract & Nurture Leads on Autopilot
+    <div className="min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-secondary to-secondary/95 text-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            Transform Your Lead Generation with{" "}
+            <span className="text-primary">AI-Powered</span> Automation
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Transform your marketing with AI-powered automation. Generate more leads, close more deals, and scale your business effortlessly.
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+            Stop chasing leads manually. Let our intelligent platform attract, capture, and nurture your prospects 24/7.
           </p>
-          <div className="flex gap-4">
-            <Button className="bg-primary hover:bg-primary-dark text-white text-lg px-8 py-6">
-              Start Free Trial
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8">
+              Get Started <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" className="text-lg px-8 py-6">
+            <Button size="lg" variant="outline" className="text-lg border-white text-white hover:bg-white/10">
               Watch Demo
             </Button>
           </div>
