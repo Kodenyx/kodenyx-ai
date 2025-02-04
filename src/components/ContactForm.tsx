@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 const ContactForm = () => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,8 +32,8 @@ const ContactForm = () => {
         description: "We'll be in touch with you shortly with the 3 fixes.",
       });
 
-      // Reset form
-      e.currentTarget.reset();
+      // Reset form using the ref
+      formRef.current?.reset();
     } catch (error) {
       console.error('Error:', error);
       toast({
@@ -50,7 +51,7 @@ const ContactForm = () => {
       <div className="container mx-auto max-w-2xl text-center">
         <h2 className="text-4xl font-bold text-secondary mb-3">Struggling to convert leads?</h2>
         <p className="text-lg text-gray-600 mb-8">Avoid 3 biggest mistakes businesses make when trying to convert leads</p>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
           <Input name="name" type="text" placeholder="Your Name" required />
           <Input name="email" type="email" placeholder="Your Email" required />
           <Input name="company" type="text" placeholder="Company" required />
