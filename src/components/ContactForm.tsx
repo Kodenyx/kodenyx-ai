@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 const FORM_ID = "7646729";
 
@@ -19,13 +20,22 @@ const ContactForm = () => {
     const company = formData.get("company") as string;
 
     try {
+      // Get the API key from Supabase
+      const { data: { secret: apiKey }, error: secretError } = await supabase.rpc('get_secret', {
+        name: 'CONVERTKIT_API_KEY'
+      });
+
+      if (secretError || !apiKey) {
+        throw new Error('Failed to get API key');
+      }
+
       const response = await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          api_key: import.meta.env.VITE_CONVERTKIT_API_KEY || process.env.CONVERTKIT_API_KEY,
+          api_key: apiKey,
           email,
           first_name: name,
           fields: {
