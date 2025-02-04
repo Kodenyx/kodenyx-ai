@@ -17,10 +17,15 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8">
-                Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                Book a Call <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="text-lg border-white text-white hover:bg-white/10">
-                Watch Demo <Play className="ml-2 h-4 w-4" />
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-lg border-white text-white hover:bg-white/10"
+                onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Learn More <Play className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>
