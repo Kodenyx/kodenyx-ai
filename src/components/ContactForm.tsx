@@ -1,16 +1,59 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
+
+const FORM_ID = "7646729";
 
 const ContactForm = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast({
-      title: "Thanks for your interest!",
-      description: "We'll be in touch with you shortly.",
-    });
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email") as string;
+    const name = formData.get("name") as string;
+    const company = formData.get("company") as string;
+
+    try {
+      const response = await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          api_key: import.meta.env.VITE_CONVERTKIT_API_KEY,
+          email,
+          first_name: name,
+          fields: {
+            company,
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Subscription failed");
+      }
+
+      toast({
+        title: "Thanks for your interest!",
+        description: "You've been successfully subscribed. Check your email for the lead conversion tips.",
+      });
+
+      // Reset the form
+      e.currentTarget.reset();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "There was a problem subscribing you. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -19,11 +62,15 @@ const ContactForm = () => {
         <h2 className="text-4xl font-bold text-secondary mb-3">Struggling to convert leads?</h2>
         <p className="text-lg text-gray-600 mb-8">Avoid 3 biggest mistakes businesses make when trying to convert leads</p>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <Input type="text" placeholder="Your Name" required />
-          <Input type="email" placeholder="Your Email" required />
-          <Input type="text" placeholder="Company" required />
-          <Button type="submit" className="w-full bg-primary hover:bg-primary-dark text-white">
-            Unlock the 3 Fixes
+          <Input type="text" name="name" placeholder="Your Name" required />
+          <Input type="email" name="email" placeholder="Your Email" required />
+          <Input type="text" name="company" placeholder="Company" required />
+          <Button 
+            type="submit" 
+            className="w-full bg-primary hover:bg-primary-dark text-white"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Subscribing..." : "Unlock the 3 Fixes"}
           </Button>
         </form>
       </div>
