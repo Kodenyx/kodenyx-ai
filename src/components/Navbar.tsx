@@ -10,9 +10,15 @@ const Navbar = () => {
           <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
           <a href="#process" className="text-gray-300 hover:text-white transition-colors">How it Works</a>
           <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</a>
-          <Button className="bg-primary hover:bg-primary-dark text-white">
-            Book A Call
-          </Button>
+          <a 
+            href="https://cal.com/aarti-anand82" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <Button className="bg-primary hover:bg-primary-dark text-white">
+              Book A Call
+            </Button>
+          </a>
         </div>
       </div>
     </nav>

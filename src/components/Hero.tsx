@@ -16,9 +16,15 @@ const Hero = () => {
               Stop chasing leads manually. Let our intelligent platform attract, capture, and nurture your prospects 24/7.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8">
-                Book A Call <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <a 
+                href="https://cal.com/aarti-anand82" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8">
+                  Book A Call <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </a>
               <Button 
                 size="lg" 
                 variant="outline" 
