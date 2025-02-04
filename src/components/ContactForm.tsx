@@ -6,6 +6,13 @@ import { supabase } from "@/integrations/supabase/client";
 
 const FORM_ID = "7646729";
 
+interface SecretResponse {
+  data: {
+    secret: string;
+  } | null;
+  error: Error | null;
+}
+
 const ContactForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,7 +30,7 @@ const ContactForm = () => {
       // Get the API key from Supabase with proper typing
       const { data, error: secretError } = await supabase.rpc('get_secret', {
         name: 'CONVERTKIT_API_KEY'
-      }) as { data: { secret: string } | null, error: Error | null };
+      }) as SecretResponse;
 
       if (secretError || !data?.secret) {
         throw new Error('Failed to get API key');
