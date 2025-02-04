@@ -23,7 +23,7 @@ const ContactForm = () => {
           <Input type="email" placeholder="Your Email" required />
           <Input type="text" placeholder="Company" required />
           <Button type="submit" className="w-full bg-primary hover:bg-primary-dark text-white">
-            Get Started
+            Unlock the 3 Fixes
           </Button>
         </form>
       </div>
