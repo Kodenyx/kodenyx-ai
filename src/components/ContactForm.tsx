@@ -27,10 +27,13 @@ const ContactForm = () => {
     const company = formData.get("company") as string;
 
     try {
-      // Get the API key from Supabase with proper typing
+      console.log('Fetching ConvertKit API key from Supabase...');
+      
       const { data, error: secretError } = await supabase.rpc('get_secret', {
         secret_name: 'CONVERTKIT_API_KEY'
       }) as SecretResponse;
+
+      console.log('Secret response:', { data, error: secretError });
 
       if (secretError) {
         console.error('Secret Error:', secretError);
@@ -44,10 +47,10 @@ const ContactForm = () => {
 
       if (!data.secret) {
         console.error('Secret is null or undefined');
-        throw new Error('API key not found in secrets');
+        throw new Error('API key not found in secrets. Please ensure the CONVERTKIT_API_KEY is set in Supabase.');
       }
 
-      console.log('Secret retrieved successfully'); // Add this log
+      console.log('Successfully retrieved API key');
 
       const response = await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
         method: "POST",
@@ -81,7 +84,9 @@ const ContactForm = () => {
       console.error("ConvertKit Error:", error);
       toast({
         title: "Error",
-        description: error instanceof Error ? error.message : "There was a problem subscribing you. Please try again.",
+        description: error instanceof Error 
+          ? error.message 
+          : "There was a problem subscribing you. Please try again.",
         variant: "destructive",
       });
     } finally {
