@@ -34,13 +34,20 @@ const ContactForm = () => {
 
       if (secretError) {
         console.error('Secret Error:', secretError);
-        throw new Error('Failed to get API key');
+        throw new Error('Failed to get API key: ' + secretError.message);
       }
 
-      if (!data?.secret) {
-        console.error('No secret found');
-        throw new Error('API key not found');
+      if (!data) {
+        console.error('No data returned from get_secret');
+        throw new Error('No data returned from secret function');
       }
+
+      if (!data.secret) {
+        console.error('Secret is null or undefined');
+        throw new Error('API key not found in secrets');
+      }
+
+      console.log('Secret retrieved successfully'); // Add this log
 
       const response = await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
         method: "POST",
@@ -59,6 +66,7 @@ const ContactForm = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
+        console.error('ConvertKit API Error:', errorData);
         throw new Error(errorData.message || "Subscription failed");
       }
 
@@ -73,7 +81,7 @@ const ContactForm = () => {
       console.error("ConvertKit Error:", error);
       toast({
         title: "Error",
-        description: "There was a problem subscribing you. Please try again.",
+        description: error instanceof Error ? error.message : "There was a problem subscribing you. Please try again.",
         variant: "destructive",
       });
     } finally {
