@@ -29,9 +29,9 @@ const ContactForm = () => {
     try {
       console.log('Starting form submission process...');
       
-      const { data, error: secretError } = await supabase.rpc('get_secret', {
+      const { data, error: secretError } = await supabase.rpc<{ secret: string }>('get_secret', {
         secret_name: 'CONVERTKIT_API_KEY'
-      }) as SecretResponse;
+      });
 
       console.log('Secret response:', { data, error: secretError });
 
