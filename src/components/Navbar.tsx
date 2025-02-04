@@ -10,7 +10,7 @@ const Navbar = () => {
           <a href="#process" className="text-gray-300 hover:text-white transition-colors">How it Works</a>
           <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</a>
           <Button className="bg-primary hover:bg-primary-dark text-white">
-            Get Started
+            Book A Call
           </Button>
         </div>
       </div>
