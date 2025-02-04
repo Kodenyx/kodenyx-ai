@@ -38,11 +38,11 @@ const ContactForm = () => {
         throw new Error('Failed to get API key: ' + secretError.message);
       }
 
-      if (!secretData || !secretData.secret) {
+      if (!secretData || typeof secretData !== 'object' || !('secret' in secretData)) {
         throw new Error('API key not found or invalid. Please ensure CONVERTKIT_API_KEY is set in Supabase Vault.');
       }
 
-      const apiKey = secretData.secret;
+      const apiKey = (secretData as SecretResponse).secret;
       
       console.log('Successfully retrieved API key, making ConvertKit API request...');
 
