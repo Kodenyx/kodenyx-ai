@@ -26,12 +26,11 @@ const ContactForm = () => {
     try {
       console.log('Starting form submission process...');
       
-      // Using the function call instead of RPC
+      // Using the get_secret function instead of querying the secrets table
       const { data: secretData, error: secretError } = await supabase
-        .from('secrets')
-        .select('value')
-        .eq('name', 'CONVERTKIT_API_KEY')
-        .single();
+        .rpc('get_secret', {
+          secret_name: 'CONVERTKIT_API_KEY'
+        });
 
       console.log('Secret response:', { secretData });
 
@@ -39,11 +38,11 @@ const ContactForm = () => {
         throw new Error('Failed to get API key: ' + secretError.message);
       }
 
-      if (!secretData || !secretData.value) {
+      if (!secretData || !secretData.secret) {
         throw new Error('API key not found or invalid. Please ensure CONVERTKIT_API_KEY is set in Supabase Vault.');
       }
 
-      const apiKey = secretData.value;
+      const apiKey = secretData.secret;
       
       console.log('Successfully retrieved API key, making ConvertKit API request...');
 
