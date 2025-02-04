@@ -25,7 +25,7 @@ const ContactForm = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          api_key: import.meta.env.VITE_CONVERTKIT_API_KEY,
+          api_key: import.meta.env.VITE_CONVERTKIT_API_KEY || process.env.CONVERTKIT_API_KEY,
           email,
           first_name: name,
           fields: {
@@ -35,7 +35,8 @@ const ContactForm = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Subscription failed");
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Subscription failed");
       }
 
       toast({
@@ -46,6 +47,7 @@ const ContactForm = () => {
       // Reset the form
       e.currentTarget.reset();
     } catch (error) {
+      console.error("ConvertKit Error:", error);
       toast({
         title: "Error",
         description: "There was a problem subscribing you. Please try again.",
