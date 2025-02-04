@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
+import Logo from "./Logo";
 
 const Navbar = () => {
   return (
     <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-4">
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <div className="text-2xl font-bold text-white">Navika</div>
+        <Logo />
         <div className="hidden md:flex items-center gap-8">
           <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
           <a href="#process" className="text-gray-300 hover:text-white transition-colors">How it Works</a>
