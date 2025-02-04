@@ -29,7 +29,7 @@ const ContactForm = () => {
     try {
       // Get the API key from Supabase with proper typing
       const { data, error: secretError } = await supabase.rpc('get_secret', {
-        name: 'CONVERTKIT_API_KEY'
+        secret_name: 'CONVERTKIT_API_KEY'
       }) as SecretResponse;
 
       if (secretError || !data?.secret) {
