@@ -26,7 +26,6 @@ const ContactForm = () => {
     try {
       console.log('Starting form submission process...');
       
-      // Using the get_secret function instead of querying the secrets table
       const { data: secretData, error: secretError } = await supabase
         .rpc('get_secret', {
           secret_name: 'CONVERTKIT_API_KEY'
@@ -38,7 +37,7 @@ const ContactForm = () => {
         throw new Error('Failed to get API key: ' + secretError.message);
       }
 
-      if (!secretData || typeof secretData !== 'object' || !('secret' in secretData)) {
+      if (!secretData || !('secret' in secretData) || !secretData.secret) {
         throw new Error('API key not found or invalid. Please ensure CONVERTKIT_API_KEY is set in Supabase Vault.');
       }
 
@@ -61,12 +60,14 @@ const ContactForm = () => {
         }),
       });
 
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('ConvertKit API error:', errorData);
+        throw new Error(errorData.message || "Subscription failed");
+      }
+
       const responseData = await response.json();
       console.log('ConvertKit API response:', responseData);
-
-      if (!response.ok) {
-        throw new Error(responseData.message || "Subscription failed");
-      }
 
       toast({
         title: "Thanks for your interest!",
