@@ -27,7 +27,7 @@ const ContactForm = () => {
     const company = formData.get("company") as string;
 
     try {
-      console.log('Fetching ConvertKit API key from Supabase...');
+      console.log('Starting form submission process...');
       
       const { data, error: secretError } = await supabase.rpc('get_secret', {
         secret_name: 'CONVERTKIT_API_KEY'
@@ -36,21 +36,14 @@ const ContactForm = () => {
       console.log('Secret response:', { data, error: secretError });
 
       if (secretError) {
-        console.error('Secret Error:', secretError);
         throw new Error('Failed to get API key: ' + secretError.message);
       }
 
-      if (!data) {
-        console.error('No data returned from get_secret');
-        throw new Error('No data returned from secret function');
+      if (!data?.secret) {
+        throw new Error('API key not found. Please ensure CONVERTKIT_API_KEY is set in Supabase Vault.');
       }
 
-      if (!data.secret) {
-        console.error('Secret is null or undefined');
-        throw new Error('API key not found in secrets. Please ensure the CONVERTKIT_API_KEY is set in Supabase.');
-      }
-
-      console.log('Successfully retrieved API key');
+      console.log('Successfully retrieved API key, making ConvertKit API request...');
 
       const response = await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
         method: "POST",
@@ -67,10 +60,11 @@ const ContactForm = () => {
         }),
       });
 
+      const responseData = await response.json();
+      console.log('ConvertKit API response:', responseData);
+
       if (!response.ok) {
-        const errorData = await response.json();
-        console.error('ConvertKit API Error:', errorData);
-        throw new Error(errorData.message || "Subscription failed");
+        throw new Error(responseData.message || "Subscription failed");
       }
 
       toast({
@@ -81,7 +75,7 @@ const ContactForm = () => {
       // Reset the form
       e.currentTarget.reset();
     } catch (error) {
-      console.error("ConvertKit Error:", error);
+      console.error("Form submission error:", error);
       toast({
         title: "Error",
         description: error instanceof Error 
