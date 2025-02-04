@@ -20,12 +20,12 @@ const ContactForm = () => {
     const company = formData.get("company") as string;
 
     try {
-      // Get the API key from Supabase
-      const { data: { secret: apiKey }, error: secretError } = await supabase.rpc('get_secret', {
+      // Get the API key from Supabase with proper typing
+      const { data, error: secretError } = await supabase.rpc('get_secret', {
         name: 'CONVERTKIT_API_KEY'
-      });
+      }) as { data: { secret: string } | null, error: Error | null };
 
-      if (secretError || !apiKey) {
+      if (secretError || !data?.secret) {
         throw new Error('Failed to get API key');
       }
 
@@ -35,7 +35,7 @@ const ContactForm = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          api_key: apiKey,
+          api_key: data.secret,
           email,
           first_name: name,
           fields: {
