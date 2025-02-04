@@ -16,7 +16,8 @@ const ContactForm = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto max-w-md text-center">
-        <h2 className="text-4xl font-bold text-secondary mb-8">Ready to Get Started?</h2>
+        <h2 className="text-4xl font-bold text-secondary mb-3">Struggling to convert leads?</h2>
+        <p className="text-lg text-gray-600 mb-8">Avoid 3 biggest mistakes businesses make when trying to convert leads</p>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input type="text" placeholder="Your Name" required />
           <Input type="email" placeholder="Your Email" required />
