@@ -37,19 +37,12 @@ const Navbar = () => {
           <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
           <a href="#process" className="text-gray-300 hover:text-white transition-colors">How it Works</a>
           <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</a>
-          {user ? (
+          {user && (
             <Button 
               onClick={handleLogout}
               className="bg-primary hover:bg-primary-dark text-white"
             >
               Sign Out
-            </Button>
-          ) : (
-            <Button 
-              onClick={() => navigate("/auth")}
-              className="bg-primary hover:bg-primary-dark text-white"
-            >
-              Sign In
             </Button>
           )}
           <a 
