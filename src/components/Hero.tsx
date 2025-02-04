@@ -22,7 +22,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-lg border-white text-white hover:bg-white/10"
+                className="text-lg border-white text-black bg-white hover:bg-white/90"
                 onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Learn More <Play className="ml-2 h-4 w-4" />
