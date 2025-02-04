@@ -15,7 +15,7 @@ const ContactForm = () => {
 
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto max-w-md text-center">
+      <div className="container mx-auto max-w-2xl text-center">
         <h2 className="text-4xl font-bold text-secondary mb-3">Struggling to convert leads?</h2>
         <p className="text-lg text-gray-600 mb-8">Avoid 3 biggest mistakes businesses make when trying to convert leads</p>
         <form onSubmit={handleSubmit} className="space-y-4">
