@@ -32,8 +32,14 @@ const ContactForm = () => {
         secret_name: 'CONVERTKIT_API_KEY'
       }) as SecretResponse;
 
-      if (secretError || !data?.secret) {
+      if (secretError) {
+        console.error('Secret Error:', secretError);
         throw new Error('Failed to get API key');
+      }
+
+      if (!data?.secret) {
+        console.error('No secret found');
+        throw new Error('API key not found');
       }
 
       const response = await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
