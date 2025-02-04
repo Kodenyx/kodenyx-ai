@@ -15,10 +15,12 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const [session, setSession] = useState<boolean | null>(null);
 
   useEffect(() => {
+    // Check current session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(!!session);
     });
 
+    // Listen for auth changes
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -28,11 +30,16 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
     return () => subscription.unsubscribe();
   }, []);
 
+  // Show loading state
   if (session === null) {
-    return null; // Loading state
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      </div>
+    );
   }
 
-  return session ? <>{children}</> : <Navigate to="/auth" />;
+  return session ? children : <Navigate to="/auth" replace />;
 };
 
 const App = () => (
@@ -42,6 +49,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          <Route path="/auth" element={<Auth />} />
           <Route
             path="/"
             element={
@@ -50,7 +58,6 @@ const App = () => (
               </ProtectedRoute>
             }
           />
-          <Route path="/auth" element={<Auth />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
