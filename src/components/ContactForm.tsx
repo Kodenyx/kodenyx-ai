@@ -2,6 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+
+const FORM_ID = "7646729";
+
+interface SecretResponse {
+  data: {
+    secret: string;
+  } | null;
+  error: Error | null;
+}
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -11,27 +21,72 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      const formData = new FormData(e.currentTarget);
-      const email = formData.get("email") as string;
-      const name = formData.get("name") as string;
-      const company = formData.get("company") as string;
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email") as string;
+    const name = formData.get("name") as string;
+    const company = formData.get("company") as string;
 
-      // Log form submission (you can replace this with your preferred form handling logic)
-      console.log('Form submitted:', { email, name, company });
+    try {
+      console.log('Fetching ConvertKit API key from Supabase...');
+      
+      const { data, error: secretError } = await supabase.rpc('get_secret', {
+        secret_name: 'CONVERTKIT_API_KEY'
+      }) as SecretResponse;
+
+      console.log('Secret response:', { data, error: secretError });
+
+      if (secretError) {
+        console.error('Secret Error:', secretError);
+        throw new Error('Failed to get API key: ' + secretError.message);
+      }
+
+      if (!data) {
+        console.error('No data returned from get_secret');
+        throw new Error('No data returned from secret function');
+      }
+
+      if (!data.secret) {
+        console.error('Secret is null or undefined');
+        throw new Error('API key not found in secrets. Please ensure the CONVERTKIT_API_KEY is set in Supabase.');
+      }
+
+      console.log('Successfully retrieved API key');
+
+      const response = await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          api_key: data.secret,
+          email,
+          first_name: name,
+          fields: {
+            company,
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('ConvertKit API Error:', errorData);
+        throw new Error(errorData.message || "Subscription failed");
+      }
 
       toast({
         title: "Thanks for your interest!",
-        description: "We've received your information and will be in touch soon.",
+        description: "You've been successfully subscribed. Check your email for the lead conversion tips.",
       });
 
       // Reset the form
       e.currentTarget.reset();
     } catch (error) {
-      console.error("Form Error:", error);
+      console.error("ConvertKit Error:", error);
       toast({
         title: "Error",
-        description: "There was a problem submitting the form. Please try again.",
+        description: error instanceof Error 
+          ? error.message 
+          : "There was a problem subscribing you. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -53,7 +108,7 @@ const ContactForm = () => {
             className="w-full bg-primary hover:bg-primary-dark text-white"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Submitting..." : "Get in Touch"}
+            {isSubmitting ? "Subscribing..." : "Unlock the 3 Fixes"}
           </Button>
         </form>
       </div>
