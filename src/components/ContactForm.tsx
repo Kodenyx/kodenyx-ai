@@ -21,24 +21,29 @@ const ContactForm = () => {
     };
 
     try {
-      const { error } = await supabase.functions.invoke('subscribe-contact', {
+      console.log('Submitting data:', data);
+      const { data: response, error } = await supabase.functions.invoke('subscribe-contact', {
         body: data,
       });
 
-      if (error) throw error;
+      console.log('Response:', response);
+
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw error;
+      }
 
       toast({
         title: "Thanks for your interest!",
         description: "We'll be in touch with you shortly with the 3 fixes.",
       });
 
-      // Reset form using the ref
       formRef.current?.reset();
-    } catch (error) {
-      console.error('Error:', error);
+    } catch (error: any) {
+      console.error('Detailed error:', error);
       toast({
         title: "Something went wrong",
-        description: "Please try again later.",
+        description: error.message || "Please try again later.",
         variant: "destructive",
       });
     } finally {
