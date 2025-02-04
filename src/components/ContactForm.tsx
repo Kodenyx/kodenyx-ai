@@ -6,13 +6,6 @@ import { supabase } from "@/integrations/supabase/client";
 
 const FORM_ID = "7646729";
 
-interface SecretResponse {
-  data: {
-    secret: string;
-  } | null;
-  error: Error | null;
-}
-
 const ContactForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,7 +22,7 @@ const ContactForm = () => {
     try {
       console.log('Starting form submission process...');
       
-      const { data, error: secretError } = await supabase.rpc<{ secret: string }>('get_secret', {
+      const { data, error: secretError } = await supabase.rpc('get_secret', {
         secret_name: 'CONVERTKIT_API_KEY'
       });
 
@@ -39,10 +32,11 @@ const ContactForm = () => {
         throw new Error('Failed to get API key: ' + secretError.message);
       }
 
-      if (!data?.secret) {
+      if (!data || typeof data !== 'object' || !('secret' in data)) {
         throw new Error('API key not found. Please ensure CONVERTKIT_API_KEY is set in Supabase Vault.');
       }
 
+      const apiKey = data.secret as string;
       console.log('Successfully retrieved API key, making ConvertKit API request...');
 
       const response = await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
@@ -51,7 +45,7 @@ const ContactForm = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          api_key: data.secret,
+          api_key: apiKey,
           email,
           first_name: name,
           fields: {
