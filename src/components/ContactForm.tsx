@@ -1,93 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-
-const FORM_ID = "7646729";
-
-type SecretResponse = {
-  secret: string;
-}
+import { useToast } from "@/components/ui/use-toast";
 
 const ContactForm = () => {
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get("email") as string;
-    const name = formData.get("name") as string;
-    const company = formData.get("company") as string;
-
-    try {
-      console.log('Starting form submission process...');
-      
-      const { data: secretData, error: secretError } = await supabase
-        .rpc('get_secret', {
-          secret_name: 'CONVERTKIT_API_KEY'
-        });
-
-      console.log('Secret response:', { secretData });
-
-      if (secretError) {
-        throw new Error('Failed to get API key: ' + secretError.message);
-      }
-
-      if (!secretData || !('secret' in secretData) || !secretData.secret) {
-        throw new Error('API key not found or invalid. Please ensure CONVERTKIT_API_KEY is set in Supabase Vault.');
-      }
-
-      const apiKey = (secretData as SecretResponse).secret;
-      
-      console.log('Successfully retrieved API key, making ConvertKit API request...');
-
-      const response = await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          api_key: apiKey,
-          email,
-          first_name: name,
-          fields: {
-            company,
-          },
-        }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error('ConvertKit API error:', errorData);
-        throw new Error(errorData.message || "Subscription failed");
-      }
-
-      const responseData = await response.json();
-      console.log('ConvertKit API response:', responseData);
-
-      toast({
-        title: "Thanks for your interest!",
-        description: "You've been successfully subscribed. Check your email for the lead conversion tips.",
-      });
-
-      // Reset the form
-      e.currentTarget.reset();
-    } catch (error) {
-      console.error("Form submission error:", error);
-      toast({
-        title: "Error",
-        description: error instanceof Error 
-          ? error.message 
-          : "There was a problem subscribing you. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    toast({
+      title: "Thanks for your interest!",
+      description: "We'll be in touch with you shortly.",
+    });
   };
 
   return (
@@ -96,15 +19,11 @@ const ContactForm = () => {
         <h2 className="text-4xl font-bold text-secondary mb-3">Struggling to convert leads?</h2>
         <p className="text-lg text-gray-600 mb-8">Avoid 3 biggest mistakes businesses make when trying to convert leads</p>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <Input type="text" name="name" placeholder="Your Name" required />
-          <Input type="email" name="email" placeholder="Your Email" required />
-          <Input type="text" name="company" placeholder="Company" required />
-          <Button 
-            type="submit" 
-            className="w-full bg-primary hover:bg-primary-dark text-white"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Subscribing..." : "Unlock the 3 Fixes"}
+          <Input type="text" placeholder="Your Name" required />
+          <Input type="email" placeholder="Your Email" required />
+          <Input type="text" placeholder="Company" required />
+          <Button type="submit" className="w-full bg-primary hover:bg-primary-dark text-white">
+            Unlock the 3 Fixes
           </Button>
         </form>
       </div>
