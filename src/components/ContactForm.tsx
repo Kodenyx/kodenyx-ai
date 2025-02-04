@@ -26,17 +26,17 @@ const ContactForm = () => {
         secret_name: 'CONVERTKIT_API_KEY'
       });
 
-      console.log('Secret response:', { data, error: secretError });
+      console.log('Secret response:', { data });
 
       if (secretError) {
         throw new Error('Failed to get API key: ' + secretError.message);
       }
 
-      if (!data || typeof data !== 'object' || !('secret' in data)) {
-        throw new Error('API key not found. Please ensure CONVERTKIT_API_KEY is set in Supabase Vault.');
+      if (!data || !('secret' in data) || !data.secret) {
+        throw new Error('API key not found or invalid. Please ensure CONVERTKIT_API_KEY is set in Supabase Vault.');
       }
 
-      const apiKey = data.secret as string;
+      const apiKey = data.secret;
       console.log('Successfully retrieved API key, making ConvertKit API request...');
 
       const response = await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
