@@ -19,7 +19,7 @@ const features = [
   },
   {
     title: "AI-Powered Automation",
-    description: "Let our smart algorithms handle lead nurturing while you focus on growth",
+    description: "Let AI do the heavy lifting—nurturing leads on autopilot while you scale your business",
     icon: Bot,
   },
 ];
