@@ -26,7 +26,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
               <CardContent className="p-8">
-                <p className="text-xl mb-6">{testimonial.quote}</p>
+                <p className="text-xl mb-6 italic">{testimonial.quote}</p>
                 <div>
                   <div className="font-bold text-secondary">{testimonial.author}</div>
                   <div className="text-gray-600">
