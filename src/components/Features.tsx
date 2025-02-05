@@ -8,14 +8,14 @@ const features = [
     icon: Target,
   },
   {
-    title: "Performance Analytics",
-    description: "Optimize like a pro with real-time insights—because guessing is for amateurs.",
-    icon: ChartLine,
-  },
-  {
     title: "Lead Management",
     description: "Organize and prioritize leads effectively with our CRM system",
     icon: Users,
+  },
+  {
+    title: "Performance Analytics",
+    description: "Optimize like a pro with real-time insights—because guessing is for amateurs.",
+    icon: ChartLine,
   },
   {
     title: "AI-Powered Automation",
