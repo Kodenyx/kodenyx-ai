@@ -3,9 +3,9 @@ import { Card, CardContent } from "@/components/ui/card";
 const testimonials = [
   {
     quote: "Navika transformed our lead generation process. We've seen a 3x increase in qualified leads.",
-    author: "Sarah Johnson",
-    role: "Marketing Director",
-    company: "TechCorp",
+    author: "Mike J.",
+    role: "Fractional CMO",
+    company: "",
   },
   {
     quote: "My lead gen and online presence has exponentially increased with these AI-powered automations.",
@@ -30,7 +30,7 @@ const Testimonials = () => {
                 <div>
                   <div className="font-bold text-secondary">{testimonial.author}</div>
                   <div className="text-gray-600">
-                    {testimonial.role}, {testimonial.company}
+                    {testimonial.role}{testimonial.company && `, ${testimonial.company}`}
                   </div>
                 </div>
               </CardContent>
