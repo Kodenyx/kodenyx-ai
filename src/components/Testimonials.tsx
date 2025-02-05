@@ -4,7 +4,7 @@ const testimonials = [
   {
     quote: "Navika transformed our lead generation process. We've seen a 3x increase in qualified leads.",
     author: "Mike J.",
-    role: "Fractional CMO",
+    role: "Real Estate Owner & Fractional CMO",
     company: "",
   },
   {
