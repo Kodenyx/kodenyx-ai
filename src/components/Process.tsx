@@ -3,23 +3,23 @@ import { CheckCircle } from "lucide-react";
 const steps = [
   {
     number: "01",
-    title: "Connect",
-    description: "Integrate your existing tools and data sources",
+    title: "Book A Call",
+    description: "We assess your business goals, challenges, and target audience",
   },
   {
     number: "02",
-    title: "Automate",
-    description: "Set up automated workflows and campaigns",
+    title: "Strategy",
+    description: "We craft a data-driven content, lead generation, and automation strategy tailored to your business.",
   },
   {
     number: "03",
-    title: "Nurture",
-    description: "Engage leads with personalized content",
+    title: "Execution",
+    description: "We put the strategy into action, automate content creation, and monitor to optimize on a weekly basis",
   },
   {
     number: "04",
     title: "Convert",
-    description: "Turn prospects into happy customers",
+    description: "We automate lead nurturing so your system runs on autopilot and turns prospects into happy customers",
   },
 ];
 
