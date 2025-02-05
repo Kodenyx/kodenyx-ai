@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, PhoneCall } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -23,7 +23,7 @@ const Hero = () => {
                 className="w-full sm:w-auto"
               >
                 <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 w-full sm:w-[200px]">
-                  Book A Call <ArrowRight className="ml-2 h-5 w-5" />
+                  <PhoneCall className="mr-2 h-5 w-5" /> Book A Call
                 </Button>
               </a>
               <Button 
