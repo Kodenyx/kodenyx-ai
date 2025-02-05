@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: "How long will it take to see results?",
-    answer: "Here's the truth: this isn't a "get-rich-quick" scheme. You'll start seeing traction in the first 30 days—more engagement, more interest. But real, sustainable growth happens over 90 days when the system is fine-tuned and humming. We're in it for the long game because that's where the real wins are.",
+    answer: 'Here\'s the truth: this isn\'t a "get-rich-quick" scheme. You\'ll start seeing traction in the first 30 days—more engagement, more interest. But real, sustainable growth happens over 90 days when the system is fine-tuned and humming. We\'re in it for the long game because that\'s where the real wins are.',
   },
   {
     question: "How much does this service cost?",
