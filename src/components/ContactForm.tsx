@@ -52,14 +52,14 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-secondary">
       <div className="container mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-bold text-secondary mb-3">Struggling to convert leads?</h2>
-        <p className="text-lg text-gray-600 mb-8">Avoid 3 biggest mistakes businesses make when trying to convert leads</p>
+        <h2 className="text-4xl font-bold text-white mb-3">Struggling to convert leads?</h2>
+        <p className="text-lg text-gray-300 mb-8">Avoid 3 biggest mistakes businesses make when trying to convert leads</p>
         <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-          <Input name="name" type="text" placeholder="Your Name" required />
-          <Input name="email" type="email" placeholder="Your Email" required />
-          <Input name="company" type="text" placeholder="Company" required />
+          <Input name="name" type="text" placeholder="Your Name" required className="bg-white/10 text-white placeholder:text-gray-400" />
+          <Input name="email" type="email" placeholder="Your Email" required className="bg-white/10 text-white placeholder:text-gray-400" />
+          <Input name="company" type="text" placeholder="Company" required className="bg-white/10 text-white placeholder:text-gray-400" />
           <Button 
             type="submit" 
             className="w-full bg-primary hover:bg-primary-dark text-white"
