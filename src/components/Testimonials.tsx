@@ -8,10 +8,10 @@ const testimonials = [
     company: "TechCorp",
   },
   {
-    quote: "The automation capabilities are game-changing. It's like having an extra marketing team.",
-    author: "Michael Chen",
-    role: "CEO",
-    company: "GrowthLabs",
+    quote: "My lead gen and online presence has exponentially increased with these AI-powered automations.",
+    author: "Tim Lee",
+    role: "Founder",
+    company: "Movement Mastery Training",
   },
 ];
 
