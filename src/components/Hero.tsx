@@ -20,15 +20,16 @@ const Hero = () => {
                 href="https://cal.com/aarti-anand82" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
-                <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8">
+                <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 w-full sm:w-[200px]">
                   Book A Call <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </a>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-lg border-white text-black bg-white hover:bg-white/90"
+                className="text-lg border-white text-black bg-white hover:bg-white/90 w-full sm:w-[200px]"
                 onClick={() => document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Learn More <Play className="ml-2 h-4 w-4" />
