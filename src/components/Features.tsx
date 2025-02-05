@@ -9,7 +9,7 @@ const features = [
   },
   {
     title: "Performance Analytics",
-    description: "Track and optimize your campaigns with detailed insights",
+    description: "Fine-tune your campaigns like a pro with real-time insights—because guessing is for amateurs, and we prefer data that actually delivers results.",
     icon: ChartLine,
   },
   {
