@@ -9,7 +9,7 @@ const features = [
   },
   {
     title: "Lead Capture",
-    description: "Never miss a lead that visits your website and capture their interest with killer lead magnets",
+    description: "Stop letting leads slip away—grab their attention and lock them in with irresistible lead magnets",
     icon: Users,
   },
   {
