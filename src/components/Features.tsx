@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 const features = [
   {
     title: "Smart Targeting",
-    description: "Reach the right audience with precision targeting and segmentation",
+    description: "Reach the right audience, at the right time, with laser-focused content marketing and segmentation",
     icon: Target,
   },
   {
