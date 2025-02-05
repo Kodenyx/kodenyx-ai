@@ -3,11 +3,6 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
   {
-    title: "AI-Powered Automation",
-    description: "Let our smart algorithms handle lead nurturing while you focus on growth",
-    icon: Bot,
-  },
-  {
     title: "Smart Targeting",
     description: "Reach the right audience with precision targeting and segmentation",
     icon: Target,
@@ -21,6 +16,11 @@ const features = [
     title: "Lead Management",
     description: "Organize and prioritize leads effectively with our CRM system",
     icon: Users,
+  },
+  {
+    title: "AI-Powered Automation",
+    description: "Let our smart algorithms handle lead nurturing while you focus on growth",
+    icon: Bot,
   },
 ];
 
