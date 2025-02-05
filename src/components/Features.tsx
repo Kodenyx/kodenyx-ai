@@ -33,7 +33,7 @@ const Features = () => {
             Features that Drive Growth
           </h2>
           <p className="text-gray-600 text-lg">
-            Our platform combines powerful features to help you generate and nurture leads automatically.
+            Most businesses passively wait for leads to come to their website—only to watch them slip through the cracks.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
