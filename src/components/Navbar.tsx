@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Menu, X } from "lucide-react";
+import { Menu, X, PhoneCall } from "lucide-react";
 import Logo from "./Logo";
 
 const Navbar = () => {
@@ -68,6 +68,7 @@ const Navbar = () => {
               rel="noopener noreferrer"
             >
               <Button className="bg-primary hover:bg-primary-dark text-white">
+                <PhoneCall className="mr-2" size={18} />
                 Book A Call
               </Button>
             </a>
@@ -116,6 +117,7 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               <Button className="bg-primary hover:bg-primary-dark text-white w-full">
+                <PhoneCall className="mr-2" size={18} />
                 Book A Call
               </Button>
             </a>
