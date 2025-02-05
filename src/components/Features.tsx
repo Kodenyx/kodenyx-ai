@@ -8,8 +8,8 @@ const features = [
     icon: Target,
   },
   {
-    title: "Lead Management",
-    description: "Organize and prioritize leads effectively with our CRM system",
+    title: "Lead Capture",
+    description: "Never miss a lead that visits your website and capture their interest with killer lead magnets",
     icon: Users,
   },
   {
