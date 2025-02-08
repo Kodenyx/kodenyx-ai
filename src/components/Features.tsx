@@ -10,7 +10,7 @@ const features = [
   },
   {
     title: "Lead Capture",
-    description: "Grab attention and turn visitors into leads with high-converting offers",
+    description: "Stop letting leads slip away - grab attention and turn visitors into leads with high-converting offers",
     icon: Users,
   },
   {
