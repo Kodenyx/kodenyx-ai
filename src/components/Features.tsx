@@ -15,7 +15,7 @@ const features = [
   },
   {
     title: "AI-Powered Automation",
-    description: "Let AI do the heavy lifting—nurturing leads on autopilot while you scale your business",
+    description: "Let our AI agents nurture your leads on autopilot - your leads won't ghost you when AI is doing the follow-ups.",
     icon: Bot,
   },
   {
