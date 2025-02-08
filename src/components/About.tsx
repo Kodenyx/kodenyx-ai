@@ -27,7 +27,7 @@ const About = () => {
           {team.map((member, index) => (
             <Card 
               key={index} 
-              className="animate-slide-up bg-white shadow-lg hover:shadow-xl transition-shadow duration-300" 
+              className="animate-slide-up bg-[#1A1F2C] text-white shadow-lg hover:shadow-xl transition-shadow duration-300" 
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-8">
@@ -45,10 +45,10 @@ const About = () => {
                 <h3 className="text-2xl font-bold text-center text-primary mb-2">
                   {member.name}
                 </h3>
-                <p className="text-lg text-gray-600 text-center mb-4 font-medium">
+                <p className="text-lg text-gray-300 text-center mb-4 font-medium">
                   {member.role}
                 </p>
-                <p className="text-gray-600 text-center leading-relaxed">
+                <p className="text-gray-300 text-center leading-relaxed">
                   {member.bio}
                 </p>
               </CardContent>
