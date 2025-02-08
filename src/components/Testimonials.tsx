@@ -18,20 +18,37 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-20 bg-primary/5">
+    <section id="testimonials" className="py-20 bg-white">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-center text-secondary mb-12">
+        <h2 className="text-4xl font-bold text-center text-black mb-16">
           What Our Clients Say
         </h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
+            <Card 
+              key={index} 
+              className="animate-slide-up bg-white shadow-lg hover:shadow-xl transition-shadow duration-300" 
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
               <CardContent className="p-8">
-                <p className="text-xl mb-6 italic">{testimonial.quote}</p>
-                <div>
-                  <div className="font-bold text-secondary">{testimonial.author}</div>
-                  <div className="text-gray-600">
-                    {testimonial.role}{testimonial.company && `, ${testimonial.company}`}
+                <div className="mb-6 flex justify-center">
+                  <div className="w-16 h-16 rounded-full bg-gray-100"></div>
+                </div>
+                <p className="text-lg text-gray-600 text-center mb-6 italic leading-relaxed">
+                  {testimonial.quote}
+                </p>
+                <div className="text-center">
+                  <div className="font-semibold text-primary mb-1">
+                    {testimonial.author}
+                  </div>
+                  <div className="text-gray-500 text-sm">
+                    {testimonial.role}
+                    {testimonial.company && (
+                      <>
+                        <br />
+                        {testimonial.company}
+                      </>
+                    )}
                   </div>
                 </div>
               </CardContent>
