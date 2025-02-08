@@ -1,10 +1,11 @@
+
 import { CheckCircle } from "lucide-react";
 
 const steps = [
   {
     number: "01",
     title: "Book A Call",
-    description: "We assess your business goals, challenges, and target audience",
+    description: "We'll dive into your goals, challenges, and audience to craft the perfect game plan.",
   },
   {
     number: "02",
