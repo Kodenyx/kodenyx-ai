@@ -4,16 +4,16 @@ import { Card, CardContent } from "@/components/ui/card";
 const About = () => {
   const team = [
     {
-      name: "Aarti Anand",
+      name: "Dr. Aarti Anand, PhD",
       role: "Founder & CEO",
-      bio: "As the Founder and CEO of Kodenyx AI, Aarti Anand brings over a decade of expertise in digital marketing, lead generation, and business development. With a proven track record of helping businesses scale their digital presence, Aarti leads Kodenyx AI's mission to revolutionize how companies attract and convert high-quality leads.",
-      image: "/lovable-uploads/aarti-profile.jpg" // Note: You'll need to upload a profile image
+      bio: "As the Founder and CEO of Kodenyx AI, Dr. Aarti Anand brings over a decade of expertise in digital marketing, lead generation, and business development. With a proven track record of helping businesses scale their digital presence, Aarti leads Kodenyx AI's mission to revolutionize how companies attract and convert high-quality leads.",
+      image: "/lovable-uploads/0307e07c-23d0-4f3e-abf5-49ead20f9f20.png"
     },
     {
       name: "Navpreet Anand",
       role: "Advisor",
       bio: "Navpreet Anand serves as a strategic advisor to Kodenyx AI, bringing extensive experience in business strategy and technology innovation. His guidance helps shape the company's vision and growth trajectory, ensuring we stay at the forefront of AI-driven lead generation solutions.",
-      image: "/lovable-uploads/nav-profile.jpg" // Note: You'll need to upload a profile image
+      image: "/lovable-uploads/nav-profile.jpg"
     }
   ];
 
