@@ -36,6 +36,14 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleNavClick = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-4">
       <div className="container mx-auto px-4">
@@ -52,13 +60,21 @@ const Navbar = () => {
 
           {/* Desktop menu */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
+            <button 
+              onClick={() => handleNavClick('features')} 
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Features
+            </button>
             <a href="#process" className="text-gray-300 hover:text-white transition-colors">How it Works</a>
             <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</a>
-            <a href="#faq" className="text-gray-300 hover:text-white transition-colors flex items-center gap-2">
+            <button 
+              onClick={() => handleNavClick('faq')} 
+              className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
+            >
               <List size={18} />
               FAQs
-            </a>
+            </button>
             <a href="#about" className="text-gray-300 hover:text-white transition-colors flex items-center gap-2">
               <Users size={18} />
               Team
@@ -87,13 +103,12 @@ const Navbar = () => {
         {/* Mobile menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 flex flex-col gap-4 animate-fade-in">
-            <a 
-              href="#features" 
-              className="text-gray-300 hover:text-white transition-colors py-2"
-              onClick={() => setIsMenuOpen(false)}
+            <button 
+              onClick={() => handleNavClick('features')} 
+              className="text-gray-300 hover:text-white transition-colors py-2 text-left"
             >
               Features
-            </a>
+            </button>
             <a 
               href="#process" 
               className="text-gray-300 hover:text-white transition-colors py-2"
@@ -108,14 +123,13 @@ const Navbar = () => {
             >
               Testimonials
             </a>
-            <a 
-              href="#faq" 
-              className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
+            <button 
+              onClick={() => handleNavClick('faq')} 
+              className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2 w-full text-left"
             >
               <List size={18} />
               FAQs
-            </a>
+            </button>
             <a 
               href="#about" 
               className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
