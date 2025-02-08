@@ -13,7 +13,7 @@ const About = () => {
       name: "Navpreet Anand",
       role: "Advisor",
       bio: "Navpreet Anand serves as a strategic advisor to Kodenyx AI, bringing extensive experience in business strategy and technology innovation. His guidance helps shape the company's vision and growth trajectory, ensuring we stay at the forefront of AI-driven lead generation solutions.",
-      image: "/lovable-uploads/nav-profile.jpg"
+      image: "/lovable-uploads/9b56392d-3fb5-4bc3-bab9-6f9384802921.png"
     }
   ];
 
