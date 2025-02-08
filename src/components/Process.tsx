@@ -10,7 +10,7 @@ const steps = [
   {
     number: "02",
     title: "Strategy",
-    description: "We craft a data-driven content, lead generation, and automation strategy tailored to your business.",
+    description: "We create a data-driven strategy combining content, automation, and targeted ads to attract and convert your ideal clients.",
   },
   {
     number: "03",
