@@ -14,14 +14,14 @@ const features = [
     icon: Users,
   },
   {
-    title: "Performance Analytics",
-    description: "Optimize like a pro with real-time insights—because guessing is for amateurs.",
-    icon: ChartLine,
-  },
-  {
     title: "AI-Powered Automation",
     description: "Let AI do the heavy lifting—nurturing leads on autopilot while you scale your business",
     icon: Bot,
+  },
+  {
+    title: "Performance Analytics",
+    description: "Optimize like a pro with real-time insights—because guessing is for amateurs.",
+    icon: ChartLine,
   },
 ];
 
