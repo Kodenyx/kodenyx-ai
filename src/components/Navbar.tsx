@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Menu, X, PhoneCall, List, Users } from "lucide-react";
@@ -48,7 +48,9 @@ const Navbar = () => {
     <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-4">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
           
           {/* Mobile menu button */}
           <button
