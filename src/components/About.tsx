@@ -48,7 +48,7 @@ const About = () => {
                 <p className="text-lg text-gray-300 text-center mb-4 font-medium">
                   {member.role}
                 </p>
-                <p className="text-gray-300 text-center leading-relaxed">
+                <p className="text-gray-300 text-center leading-relaxed italic">
                   {member.bio}
                 </p>
               </CardContent>
