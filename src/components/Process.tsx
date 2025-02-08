@@ -15,7 +15,7 @@ const steps = [
   {
     number: "03",
     title: "Execution",
-    description: "We put the strategy into action, automate content creation, and monitor to optimize on a weekly basis",
+    description: "From automated content, running AI agents, to optimized campaigns, we bring the strategy to life and fine-tune it weekly for peak performance.",
   },
   {
     number: "04",
