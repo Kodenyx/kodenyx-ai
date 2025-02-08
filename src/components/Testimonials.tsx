@@ -3,10 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
-    quote: "Kodenyx AI transformed our lead generation process. We've seen a 3x increase in qualified leads.",
-    author: "Mike J.",
-    role: "Real Estate Owner & Fractional CMO",
-    company: "",
+    quote: "Working with Kodenyx on a complex Industrial IoT Fleet project has been exceptional. Their expertise in solving business challenges, automating workflows, and delivering impactful data played a key role in advancing the RFP process and pilot expansion. We look forward to winning more enterprise opportunities together.",
+    author: "Jason Wickam",
+    role: "GM/VP",
+    company: "Sparro",
   },
   {
     quote: "The team at Kodenyx is exemplary in communication and systems of automating my digital marketing presence. Campaigns led by Aarti have led to new business partners, exponential growth potential, and recognition from well respected international organizations within my field. Thank you for your commitment towards building my digital presence behind the scenes so i can focus on whats most important in my business and life.",
