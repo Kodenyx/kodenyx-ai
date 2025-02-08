@@ -7,6 +7,7 @@ const testimonials = [
     author: "Jason Wickam",
     role: "GM/VP",
     company: "Sparro",
+    image: "/lovable-uploads/f73b2b38-cf1d-4695-989b-855f911e8a39.png"
   },
   {
     quote: "The team at Kodenyx is exemplary in communication and systems of automating my digital marketing presence. Campaigns led by Aarti have led to new business partners, exponential growth potential, and recognition from well respected international organizations within my field. Thank you for your commitment towards building my digital presence behind the scenes so i can focus on whats most important in my business and life.",
