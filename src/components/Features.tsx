@@ -31,7 +31,7 @@ const Features = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
-            Features that Drive Growth
+            AI-Powered Lead Generation
           </h2>
           <p className="text-gray-600 text-lg">
             Most businesses passively wait for leads to come to their website—only to watch them slip through the cracks. Our platform flips the script—we don't wait, we take charge.
