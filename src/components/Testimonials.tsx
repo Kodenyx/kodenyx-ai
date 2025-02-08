@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
-    quote: "I've had the pleasure of working with Aarti and the Kodenyx team over the last few months on a complex Industrial IoT Fleet project and couldn't be more excited. The level of professionalism and customer engagement to solve complex business challenges has been exceptional. Their expertise in solving complex business challenges, automating workflows, and delivering impactful data played a key role in advancing the RFP process and pilot expansion.  At SPARRO we look forward to our continual relationship with Kodenyx and winning these complex enterprise opportunities.",
+    quote: "I've had the pleasure of working with Aarti and the Kodenyx team over the last few months on a complex Industrial IoT Fleet project and couldn't be more excited. The level of professionalism and customer engagement has been exceptional. Their expertise in solving complex business challenges, automating workflows, and delivering impactful data played a key role in advancing the RFP process and pilot expansion.  At SPARRO we look forward to our continual relationship with Kodenyx and winning these complex enterprise opportunities.",
     author: "Jason Wickam",
     role: "GM/VP",
     company: "Sparro",
