@@ -1,10 +1,11 @@
+
 import { Bot, Target, ChartLine, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
   {
     title: "Smart Targeting",
-    description: "Reach the right audience, at the right time, with laser-focused content marketing and segmentation",
+    description: "Why chase leads when they can come to you? Attract your ideal clients with organic content and precision-targeted ads",
     icon: Target,
   },
   {
