@@ -20,7 +20,7 @@ const steps = [
   {
     number: "04",
     title: "Convert",
-    description: "We automate lead nurturing so your system runs on autopilot and turns prospects into happy customers",
+    description: "We automate nurturing so prospects warm up and convert seamlessly, without the manual grind.",
   },
 ];
 
