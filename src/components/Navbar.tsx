@@ -1,8 +1,9 @@
+
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Menu, X, PhoneCall } from "lucide-react";
+import { Menu, X, PhoneCall, List, Users } from "lucide-react";
 import Logo from "./Logo";
 
 const Navbar = () => {
@@ -54,6 +55,14 @@ const Navbar = () => {
             <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
             <a href="#process" className="text-gray-300 hover:text-white transition-colors">How it Works</a>
             <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</a>
+            <a href="#faq" className="text-gray-300 hover:text-white transition-colors flex items-center gap-2">
+              <List size={18} />
+              FAQs
+            </a>
+            <a href="#about" className="text-gray-300 hover:text-white transition-colors flex items-center gap-2">
+              <Users size={18} />
+              Team
+            </a>
             {user && (
               <Button 
                 onClick={handleLogout}
@@ -98,6 +107,22 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Testimonials
+            </a>
+            <a 
+              href="#faq" 
+              className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <List size={18} />
+              FAQs
+            </a>
+            <a 
+              href="#about" 
+              className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Users size={18} />
+              Team
             </a>
             {user && (
               <Button 
