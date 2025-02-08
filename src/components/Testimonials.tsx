@@ -1,8 +1,9 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
   {
-    quote: "Navika transformed our lead generation process. We've seen a 3x increase in qualified leads.",
+    quote: "Kodenyx AI transformed our lead generation process. We've seen a 3x increase in qualified leads.",
     author: "Mike J.",
     role: "Real Estate Owner & Fractional CMO",
     company: "",
