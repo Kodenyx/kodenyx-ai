@@ -13,6 +13,7 @@ const testimonials = [
     author: "Tim Lee",
     role: "Founder",
     company: "Movement Mastery Training",
+    image: "/lovable-uploads/300ee339-426c-4e1a-b223-9380d9309fa9.png"
   },
 ];
 
@@ -32,7 +33,15 @@ const Testimonials = () => {
             >
               <CardContent className="p-8">
                 <div className="mb-6 flex justify-center">
-                  <div className="w-16 h-16 rounded-full bg-gray-100"></div>
+                  {testimonial.image ? (
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.author}
+                      className="w-16 h-16 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-16 h-16 rounded-full bg-gray-100"></div>
+                  )}
                 </div>
                 <p className="text-lg text-gray-600 text-center mb-6 italic leading-relaxed">
                   {testimonial.quote}
