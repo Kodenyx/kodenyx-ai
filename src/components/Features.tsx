@@ -34,7 +34,7 @@ const Features = () => {
             AI-Powered Lead Generation
           </h2>
           <p className="text-gray-600 text-lg">
-            Most businesses passively wait for leads to come to their website—only to watch them slip through the cracks. Our platform flips the script—we don't wait, we take charge.
+            Most businesses passively wait for leads to come to their website—only to watch them slip through the cracks. Our AI Agents flip the script—we don't wait, we take charge.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
