@@ -37,7 +37,7 @@ const AIAgents = () => {
             Our AI agents work tirelessly 24/7 to capture, qualify, and nurture your leads—scaling your business without scaling your team.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {agents.map((agent, index) => (
             <Card 
               key={index} 
