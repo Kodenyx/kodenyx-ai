@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, PhoneCall } from "lucide-react";
 
@@ -10,7 +9,7 @@ const Hero = () => {
           {/* Left side - Text Content */}
           <div className="space-y-8 animate-fade-in">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              Transform Your Business with{" "}
+              Transform Your Lead Generation with{" "}
               <span className="text-primary">AI-Powered</span> Automation
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
