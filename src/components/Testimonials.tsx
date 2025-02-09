@@ -29,7 +29,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="animate-slide-up bg-white shadow-lg hover:shadow-xl transition-shadow duration-300" 
+              className="animate-slide-up bg-[#1A1F2C] text-white shadow-lg hover:shadow-xl transition-shadow duration-300" 
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-8">
@@ -44,14 +44,14 @@ const Testimonials = () => {
                     <div className="w-16 h-16 rounded-full bg-gray-100"></div>
                   )}
                 </div>
-                <p className="text-lg text-gray-600 text-center mb-6 italic leading-relaxed">
+                <p className="text-lg text-gray-300 text-center mb-6 italic leading-relaxed">
                   {testimonial.quote}
                 </p>
                 <div className="text-center">
                   <div className="font-semibold text-primary mb-1">
                     {testimonial.author}
                   </div>
-                  <div className="text-gray-500 text-sm">
+                  <div className="text-gray-400 text-sm">
                     {testimonial.role}
                     {testimonial.company && (
                       <>
