@@ -7,25 +7,25 @@ const agents = [
     title: "AI Receptionist & Booking Agent",
     description: "24/7 virtual receptionist that greets visitors, answers questions, and seamlessly schedules meetings while managing your calendar—handling time zones and availability without double bookings.",
     icon: HeadsetIcon,
-    bgImage: "/lovable-uploads/0307e07c-23d0-4f3e-abf5-49ead20f9f20.png"
+    bgImage: "/images/photo-1485827404703-89b55fcc595e" // white robot image
   },
   {
     title: "Lead Qualifier Agent",
     description: "Intelligently qualifies leads by asking relevant questions, scoring prospects, and ensuring only the most promising opportunities reach your sales team.",
     icon: Filter,
-    bgImage: "/lovable-uploads/9b56392d-3fb5-4bc3-bab9-6f9384802921.png"
+    bgImage: "/images/photo-1461749280684-dccba630e2f6" // programming/code image
   },
   {
     title: "Lead Nurturing Agent",
     description: "Educates and nurtures leads on autopilot through personalized content and engagement, warming them up until they're ready for conversion.",
     icon: MessageCircle,
-    bgImage: "/lovable-uploads/300ee339-426c-4e1a-b223-9380d9309fa9.png"
+    bgImage: "/images/photo-1518770660439-4636190af475" // circuit board image
   },
   {
     title: "Review AI Agent",
     description: "Enhances your online reputation and builds trust with customers by efficiently managing Google and Facebook reviews, automating responses, and maintaining a stellar online presence.",
     icon: Star,
-    bgImage: "/lovable-uploads/f73b2b38-cf1d-4695-989b-855f911e8a39.png"
+    bgImage: "/images/photo-1526374965328-7f61d4dc18c5" // matrix-style digital image
   },
 ];
 
