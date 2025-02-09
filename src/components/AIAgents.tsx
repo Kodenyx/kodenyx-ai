@@ -46,15 +46,15 @@ const AIAgents = () => {
           {agents.map((agent, index) => (
             <Card 
               key={index} 
-              className="border-none shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slide-up" 
+              className="border-none shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slide-up bg-[#1A1F2C] text-white" 
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-6">
-                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center mb-6">
                   <agent.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-secondary mb-3">{agent.title}</h3>
-                <p className="text-gray-600">{agent.description}</p>
+                <h3 className="text-xl font-semibold text-white mb-3">{agent.title}</h3>
+                <p className="text-gray-300">{agent.description}</p>
               </CardContent>
             </Card>
           ))}
