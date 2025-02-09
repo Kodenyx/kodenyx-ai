@@ -6,7 +6,7 @@ const About = () => {
     {
       name: "Dr. Aarti Anand, PhD",
       role: "Founder & CEO",
-      bio: "Aarti isn't your typical lead gen guru - she saw businesses drowning in outdated, manual prospecting and thought, \"There has to be a better way.\" After years of building SaaS products, and with the rise of AI, she realized the secret wasn't just more outreach - it was smarter automation. So she built a system that doesn't just generate leads but attracts the right ones, nurtures them without the spam, and turns cold prospects into warm buyers—all while business owners focus on what they do best.\n\nArmed with deep marketing expertise and an obsession with efficiency, Aarti launched this platform. No more chasing leads that ghost you. No more wasting money on ads that don't convert. Just an intelligent, AI-driven system that works 24/7, filling pipelines and closing deals. If lead gen were a game, she's not just playing - she's rewriting the rules.",
+      bio: "Aarti isn't your typical lead gen guru - she saw businesses drowning in outdated, manual prospecting and thought, \"There has to be a better way.\" After years of building SaaS products, and with the rise of AI, she realized the secret wasn't just more outreach - it was smarter automation. So she built a system that doesn't just generate leads but attracts the right ones, nurtures them without the spam, and turns cold prospects into warm buyers—all while business owners focus on what they do best. With a proven track record of helping businesses scale their digital presence, Aarti leads Kodenyx AI's mission to revolutionize how companies attract and convert high-quality leads.",
       image: "/lovable-uploads/0307e07c-23d0-4f3e-abf5-49ead20f9f20.png"
     },
     {
