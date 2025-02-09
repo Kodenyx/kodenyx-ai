@@ -1,7 +1,6 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, PhoneCall, Mic } from "lucide-react";
+import { PhoneCall, Mic } from "lucide-react";
 import ContactDialog from "./ContactDialog";
 
 const Hero = () => {
@@ -35,29 +34,16 @@ const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="text-lg border-white text-black bg-white hover:bg-white/90 w-full sm:w-[200px]"
-                onClick={() => document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Learn More <Play className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-
-            {/* Microphone Button */}
-            <div className="flex flex-col items-center mt-8 sm:mt-12">
-              <Button 
-                size="lg"
                 onClick={() => setIsDialogOpen(true)}
-                className="rounded-full w-16 h-16 bg-primary hover:bg-primary-dark animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]"
               >
-                <Mic className="h-8 w-8" />
+                Talk to AI <Mic className="ml-2 h-4 w-4 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
               </Button>
-              <p className="mt-3 text-lg font-medium">Talk to Kodenyx AI Employee</p>
             </div>
           </div>
 
           {/* Right side - Chatbot Interface */}
           <div className="relative w-full max-w-[600px] mx-auto animate-slide-up">
             <div className="bg-[#1a1a2e] rounded-xl shadow-2xl overflow-hidden border border-gray-800">
-              {/* Browser-like top bar */}
               <div className="px-4 py-3 bg-[#13131f] border-b border-gray-800 flex items-center gap-2">
                 <div className="flex gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -65,16 +51,12 @@ const Hero = () => {
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
               </div>
-
-              {/* Chat content */}
               <div className="p-6 space-y-4">
                 <div className="bg-[#2d2d3d] rounded-lg p-4 max-w-[80%]">
                   <p className="text-white">
                     👋 Hi! I'm your AI assistant. I can help you find your dream home or investment property. What type of property are you looking for?
                   </p>
                 </div>
-
-                {/* Input area */}
                 <div className="mt-4 flex gap-3">
                   <input
                     type="text"
@@ -87,13 +69,10 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-
-            {/* Decorative gradient effect */}
             <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-primary/30 via-accent/30 to-primary/30 blur-3xl opacity-20"></div>
           </div>
         </div>
       </div>
-
       <ContactDialog 
         open={isDialogOpen}
         onOpenChange={setIsDialogOpen}
