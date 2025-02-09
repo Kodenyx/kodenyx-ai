@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { UserRound, Calendar, Filter, PhoneCall, Database } from "lucide-react";
+import { UserRound, Calendar, Filter, PhoneCall } from "lucide-react";
 
 const agents = [
   {
@@ -19,14 +19,9 @@ const agents = [
     icon: Filter,
   },
   {
-    title: "Communication Manager",
-    description: "Handles follow-ups, sends reminders, and maintains consistent communication with prospects across multiple channels.",
+    title: "Lead Nurturing Agent",
+    description: "Educates and nurtures leads on autopilot through personalized content and engagement, warming them up until they're ready for conversion.",
     icon: PhoneCall,
-  },
-  {
-    title: "Data Analysis Agent",
-    description: "Analyzes lead behavior, identifies patterns, and provides actionable insights to optimize your lead generation strategy.",
-    icon: Database,
   },
 ];
 
