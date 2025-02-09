@@ -6,7 +6,7 @@ const About = () => {
     {
       name: "Dr. Aarti Anand, PhD",
       role: "Founder & CEO",
-      bio: "As the Founder and CEO of Kodenyx AI, Dr. Aarti Anand brings over a decade of expertise in digital marketing, lead generation, and business development. With a proven track record of helping businesses scale their digital presence, Aarti leads Kodenyx AI's mission to revolutionize how companies attract and convert high-quality leads.",
+      bio: "Aarti isn't your typical lead gen guru - she saw businesses drowning in outdated, manual prospecting and thought, \"There has to be a better way.\" After years of building SaaS products, and with the rise of AI, she realized the secret wasn't just more outreach - it was smarter automation. So she built a system that doesn't just generate leads but attracts the right ones, nurtures them without the spam, and turns cold prospects into warm buyers—all while business owners focus on what they do best.\n\nArmed with deep marketing expertise and an obsession with efficiency, Aarti launched this platform. No more chasing leads that ghost you. No more wasting money on ads that don't convert. Just an intelligent, AI-driven system that works 24/7, filling pipelines and closing deals. If lead gen were a game, she's not just playing - she's rewriting the rules.",
       image: "/lovable-uploads/0307e07c-23d0-4f3e-abf5-49ead20f9f20.png"
     },
     {
@@ -48,7 +48,7 @@ const About = () => {
                 <p className="text-lg text-gray-300 text-center mb-4 font-medium">
                   {member.role}
                 </p>
-                <p className="text-gray-300 text-center leading-relaxed italic">
+                <p className="text-gray-300 text-center leading-relaxed italic whitespace-pre-line">
                   {member.bio}
                 </p>
               </CardContent>
