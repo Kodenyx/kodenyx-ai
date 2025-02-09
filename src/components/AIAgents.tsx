@@ -1,12 +1,12 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { UserRound, Filter, PhoneCall, Star } from "lucide-react";
+import { UserRound, Filter, Bot, Star, HeadsetIcon, MessageCircle } from "lucide-react";
 
 const agents = [
   {
     title: "AI Receptionist & Booking Agent",
     description: "24/7 virtual receptionist that greets visitors, answers questions, and seamlessly schedules meetings while managing your calendar—handling time zones and availability without double bookings.",
-    icon: UserRound,
+    icon: HeadsetIcon,
   },
   {
     title: "Lead Qualifier Agent",
@@ -16,7 +16,7 @@ const agents = [
   {
     title: "Lead Nurturing Agent",
     description: "Educates and nurtures leads on autopilot through personalized content and engagement, warming them up until they're ready for conversion.",
-    icon: PhoneCall,
+    icon: MessageCircle,
   },
   {
     title: "Review AI Agent",
