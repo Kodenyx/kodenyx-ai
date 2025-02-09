@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { UserRound, Calendar, Filter, PhoneCall } from "lucide-react";
+import { UserRound, Calendar, Filter, PhoneCall, Star } from "lucide-react";
 
 const agents = [
   {
@@ -22,6 +22,11 @@ const agents = [
     title: "Lead Nurturing Agent",
     description: "Educates and nurtures leads on autopilot through personalized content and engagement, warming them up until they're ready for conversion.",
     icon: PhoneCall,
+  },
+  {
+    title: "Review AI Agent",
+    description: "Enhances your online reputation and builds trust with customers by efficiently managing Google and Facebook reviews, automating responses, and maintaining a stellar online presence.",
+    icon: Star,
   },
 ];
 
