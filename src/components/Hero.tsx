@@ -1,7 +1,12 @@
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, PhoneCall } from "lucide-react";
+import { ArrowRight, Play, PhoneCall, Mic } from "lucide-react";
+import ContactDialog from "./ContactDialog";
 
 const Hero = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   return (
     <div className="pt-24 md:pt-28 min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-secondary to-secondary/95 text-white">
       <div className="container mx-auto px-4 py-12">
@@ -9,7 +14,7 @@ const Hero = () => {
           {/* Left side - Text Content */}
           <div className="space-y-8 animate-fade-in">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              Transform Your Lead Generation with{" "}
+              Transform Your Business with{" "}
               <span className="text-primary">AI-Powered</span> Automation
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
@@ -34,6 +39,18 @@ const Hero = () => {
               >
                 Learn More <Play className="ml-2 h-4 w-4" />
               </Button>
+            </div>
+
+            {/* Microphone Button */}
+            <div className="flex flex-col items-center mt-8 sm:mt-12">
+              <Button 
+                size="lg"
+                onClick={() => setIsDialogOpen(true)}
+                className="rounded-full w-16 h-16 bg-primary hover:bg-primary-dark animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]"
+              >
+                <Mic className="h-8 w-8" />
+              </Button>
+              <p className="mt-3 text-lg font-medium">Talk to Kodenyx AI Employee</p>
             </div>
           </div>
 
@@ -76,6 +93,11 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      <ContactDialog 
+        open={isDialogOpen}
+        onOpenChange={setIsDialogOpen}
+      />
     </div>
   );
 };
