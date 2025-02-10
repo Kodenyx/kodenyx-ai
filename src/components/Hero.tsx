@@ -18,7 +18,7 @@ const Hero = () => {
               <span className="text-primary">AI-Powered</span> Automation
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
-              Stop chasing leads manually. Let our intelligent platform attract, capture, and nurture your prospects 24/7.
+              Let our AI agents attract, capture, and nurture your prospects 24/7.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a 
