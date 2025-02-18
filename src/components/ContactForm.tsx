@@ -1,8 +1,10 @@
+
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { Linkedin, Youtube } from "lucide-react";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -68,6 +70,26 @@ const ContactForm = () => {
             {isLoading ? "Submitting..." : "Unlock the 3 Fixes"}
           </Button>
         </form>
+
+        {/* Social Media Links */}
+        <div className="mt-12 flex justify-center space-x-6">
+          <a
+            href="https://www.linkedin.com/in/aartianand82/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-primary transition-colors"
+          >
+            <Linkedin className="w-6 h-6" />
+          </a>
+          <a
+            href="https://www.youtube.com/@AartiAnand82"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-primary transition-colors"
+          >
+            <Youtube className="w-6 h-6" />
+          </a>
+        </div>
       </div>
     </section>
   );
