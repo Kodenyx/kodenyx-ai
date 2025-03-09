@@ -15,7 +15,7 @@ const Hero = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="flex flex-col items-center sm:items-start mb-6">
               <img 
-                src="/lovable-uploads/f423f0ae-feb0-482c-b580-7335e61247a6.png" 
+                src="/lovable-uploads/6eeb6de9-b024-4143-99a1-8bda9ef1c87b.png" 
                 alt="Kodenyx AI Logo" 
                 className="h-32 mb-4"
               />
