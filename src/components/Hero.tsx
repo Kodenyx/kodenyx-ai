@@ -13,6 +13,13 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text Content */}
           <div className="space-y-8 animate-fade-in">
+            <div className="flex flex-col items-center sm:items-start mb-6">
+              <img 
+                src="/lovable-uploads/f423f0ae-feb0-482c-b580-7335e61247a6.png" 
+                alt="Kodenyx AI Logo" 
+                className="h-32 mb-4"
+              />
+            </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
               Transform Your Lead Generation with{" "}
               <span className="text-primary">AI-Powered</span> Automation
