@@ -4,11 +4,10 @@ import React from "react";
 const Logo = () => {
   return (
     <div className="flex items-center gap-2">
-      <img 
-        src="/lovable-uploads/6eeb6de9-b024-4143-99a1-8bda9ef1c87b.png" 
-        alt="Kodenyx AI Logo" 
-        className="h-8"
-      />
+      <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+        <span className="text-xl font-bold text-white">K</span>
+      </div>
+      <span className="text-2xl font-bold text-white">Kodenyx AI</span>
     </div>
   );
 };
