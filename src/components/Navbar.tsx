@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Menu, X, PhoneCall, List, Users } from "lucide-react";
+import { Menu, X, PhoneCall, List, Users, Zap } from "lucide-react";
 import Logo from "./Logo";
 
 const Navbar = () => {
@@ -70,6 +70,13 @@ const Navbar = () => {
             </button>
             <a href="#process" className="text-gray-300 hover:text-white transition-colors">How it Works</a>
             <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</a>
+            <Link 
+              to="/ai-workshop" 
+              className="text-primary hover:text-primary-dark transition-colors flex items-center gap-2 font-medium"
+            >
+              <Zap size={18} />
+              AI Workshop
+            </Link>
             <button 
               onClick={() => handleNavClick('faq')} 
               className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
@@ -125,6 +132,14 @@ const Navbar = () => {
             >
               Testimonials
             </a>
+            <Link 
+              to="/ai-workshop" 
+              className="text-primary hover:text-primary-dark transition-colors py-2 flex items-center gap-2 font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Zap size={18} />
+              AI Workshop
+            </Link>
             <button 
               onClick={() => handleNavClick('faq')} 
               className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2 w-full text-left"
