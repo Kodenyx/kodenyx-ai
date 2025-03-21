@@ -32,11 +32,11 @@ const Testimonials = () => {
         <h2 className="text-4xl font-bold text-center text-black mb-16">
           What Our Clients Say
         </h2>
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="animate-slide-up bg-[#1A1F2C] text-white shadow-lg hover:shadow-xl transition-shadow duration-300" 
+              className="animate-slide-up bg-[#1A1F2C] text-white shadow-lg hover:shadow-xl transition-shadow duration-300 flex-1" 
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-8">
