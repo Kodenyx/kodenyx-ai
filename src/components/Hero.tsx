@@ -7,6 +7,13 @@ import ContactDialog from "./ContactDialog";
 const Hero = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
+  const scrollToFeatures = () => {
+    const featuresSection = document.getElementById('features');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="pt-24 md:pt-28 min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-secondary to-secondary/95 text-white">
       <div className="container mx-auto px-4 py-12">
@@ -35,9 +42,9 @@ const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="text-lg border-white text-black bg-white hover:bg-white/90 w-full sm:w-[200px]"
-                onClick={() => setIsDialogOpen(true)}
+                onClick={scrollToFeatures}
               >
-                Talk to AI <Mic className="ml-2 h-4 w-4 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+                Learn more
               </Button>
             </div>
           </div>
