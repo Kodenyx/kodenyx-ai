@@ -21,7 +21,7 @@ const testimonials = [
     author: "Bennett Skaggs",
     role: "Founder",
     company: "Next Step Nurses",
-    image: ""
+    image: "/lovable-uploads/2dc910bc-9d26-45bf-ae1d-95394db546b5.png"
   },
 ];
 
