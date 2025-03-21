@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { PhoneCall, Mic } from "lucide-react";
+import { PhoneCall } from "lucide-react";
 import ContactDialog from "./ContactDialog";
 
 const Hero = () => {
