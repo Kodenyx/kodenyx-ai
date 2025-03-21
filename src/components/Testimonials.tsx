@@ -16,6 +16,13 @@ const testimonials = [
     company: "Movement Mastery Training",
     image: "/lovable-uploads/300ee339-426c-4e1a-b223-9380d9309fa9.png"
   },
+  {
+    quote: "I am the founder of Next Step Nurses. I have been building out social and newsletter funnels for over two years. I started working with Aarti and it has made my business infinitely more productive and efficient. I now have a highly effective funnel in place to help me scale my business, and this is my favorite part, work less while scaling.",
+    author: "Bennett Skaggs",
+    role: "Founder",
+    company: "Next Step Nurses",
+    image: ""
+  },
 ];
 
 const Testimonials = () => {
