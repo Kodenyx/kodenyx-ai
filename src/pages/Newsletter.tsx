@@ -63,8 +63,8 @@ const Newsletter = () => {
             <div className="flex justify-center mb-6">
               <div className="relative w-40 h-40 md:w-48 md:h-48 overflow-hidden rounded-full border-4 border-primary shadow-xl">
                 <img 
-                  src="/lovable-uploads/6e08bf04-9c3f-4db8-ad56-dcc8ea694a1c.png" 
-                  alt="Aarti Anand" 
+                  src="/lovable-uploads/fcca60d0-7306-429e-8236-14b745cb7b55.png" 
+                  alt="AI-First CEO" 
                   className="w-full h-full object-cover"
                 />
               </div>
