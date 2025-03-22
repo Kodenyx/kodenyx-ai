@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,11 +18,8 @@ const Newsletter = () => {
     try {
       console.log('Submitting data:', { name, email });
       
-      // Use the direct URL with the project ID to call the function
-      const functionUrl = "https://rnnyqyevlecouudctifl.supabase.co/functions/v1/subscribe-newsletter";
-      
-      // Make a simple fetch call without auth headers
-      const response = await fetch(functionUrl, {
+      // Call the edge function directly
+      const response = await fetch("https://rnnyqyevlecouudctifl.supabase.co/functions/v1/subscribe-newsletter", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,7 +45,6 @@ const Newsletter = () => {
       }
 
       if (!response.ok) {
-        console.error('API error:', data.error, data.details);
         throw new Error(data.error || 'Error subscribing to newsletter');
       }
 
