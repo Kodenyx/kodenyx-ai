@@ -37,7 +37,7 @@ serve(async (req) => {
 
     console.log('Request body:', body)
 
-    // No auth needed for public ConvertKit form submissions
+    // Direct form submission to ConvertKit - this method doesn't require an API key
     const response = await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
       method: 'POST',
       headers: {
@@ -46,10 +46,8 @@ serve(async (req) => {
       body
     })
 
-    // Log the response status
+    // Log the response status and body for debugging
     console.log('ConvertKit response status:', response.status)
-    
-    // Get the response text
     const responseText = await response.text()
     console.log('ConvertKit response body:', responseText)
 
@@ -57,23 +55,6 @@ serve(async (req) => {
     try {
       // Try to parse the response as JSON
       data = JSON.parse(responseText)
-      
-      // Even if we get a 200 response, check if the subscription state is "inactive"
-      // This is still considered a successful subscription in ConvertKit
-      if (data.subscription && data.subscription.state === "inactive") {
-        console.log('Subscription created but in inactive state - this is normal for new subscribers')
-        // This is normal for ConvertKit - subscribers start as inactive until confirmed
-        return new Response(
-          JSON.stringify({ 
-            success: true, 
-            message: "Subscription created. Please check your email to confirm." 
-          }),
-          { 
-            status: 200,
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
-          }
-        )
-      }
     } catch (e) {
       console.error('Error parsing JSON response:', e)
       data = { message: 'Invalid response from ConvertKit API' }
