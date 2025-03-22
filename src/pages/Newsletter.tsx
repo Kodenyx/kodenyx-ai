@@ -18,7 +18,7 @@ const Newsletter = () => {
     try {
       console.log('Submitting data:', { name, email });
       
-      // Call the edge function with the correct public URL
+      // Call the edge function with the correct URL and no auth headers
       const response = await fetch("https://rnnyqyevlecouudctifl.functions.supabase.co/subscribe-newsletter", {
         method: 'POST',
         headers: {
