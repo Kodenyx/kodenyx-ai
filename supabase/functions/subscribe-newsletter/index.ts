@@ -19,18 +19,7 @@ serve(async (req) => {
   try {
     const { name, email } = await req.json()
     const FORM_ID = "1558321" // Updated form ID for newsletter
-    const API_KEY = Deno.env.get('CONVERTKIT_API_KEY')
-
-    if (!API_KEY) {
-      console.error('API key not configured')
-      return new Response(
-        JSON.stringify({ error: 'API key not configured' }),
-        { 
-          status: 500,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
-        }
-      )
-    }
+    const API_KEY = Deno.env.get('CONVERTKIT_API_KEY') || '3vcrjfR5Yfz3e1Se2AzGHQ'
 
     console.log('Subscribing to newsletter:', { name, email })
 
