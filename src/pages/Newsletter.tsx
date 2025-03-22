@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import Navbar from "@/components/Navbar";
+import SimpleNavbar from "@/components/SimpleNavbar";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Newsletter = () => {
@@ -52,7 +52,7 @@ const Newsletter = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      <SimpleNavbar />
       <main className="flex-1 bg-gradient-to-br from-[#E5DEFF] via-[#F1F0FB] to-[#D3E4FD] text-gray-800">
         <div className="container mx-auto px-4 py-32 max-w-3xl">
           <div className="text-center mb-12 animate-fade-in">
