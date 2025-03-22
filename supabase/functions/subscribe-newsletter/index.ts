@@ -18,15 +18,16 @@ serve(async (req) => {
 
   try {
     const { name, email } = await req.json()
-    const FORM_ID = "1558321" // Updated form ID for newsletter
-    const API_KEY = Deno.env.get('CONVERTKIT_API_KEY') || '3vcrjfR5Yfz3e1Se2AzGHQ'
-
+    
+    // Use the public ConvertKit API for forms (no API key needed for subscribing)
+    // Form ID 1558321 is for newsletter subscription
+    const FORM_ID = "1558321"
+    
     console.log('Subscribing to newsletter:', { name, email })
     console.log('Using Form ID:', FORM_ID)
-    console.log('API Key length:', API_KEY ? API_KEY.length : 'not set')
 
+    // Using the form-based API that doesn't require an API key for subscribing
     const body = JSON.stringify({
-      api_key: API_KEY,
       email,
       first_name: name
     })
