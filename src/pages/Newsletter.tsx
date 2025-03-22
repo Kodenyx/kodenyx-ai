@@ -53,25 +53,25 @@ const Newsletter = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-1 bg-gradient-to-b from-accent/30 to-secondary/20">
+      <main className="flex-1 bg-gradient-to-b from-secondary to-secondary/95 text-white">
         <div className="container mx-auto px-4 py-24 max-w-3xl">
           <div className="text-center mb-12">
             <div className="inline-block p-3 bg-primary/10 rounded-full mb-6">
               <Mail size={32} className="text-primary" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">The AI-First CEO</h1>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
               The AI-First CEO is a weekly newsletter for leaders who want to work less, close more, and scale smarter—using AI-powered automation to turn bottlenecks into breakthroughs.
             </p>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
               Each issue delivers real strategies to automate sales, marketing & ops. Frameworks to save 10+ hours/week without hiring. Case studies and tools to grow without burnout.
             </p>
           </div>
 
-          <div className="bg-card shadow-lg rounded-lg p-8 max-w-xl mx-auto">
+          <div className="bg-[#1a1a2e] shadow-lg rounded-lg p-8 max-w-xl mx-auto border border-gray-800">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-300">
                   Name
                 </label>
                 <Input 
@@ -80,10 +80,11 @@ const Newsletter = () => {
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your name" 
                   required
+                  className="bg-[#2d2d3d] border-gray-700 text-white"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-300">
                   Email
                 </label>
                 <Input 
@@ -93,6 +94,7 @@ const Newsletter = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com" 
                   required
+                  className="bg-[#2d2d3d] border-gray-700 text-white"
                 />
               </div>
               <Button 
@@ -105,7 +107,7 @@ const Newsletter = () => {
             </form>
           </div>
           
-          <div className="mt-12 text-center text-sm text-muted-foreground">
+          <div className="mt-12 text-center text-sm text-gray-400">
             <p>We respect your privacy. Unsubscribe at any time.</p>
           </div>
         </div>
