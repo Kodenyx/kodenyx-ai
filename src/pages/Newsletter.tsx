@@ -53,9 +53,9 @@ const Newsletter = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-1 bg-[#1A1F2C] text-white">
+      <main className="flex-1 bg-gradient-to-br from-[#1A1F2C] via-[#232838] to-[#101524] text-white">
         <div className="container mx-auto px-4 py-24 max-w-3xl">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in">
             <div className="inline-block p-3 bg-[#9b87f5]/10 rounded-full mb-6">
               <Mail size={32} className="text-[#9b87f5]" />
             </div>
@@ -70,7 +70,7 @@ const Newsletter = () => {
             </p>
           </div>
 
-          <div className="bg-[#1a1a2e] shadow-lg rounded-lg p-8 max-w-xl mx-auto border border-gray-800">
+          <div className="bg-gradient-to-br from-[#1a1a2e] to-[#16141f] shadow-lg rounded-lg p-8 max-w-xl mx-auto border border-gray-800 animate-fade-in">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-300">
