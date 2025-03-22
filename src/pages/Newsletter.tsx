@@ -22,17 +22,31 @@ const Newsletter = () => {
       // Use the direct URL with the project ID to call the function
       const functionUrl = "https://rnnyqyevlecouudctifl.supabase.co/functions/v1/subscribe-newsletter";
       
+      // Make the request without authentication headers to avoid CORS issues
       const response = await fetch(functionUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${supabase.auth.getSession().then(({ data }) => data.session?.access_token)}`,
         },
         body: JSON.stringify({ name, email }),
       });
       
-      const data = await response.json();
-      console.log('Response:', data);
+      // Log the raw response for debugging
+      console.log('Response status:', response.status);
+      
+      // Get the response text first for debugging
+      const responseText = await response.text();
+      console.log('Response text:', responseText);
+      
+      // Then try to parse it as JSON
+      let data;
+      try {
+        data = responseText ? JSON.parse(responseText) : {};
+        console.log('Parsed response data:', data);
+      } catch (parseError) {
+        console.error('Error parsing response as JSON:', parseError);
+        throw new Error('Invalid response format from server');
+      }
 
       if (!response.ok) {
         console.error('API error:', data.error, data.details);
@@ -41,7 +55,7 @@ const Newsletter = () => {
 
       toast({
         title: "Thanks for subscribing!",
-        description: "You've been added to The AI-First CEO newsletter.",
+        description: data.message || "You've been added to The AI-First CEO newsletter.",
       });
 
       // Reset form
