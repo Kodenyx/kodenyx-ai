@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Menu, X, PhoneCall, List, Users } from "lucide-react";
+import { Menu, X, PhoneCall, List, Users, Mail } from "lucide-react";
 import Logo from "./Logo";
 
 const Navbar = () => {
@@ -77,10 +77,13 @@ const Navbar = () => {
               <List size={18} />
               FAQs
             </button>
-            <a href="#about" className="text-gray-300 hover:text-white transition-colors flex items-center gap-2">
-              <Users size={18} />
-              Team
-            </a>
+            <Link 
+              to="/newsletter" 
+              className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
+            >
+              <Mail size={18} />
+              Newsletter
+            </Link>
             {user && (
               <Button 
                 onClick={handleLogout}
@@ -132,14 +135,14 @@ const Navbar = () => {
               <List size={18} />
               FAQs
             </button>
-            <a 
-              href="#about" 
+            <Link 
+              to="/newsletter" 
               className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              <Users size={18} />
-              Team
-            </a>
+              <Mail size={18} />
+              Newsletter
+            </Link>
             {user && (
               <Button 
                 onClick={() => {
