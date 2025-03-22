@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Newsletter = () => {
   const { toast } = useToast();
@@ -53,8 +54,14 @@ const Newsletter = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-1 bg-gradient-to-br from-[#E5DEFF] via-[#F1F0FB] to-[#D3E4FD] text-gray-800">
-        <div className="container mx-auto px-4 py-24 max-w-3xl">
+        <div className="container mx-auto px-4 py-32 max-w-3xl">
           <div className="text-center mb-12 animate-fade-in">
+            <div className="flex justify-center mb-6">
+              <Avatar className="h-24 w-24 border-2 border-primary shadow-lg">
+                <AvatarImage src="/lovable-uploads/2dc910bc-9d26-45bf-ae1d-95394db546b5.png" alt="Aarti Anand" />
+                <AvatarFallback>AA</AvatarFallback>
+              </Avatar>
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               The <span className="text-[#9b87f5]">AI-First</span> CEO
             </h1>
