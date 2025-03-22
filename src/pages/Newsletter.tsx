@@ -19,37 +19,20 @@ const Newsletter = () => {
     try {
       console.log('Submitting data:', { name, email });
       
-      // Call the edge function directly since we're having issues with the SDK
-      const response = await fetch("https://rnnyqyevlecouudctifl.functions.supabase.co/subscribe-newsletter", {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email }),
+      // Use the Supabase client to invoke the edge function - this handles auth automatically
+      const { data, error } = await supabase.functions.invoke('subscribe-newsletter', {
+        body: { name, email },
       });
       
-      console.log('Response status:', response.status);
-      
-      // Get the response text
-      const responseText = await response.text();
-      console.log('Response text:', responseText);
-      
-      // Parse JSON response
-      let data;
-      try {
-        data = responseText ? JSON.parse(responseText) : {};
-      } catch (parseError) {
-        console.error('Error parsing response:', parseError);
-        throw new Error('Invalid response format from server');
-      }
+      console.log('Response:', data, error);
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Error subscribing to newsletter');
+      if (error) {
+        throw new Error(error.message || 'Error subscribing to newsletter');
       }
 
       toast({
         title: "Thanks for subscribing!",
-        description: data.message || "You've been added to The AI-First CEO newsletter.",
+        description: data?.message || "You've been added to The AI-First CEO newsletter.",
       });
 
       // Reset form
