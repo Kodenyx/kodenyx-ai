@@ -18,8 +18,8 @@ const Newsletter = () => {
     try {
       console.log('Submitting data:', { name, email });
       
-      // Call the edge function directly
-      const response = await fetch("https://rnnyqyevlecouudctifl.supabase.co/functions/v1/subscribe-newsletter", {
+      // Call the edge function with the correct public URL
+      const response = await fetch("https://rnnyqyevlecouudctifl.functions.supabase.co/subscribe-newsletter", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
