@@ -22,7 +22,14 @@ serve(async (req) => {
     const API_KEY = Deno.env.get('CONVERTKIT_API_KEY')
 
     if (!API_KEY) {
-      throw new Error('API key not configured')
+      console.error('API key not configured')
+      return new Response(
+        JSON.stringify({ error: 'API key not configured' }),
+        { 
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        }
+      )
     }
 
     console.log('Subscribing to newsletter:', { name, email })
@@ -42,8 +49,16 @@ serve(async (req) => {
     const data = await response.json()
     console.log('ConvertKit response:', data)
 
+    // If the ConvertKit API returns an error, we need to handle it properly
     if (!response.ok) {
-      throw new Error('Failed to subscribe to newsletter')
+      console.error('ConvertKit API error:', data)
+      return new Response(
+        JSON.stringify({ error: data.message || 'Failed to subscribe to newsletter', details: data }),
+        { 
+          status: 400,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        }
+      )
     }
 
     return new Response(
