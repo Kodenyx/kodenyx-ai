@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import SimpleNavbar from "@/components/SimpleNavbar";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Newsletter = () => {
   const { toast } = useToast();
@@ -19,15 +18,20 @@ const Newsletter = () => {
 
     try {
       console.log('Submitting data:', { name, email });
-      const { data: response, error } = await supabase.functions.invoke('subscribe-newsletter', {
+      const { data, error } = await supabase.functions.invoke('subscribe-newsletter', {
         body: { name, email },
       });
 
-      console.log('Response:', response);
+      console.log('Response:', data);
 
       if (error) {
         console.error('Supabase function error:', error);
-        throw error;
+        throw new Error(error.message || 'Error subscribing to newsletter');
+      }
+
+      if (data && data.error) {
+        console.error('API error:', data.error, data.details);
+        throw new Error(data.error || 'Error subscribing to newsletter');
       }
 
       toast({

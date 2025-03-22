@@ -22,21 +22,38 @@ serve(async (req) => {
     const API_KEY = Deno.env.get('CONVERTKIT_API_KEY') || '3vcrjfR5Yfz3e1Se2AzGHQ'
 
     console.log('Subscribing to newsletter:', { name, email })
+    console.log('Using Form ID:', FORM_ID)
+    console.log('API Key length:', API_KEY ? API_KEY.length : 'not set')
+
+    const body = JSON.stringify({
+      api_key: API_KEY,
+      email,
+      first_name: name
+    })
+
+    console.log('Request body:', body)
 
     const response = await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        api_key: API_KEY,
-        email,
-        first_name: name
-      }),
+      body
     })
 
-    const data = await response.json()
-    console.log('ConvertKit response:', data)
+    // Log the complete response
+    const responseStatus = response.status
+    const responseText = await response.text()
+    console.log('ConvertKit response status:', responseStatus)
+    console.log('ConvertKit response body:', responseText)
+
+    let data
+    try {
+      data = JSON.parse(responseText)
+    } catch (e) {
+      console.error('Error parsing JSON response:', e)
+      data = { message: 'Invalid response from ConvertKit API' }
+    }
 
     // If the ConvertKit API returns an error, we need to handle it properly
     if (!response.ok) {
