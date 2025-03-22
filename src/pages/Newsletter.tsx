@@ -53,13 +53,15 @@ const Newsletter = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-1 bg-gradient-to-b from-secondary to-secondary/95 text-white">
+      <main className="flex-1 bg-[#1A1F2C] text-white">
         <div className="container mx-auto px-4 py-24 max-w-3xl">
           <div className="text-center mb-12">
-            <div className="inline-block p-3 bg-primary/10 rounded-full mb-6">
-              <Mail size={32} className="text-primary" />
+            <div className="inline-block p-3 bg-[#9b87f5]/10 rounded-full mb-6">
+              <Mail size={32} className="text-[#9b87f5]" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">The AI-First CEO</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              The <span className="text-[#9b87f5]">AI-First</span> CEO
+            </h1>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
               The AI-First CEO is a weekly newsletter for leaders who want to work less, close more, and scale smarter—using AI-powered automation to turn bottlenecks into breakthroughs.
             </p>
@@ -99,7 +101,7 @@ const Newsletter = () => {
               </div>
               <Button 
                 type="submit" 
-                className="w-full bg-primary hover:bg-primary-dark text-white font-medium text-lg"
+                className="w-full bg-[#9b87f5] hover:bg-[#7E69AB] text-white font-medium text-lg"
                 disabled={isLoading}
               >
                 {isLoading ? "Subscribing..." : "Join 200+ CEOs"}
