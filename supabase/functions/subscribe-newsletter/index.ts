@@ -33,6 +33,7 @@ serve(async (req) => {
 
     console.log('Request body:', body)
 
+    // No auth needed for public ConvertKit form submissions
     const response = await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
       method: 'POST',
       headers: {

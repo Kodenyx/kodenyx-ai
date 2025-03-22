@@ -1,9 +1,7 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 import SimpleNavbar from "@/components/SimpleNavbar";
 
 const Newsletter = () => {
@@ -22,7 +20,7 @@ const Newsletter = () => {
       // Use the direct URL with the project ID to call the function
       const functionUrl = "https://rnnyqyevlecouudctifl.supabase.co/functions/v1/subscribe-newsletter";
       
-      // Make the request without authentication headers to avoid CORS issues
+      // Make a simple fetch call without auth headers
       const response = await fetch(functionUrl, {
         method: 'POST',
         headers: {
