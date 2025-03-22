@@ -57,7 +57,7 @@ const Newsletter = () => {
         <div className="container mx-auto px-4 py-32 max-w-3xl">
           <div className="text-center mb-12 animate-fade-in">
             <div className="flex justify-center mb-6">
-              <div className="relative w-32 h-32 overflow-hidden rounded-full border-4 border-primary shadow-xl">
+              <div className="relative w-40 h-40 md:w-48 md:h-48 overflow-hidden rounded-full border-4 border-primary shadow-xl">
                 <img 
                   src="/lovable-uploads/6e08bf04-9c3f-4db8-ad56-dcc8ea694a1c.png" 
                   alt="Aarti Anand" 
