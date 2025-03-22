@@ -18,7 +18,7 @@ serve(async (req) => {
 
   try {
     const { name, email } = await req.json()
-    const FORM_ID = "7646729" // Using the same form ID as the contact form for now
+    const FORM_ID = "1558321" // Updated form ID for newsletter
     const API_KEY = Deno.env.get('CONVERTKIT_API_KEY')
 
     if (!API_KEY) {
