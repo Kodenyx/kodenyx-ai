@@ -18,18 +18,23 @@ const Newsletter = () => {
 
     try {
       console.log('Submitting data:', { name, email });
-      const { data, error } = await supabase.functions.invoke('subscribe-newsletter', {
-        body: { name, email },
+      
+      // Use the direct URL with the project ID to call the function
+      const functionUrl = "https://rnnyqyevlecouudctifl.supabase.co/functions/v1/subscribe-newsletter";
+      
+      const response = await fetch(functionUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabase.auth.getSession().then(({ data }) => data.session?.access_token)}`,
+        },
+        body: JSON.stringify({ name, email }),
       });
-
+      
+      const data = await response.json();
       console.log('Response:', data);
 
-      if (error) {
-        console.error('Supabase function error:', error);
-        throw new Error(error.message || 'Error subscribing to newsletter');
-      }
-
-      if (data && data.error) {
+      if (!response.ok) {
         console.error('API error:', data.error, data.details);
         throw new Error(data.error || 'Error subscribing to newsletter');
       }

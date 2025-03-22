@@ -19,8 +19,7 @@ serve(async (req) => {
   try {
     const { name, email } = await req.json()
     
-    // Use the public ConvertKit API for forms (no API key needed for subscribing)
-    // Form ID 1558321 is for newsletter subscription
+    // Form ID for newsletter subscription
     const FORM_ID = "1558321"
     
     console.log('Subscribing to newsletter:', { name, email })
