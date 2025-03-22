@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import SimpleNavbar from "@/components/SimpleNavbar";
+import { supabase } from "@/integrations/supabase/client";
 
 const Newsletter = () => {
   const { toast } = useToast();
@@ -18,39 +19,20 @@ const Newsletter = () => {
     try {
       console.log('Submitting data:', { name, email });
       
-      // Call the edge function with the correct URL and no auth headers
-      const response = await fetch("https://rnnyqyevlecouudctifl.functions.supabase.co/subscribe-newsletter", {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email }),
+      // Use the Supabase client to invoke the edge function
+      const { data, error } = await supabase.functions.invoke('subscribe-newsletter', {
+        body: { name, email },
       });
       
-      // Log the raw response for debugging
-      console.log('Response status:', response.status);
+      console.log('Response data:', data);
       
-      // Get the response text first for debugging
-      const responseText = await response.text();
-      console.log('Response text:', responseText);
-      
-      // Then try to parse it as JSON
-      let data;
-      try {
-        data = responseText ? JSON.parse(responseText) : {};
-        console.log('Parsed response data:', data);
-      } catch (parseError) {
-        console.error('Error parsing response as JSON:', parseError);
-        throw new Error('Invalid response format from server');
-      }
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Error subscribing to newsletter');
+      if (error) {
+        throw new Error(error.message || 'Error subscribing to newsletter');
       }
 
       toast({
         title: "Thanks for subscribing!",
-        description: data.message || "You've been added to The AI-First CEO newsletter.",
+        description: data?.message || "You've been added to The AI-First CEO newsletter.",
       });
 
       // Reset form

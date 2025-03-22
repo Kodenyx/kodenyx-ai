@@ -7,6 +7,7 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'POST, OPTIONS'
 }
 
+// This is a public-facing function that doesn't require auth
 serve(async (req) => {
   console.log("Function called with method:", req.method);
   
