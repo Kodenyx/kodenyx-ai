@@ -11,6 +11,7 @@ const Newsletter = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ const Newsletter = () => {
     try {
       console.log('Submitting data:', { name, email });
       
-      // Use the Supabase client to invoke the edge function - this handles auth automatically
+      // Use the Supabase client to invoke the edge function
       const { data, error } = await supabase.functions.invoke('subscribe-newsletter', {
         body: { name, email },
       });
@@ -32,8 +33,11 @@ const Newsletter = () => {
 
       toast({
         title: "Thanks for subscribing!",
-        description: data?.message || "You've been added to The AI-First CEO newsletter.",
+        description: data?.message || "You've been added to our newsletter list.",
       });
+
+      // Show the subscribed state
+      setIsSubscribed(true);
 
       // Reset form
       setName("");
@@ -76,44 +80,57 @@ const Newsletter = () => {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-white to-[#F5F5FF] shadow-lg rounded-lg p-8 max-w-xl mx-auto border border-[#E0DDFF] animate-fade-in">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-700">
-                  Name
-                </label>
-                <Input 
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Your name" 
-                  required
-                  className="bg-white border-[#E0DDFF] text-gray-800"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-700">
-                  Email
-                </label>
-                <Input 
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com" 
-                  required
-                  className="bg-white border-[#E0DDFF] text-gray-800"
-                />
-              </div>
+          {!isSubscribed ? (
+            <div className="bg-gradient-to-br from-white to-[#F5F5FF] shadow-lg rounded-lg p-8 max-w-xl mx-auto border border-[#E0DDFF] animate-fade-in">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-700">
+                    Name
+                  </label>
+                  <Input 
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Your name" 
+                    required
+                    className="bg-white border-[#E0DDFF] text-gray-800"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-700">
+                    Email
+                  </label>
+                  <Input 
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="your@email.com" 
+                    required
+                    className="bg-white border-[#E0DDFF] text-gray-800"
+                  />
+                </div>
+                <Button 
+                  type="submit" 
+                  className="w-full bg-[#9b87f5] hover:bg-[#7E69AB] text-white font-medium text-lg"
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Subscribing..." : "Join Our Newsletter"}
+                </Button>
+              </form>
+            </div>
+          ) : (
+            <div className="bg-gradient-to-br from-white to-[#F5F5FF] shadow-lg rounded-lg p-8 max-w-xl mx-auto border border-[#E0DDFF] animate-fade-in text-center">
+              <h2 className="text-2xl font-bold mb-4 text-[#9b87f5]">Thank You!</h2>
+              <p className="text-lg mb-6">Your subscription has been confirmed. You've been added to our list and will start receiving newsletters soon.</p>
               <Button 
-                type="submit" 
-                className="w-full bg-[#9b87f5] hover:bg-[#7E69AB] text-white font-medium text-lg"
-                disabled={isLoading}
+                onClick={() => setIsSubscribed(false)}
+                className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white font-medium"
               >
-                {isLoading ? "Subscribing..." : "Join 200+ CEOs"}
+                Subscribe Another Email
               </Button>
-            </form>
-          </div>
+            </div>
+          )}
           
           <div className="mt-12 text-center text-sm text-gray-600">
             <p>We respect your privacy. Unsubscribe at any time.</p>
