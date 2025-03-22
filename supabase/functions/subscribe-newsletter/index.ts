@@ -7,6 +7,10 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'POST, OPTIONS'
 }
 
+// ConvertKit settings
+const FORM_ID = "7583349"
+const API_KEY = Deno.env.get('CONVERTKIT_API_KEY')
+
 // This is a public-facing function that doesn't require auth
 serve(async (req) => {
   console.log("Function called with method:", req.method);
@@ -36,9 +40,28 @@ serve(async (req) => {
       )
     }
 
-    // In a real application, you would store this in a database
-    // For now, we'll just log it and return success
-    console.log('Successfully stored subscription data for:', { name, email })
+    // Send to ConvertKit
+    const convertKitResponse = await fetch(
+      `https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, 
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          api_key: API_KEY,
+          email,
+          first_name: name,
+        }),
+      }
+    );
+
+    const convertKitData = await convertKitResponse.json();
+    console.log('ConvertKit API response:', convertKitData);
+
+    if (!convertKitResponse.ok) {
+      throw new Error(`ConvertKit API error: ${JSON.stringify(convertKitData)}`);
+    }
 
     // Successfully subscribed
     return new Response(
