@@ -23,8 +23,8 @@ serve(async (req) => {
   try {
     const { name, email } = await req.json()
     
-    // Form ID for newsletter subscription
-    const FORM_ID = "1558321"
+    // New ConvertKit form ID - replace with your actual form ID
+    const FORM_ID = "5921051"
     
     console.log('Subscribing to newsletter:', { name, email })
     console.log('Using Form ID:', FORM_ID)
