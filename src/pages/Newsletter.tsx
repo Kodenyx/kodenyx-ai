@@ -115,7 +115,7 @@ const Newsletter = () => {
                   className="w-full bg-[#9b87f5] hover:bg-[#7E69AB] text-white font-medium text-lg"
                   disabled={isLoading}
                 >
-                  {isLoading ? "Subscribing..." : "Join Our Newsletter"}
+                  {isLoading ? "Subscribing..." : "Join 200+ CEOs"}
                 </Button>
               </form>
             </div>
