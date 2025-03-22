@@ -69,7 +69,7 @@ const Newsletter = () => {
               The <span className="text-[#9b87f5]">AI-First</span> CEO
             </h1>
             <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-              The AI-First CEO is a weekly newsletter for leaders who want to work less, close more, and scale smarter—using AI-powered automation to turn bottlenecks into breakthroughs.
+              The AI-First CEO is the newsletter for founders and CEOs who are done wasting time on what should already be automated.
             </p>
             <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
               Each issue delivers real strategies to automate sales, marketing & ops. Frameworks to save 10+ hours/week without hiring. Case studies and tools to grow without burnout.
