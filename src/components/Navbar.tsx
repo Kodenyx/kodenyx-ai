@@ -77,13 +77,15 @@ const Navbar = () => {
               <List size={18} />
               FAQs
             </button>
-            <Link 
-              to="/newsletter" 
+            <a 
+              href="/newsletter" 
+              target="_blank" 
+              rel="noopener noreferrer"
               className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
             >
               <Mail size={18} />
               Newsletter
-            </Link>
+            </a>
             {user && (
               <Button 
                 onClick={handleLogout}
@@ -135,14 +137,16 @@ const Navbar = () => {
               <List size={18} />
               FAQs
             </button>
-            <Link 
-              to="/newsletter" 
+            <a 
+              href="/newsletter" 
+              target="_blank" 
+              rel="noopener noreferrer"
               className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
               onClick={() => setIsMenuOpen(false)}
             >
               <Mail size={18} />
               Newsletter
-            </Link>
+            </a>
             {user && (
               <Button 
                 onClick={() => {

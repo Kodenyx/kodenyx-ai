@@ -53,7 +53,7 @@ const Newsletter = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-1 bg-gradient-to-b from-background to-secondary/20">
+      <main className="flex-1 bg-gradient-to-b from-accent/30 to-secondary/20">
         <div className="container mx-auto px-4 py-24 max-w-3xl">
           <div className="text-center mb-12">
             <div className="inline-block p-3 bg-primary/10 rounded-full mb-6">
