@@ -57,10 +57,13 @@ const Newsletter = () => {
         <div className="container mx-auto px-4 py-32 max-w-3xl">
           <div className="text-center mb-12 animate-fade-in">
             <div className="flex justify-center mb-6">
-              <Avatar className="h-24 w-24 border-2 border-primary shadow-lg">
-                <AvatarImage src="/lovable-uploads/6e08bf04-9c3f-4db8-ad56-dcc8ea694a1c.png" alt="Aarti Anand" />
-                <AvatarFallback>AA</AvatarFallback>
-              </Avatar>
+              <div className="relative w-32 h-32 overflow-hidden rounded-full border-4 border-primary shadow-xl">
+                <img 
+                  src="/lovable-uploads/6e08bf04-9c3f-4db8-ad56-dcc8ea694a1c.png" 
+                  alt="Aarti Anand" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               The <span className="text-[#9b87f5]">AI-First</span> CEO
