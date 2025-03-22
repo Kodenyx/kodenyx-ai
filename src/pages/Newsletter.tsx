@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
-import { Mail } from "lucide-react";
 
 const Newsletter = () => {
   const { toast } = useToast();
@@ -56,9 +55,6 @@ const Newsletter = () => {
       <main className="flex-1 bg-gradient-to-br from-[#1A1F2C] via-[#232838] to-[#101524] text-white">
         <div className="container mx-auto px-4 py-24 max-w-3xl">
           <div className="text-center mb-12 animate-fade-in">
-            <div className="inline-block p-3 bg-[#9b87f5]/10 rounded-full mb-6">
-              <Mail size={32} className="text-[#9b87f5]" />
-            </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               The <span className="text-[#9b87f5]">AI-First</span> CEO
             </h1>
