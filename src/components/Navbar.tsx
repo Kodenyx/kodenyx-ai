@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Menu, X, PhoneCall, List, Users, Mail } from "lucide-react";
-import Logo from "./Logo";
+import { Menu, X, PhoneCall, List, Mail } from "lucide-react";
+// Removed import Logo from "./Logo";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -48,8 +48,12 @@ const Navbar = () => {
     <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-4">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <Link to="/">
-            <Logo />
+          <Link to="/" className="flex items-center gap-2">
+            <img
+              src="/lovable-uploads/5923d951-7acb-47fe-a118-797916c477f3.png"
+              alt="Kodenyx AI Logo"
+              className="h-10 w-auto object-contain"
+            />
           </Link>
           
           {/* Mobile menu button */}
@@ -177,3 +181,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
