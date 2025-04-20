@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Menu, X, PhoneCall, List, Mail } from "lucide-react";
+import { Menu, X, PhoneCall, List, Users, Mail } from "lucide-react";
 import Logo from "./Logo";
 
 const Navbar = () => {
@@ -12,14 +12,18 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
+    // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
     });
+
+    // Listen for auth changes
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
     });
+
     return () => subscription.unsubscribe();
   }, []);
 
@@ -44,9 +48,8 @@ const Navbar = () => {
     <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-4">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            {/* Use the updated Logo component with larger size */}
-            <Logo size={56} />
+          <Link to="/">
+            <Logo />
           </Link>
           
           {/* Mobile menu button */}
@@ -174,4 +177,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
