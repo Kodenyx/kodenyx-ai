@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Menu, X, PhoneCall, List, Users, Mail } from "lucide-react";
+import { Menu, X, PhoneCall, List, Mail } from "lucide-react";
 import Logo from "./Logo";
 
 const Navbar = () => {
