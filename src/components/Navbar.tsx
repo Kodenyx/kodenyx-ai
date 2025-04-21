@@ -45,11 +45,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-4">
+    <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-4 max-h-[120px]">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between">
-          <Link to="/">
-            <Logo size={480} />
+        <div className="flex items-center justify-between min-h-0" style={{ minHeight: 0 }}>
+          <Link to="/" className="flex items-center min-h-0">
+            <Logo size={360} className="max-h-[96px] w-auto" />
           </Link>
 
           {/* Mobile menu button */}
@@ -177,3 +177,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

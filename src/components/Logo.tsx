@@ -1,17 +1,23 @@
 
 import React from "react";
 
-const Logo = ({ size = 480 }: { size?: number }) => {
+interface LogoProps {
+  size?: number;
+  className?: string;
+}
+
+const Logo = ({ size = 360, className = "" }: LogoProps) => {
   return (
     <img
-      src="/lovable-uploads/37136305-6ae5-49b2-ad75-b8ea7ec3755d.png"
+      src="/lovable-uploads/0307e07c-23d0-4e1a-b223-9380d9309fa9.png"
       alt="Kodenyx AI logo"
       width={size}
       height={size}
       style={{ display: "block", backgroundColor: "transparent", boxShadow: "none" }}
-      className="rounded-md object-contain"
+      className={`object-contain rounded-md ${className}`}
     />
   );
 };
 
 export default Logo;
+
