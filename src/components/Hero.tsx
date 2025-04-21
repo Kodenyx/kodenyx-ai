@@ -18,8 +18,22 @@ const Hero = () => {
     <div className="pt-24 md:pt-28 min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-secondary to-secondary/95 text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Text Content */}
+          
+          {/* Left side - Brand Logo & Text Content */}
           <div className="space-y-8 animate-fade-in">
+            <div className="w-full flex justify-center md:justify-start">
+              <img
+                src="/lovable-uploads/b2d9b509-2906-4602-b4fc-e2ba390caf17.png"
+                alt="Kodenyx AI Logo"
+                className="rounded-xl object-contain bg-transparent"
+                style={{
+                  width: '160px',
+                  height: '160px',
+                  boxShadow: "0px 4px 32px 0px rgba(122,105,245,0.12)",
+                  background: "transparent",
+                }}
+              />
+            </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
               Transform Your Lead Generation with{" "}
               <span className="text-primary">AI-Powered</span> Automation
