@@ -23,7 +23,7 @@ const Hero = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="w-full flex justify-center md:justify-start">
               <img
-                src="/lovable-uploads/b9fba4d6-3303-413e-a8ee-43feaa24aa14.png"
+                src="/lovable-uploads/5fa0deaa-5753-4ee3-920e-7157eda29c1b.png"
                 alt="Kodenyx AI Logo"
                 className="rounded-xl object-contain bg-transparent"
                 style={{
