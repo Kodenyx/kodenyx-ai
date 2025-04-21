@@ -19,20 +19,9 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-          {/* Left side - Brand Logo & Text Content */}
+          {/* Left side - Brand Text Content Only (logo removed) */}
           <div className="space-y-8 animate-fade-in">
-            <div className="w-full flex justify-center md:justify-start">
-              <img
-                src="/lovable-uploads/fa64d886-9a9b-42ae-969f-bb7501d24d58.png"
-                alt="Kodenyx AI Logo"
-                className="rounded-xl object-contain bg-transparent"
-                style={{
-                  width: '160px',
-                  height: '160px',
-                  // Removed boxShadow and background to clean the logo canvas
-                }}
-              />
-            </div>
+            {/* Removed logo image here */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
               Transform Your Lead Generation with{" "}
               <span className="text-primary">AI-Powered</span> Automation
@@ -103,3 +92,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
