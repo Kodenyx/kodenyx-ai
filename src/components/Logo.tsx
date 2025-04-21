@@ -6,10 +6,10 @@ interface LogoProps {
   className?: string;
 }
 
-const Logo = ({ size = 360, className = "" }: LogoProps) => {
+const Logo = ({ size = 180, className = "" }: LogoProps) => {
   return (
     <img
-      src="/lovable-uploads/bd2325b6-601b-4a57-bd31-d4dbd42bc355.png"
+      src="/lovable-uploads/15fa4592-4e05-4391-884e-311325192276.png"
       alt="Kodenyx AI logo"
       width={size}
       height={size}
