@@ -5,7 +5,7 @@ const Logo = ({ size = 96 }: { size?: number }) => {
   return (
     <div className="flex items-center gap-2">
       <img
-        src="/lovable-uploads/95e49d31-5d60-45a2-8b7a-067f03ccafdc.png"
+        src="/lovable-uploads/21a37e1d-c374-49c3-8c21-ad0e9be2b488.png"
         alt="Kodenyx AI logo"
         width={size}
         height={size}
@@ -23,4 +23,3 @@ const Logo = ({ size = 96 }: { size?: number }) => {
 };
 
 export default Logo;
-
