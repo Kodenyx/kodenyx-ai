@@ -1,7 +1,7 @@
 
 import React from "react";
 
-const Logo = ({ size = 160 }: { size?: number }) => {
+const Logo = ({ size = 480 }: { size?: number }) => {
   return (
     <img
       src="/lovable-uploads/37136305-6ae5-49b2-ad75-b8ea7ec3755d.png"

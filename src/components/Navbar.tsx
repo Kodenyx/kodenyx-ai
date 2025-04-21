@@ -49,7 +49,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <Link to="/">
-            <Logo size={128} />
+            <Logo size={480} />
           </Link>
 
           {/* Mobile menu button */}
@@ -177,4 +177,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
