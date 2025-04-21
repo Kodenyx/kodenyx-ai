@@ -2,11 +2,11 @@
 import React from "react";
 
 const Logo = ({ size = 52 }: { size?: number }) => {
-  // You can adjust `size` prop for flexibility in different UI sections
+  // Replaced logo image source with the new uploaded image
   return (
     <div className="flex items-center gap-2">
       <img
-        src="/lovable-uploads/b2d9b509-2906-4602-b4fc-e2ba390caf17.png"
+        src="/lovable-uploads/fa64d886-9a9b-42ae-969f-bb7501d24d58.png"
         alt="Kodenyx AI logo"
         width={size}
         height={size}
@@ -24,3 +24,4 @@ const Logo = ({ size = 52 }: { size?: number }) => {
 };
 
 export default Logo;
+
