@@ -1,18 +1,16 @@
 
 import React from "react";
 
-const Logo = ({ size = 96 }: { size?: number }) => {
+const Logo = ({ size = 160 }: { size?: number }) => {
   return (
-    <div className="flex items-center gap-2">
-      <img
-        src="/lovable-uploads/4ff8a7cb-24c8-497c-8326-ac990abfc85b.png"
-        alt="Kodenyx AI logo"
-        width={size}
-        height={size}
-        className="rounded-md object-contain bg-transparent"
-        style={{ backgroundColor: "transparent", boxShadow: "none" }}
-      />
-    </div>
+    <img
+      src="/lovable-uploads/37136305-6ae5-49b2-ad75-b8ea7ec3755d.png"
+      alt="Kodenyx AI logo"
+      width={size}
+      height={size}
+      style={{ display: "block", backgroundColor: "transparent", boxShadow: "none" }}
+      className="rounded-md object-contain"
+    />
   );
 };
 
