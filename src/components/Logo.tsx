@@ -9,7 +9,7 @@ interface LogoProps {
 const Logo = ({ size = 360, className = "" }: LogoProps) => {
   return (
     <img
-      src="/lovable-uploads/0307e07c-23d0-4e1a-b223-9380d9309fa9.png"
+      src="/lovable-uploads/bd2325b6-601b-4a57-bd31-d4dbd42bc355.png"
       alt="Kodenyx AI logo"
       width={size}
       height={size}
@@ -20,4 +20,3 @@ const Logo = ({ size = 360, className = "" }: LogoProps) => {
 };
 
 export default Logo;
-
