@@ -18,12 +18,12 @@ const Hero = () => {
     <div className="pt-24 md:pt-28 min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-secondary to-secondary/95 text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
+
           {/* Left side - Brand Logo & Text Content */}
           <div className="space-y-8 animate-fade-in">
             <div className="w-full flex justify-center md:justify-start">
               <img
-                src="/lovable-uploads/5fa0deaa-5753-4ee3-920e-7157eda29c1b.png"
+                src="/lovable-uploads/fa64d886-9a9b-42ae-969f-bb7501d24d58.png"
                 alt="Kodenyx AI Logo"
                 className="rounded-xl object-contain bg-transparent"
                 style={{
@@ -104,4 +104,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
