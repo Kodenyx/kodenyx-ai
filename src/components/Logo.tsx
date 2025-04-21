@@ -1,8 +1,8 @@
 
 import React from "react";
 
-const Logo = ({ size = 52 }: { size?: number }) => {
-  // Removed background and box shadow to clean up the logo appearance
+const Logo = ({ size = 72 }: { size?: number }) => {
+  // Removed background and box shadow to clean up the logo appearance and increased size default to 72
   return (
     <div className="flex items-center gap-2">
       <img
@@ -14,7 +14,7 @@ const Logo = ({ size = 52 }: { size?: number }) => {
         style={{}} // Removed boxShadow and background style
       />
       <span
-        className="text-2xl md:text-3xl font-black text-white tracking-tight hidden sm:inline"
+        className="text-3xl md:text-4xl font-black text-white tracking-tight hidden sm:inline"
         style={{ letterSpacing: "0.01em" }}
       >
         Kodenyx AI
@@ -24,3 +24,4 @@ const Logo = ({ size = 52 }: { size?: number }) => {
 };
 
 export default Logo;
+
