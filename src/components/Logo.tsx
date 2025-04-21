@@ -2,7 +2,7 @@
 import React from "react";
 
 const Logo = ({ size = 52 }: { size?: number }) => {
-  // Replaced logo image source with the new uploaded image
+  // Removed background and box shadow to clean up the logo appearance
   return (
     <div className="flex items-center gap-2">
       <img
@@ -11,7 +11,7 @@ const Logo = ({ size = 52 }: { size?: number }) => {
         width={size}
         height={size}
         className="rounded-md object-contain bg-transparent"
-        style={{ boxShadow: "0 2px 10px rgba(0,0,0,0.08)" }}
+        style={{}} // Removed boxShadow and background style
       />
       <span
         className="text-2xl md:text-3xl font-black text-white tracking-tight hidden sm:inline"
@@ -24,4 +24,3 @@ const Logo = ({ size = 52 }: { size?: number }) => {
 };
 
 export default Logo;
-

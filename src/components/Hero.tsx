@@ -29,8 +29,7 @@ const Hero = () => {
                 style={{
                   width: '160px',
                   height: '160px',
-                  boxShadow: "0px 4px 32px 0px rgba(122,105,245,0.12)",
-                  background: "transparent",
+                  // Removed boxShadow and background to clean the logo canvas
                 }}
               />
             </div>
