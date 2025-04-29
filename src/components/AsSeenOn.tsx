@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { 
@@ -7,6 +7,7 @@ import {
   CarouselContent,
   CarouselItem
 } from "@/components/ui/carousel";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface LogoItemProps {
   name: string;
@@ -16,13 +17,12 @@ interface LogoItemProps {
 const logos: LogoItemProps[] = [
   {
     name: "U.S. Insider",
-    imageSrc: "/lovable-uploads/fdec118f-82b9-4731-aa6f-18d5e3ddd8fd.png" // Using a placeholder, you'll need to upload actual logos
+    imageSrc: "/lovable-uploads/fdec118f-82b9-4731-aa6f-18d5e3ddd8fd.png"
   },
   {
     name: "BoredSci",
-    imageSrc: "/lovable-uploads/fa64d886-9a9b-42ae-969f-bb7501d24d8fc.png" // Using a placeholder, you'll need to upload actual logos
+    imageSrc: "/lovable-uploads/fa64d886-9a9b-42ae-969f-bb7501d24d8fc.png"
   },
-  // Duplicating logos to create the illusion of an infinite loop
   {
     name: "U.S. Insider",
     imageSrc: "/lovable-uploads/fdec118f-82b9-4731-aa6f-18d5e3ddd8fd.png"
@@ -39,9 +39,10 @@ const LogoItem = ({ name, imageSrc }: LogoItemProps) => {
       <img
         src={imageSrc}
         alt={`${name} logo`}
-        className="h-10 w-auto max-w-[180px] object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity duration-300 shadow-sm"
+        className="h-10 w-auto max-w-[180px] object-contain hover:opacity-100 transition-opacity duration-300"
         style={{
           filter: "grayscale(100%)",
+          opacity: 0.7,
           boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
         }}
       />
@@ -50,32 +51,42 @@ const LogoItem = ({ name, imageSrc }: LogoItemProps) => {
 };
 
 const AsSeenOn: React.FC = () => {
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const [api, setApi] = useState<any>(null);
   const isMobile = useIsMobile();
+  const autoScrollRef = useRef<number | null>(null);
   
+  const startAutoScroll = () => {
+    if (autoScrollRef.current) {
+      window.clearInterval(autoScrollRef.current);
+    }
+    
+    autoScrollRef.current = window.setInterval(() => {
+      if (api) {
+        api.scrollNext();
+      }
+    }, 3000);
+  };
+
   useEffect(() => {
-    const scrollContent = () => {
-      if (carouselRef.current) {
-        if (carouselRef.current.scrollLeft >= carouselRef.current.scrollWidth / 2) {
-          carouselRef.current.scrollLeft = 0;
-        } else {
-          carouselRef.current.scrollLeft += 1;
-        }
+    if (api) {
+      startAutoScroll();
+    }
+    
+    return () => {
+      if (autoScrollRef.current) {
+        window.clearInterval(autoScrollRef.current);
       }
     };
-
-    const intervalId = setInterval(scrollContent, 30);
-    return () => clearInterval(intervalId);
-  }, []);
-
+  }, [api]);
+  
   return (
-    <section className="py-12 bg-secondary/20">
+    <section className="py-12 bg-secondary/5 backdrop-blur-sm">
       <div className="container px-4 mx-auto">
-        <h3 className="text-center text-sm uppercase tracking-wider text-gray-500 mb-6">
+        <h3 className="text-center text-sm uppercase tracking-wider text-primary/70 mb-6 font-medium">
           As Featured In
         </h3>
         
-        <div className="overflow-hidden">
+        <div className="relative overflow-hidden">
           <Carousel 
             className="w-full" 
             opts={{ 
@@ -84,6 +95,7 @@ const AsSeenOn: React.FC = () => {
               dragFree: true,
               containScroll: false
             }}
+            setApi={setApi}
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {logos.map((logo, index) => (
