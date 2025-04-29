@@ -7,7 +7,6 @@ import {
   CarouselContent,
   CarouselItem
 } from "@/components/ui/carousel";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface LogoItemProps {
   name: string;
@@ -15,14 +14,6 @@ interface LogoItemProps {
 }
 
 const logos: LogoItemProps[] = [
-  {
-    name: "U.S. Insider",
-    imageSrc: "/lovable-uploads/fdec118f-82b9-4731-aa6f-18d5e3ddd8fd.png"
-  },
-  {
-    name: "BoredSci",
-    imageSrc: "/lovable-uploads/fa64d886-9a9b-42ae-969f-bb7501d24d8fc.png"
-  },
   {
     name: "U.S. Insider",
     imageSrc: "/lovable-uploads/fdec118f-82b9-4731-aa6f-18d5e3ddd8fd.png"
@@ -80,7 +71,7 @@ const AsSeenOn: React.FC = () => {
   }, [api]);
   
   return (
-    <section className="py-12 bg-secondary/5 backdrop-blur-sm">
+    <section className="py-8 bg-secondary/5 backdrop-blur-sm">
       <div className="container px-4 mx-auto">
         <h3 className="text-center text-sm uppercase tracking-wider text-primary/70 mb-6 font-medium">
           As Featured In
@@ -98,12 +89,12 @@ const AsSeenOn: React.FC = () => {
             setApi={setApi}
           >
             <CarouselContent className="-ml-2 md:-ml-4">
-              {logos.map((logo, index) => (
+              {logos.concat(logos).concat(logos).map((logo, index) => (
                 <CarouselItem 
                   key={index}
                   className={cn(
                     "pl-2 md:pl-4",
-                    isMobile ? "basis-1/2" : "basis-1/4"
+                    isMobile ? "basis-1/2" : "basis-1/3"
                   )}
                 >
                   <LogoItem name={logo.name} imageSrc={logo.imageSrc} />
