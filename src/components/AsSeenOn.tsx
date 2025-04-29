@@ -16,11 +16,11 @@ interface LogoItemProps {
 const logos: LogoItemProps[] = [
   {
     name: "U.S. Insider",
-    imageSrc: "/lovable-uploads/fdec118f-82b9-4731-aa6f-18d5e3ddd8fd.png"
+    imageSrc: "/lovable-uploads/fdec118f-82b9-4731-aa6f-18d5e3ddd8fd.png" // Using a placeholder, you'll need to upload actual logos
   },
   {
     name: "BoredSci",
-    imageSrc: "/lovable-uploads/fa64d886-9a9b-42ae-969f-bb7501d24d8fc.png"
+    imageSrc: "/lovable-uploads/fa64d886-9a9b-42ae-969f-bb7501d24d8fc.png" // Using a placeholder, you'll need to upload actual logos
   },
   // Duplicating logos to create the illusion of an infinite loop
   {
@@ -39,10 +39,10 @@ const LogoItem = ({ name, imageSrc }: LogoItemProps) => {
       <img
         src={imageSrc}
         alt={`${name} logo`}
-        className="h-10 w-auto max-w-[180px] object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+        className="h-10 w-auto max-w-[180px] object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity duration-300 shadow-sm"
         style={{
           filter: "grayscale(100%)",
-          boxShadow: "0 1px 3px rgba(155, 135, 245, 0.2)"
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
         }}
       />
     </div>
@@ -69,13 +69,13 @@ const AsSeenOn: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-10 bg-gradient-to-r from-[#f8f9fa] to-[#f0f2f5] dark:from-secondary/5 dark:to-secondary/10">
+    <section className="py-12 bg-secondary/20">
       <div className="container px-4 mx-auto">
-        <h3 className="text-center text-sm uppercase tracking-wider text-primary/80 mb-6 font-medium">
+        <h3 className="text-center text-sm uppercase tracking-wider text-gray-500 mb-6">
           As Featured In
         </h3>
         
-        <div className="overflow-hidden rounded-lg bg-white/60 dark:bg-black/5 shadow-sm backdrop-blur-sm p-2">
+        <div className="overflow-hidden">
           <Carousel 
             className="w-full" 
             opts={{ 
