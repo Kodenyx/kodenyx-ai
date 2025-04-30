@@ -19,8 +19,8 @@ const logos: LogoItemProps[] = [
     imageSrc: "/lovable-uploads/9df93f7c-2895-4c90-b3d1-925d07c534b6.png"
   },
   {
-    name: "BoredSci",
-    imageSrc: "/lovable-uploads/08dec2a5-dfc7-4a8e-b172-631933eaee60.png"
+    name: "Boardsi",
+    imageSrc: "/lovable-uploads/18da7bc8-fe01-4361-9d28-ae543d544732.png"
   }
 ];
 
