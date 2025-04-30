@@ -32,9 +32,9 @@ const LogoItem = ({ name, imageSrc }: LogoItemProps) => {
         alt={`${name} logo`}
         className="h-10 w-auto max-w-[180px] object-contain hover:opacity-100 transition-opacity duration-300"
         style={{
-          filter: "grayscale(100%)",
-          opacity: 0.7,
+          opacity: 1, // Changed from 0.7 to 1 for full opacity
           boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
+          // Removed the grayscale filter
         }}
       />
     </div>
