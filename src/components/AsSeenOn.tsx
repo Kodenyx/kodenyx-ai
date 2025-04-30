@@ -16,11 +16,11 @@ interface LogoItemProps {
 const logos: LogoItemProps[] = [
   {
     name: "U.S. Insider",
-    imageSrc: "/lovable-uploads/fdec118f-82b9-4731-aa6f-18d5e3ddd8fd.png"
+    imageSrc: "/lovable-uploads/9df93f7c-2895-4c90-b3d1-925d07c534b6.png"
   },
   {
     name: "BoredSci",
-    imageSrc: "/lovable-uploads/fa64d886-9a9b-42ae-969f-bb7501d24d8fc.png"
+    imageSrc: "/lovable-uploads/fa64d886-9a9b-42ae-969f-bb7501d24d58.png"
   }
 ];
 
