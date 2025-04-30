@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -70,13 +71,13 @@ const AsSeenOn: React.FC = () => {
   }, [api]);
   
   return (
-    <section className="py-8 bg-secondary/5 backdrop-blur-sm">
+    <section className="py-8 bg-secondary text-white">
       <div className="container px-4 mx-auto">
-        <h3 className="text-center text-sm uppercase tracking-wider text-primary/70 mb-6 font-medium">
+        <h3 className="text-center text-sm uppercase tracking-wider text-primary/90 mb-6 font-medium">
           As Featured In
         </h3>
         
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden bg-secondary/95 rounded-lg shadow-inner py-2">
           <Carousel 
             className="w-full" 
             opts={{ 
