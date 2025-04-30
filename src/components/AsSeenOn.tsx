@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -103,7 +104,7 @@ const AsSeenOn: React.FC = () => {
   return (
     <section className="py-8 bg-white">
       <div className="container px-4 mx-auto">
-        <h3 className="text-center text-sm uppercase tracking-wider text-primary/70 mb-6 font-medium">
+        <h3 className="text-center text-sm uppercase tracking-wider text-[#1A1F2C] mb-6 font-bold">
           As Featured In
         </h3>
         
