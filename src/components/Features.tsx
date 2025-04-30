@@ -41,15 +41,15 @@ const Features = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="border-none shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slide-up" 
+              className="border-none shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slide-up bg-secondary text-white" 
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <feature.icon className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-secondary mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
+                <p className="text-gray-200">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
