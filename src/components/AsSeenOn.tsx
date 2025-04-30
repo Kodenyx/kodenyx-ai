@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -20,7 +19,7 @@ const logos: LogoItemProps[] = [
   },
   {
     name: "BoredSci",
-    imageSrc: "/lovable-uploads/fa64d886-9a9b-42ae-969f-bb7501d24d58.png"
+    imageSrc: "/lovable-uploads/08dec2a5-dfc7-4a8e-b172-631933eaee60.png"
   }
 ];
 
