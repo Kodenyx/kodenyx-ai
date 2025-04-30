@@ -77,7 +77,7 @@ const AsSeenOn: React.FC = () => {
           As Featured In
         </h3>
         
-        <div className="relative overflow-hidden bg-secondary/95 rounded-lg shadow-inner py-2">
+        <div className="relative overflow-hidden bg-gray-100 rounded-lg shadow-inner py-2">
           <Carousel 
             className="w-full" 
             opts={{ 
