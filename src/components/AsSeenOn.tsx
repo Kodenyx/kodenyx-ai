@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -7,16 +6,19 @@ import {
   CarouselContent,
   CarouselItem
 } from "@/components/ui/carousel";
+import { removeBackground, loadImage } from "@/utils/imageUtils";
 
 interface LogoItemProps {
   name: string;
   imageSrc: string;
+  removeBackgroundFlag?: boolean;
 }
 
 const logos: LogoItemProps[] = [
   {
     name: "U.S. Insider",
-    imageSrc: "/lovable-uploads/7ded63dd-39f9-42fe-9ee7-ba358e2e58f4.png"
+    imageSrc: "/lovable-uploads/7ded63dd-39f9-42fe-9ee7-ba358e2e58f4.png",
+    removeBackgroundFlag: true // Flag to remove background for this logo
   },
   {
     name: "Boardsi",
@@ -24,17 +26,45 @@ const logos: LogoItemProps[] = [
   }
 ];
 
-const LogoItem = ({ name, imageSrc }: LogoItemProps) => {
+const LogoItem = ({ name, imageSrc, removeBackgroundFlag }: LogoItemProps) => {
+  const [processedImageSrc, setProcessedImageSrc] = useState<string | null>(null);
+  
+  useEffect(() => {
+    if (removeBackgroundFlag) {
+      const processImage = async () => {
+        try {
+          const response = await fetch(imageSrc);
+          const blob = await response.blob();
+          const image = await loadImage(blob);
+          const processedBlob = await removeBackground(image);
+          const processedUrl = URL.createObjectURL(processedBlob);
+          setProcessedImageSrc(processedUrl);
+        } catch (error) {
+          console.error("Error processing image:", error);
+          // Fallback to original image if processing fails
+          setProcessedImageSrc(null);
+        }
+      };
+      processImage();
+      
+      // Cleanup
+      return () => {
+        if (processedImageSrc) {
+          URL.revokeObjectURL(processedImageSrc);
+        }
+      };
+    }
+  }, [imageSrc, removeBackgroundFlag]);
+
   return (
     <div className="flex flex-col items-center justify-center px-8 py-4">
       <img
-        src={imageSrc}
+        src={processedImageSrc || imageSrc}
         alt={`${name} logo`}
         className="h-10 w-auto max-w-[180px] object-contain hover:opacity-100 transition-opacity duration-300"
         style={{
-          opacity: 1, // Changed from 0.7 to 1 for full opacity
+          opacity: 1,
           boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
-          // Removed the grayscale filter
         }}
       />
     </div>
@@ -97,7 +127,11 @@ const AsSeenOn: React.FC = () => {
                     isMobile ? "basis-1/2" : "basis-1/3"
                   )}
                 >
-                  <LogoItem name={logo.name} imageSrc={logo.imageSrc} />
+                  <LogoItem 
+                    name={logo.name} 
+                    imageSrc={logo.imageSrc} 
+                    removeBackgroundFlag={logo.removeBackgroundFlag} 
+                  />
                 </CarouselItem>
               ))}
             </CarouselContent>
