@@ -7,29 +7,25 @@ const agents = [
     title: "AI Receptionist & Booking Agent",
     description: "24/7 virtual receptionist that greets visitors, answers questions, and seamlessly schedules meetings while managing your calendar—handling time zones and availability without double bookings.",
     icon: HeadsetIcon,
-    bgImage: "/images/photo-1485827404703-89b55fcc595e", // white robot image
-    gradient: "from-[#E5DEFF] to-[#D3E4FD]"
+    bgImage: "/images/photo-1485827404703-89b55fcc595e" // white robot image
   },
   {
     title: "Lead Qualifier Agent",
     description: "Intelligently qualifies leads by asking relevant questions, scoring prospects, and ensuring only the most promising opportunities reach your sales team.",
     icon: Filter,
-    bgImage: "/images/photo-1461749280684-dccba630e2f6", // programming/code image
-    gradient: "from-[#FFDEE2] to-[#FDE1D3]" 
+    bgImage: "/images/photo-1461749280684-dccba630e2f6" // programming/code image
   },
   {
     title: "Lead Nurturing Agent",
     description: "Educates and nurtures leads on autopilot through personalized content and engagement, warming them up until they're ready for conversion.",
     icon: MessageCircle,
-    bgImage: "/images/photo-1518770660439-4636190af475", // circuit board image
-    gradient: "from-[#F2FCE2] to-[#FEF7CD]"
+    bgImage: "/images/photo-1518770660439-4636190af475" // circuit board image
   },
   {
     title: "Review AI Agent",
     description: "Enhances your online reputation and builds trust with customers by efficiently managing Google and Facebook reviews, automating responses, and maintaining a stellar online presence.",
     icon: Star,
-    bgImage: "/images/photo-1526374965328-7f61d4dc18c5", // matrix-style digital image
-    gradient: "from-[#FEC6A1] to-[#D3E4FD]"
+    bgImage: "/images/photo-1526374965328-7f61d4dc18c5" // matrix-style digital image
   },
 ];
 
@@ -49,7 +45,7 @@ const AIAgents = () => {
           {agents.map((agent, index) => (
             <Card 
               key={index} 
-              className={`border-none shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slide-up bg-gradient-to-br ${agent.gradient} relative overflow-hidden`}
+              className="border-none shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slide-up bg-[#1A1F2C] text-white relative overflow-hidden" 
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div 
@@ -60,8 +56,8 @@ const AIAgents = () => {
                 <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center mb-6">
                   <agent.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-secondary mb-3">{agent.title}</h3>
-                <p className="text-gray-700">{agent.description}</p>
+                <h3 className="text-xl font-semibold text-white mb-3">{agent.title}</h3>
+                <p className="text-gray-300">{agent.description}</p>
               </CardContent>
             </Card>
           ))}

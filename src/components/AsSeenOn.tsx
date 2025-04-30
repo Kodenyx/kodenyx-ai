@@ -7,7 +7,6 @@ import {
   CarouselContent,
   CarouselItem
 } from "@/components/ui/carousel";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface LogoItemProps {
   name: string;
@@ -17,19 +16,11 @@ interface LogoItemProps {
 const logos: LogoItemProps[] = [
   {
     name: "U.S. Insider",
-    imageSrc: "/lovable-uploads/fdec118f-82b9-4731-aa6f-18d5e3ddd8fd.png"
+    imageSrc: "/lovable-uploads/9df93f7c-2895-4c90-b3d1-925d07c534b6.png"
   },
   {
     name: "BoredSci",
-    imageSrc: "/lovable-uploads/fa64d886-9a9b-42ae-969f-bb7501d24d8fc.png"
-  },
-  {
-    name: "U.S. Insider",
-    imageSrc: "/lovable-uploads/fdec118f-82b9-4731-aa6f-18d5e3ddd8fd.png"
-  },
-  {
-    name: "BoredSci",
-    imageSrc: "/lovable-uploads/fa64d886-9a9b-42ae-969f-bb7501d24d8fc.png"
+    imageSrc: "/lovable-uploads/08dec2a5-dfc7-4a8e-b172-631933eaee60.png"
   }
 ];
 
@@ -80,13 +71,13 @@ const AsSeenOn: React.FC = () => {
   }, [api]);
   
   return (
-    <section className="py-12 bg-secondary/5 backdrop-blur-sm">
+    <section className="py-8 bg-white">
       <div className="container px-4 mx-auto">
         <h3 className="text-center text-sm uppercase tracking-wider text-primary/70 mb-6 font-medium">
           As Featured In
         </h3>
         
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden bg-secondary/95 rounded-lg shadow-inner py-2">
           <Carousel 
             className="w-full" 
             opts={{ 
@@ -98,12 +89,12 @@ const AsSeenOn: React.FC = () => {
             setApi={setApi}
           >
             <CarouselContent className="-ml-2 md:-ml-4">
-              {logos.map((logo, index) => (
+              {logos.concat(logos).concat(logos).map((logo, index) => (
                 <CarouselItem 
                   key={index}
                   className={cn(
                     "pl-2 md:pl-4",
-                    isMobile ? "basis-1/2" : "basis-1/4"
+                    isMobile ? "basis-1/2" : "basis-1/3"
                   )}
                 >
                   <LogoItem name={logo.name} imageSrc={logo.imageSrc} />
