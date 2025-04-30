@@ -7,25 +7,21 @@ const features = [
     title: "Smart Targeting",
     description: "Why chase leads when they can come to you? Attract your ideal clients with organic content and precision-targeted ads",
     icon: Target,
-    gradient: "from-[#E5DEFF] to-[#D3E4FD]"
   },
   {
     title: "Lead Capture",
     description: "Stop letting leads slip away - grab attention and turn visitors into leads with high-converting offers",
     icon: Users,
-    gradient: "from-[#FFDEE2] to-[#FDE1D3]"
   },
   {
     title: "AI-Powered Automation",
     description: "Let our AI agents nurture your leads on autopilot - your leads won't ghost you when AI is doing the follow-ups.",
     icon: Bot,
-    gradient: "from-[#F2FCE2] to-[#FEF7CD]"
   },
   {
     title: "Performance Analytics",
     description: "Real-time analytics that show what's working (and what's not). Optimize like a pro with real-time insights—because guessing is for amateurs.",
     icon: ChartLine,
-    gradient: "from-[#FEC6A1] to-[#D3E4FD]"
   },
 ];
 
@@ -45,7 +41,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className={`border-none shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slide-up bg-gradient-to-br ${feature.gradient} relative overflow-hidden`} 
+              className="border-none shadow-lg hover:shadow-xl transition-shadow duration-300 animate-slide-up" 
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-6 text-center">
