@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Menu, X, PhoneCall, List, Mail, CalendarCheck } from "lucide-react";
+import { Menu, X, PhoneCall, List, Mail } from "lucide-react";
 import Logo from "./Logo";
 
 const Navbar = () => {
@@ -85,13 +85,6 @@ const Navbar = () => {
             <Mail size={18} />
             Newsletter
           </a>
-          <Link
-            to="/ai-readiness-workshop"
-            className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
-          >
-            <CalendarCheck size={18} />
-            AI Workshop
-          </Link>
           {user && (
             <Button 
               onClick={handleLogout}
@@ -154,14 +147,6 @@ const Navbar = () => {
               <Mail size={18} />
               Newsletter
             </a>
-            <Link
-              to="/ai-readiness-workshop"
-              className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <CalendarCheck size={18} />
-              AI Workshop
-            </Link>
             {user && (
               <Button 
                 onClick={() => {
