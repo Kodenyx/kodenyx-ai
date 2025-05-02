@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Menu, X, PhoneCall, List, Mail } from "lucide-react";
+import { Menu, X, PhoneCall, List, Mail, CalendarCheck } from "lucide-react";
 import Logo from "./Logo";
 
 const Navbar = () => {
@@ -60,7 +60,7 @@ const Navbar = () => {
         </button>
 
         {/* Desktop menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           <button 
             onClick={() => handleNavClick('features')} 
             className="text-gray-300 hover:text-white transition-colors"
@@ -85,6 +85,13 @@ const Navbar = () => {
             <Mail size={18} />
             Newsletter
           </a>
+          <Link
+            to="/ai-readiness-workshop"
+            className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
+          >
+            <CalendarCheck size={18} />
+            AI Workshop
+          </Link>
           {user && (
             <Button 
               onClick={handleLogout}
@@ -108,66 +115,76 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden mt-4 flex flex-col gap-4 animate-fade-in px-4">
-          <button 
-            onClick={() => handleNavClick('features')} 
-            className="text-gray-300 hover:text-white transition-colors py-2 text-left"
-          >
-            Features
-          </button>
-          <a 
-            href="#process" 
-            className="text-gray-300 hover:text-white transition-colors py-2"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            How it Works
-          </a>
-          <a 
-            href="#testimonials" 
-            className="text-gray-300 hover:text-white transition-colors py-2"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Testimonials
-          </a>
-          <button 
-            onClick={() => handleNavClick('faq')} 
-            className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2 w-full text-left"
-          >
-            <List size={18} />
-            FAQs
-          </button>
-          <a 
-            href="/newsletter" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <Mail size={18} />
-            Newsletter
-          </a>
-          {user && (
-            <Button 
-              onClick={() => {
-                handleLogout();
-                setIsMenuOpen(false);
-              }}
-              className="bg-primary hover:bg-primary-dark text-white w-full"
+        <div className="md:hidden absolute top-[72px] left-0 right-0 bg-secondary/95 backdrop-blur-md z-50 py-4 animate-fade-in px-4">
+          <div className="flex flex-col gap-4">
+            <button 
+              onClick={() => handleNavClick('features')} 
+              className="text-gray-300 hover:text-white transition-colors py-2 text-left"
             >
-              Sign Out
-            </Button>
-          )}
-          <a 
-            href="https://cal.com/aarti-anand82" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <Button className="bg-primary hover:bg-primary-dark text-white w-full">
-              <PhoneCall className="mr-2" size={18} />
-              Book A Call
-            </Button>
-          </a>
+              Features
+            </button>
+            <a 
+              href="#process" 
+              className="text-gray-300 hover:text-white transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              How it Works
+            </a>
+            <a 
+              href="#testimonials" 
+              className="text-gray-300 hover:text-white transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Testimonials
+            </a>
+            <button 
+              onClick={() => handleNavClick('faq')} 
+              className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2 w-full text-left"
+            >
+              <List size={18} />
+              FAQs
+            </button>
+            <a 
+              href="/newsletter" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Mail size={18} />
+              Newsletter
+            </a>
+            <Link
+              to="/ai-readiness-workshop"
+              className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <CalendarCheck size={18} />
+              AI Workshop
+            </Link>
+            {user && (
+              <Button 
+                onClick={() => {
+                  handleLogout();
+                  setIsMenuOpen(false);
+                }}
+                className="bg-primary hover:bg-primary-dark text-white w-full"
+              >
+                Sign Out
+              </Button>
+            )}
+            <a 
+              href="https://cal.com/aarti-anand82" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Button className="bg-primary hover:bg-primary-dark text-white w-full">
+                <PhoneCall className="mr-2" size={18} />
+                Book A Call
+              </Button>
+            </a>
+          </div>
         </div>
       )}
     </nav>
