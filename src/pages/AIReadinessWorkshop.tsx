@@ -66,10 +66,12 @@ const AIReadinessWorkshop = () => {
         <div className="container mx-auto py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight animate-fade-in">
-              AI Readiness Workshop: Discover Where AI Fits in Your Business
+              AI Readiness Workshop: 
+              <br />
+              Discover Where AI Fits in Your Business
             </h1>
             <p className="text-xl text-gray-300 mb-8 animate-fade-in" style={{ animationDelay: "100ms" }}>
-              In 90 minutes, get clarity on where to start with AI, what's possible (without the hype), and how to prepare your business to scale smarter in 2024.
+              In 90 minutes, get clarity on where to start with AI, what's possible (without the hype), and how to prepare your business to scale smarter in 2025.
             </p>
             <Button
               size="lg"
@@ -212,7 +214,7 @@ const AIReadinessWorkshop = () => {
                   Founder of Kodenyx AI, Aarti helps business owners automate their workflows smarter and reclaim valuable time without burning out. With over a decade of experience in digital transformation, Aarti specializes in making AI practical, accessible, and immediately valuable for small-to-medium businesses.
                 </p>
                 <p className="text-gray-700">
-                  Through the AI-First CEO newsletter and personalized consulting, she's helped hundreds of business owners implement AI solutions that deliver measurable ROI and create sustainable growth.
+                  Through the AI-First CEO newsletter and personalized consulting, she's helped dozens of business owners implement AI solutions that deliver measurable ROI and create sustainable growth.
                 </p>
               </div>
             </div>
@@ -225,7 +227,7 @@ const AIReadinessWorkshop = () => {
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-white">Reserve Your Free Spot</h2>
+              <h2 className="text-3xl font-bold text-white">Reserve Your Spot</h2>
               <p className="text-xl text-gray-300 mt-4">
                 90 minutes. No tech skills required. Just clarity.
               </p>
@@ -279,7 +281,7 @@ const AIReadinessWorkshop = () => {
                     className="w-full bg-primary hover:bg-primary-dark text-white font-medium text-lg"
                     disabled={isLoading}
                   >
-                    {isLoading ? "Reserving..." : "Reserve My Free Spot"}
+                    {isLoading ? "Reserving..." : "Reserve My Spot"}
                   </Button>
                   <p className="text-xs text-gray-500 text-center">
                     You'll receive workshop details via email. We respect your privacy.
@@ -311,3 +313,4 @@ const AIReadinessWorkshop = () => {
 };
 
 export default AIReadinessWorkshop;
+
