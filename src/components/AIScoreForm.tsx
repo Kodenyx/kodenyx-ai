@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -587,7 +586,7 @@ const AIScoreForm = () => {
               name="hourlyValue"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel><span className="font-medium">Q15: </span>What's your estimated hourly time value?</FormLabel>
+                  <FormLabel><span className="font-medium">Q15: </span>What's the estimated hourly value of the person doing these tasks? (Whether it's you, your team, or a contractor)</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -637,4 +636,3 @@ const AIScoreForm = () => {
 };
 
 export default AIScoreForm;
-
