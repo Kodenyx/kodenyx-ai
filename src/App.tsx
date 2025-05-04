@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import AIWorkshop from "./pages/AIWorkshop";
 import Newsletter from "./pages/Newsletter";
 import AIReadinessWorkshop from "./pages/AIReadinessWorkshop";
+import AIFirstReadinessScore from "./pages/AIFirstReadinessScore";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient({
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/ai-workshop" element={<AIWorkshop />} />
             <Route path="/ai-readiness-workshop" element={<AIReadinessWorkshop />} />
             <Route path="/newsletter" element={<Newsletter />} />
+            <Route path="/ai-first-readiness-score" element={<AIFirstReadinessScore />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
