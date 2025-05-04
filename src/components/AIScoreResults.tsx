@@ -98,7 +98,7 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
         <h3 className="text-2xl font-bold mb-4">
           Ready to turn your score into a smarter, AI-powered business?
         </h3>
-        <Link to="/ai-workshop">
+        <Link to="/ai-readiness-workshop">
           <Button 
             size="lg" 
             className="bg-primary hover:bg-primary-dark text-white text-lg px-8">
