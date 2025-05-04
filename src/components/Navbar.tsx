@@ -76,12 +76,6 @@ const Navbar = () => {
             <List size={18} />
             FAQs
           </button>
-          <Link
-            to="/ai-ready-score" 
-            className="text-gray-300 hover:text-white transition-colors"
-          >
-            AI Readiness Score
-          </Link>
           <a 
             href="/newsletter" 
             target="_blank" 
@@ -143,13 +137,6 @@ const Navbar = () => {
               <List size={18} />
               FAQs
             </button>
-            <Link
-              to="/ai-ready-score" 
-              className="text-gray-300 hover:text-white transition-colors py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              AI Readiness Score
-            </Link>
             <a 
               href="/newsletter" 
               target="_blank" 
