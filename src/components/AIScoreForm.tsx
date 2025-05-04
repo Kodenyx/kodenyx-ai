@@ -238,7 +238,7 @@ const AIScoreForm = () => {
               name="fullName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Full Name</FormLabel>
+                  <FormLabel><span className="font-medium">Q1: </span>Full Name</FormLabel>
                   <FormControl>
                     <Input placeholder="Your name" {...field} />
                   </FormControl>
@@ -252,7 +252,7 @@ const AIScoreForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email Address</FormLabel>
+                  <FormLabel><span className="font-medium">Q2: </span>Email Address</FormLabel>
                   <FormControl>
                     <Input type="email" placeholder="you@example.com" {...field} />
                   </FormControl>
@@ -266,7 +266,7 @@ const AIScoreForm = () => {
               name="linkedin"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>LinkedIn Profile (optional)</FormLabel>
+                  <FormLabel><span className="font-medium">Q3: </span>LinkedIn Profile (optional)</FormLabel>
                   <FormControl>
                     <Input placeholder="https://linkedin.com/in/yourprofile" {...field} />
                   </FormControl>
@@ -280,7 +280,7 @@ const AIScoreForm = () => {
               name="businessType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>What best describes your business type?</FormLabel>
+                  <FormLabel><span className="font-medium">Q4: </span>What best describes your business type?</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -305,7 +305,7 @@ const AIScoreForm = () => {
               name="teamSize"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>How many people are on your team (including contractors)?</FormLabel>
+                  <FormLabel><span className="font-medium">Q5: </span>How many people are on your team (including contractors)?</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -342,7 +342,7 @@ const AIScoreForm = () => {
               name="currentUse"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>How would you describe your current use of automation or AI in your business?</FormLabel>
+                  <FormLabel><span className="font-medium">Q6: </span>How would you describe your current use of automation or AI in your business?</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -367,7 +367,7 @@ const AIScoreForm = () => {
               name="repetitiveTasks"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>How are repetitive tasks handled in your business?</FormLabel>
+                  <FormLabel><span className="font-medium">Q7: </span>How are repetitive tasks handled in your business?</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -393,7 +393,7 @@ const AIScoreForm = () => {
               render={() => (
                 <FormItem>
                   <div className="mb-4">
-                    <FormLabel>Which 2 areas of your business feel the most manual or inefficient? (Choose up to 2)</FormLabel>
+                    <FormLabel><span className="font-medium">Q8: </span>Which 2 areas of your business feel the most manual or inefficient? (Choose up to 2)</FormLabel>
                   </div>
                   <div className="grid md:grid-cols-2 gap-3">
                     {manualAreasOptions.map((area) => (
@@ -437,7 +437,7 @@ const AIScoreForm = () => {
               name="leadHandling"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>What happens when a lead reaches out to your business?</FormLabel>
+                  <FormLabel><span className="font-medium">Q9: </span>What happens when a lead reaches out to your business?</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -462,7 +462,7 @@ const AIScoreForm = () => {
               name="sopApproach"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>What's your current approach to documenting SOPs?</FormLabel>
+                  <FormLabel><span className="font-medium">Q10: </span>What's your current approach to documenting SOPs?</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -487,7 +487,7 @@ const AIScoreForm = () => {
               name="aiComfort"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>How comfortable are you identifying where AI could fit in your business?</FormLabel>
+                  <FormLabel><span className="font-medium">Q11: </span>How comfortable are you identifying where AI could fit in your business?</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -512,7 +512,7 @@ const AIScoreForm = () => {
               name="automationPriority"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>If you could automate one part of your business today, what would it be?</FormLabel>
+                  <FormLabel><span className="font-medium">Q12: </span>If you could automate one part of your business today, what would it be?</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -537,7 +537,7 @@ const AIScoreForm = () => {
               name="manualHours"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>How many hours/week are spent on manual, repeatable tasks?</FormLabel>
+                  <FormLabel><span className="font-medium">Q13: </span>How many hours/week are spent on manual, repeatable tasks?</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -562,7 +562,7 @@ const AIScoreForm = () => {
               name="timeOwner"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Whose time is being spent on these tasks?</FormLabel>
+                  <FormLabel><span className="font-medium">Q14: </span>Whose time is being spent on these tasks?</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -587,7 +587,7 @@ const AIScoreForm = () => {
               name="hourlyValue"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>What's your estimated hourly time value?</FormLabel>
+                  <FormLabel><span className="font-medium">Q15: </span>What's your estimated hourly time value?</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -637,3 +637,4 @@ const AIScoreForm = () => {
 };
 
 export default AIScoreForm;
+
