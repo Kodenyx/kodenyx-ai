@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -24,6 +23,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { calculateReadinessScore } from "@/utils/scoreUtils";
+import AIScoreResults from "./AIScoreResults";
 
 // Define the form schema for each section
 const contactSchema = z.object({
@@ -147,12 +148,16 @@ const hourlyValueOptions = [
   { value: "500+", label: "Over $500/hour" },
 ];
 
-type FormSection = "contact" | "readiness";
+type FormSection = "contact" | "readiness" | "results";
 
 const AIScoreForm = () => {
   const { toast } = useToast();
   const [currentSection, setCurrentSection] = useState<FormSection>("contact");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [scoreData, setScoreData] = useState({
+    score: 0,
+    formData: {}
+  });
   
   const contactForm = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
@@ -181,7 +186,7 @@ const AIScoreForm = () => {
     },
   });
 
-  const progress = currentSection === "contact" ? 30 : 80;
+  const progress = currentSection === "contact" ? 30 : currentSection === "readiness" ? 80 : 100;
 
   const onContactNext = contactForm.handleSubmit((data) => {
     console.log("Contact data:", data);
@@ -199,18 +204,23 @@ const AIScoreForm = () => {
     console.log("Complete form data:", formData);
     
     try {
-      // Here would go the API call to process the scorecard data
-      // For now, we'll simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Calculate the AI readiness score
+      const score = calculateReadinessScore(data);
+      console.log("AI Readiness Score:", score);
+      
+      // Store the score and form data
+      setScoreData({
+        score,
+        formData
+      });
       
       toast({
         title: "Scorecard submitted!",
-        description: "Your AI readiness score is being calculated.",
+        description: "Your AI readiness score has been calculated.",
       });
       
-      // Redirect or show results component
-      // This would be replaced with actual logic to display results
-      alert("Your form has been submitted! Results functionality will be implemented next.");
+      // Show results section
+      setCurrentSection("results");
       
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -635,6 +645,13 @@ const AIScoreForm = () => {
             </p>
           </form>
         </Form>
+      )}
+
+      {currentSection === "results" && (
+        <AIScoreResults 
+          score={scoreData.score} 
+          formData={scoreData.formData} 
+        />
       )}
     </div>
   );
