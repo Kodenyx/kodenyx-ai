@@ -20,4 +20,3 @@ const Logo = ({ size = 180, className = "" }: LogoProps) => {
 };
 
 export default Logo;
-
