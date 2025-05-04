@@ -1,4 +1,3 @@
-
 // Function to calculate the AI readiness score based on form responses
 export function calculateReadinessScore(formData: any): number {
   let totalScore = 0;
@@ -237,4 +236,54 @@ export function calculateCostOfInaction(manualHours: string, hourlyValue: string
   
   // Calculate annual cost
   return weeklyHours * hourlyRate * 52;
+}
+
+// Function to get readiness insights based on score tier
+export function getReadinessInsights(score: number): string[] {
+  if (score <= 6) {
+    // The Do-It-All Founder
+    return [
+      "You're doing everything manually — which creates invisible time drains, missed leads, and burnout risk.",
+      "The good news? You now know exactly where your business is leaking hours.",
+      "With 1–2 simple automations, you could save 5–10 hours/week — without hiring.",
+      "The cost of inaction isn't just money — it's momentum.",
+      "You're closer than you think to building a business that runs without you."
+    ];
+  } else if (score <= 12) {
+    // The Process Builder
+    return [
+      "You've started creating repeatable systems — but they still rely on you or your team to run.",
+      "Every manual task is stealing profit, speed, and mental energy.",
+      "Automating just your lead response or onboarding could return $50K+ a year.",
+      "Your business has structure — now it's time to add smart leverage.",
+      "The next level is less about tools, more about sequencing the right automations."
+    ];
+  } else if (score <= 18) {
+    // The System Architect
+    return [
+      "You've built solid foundations — SOPs, workflows, maybe a CRM.",
+      "But the real opportunity now is removing yourself from the loop.",
+      "AI can handle tasks, update systems, and make decisions in real time.",
+      "You're no longer starting from scratch — you're optimizing with intelligence.",
+      "Getting to the next tier will unlock scale without adding more people."
+    ];
+  } else if (score <= 23) {
+    // The Automation Leader
+    return [
+      "You've already reclaimed time and systemized key operations — now it's time to compound.",
+      "AI can now replace repetitive team work and drive real-time execution.",
+      "Every hour you still spend manually is a missed compounding return.",
+      "At this level, your edge isn't tools — it's orchestration.",
+      "A few well-placed agents could turn your backend into an autonomous growth engine."
+    ];
+  } else {
+    // The AI-First Operator
+    return [
+      "You're ahead of the curve — and positioned to dominate your category with AI-first leverage.",
+      "Now the goal is orchestration: linking your tools, agents, and workflows into a self-scaling machine.",
+      "The opportunity here is to unlock decision-making, personalization, and 24/7 responsiveness.",
+      "You don't need more hustle — you need smarter layers of automation.",
+      "In the AI Workshop, we'll show you how to turn this infrastructure into an unfair advantage."
+    ];
+  }
 }

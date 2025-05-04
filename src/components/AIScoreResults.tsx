@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { 
   determineReadinessTier, 
   getAutomationPriorityLabel,
-  calculateCostOfInaction 
+  calculateCostOfInaction,
+  getReadinessInsights
 } from "@/utils/scoreUtils";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -19,6 +20,7 @@ interface AIScoreResultsProps {
 const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
   const { tierName, description } = determineReadinessTier(score);
   const automationPriority = getAutomationPriorityLabel(formData.automationPriority);
+  const insights = getReadinessInsights(score);
   
   const costOfInaction = calculateCostOfInaction(
     formData.manualHours, 
@@ -91,6 +93,16 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
             </p>
           </CardContent>
         </Card>
+      </div>
+
+      {/* What Your Score Means - Dynamic Insights Section */}
+      <div className="mb-10 bg-slate-50 p-6 rounded-lg">
+        <h3 className="text-2xl font-bold mb-4">What Your Score Means</h3>
+        <div className="space-y-4">
+          {insights.map((insight, index) => (
+            <p key={index} className="text-lg">{insight}</p>
+          ))}
+        </div>
       </div>
 
       {/* Call to Action */}
