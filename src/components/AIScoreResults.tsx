@@ -22,7 +22,6 @@ interface AIScoreResultsProps {
 }
 
 const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
-  const [showAlternatives, setShowAlternatives] = useState(false);
   const [showCostBreakdown, setShowCostBreakdown] = useState(true);
   const { tierName, description } = determineReadinessTier(score);
   const automationPriority = getAutomationPriorityLabel(formData.automationPriority);
@@ -101,26 +100,26 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
 
       {/* Enhanced Cost of Inaction Card */}
       <div className="mb-10">
-        <div className="bg-[#FFF3F0] border-l-4 border-destructive rounded-lg shadow-md overflow-hidden">
+        <div className="bg-[#FDE1D3] border-l-4 border-[#F97316] rounded-lg shadow-md overflow-hidden">
           <div className="p-6">
             <div className="flex items-center mb-3">
-              <Flame className="h-6 w-6 text-destructive mr-2 animate-pulse" />
+              <Flame className="h-6 w-6 text-[#F97316] mr-2 animate-pulse" />
               <h3 className="text-2xl font-bold text-gray-800">Cost of Inaction</h3>
             </div>
             
             <div className="mb-4">
               <p className="text-lg font-medium mb-2">
-                You're bleeding <span className="text-4xl md:text-5xl font-bold text-destructive animate-[pulse_3s_ease-in-out_infinite]">{formattedCostOfInaction}</span><span className="text-gray-700">/year</span> by doing this manually.
+                You're bleeding <span className="text-4xl md:text-5xl font-bold text-[#F97316] animate-[pulse_3s_ease-in-out_infinite]">{formattedCostOfInaction}</span><span className="text-gray-700">/year</span> by doing this manually.
               </p>
               <p className="text-gray-700 mb-3">
                 That's more than {potentialHires} full-time {potentialHires === 1 ? 'hire' : 'hires'} — or 10x what automation would cost you.
               </p>
               <p className="text-gray-800 font-medium">
-                Every month you delay? Another <span className="font-bold text-destructive">{formattedMonthlyCost}</span> walks out the door.
+                Every month you delay? Another <span className="font-bold text-[#F97316]">{formattedMonthlyCost}</span> walks out the door.
               </p>
             </div>
 
-            {/* New Cost Breakdown Section */}
+            {/* Cost Breakdown Section */}
             <div className="mt-6">
               <Collapsible
                 open={showCostBreakdown}
@@ -130,13 +129,13 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
                 <CollapsibleTrigger asChild>
                   <Button 
                     variant="outline" 
-                    className="w-full justify-between bg-white/30 border-destructive/20 hover:bg-white/50 text-gray-800"
+                    className="w-full justify-between bg-white/30 border-[#F97316]/20 hover:bg-white/50 text-gray-800"
                   >
                     <span>What That Cost Really Means</span>
                     <span className="text-xs">{showCostBreakdown ? '▲ Hide' : '▼ Show'}</span>
                   </Button>
                 </CollapsibleTrigger>
-                <CollapsibleContent className="mt-4 bg-white/40 rounded-md p-4 border border-destructive/10 animate-slide-up">
+                <CollapsibleContent className="mt-4 bg-white/40 rounded-md p-4 border border-[#F97316]/10 animate-slide-up">
                   <h4 className="font-semibold text-gray-800 mb-3">In real terms, you're losing:</h4>
                   <ul className="space-y-3">
                     {costComparisons.map((comparison, index) => (
@@ -149,28 +148,6 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
                 </CollapsibleContent>
               </Collapsible>
             </div>
-
-            <div className="mt-4">
-              <Button 
-                variant="outline" 
-                className="text-sm hover:bg-destructive/10 border-destructive/30 text-gray-700"
-                onClick={() => setShowAlternatives(!showAlternatives)}
-              >
-                {showAlternatives ? "Hide Alternatives" : "What You Could Do Instead →"}
-              </Button>
-            </div>
-
-            {showAlternatives && (
-              <div className="mt-4 p-4 bg-white/50 rounded-md border border-gray-200 animate-fade-in">
-                <h4 className="font-medium text-gray-800 mb-2">Instead of wasting {formattedCostOfInaction}, you could:</h4>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Hire {potentialHires} new team {potentialHires === 1 ? 'member' : 'members'} to drive growth</li>
-                  <li>Launch {Math.round(costOfInaction / 20000)} new marketing campaigns</li>
-                  <li>Take back your nights and weekends</li>
-                  <li>Invest in {Math.floor(costOfInaction / 100000)} new product {Math.floor(costOfInaction / 100000) === 1 ? 'line' : 'lines'}</li>
-                </ul>
-              </div>
-            )}
           </div>
         </div>
       </div>
