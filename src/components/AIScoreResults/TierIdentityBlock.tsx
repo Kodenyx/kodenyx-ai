@@ -8,9 +8,38 @@ interface TierIdentityBlockProps {
 }
 
 const TierIdentityBlock: React.FC<TierIdentityBlockProps> = ({ score }) => {
-  // Get tier information
-  const { tierName, description, nextTier, nextTierName } = determineReadinessTier(score);
+  // Get tier information from the scoreUtils
+  const { tierName } = determineReadinessTier(score);
   const scorePercentage = Math.round((score / 27) * 100);
+  
+  // Dynamic headline and subheadline based on score
+  let headline = "";
+  let subHeadline = "";
+  
+  if (score <= 6) {
+    headline = `You're a ${tierName} — You're Wearing Every Hat and It's Burning You Out`;
+    subHeadline = "You're the engine, the operator, and the firefighter. But it's costing you time, sanity, and scale. Automation is the key to finally stepping out of the grind.";
+  } else if (score <= 13) {
+    headline = `You're a ${tierName} — Still Doing Too Much by Hand`;
+    subHeadline = "You've started to systemize, but you're still the glue. You're wasting hours every week doing things AI could handle — and blocking your business from real growth.";
+  } else if (score <= 20) {
+    headline = `You're a ${tierName} — You've Built the Machine, But You're Still in It`;
+    subHeadline = "The structure is there, but the systems still need you. It's time to add AI to run operations without you — so you can scale without stress or staffing up.";
+  } else if (score <= 24) {
+    headline = `You're a ${tierName} — But You're Still in the Loop Too Often`;
+    subHeadline = "You've done the hard part — now it's about full freedom. AI agents and real-time decisioning can give you back time, reduce costs, and drive 24/7 growth.";
+  } else {
+    headline = `You're a ${tierName} — But There's One More Layer of Leverage Left`;
+    subHeadline = "You're almost untouchable — but there's still inefficiency at the edges. It's time to embed predictive workflows and adaptive systems that run without oversight.";
+  }
+  
+  // Split the headline to highlight the tier name
+  const headlineParts = headline.split(tierName);
+  const beforeTier = headlineParts[0];
+  const afterTier = headlineParts[1] || "";
+  
+  // Determine if there's a next tier based on score
+  const { nextTier, nextTierName } = determineReadinessTier(score);
   
   return (
     <div className="text-center mb-10 animate-fade-in">
@@ -18,9 +47,9 @@ const TierIdentityBlock: React.FC<TierIdentityBlockProps> = ({ score }) => {
         <Award className="h-10 w-10 text-primary" />
       </div>
       <h1 className="text-3xl md:text-4xl font-bold mb-3">
-        You're a: <span className="text-primary">{tierName}</span>
+        {beforeTier}<span className="text-primary">{tierName}</span>{afterTier}
       </h1>
-      <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-5">{description}</p>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-5">{subHeadline}</p>
       
       {nextTier && (
         <div className="mt-4 bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg p-3 inline-block">
