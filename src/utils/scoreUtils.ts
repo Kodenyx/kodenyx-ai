@@ -1,3 +1,4 @@
+
 // Function to calculate the AI readiness score based on form responses
 export function calculateReadinessScore(formData: any): number {
   let totalScore = 0;
@@ -166,31 +167,42 @@ export function calculateReadinessScore(formData: any): number {
 export function determineReadinessTier(score: number): {
   tierName: string;
   description: string;
+  nextTier?: boolean;
+  nextTierName?: string;
 } {
   if (score <= 6) {
     return {
       tierName: "The Do-It-All Founder",
       description: "You're wearing all the hats and stuck in the weeds. But now you know where to start.",
+      nextTier: true,
+      nextTierName: "Process Builder"
     };
   } else if (score <= 12) {
     return {
       tierName: "The Process Builder",
       description: "You've started creating systems — now it's time to automate them.",
+      nextTier: true,
+      nextTierName: "System Architect"
     };
   } else if (score <= 18) {
     return {
       tierName: "The System Architect",
       description: "You've got SOPs and workflows. Let's plug AI into the engine.",
+      nextTier: true,
+      nextTierName: "Automation Leader"
     };
   } else if (score <= 23) {
     return {
       tierName: "The Automation Leader",
       description: "You're scaling smart. Time to unlock deeper leverage with AI agents.",
+      nextTier: true,
+      nextTierName: "AI-First Operator"
     };
   } else {
     return {
       tierName: "The AI-First Operator",
       description: "You've built the foundation. AI is your next competitive advantage.",
+      nextTier: false
     };
   }
 }
