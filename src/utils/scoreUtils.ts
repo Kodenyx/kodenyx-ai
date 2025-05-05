@@ -287,3 +287,42 @@ export function getReadinessInsights(score: number): string[] {
     ];
   }
 }
+
+// Function to get dynamic workshop promotion content based on score tier
+export function getWorkshopPromotionContent(score: number): {
+  preHeadline: string;
+  headline: string;
+  subHeadline: string;
+} {
+  if (score <= 6) {
+    return {
+      preHeadline: "You've been doing it all — no wonder it's exhausting.",
+      headline: "You're a Do-It-All Founder — Time to Step Out of the Grind",
+      subHeadline: "Your business runs on hustle. Now let's build systems that run without you."
+    };
+  } else if (score <= 13) {
+    return {
+      preHeadline: "You're building momentum — now let's build leverage.",
+      headline: "You're a Process Builder — Let's Turn Chaos Into Clarity",
+      subHeadline: "You've started documenting and delegating. It's time to automate what's repeatable."
+    };
+  } else if (score <= 20) {
+    return {
+      preHeadline: "You're closer than you think.",
+      headline: "You're a System Architect — Now Let's Build Your AI-Powered Machine",
+      subHeadline: "Your foundation is solid. The next step? Replacing yourself in the process so your business runs — and scales — without you."
+    };
+  } else if (score <= 24) {
+    return {
+      preHeadline: "You're ahead of the curve.",
+      headline: "You're an Automation Leader — Let's Multiply Your Impact",
+      subHeadline: "You've built systems. Now plug in intelligence to unlock exponential scale."
+    };
+  } else {
+    return {
+      preHeadline: "You're operating at the edge of efficiency.",
+      headline: "You're an AI-First Operator — Let's Take It to the Top 1%",
+      subHeadline: "You've mastered automation. Now let's explore custom agents, predictive workflows, and full AI-driven strategy."
+    };
+  }
+}
