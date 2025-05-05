@@ -7,12 +7,14 @@ import {
   getAutomationPriorityLabel,
   calculateCostOfInaction,
   getReadinessInsights,
-  getWorkshopPromotionContent
+  getWorkshopPromotionContent,
+  getCostComparisons
 } from "@/utils/scoreUtils";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { ArrowRight, Award, DollarSign, PieChart, Star, Flame, AlertTriangle } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 interface AIScoreResultsProps {
   score: number;
@@ -21,6 +23,7 @@ interface AIScoreResultsProps {
 
 const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
   const [showAlternatives, setShowAlternatives] = useState(false);
+  const [showCostBreakdown, setShowCostBreakdown] = useState(true);
   const { tierName, description } = determineReadinessTier(score);
   const automationPriority = getAutomationPriorityLabel(formData.automationPriority);
   const insights = getReadinessInsights(score);
@@ -44,6 +47,7 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
   }).format(monthlyCost);
 
   const potentialHires = Math.round(costOfInaction / 110000);
+  const costComparisons = getCostComparisons(costOfInaction);
   
   const scorePercentage = (score / 27) * 100;
   
@@ -95,7 +99,7 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
         </Card>
       </div>
 
-      {/* Redesigned Cost of Inaction Card */}
+      {/* Enhanced Cost of Inaction Card */}
       <div className="mb-10">
         <div className="bg-[#FFF3F0] border-l-4 border-destructive rounded-lg shadow-md overflow-hidden">
           <div className="p-6">
@@ -114,6 +118,36 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
               <p className="text-gray-800 font-medium">
                 Every month you delay? Another <span className="font-bold text-destructive">{formattedMonthlyCost}</span> walks out the door.
               </p>
+            </div>
+
+            {/* New Cost Breakdown Section */}
+            <div className="mt-6">
+              <Collapsible
+                open={showCostBreakdown}
+                onOpenChange={setShowCostBreakdown}
+                className="w-full"
+              >
+                <CollapsibleTrigger asChild>
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-between bg-white/30 border-destructive/20 hover:bg-white/50 text-gray-800"
+                  >
+                    <span>What That Cost Really Means</span>
+                    <span className="text-xs">{showCostBreakdown ? '▲ Hide' : '▼ Show'}</span>
+                  </Button>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="mt-4 bg-white/40 rounded-md p-4 border border-destructive/10 animate-slide-up">
+                  <h4 className="font-semibold text-gray-800 mb-3">In real terms, you're losing:</h4>
+                  <ul className="space-y-3">
+                    {costComparisons.map((comparison, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <span className="text-xl">{comparison.emoji}</span>
+                        <span className="text-gray-800">{comparison.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CollapsibleContent>
+              </Collapsible>
             </div>
 
             <div className="mt-4">

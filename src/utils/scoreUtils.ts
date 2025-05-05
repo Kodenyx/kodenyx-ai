@@ -1,4 +1,3 @@
-
 // Function to calculate the AI readiness score based on form responses
 export function calculateReadinessScore(formData: any): number {
   let totalScore = 0;
@@ -285,6 +284,29 @@ export function getReadinessInsights(score: number): string[] {
       "The opportunity here is to unlock decision-making, personalization, and 24/7 responsiveness.",
       "You don't need more hustle — you need smarter layers of automation.",
       "In the AI Workshop, we'll show you how to turn this infrastructure into an unfair advantage."
+    ];
+  }
+}
+
+// Function to get personalized cost comparisons based on cost of inaction
+export function getCostComparisons(costOfInaction: number): { emoji: string; text: string }[] {
+  if (costOfInaction >= 500000) {
+    return [
+      { emoji: "💸", text: `Equivalent to ${Math.round(costOfInaction / 110000)} full-time hires` },
+      { emoji: "🚀", text: "Enough to fund 2 product launches" },
+      { emoji: "🧠", text: "Could automate 60% of your ops today" }
+    ];
+  } else if (costOfInaction >= 100000) {
+    return [
+      { emoji: "🕒", text: "Wasting 10+ hours/week doing repeatable work" },
+      { emoji: "📉", text: "Slowing growth with manual systems" },
+      { emoji: "🧳", text: `Could afford ${Math.floor(costOfInaction / 25000)} dream vacations every year` }
+    ];
+  } else {
+    return [
+      { emoji: "🔁", text: "Still stuck in tasks that AI could handle for pennies" },
+      { emoji: "💻", text: "Paying in time instead of tools" },
+      { emoji: "🧠", text: "Holding onto roles that block your CEO freedom" }
     ];
   }
 }
