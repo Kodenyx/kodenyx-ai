@@ -11,7 +11,7 @@ import {
 } from "@/utils/scoreUtils";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { ArrowRight, Award, DollarSign, PieChart, Star, Fire, AlertTriangle } from "lucide-react";
+import { ArrowRight, Award, DollarSign, PieChart, Star, Flame, AlertTriangle } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 interface AIScoreResultsProps {
@@ -100,7 +100,7 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
         <div className="bg-[#FFF3F0] border-l-4 border-destructive rounded-lg shadow-md overflow-hidden">
           <div className="p-6">
             <div className="flex items-center mb-3">
-              <Fire className="h-6 w-6 text-destructive mr-2 animate-pulse" />
+              <Flame className="h-6 w-6 text-destructive mr-2 animate-pulse" />
               <h3 className="text-2xl font-bold text-gray-800">Cost of Inaction</h3>
             </div>
             
