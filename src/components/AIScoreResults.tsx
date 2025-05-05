@@ -10,9 +10,19 @@ import {
   getWorkshopPromotionContent,
   getCostComparisons
 } from "@/utils/scoreUtils";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { ArrowRight, Award, DollarSign, PieChart, Star, Flame, AlertTriangle, ChevronRight, Clock, TrendingUp, BarChart } from "lucide-react";
+import { 
+  Award, 
+  ChevronRight, 
+  Clock, 
+  Flame, 
+  Star, 
+  TrendingUp, 
+  ArrowRight, 
+  BarChart, 
+  Zap  
+} from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useToast } from "@/hooks/use-toast";
@@ -59,12 +69,19 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
   // Get workshop promotion content
   const { preHeadline, headline, subHeadline, ctaButton } = getWorkshopPromotionContent(score);
 
+  // Initialize animations
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimateScore(true);
+    }, 500);
+  }, []);
+
   // Contextual line based on score
   const getContextLine = () => {
     if (score <= 6) {
       return "You're still doing everything manually — but now you know where to start.";
     } else if (score <= 12) {
-      return "You've built some systems, but you're still the operator.";
+      return "You've built some systems, but you're still the bottleneck. Automation is your next unlock.";
     } else if (score <= 18) {
       return "Your foundation is solid. Now it's time to step out of the loop.";
     } else {
@@ -78,13 +95,28 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
       case "lead-nurture":
         return "Founders spend 7+ hours/week here. AI can nurture leads 24/7.";
       case "client-onboarding":
-        return "Streamline this bottleneck for happier clients and faster revenue.";
+        return "One founder saved $14K/month automating this step.";
       case "customer-support":
         return "Turn support from a cost center to a growth driver with AI.";
       case "reporting":
         return "Get real-time insights without manual data collection.";
       default:
-        return "This area has high ROI potential for automation.";
+        return "This high-ROI area is your fastest path to time freedom.";
+    }
+  };
+
+  const getClientResult = () => {
+    switch (formData.automationPriority) {
+      case "lead-nurture":
+        return "Clients see 3x response rates with fully automated follow-up.";
+      case "client-onboarding":
+        return "One founder saved $14K/month automating this step.";
+      case "customer-support":
+        return "Founders reclaim 10+ hours/week with AI-powered support.";
+      case "reporting":
+        return "Eliminate 5+ hours of weekly reporting work with automated dashboards.";
+      default:
+        return "Founders typically save 5-10 hours/week in this area.";
     }
   };
 
@@ -108,13 +140,6 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
     );
   };
 
-  // Initialize animations
-  useEffect(() => {
-    setTimeout(() => {
-      setAnimateScore(true);
-    }, 500);
-  }, []);
-
   // Function to determine tier percent
   const getTierPercentage = () => {
     if (score <= 6) return "25%";
@@ -126,27 +151,28 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
   return (
     <div className="p-6 bg-white rounded-lg">
       {/* SECTION 1: Tier Identity Block - Enhanced */}
-      <div className="text-center mb-10">
+      <div className="text-center mb-10 animate-fade-in">
         <div className="inline-block bg-primary/10 p-3 rounded-full mb-4">
           <Award className="h-10 w-10 text-primary" />
         </div>
-        <h1 className="text-3xl md:text-4xl font-bold mb-3 animate-fade-in">
+        <h1 className="text-3xl md:text-4xl font-bold mb-3">
           You're a: <span className="text-primary">{tierName}</span>
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-5">{description}</p>
         
         {nextTier && (
-          <div className="mt-4 bg-slate-50 rounded-lg p-3 inline-block">
-            <div className="flex items-center gap-2 text-sm text-gray-600">
+          <div className="mt-4 bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg p-3 inline-block">
+            <div className="flex items-center gap-2">
               <TrendingUp className="h-4 w-4 text-primary" />
-              <span>Up next: <span className="font-medium">{nextTierName}</span></span>
+              <span className="font-medium">Up Next: {nextTierName}</span>
               <ChevronRight className="h-4 w-4" />
+              <span className="text-sm text-gray-600">Where founders save 10+ hours/week</span>
             </div>
           </div>
         )}
 
-        <div className="mt-3 text-sm text-gray-500">
-          You're ahead of {Math.round(scorePercentage)}% of founders in our database
+        <div className="mt-4 text-sm text-gray-600">
+          You're ahead of {Math.round(scorePercentage)}% of founders in our database — but still operating at half capacity
         </div>
       </div>
 
@@ -163,7 +189,7 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
             <div className="mb-6">
               {getProgressSegments()}
               <div className="relative h-3">
-                <Progress value={scorePercentage} className="h-3" />
+                <Progress value={scorePercentage} className="h-3 bg-gray-100" />
                 <div 
                   className="absolute h-6 w-1 bg-black top-1/2 transform -translate-y-1/2 transition-all duration-1000 ease-out" 
                   style={{ left: `${scorePercentage}%` }}
@@ -189,11 +215,17 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
           </CardHeader>
           <CardContent>
             <p className="text-lg font-medium mb-2">{automationPriority}</p>
-            <p className="text-sm text-gray-600 mb-4">{getOpportunityContext()}</p>
+            <p className="text-sm text-gray-600 mb-3">{getOpportunityContext()}</p>
+            <div className="bg-gray-50 p-3 rounded-md mb-4">
+              <div className="flex items-center gap-2 text-sm">
+                <Star className="h-4 w-4 text-yellow-500" />
+                <span>{getClientResult()}</span>
+              </div>
+            </div>
             
             <Link to="/ai-readiness-workshop" className="inline-block">
-              <Button variant="outline" size="sm" className="flex items-center gap-2 mt-2">
-                <span>Show Me How To Automate This</span>
+              <Button size="sm" className="flex items-center gap-2 mt-2">
+                <span>Fix This Bottleneck With AI</span>
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </Link>
@@ -259,28 +291,30 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
       {score > 7 && (
         <div className="mb-10 bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-lg shadow-lg border border-primary/20">
           <div className="text-center space-y-4">
-            <p className="text-primary font-medium">{preHeadline}</p>
-            <h3 className="text-2xl md:text-3xl font-bold">{headline}</h3>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">{subHeadline}</p>
+            <p className="text-primary font-medium">Ready to Fix the Bottlenecks Holding You Back?</p>
+            <h3 className="text-2xl md:text-3xl font-bold">Join the AI Workshop to Build a Business That Scales Without You</h3>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Map your highest-leverage automations and replace manual systems with AI that works 24/7.
+            </p>
             
             <div className="mt-6 mb-4">
               <Link to="/ai-readiness-workshop">
                 <Button 
                   size="lg" 
                   className="bg-primary hover:bg-primary/90 text-white text-lg px-8 transform transition-transform duration-200 hover:scale-105">
-                  {ctaButton}
+                  Reserve My Spot in the AI Workshop
                 </Button>
               </Link>
             </div>
             
             <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 text-sm">
               <div className="flex items-center text-gray-600">
-                <Star className="h-4 w-4 text-yellow-500 mr-1" />
-                <span>Trusted by 200+ CEOs</span>
+                <Zap className="h-4 w-4 text-yellow-500 mr-1" />
+                <span>200+ CEOs have used this system</span>
               </div>
               <div className="flex items-center text-gray-600">
                 <Clock className="h-4 w-4 text-primary mr-1" />
-                <span>Only 7 seats left this week</span>
+                <span>Only 7 founder seats left this month</span>
               </div>
             </div>
           </div>
