@@ -37,7 +37,7 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
   const scorePercentage = (score / 27) * 100;
   
   // Get dynamic workshop promotion content based on score
-  const { preHeadline, headline, subHeadline } = getWorkshopPromotionContent(score);
+  const { preHeadline, headline, subHeadline, ctaButton } = getWorkshopPromotionContent(score);
   
   return (
     <div className="p-6 bg-white rounded-lg">
@@ -109,7 +109,7 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
         </div>
       </div>
 
-      {/* Dynamic Workshop Promotion Section */}
+      {/* Dynamic Workshop Promotion Section - Enhanced with emotional content */}
       <div className="mb-10 bg-white p-6 rounded-lg shadow-lg border border-gray-100">
         <div className="text-center space-y-4">
           <p className="text-primary font-medium">{preHeadline}</p>
@@ -120,8 +120,8 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
             <Link to="/ai-readiness-workshop">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-white text-lg px-8">
-                Turn My Score Into a Smarter System
+                className="bg-primary hover:bg-primary/90 text-white text-lg px-8 transform transition-transform duration-200 hover:scale-105">
+                {ctaButton}
               </Button>
             </Link>
           </div>

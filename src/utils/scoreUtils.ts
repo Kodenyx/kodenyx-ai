@@ -1,3 +1,4 @@
+
 // Function to calculate the AI readiness score based on form responses
 export function calculateReadinessScore(formData: any): number {
   let totalScore = 0;
@@ -293,36 +294,42 @@ export function getWorkshopPromotionContent(score: number): {
   preHeadline: string;
   headline: string;
   subHeadline: string;
+  ctaButton: string;
 } {
   if (score <= 6) {
     return {
       preHeadline: "You've been doing it all — no wonder it's exhausting.",
       headline: "You're a Do-It-All Founder — Time to Step Out of the Grind",
-      subHeadline: "Your business runs on hustle. Now let's build systems that run without you."
+      subHeadline: "You're stuck in the weeds — still doing what AI could handle. You're losing time, energy, and sanity. The freedom, consistency, and growth you started this business for? You're leaving them on the table every day you wait.",
+      ctaButton: "Break the Bottleneck Now"
     };
   } else if (score <= 13) {
     return {
       preHeadline: "You're building momentum — now let's build leverage.",
       headline: "You're a Process Builder — Let's Turn Chaos Into Clarity",
-      subHeadline: "You've started documenting and delegating. It's time to automate what's repeatable."
+      subHeadline: "You've got the pieces — but you're still the glue. You're bleeding time, bottlenecking ops, and delaying scale. Without automation, you'll keep trading hours for output instead of unlocking freedom, flow, and profitability.",
+      ctaButton: "Systemize Me Smarter"
     };
   } else if (score <= 20) {
     return {
       preHeadline: "You're closer than you think.",
       headline: "You're a System Architect — Now Let's Build Your AI-Powered Machine",
-      subHeadline: "Your foundation is solid. The next step? Replacing yourself in the process so your business runs — and scales — without you."
+      subHeadline: "You've built the machine — but you're still in the driver's seat. That's costing you leverage, peace of mind, and true scalability. AI is the upgrade your business needs to run without you — and grow without more people.",
+      ctaButton: "Plug In the AI Engine"
     };
   } else if (score <= 24) {
     return {
       preHeadline: "You're ahead of the curve.",
       headline: "You're an Automation Leader — Let's Multiply Your Impact",
-      subHeadline: "You've built systems. Now plug in intelligence to unlock exponential scale."
+      subHeadline: "You've systemized — but you're not fully free. The next level of efficiency, innovation, and exponential growth is waiting. Without AI, you're leaving massive ROI, better decisions, and market advantage untapped.",
+      ctaButton: "Multiply My Impact with AI"
     };
   } else {
     return {
       preHeadline: "You're operating at the edge of efficiency.",
       headline: "You're an AI-First Operator — Let's Take It to the Top 1%",
-      subHeadline: "You've mastered automation. Now let's explore custom agents, predictive workflows, and full AI-driven strategy."
+      subHeadline: "You're close to elite. But without AI agents and adaptive workflows, you're missing the final leap — total operational clarity, predictive systems, and a business that scales with zero friction. Small gaps here equal big costs.",
+      ctaButton: "Upgrade Me to Elite"
     };
   }
 }
