@@ -132,20 +132,6 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
           </div>
         </div>
       </div>
-
-      {/* Call to Action */}
-      <div className="text-center bg-secondary/10 py-8 px-6 rounded-lg">
-        <h3 className="text-2xl font-bold mb-4">
-          Ready to turn your score into a smarter, AI-powered business?
-        </h3>
-        <Link to="/ai-readiness-workshop">
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary-dark text-white text-lg px-8">
-            Reserve My Spot in the AI Workshop
-          </Button>
-        </Link>
-      </div>
     </div>
   );
 };
