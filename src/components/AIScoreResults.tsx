@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { 
@@ -11,7 +11,8 @@ import {
 } from "@/utils/scoreUtils";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { ArrowRight, Award, DollarSign, PieChart, Star } from "lucide-react";
+import { ArrowRight, Award, DollarSign, PieChart, Star, Fire, AlertTriangle } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 interface AIScoreResultsProps {
   score: number;
@@ -19,6 +20,7 @@ interface AIScoreResultsProps {
 }
 
 const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
+  const [showAlternatives, setShowAlternatives] = useState(false);
   const { tierName, description } = determineReadinessTier(score);
   const automationPriority = getAutomationPriorityLabel(formData.automationPriority);
   const insights = getReadinessInsights(score);
@@ -34,6 +36,15 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
     maximumFractionDigits: 0
   }).format(costOfInaction);
 
+  const monthlyCost = costOfInaction / 12;
+  const formattedMonthlyCost = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0
+  }).format(monthlyCost);
+
+  const potentialHires = Math.round(costOfInaction / 110000);
+  
   const scorePercentage = (score / 27) * 100;
   
   // Get dynamic workshop promotion content based on score
@@ -53,7 +64,7 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
       </div>
 
       {/* Results Section */}
-      <div className="grid md:grid-cols-3 gap-6 mb-10">
+      <div className="grid md:grid-cols-2 gap-6 mb-10">
         {/* Readiness Score */}
         <Card className="bg-white shadow-md">
           <CardHeader>
@@ -82,21 +93,52 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
             <p className="text-lg">{automationPriority}</p>
           </CardContent>
         </Card>
+      </div>
 
-        {/* Cost of Inaction */}
-        <Card className="bg-white shadow-md">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <DollarSign className="text-primary h-5 w-5" /> Cost of Inaction
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-lg">
-              Your current manual workload is costing you approximately{" "}
-              <strong className="text-destructive">{formattedCostOfInaction}</strong> per year.
-            </p>
-          </CardContent>
-        </Card>
+      {/* Redesigned Cost of Inaction Card */}
+      <div className="mb-10">
+        <div className="bg-[#FFF3F0] border-l-4 border-destructive rounded-lg shadow-md overflow-hidden">
+          <div className="p-6">
+            <div className="flex items-center mb-3">
+              <Fire className="h-6 w-6 text-destructive mr-2 animate-pulse" />
+              <h3 className="text-2xl font-bold text-gray-800">Cost of Inaction</h3>
+            </div>
+            
+            <div className="mb-4">
+              <p className="text-lg font-medium mb-2">
+                You're bleeding <span className="text-4xl md:text-5xl font-bold text-destructive animate-[pulse_3s_ease-in-out_infinite]">{formattedCostOfInaction}</span><span className="text-gray-700">/year</span> by doing this manually.
+              </p>
+              <p className="text-gray-700 mb-3">
+                That's more than {potentialHires} full-time {potentialHires === 1 ? 'hire' : 'hires'} — or 10x what automation would cost you.
+              </p>
+              <p className="text-gray-800 font-medium">
+                Every month you delay? Another <span className="font-bold text-destructive">{formattedMonthlyCost}</span> walks out the door.
+              </p>
+            </div>
+
+            <div className="mt-4">
+              <Button 
+                variant="outline" 
+                className="text-sm hover:bg-destructive/10 border-destructive/30 text-gray-700"
+                onClick={() => setShowAlternatives(!showAlternatives)}
+              >
+                {showAlternatives ? "Hide Alternatives" : "What You Could Do Instead →"}
+              </Button>
+            </div>
+
+            {showAlternatives && (
+              <div className="mt-4 p-4 bg-white/50 rounded-md border border-gray-200 animate-fade-in">
+                <h4 className="font-medium text-gray-800 mb-2">Instead of wasting {formattedCostOfInaction}, you could:</h4>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Hire {potentialHires} new team {potentialHires === 1 ? 'member' : 'members'} to drive growth</li>
+                  <li>Launch {Math.round(costOfInaction / 20000)} new marketing campaigns</li>
+                  <li>Take back your nights and weekends</li>
+                  <li>Invest in {Math.floor(costOfInaction / 100000)} new product {Math.floor(costOfInaction / 100000) === 1 ? 'line' : 'lines'}</li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
 
       {/* What Your Score Means - Dynamic Insights Section */}
