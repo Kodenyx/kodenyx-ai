@@ -31,8 +31,8 @@ const AIScoreResultsPage = () => {
         <div className="container mx-auto py-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-6">
-              <h1 className="text-3xl md:text-4xl font-bold mb-2">Let's Decode Your Score — And Turn It Into Leverage.</h1>
-              <p className="text-gray-600">Your personalized path to leveraging AI in your business</p>
+              <h1 className="text-3xl md:text-4xl font-bold mb-2">Results Are In!</h1>
+              <p className="text-gray-600">Let's Decode Your Score — And Turn It Into Leverage.</p>
             </div>
             <div className="bg-white shadow-lg rounded-lg border border-gray-200">
               <AIScoreResults score={score} formData={formData} />
