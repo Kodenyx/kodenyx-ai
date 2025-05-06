@@ -136,11 +136,11 @@ const AIReadinessWorkshop = () => {
               Claim My Spot — Limited Seats Available <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             
-            {/* Trust Row */}
+            {/* Trust Row with Updated Number: 50+ → 100+ */}
             <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-300 animate-fade-in" style={{ animationDelay: "300ms" }}>
               <div className="flex items-center justify-center gap-2">
                 <CheckCircle className="h-5 w-5 text-primary-light" />
-                <span>Trusted by 50+ founders across B2B and service businesses</span>
+                <span>Trusted by 100+ founders across B2B and service businesses</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <CheckCircle className="h-5 w-5 text-primary-light" />
