@@ -111,16 +111,19 @@ const AIReadinessWorkshop = () => {
     <div className="flex flex-col min-h-screen">
       <SimpleNavbar />
       
-      {/* Updated Hero Section */}
+      {/* Updated Hero Section with modified heading */}
       <section className="pt-20 px-4 bg-gradient-to-br from-secondary to-secondary/95 text-white">
         <div className="container mx-auto py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <p className="uppercase tracking-wider text-sm font-medium text-primary-light mb-3 animate-fade-in">
               Feeling Behind on AI? You're Not Alone.
             </p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight animate-fade-in">
-              AI Readiness Workshop: Cut Through the Noise and Find Your First 3 AI Wins
+            <h1 className="text-4xl md:text-5xl font-bold mb-2 leading-tight animate-fade-in">
+              AI Readiness Workshop
             </h1>
+            <p className="text-2xl md:text-3xl font-semibold text-primary-light mb-6 animate-fade-in">
+              Cut Through the Noise and Find Your First 3 AI Wins
+            </p>
             <p className="text-lg text-gray-300 mb-8 mx-auto max-w-2xl animate-fade-in" style={{ animationDelay: "100ms" }}>
               In just 90 minutes, you'll walk away with clarity, confidence, and a personalized AI game plan — no tech skills required, no hype, just real applications that can save time, cut costs, and future-proof your business in 2025.
             </p>
