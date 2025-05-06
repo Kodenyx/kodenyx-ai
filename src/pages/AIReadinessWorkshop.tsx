@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -298,7 +299,7 @@ const AIReadinessWorkshop = () => {
                 90 minutes. No tech skills required. Just clarity.
               </p>
               <div className="mt-4 inline-block px-4 py-2 bg-primary/20 rounded-lg text-white">
-                <span className="font-semibold">Workshop Fee:</span> $99
+                <span className="font-semibold">Workshop Fee:</span> $397
               </div>
             </div>
             

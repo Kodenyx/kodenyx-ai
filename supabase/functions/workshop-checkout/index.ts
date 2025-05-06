@@ -62,7 +62,7 @@ serve(async (req) => {
               name: "AI Readiness Workshop",
               description: "90-minute workshop to find your first 3 AI wins",
             },
-            unit_amount: 9900, // $99.00 in cents
+            unit_amount: 39700, // $397.00 in cents
           },
           quantity: 1,
         },
