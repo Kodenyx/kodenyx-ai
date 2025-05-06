@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import SimpleNavbar from "@/components/SimpleNavbar";
-import { Check, Calendar } from "lucide-react";
+import { Check, Calendar, CheckCircle, ArrowRight } from "lucide-react";
 
 const AIReadinessWorkshop = () => {
   const { toast } = useToast();
@@ -61,29 +61,46 @@ const AIReadinessWorkshop = () => {
     <div className="flex flex-col min-h-screen">
       <SimpleNavbar />
       
-      {/* Hero Section */}
+      {/* Updated Hero Section */}
       <section className="pt-20 px-4 bg-gradient-to-br from-secondary to-secondary/95 text-white">
         <div className="container mx-auto py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center">
+            <p className="uppercase tracking-wider text-sm font-medium text-primary-light mb-3 animate-fade-in">
+              Feeling Behind on AI? You're Not Alone.
+            </p>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight animate-fade-in">
-              AI Readiness Workshop: 
-              <br />
-              Discover Where AI Fits in Your Business
+              AI Readiness Workshop: Cut Through the Noise and Find Your First 3 AI Wins
             </h1>
-            <p className="text-xl text-gray-300 mb-8 animate-fade-in" style={{ animationDelay: "100ms" }}>
-              In 90 minutes, get clarity on where to start with AI, what's possible (without the hype), and how to prepare your business to scale smarter in 2025.
+            <p className="text-lg text-gray-300 mb-8 mx-auto max-w-2xl animate-fade-in" style={{ animationDelay: "100ms" }}>
+              In just 90 minutes, you'll walk away with clarity, confidence, and a personalized AI game plan — no tech skills required, no hype, just real applications that can save time, cut costs, and future-proof your business in 2025.
             </p>
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary-dark text-white text-lg px-8 animate-fade-in"
+              className="bg-primary hover:bg-primary/90 text-white text-lg px-10 py-6 transition-all duration-300 animate-fade-in hover:shadow-lg hover:scale-[1.02]"
               style={{ animationDelay: "200ms" }}
               onClick={() => {
                 const element = document.getElementById('register');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              <Calendar className="mr-2 h-5 w-5" /> Reserve Your Spot
+              Claim My Spot — Limited Seats Available <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
+            
+            {/* Trust Row */}
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-300 animate-fade-in" style={{ animationDelay: "300ms" }}>
+              <div className="flex items-center justify-center gap-2">
+                <CheckCircle className="h-5 w-5 text-primary-light" />
+                <span>Trusted by 50+ founders across B2B and service businesses</span>
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                <CheckCircle className="h-5 w-5 text-primary-light" />
+                <span>As featured in <em>U.S. Insider</em> & <em>BoredSci</em></span>
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                <CheckCircle className="h-5 w-5 text-primary-light" />
+                <span>"This was the most clarity I've had on AI in months."</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -313,4 +330,3 @@ const AIReadinessWorkshop = () => {
 };
 
 export default AIReadinessWorkshop;
-
