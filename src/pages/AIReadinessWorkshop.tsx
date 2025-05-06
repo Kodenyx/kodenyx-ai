@@ -1,11 +1,11 @@
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Check, Calendar, CheckCircle, ArrowRight } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 const AIReadinessWorkshop = () => {
   const { toast } = useToast();
@@ -14,37 +14,87 @@ const AIReadinessWorkshop = () => {
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [isRegistered, setIsRegistered] = useState(false);
+  const location = useLocation();
+
+  // Process URL parameters when the page loads (for Stripe redirect)
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const success = queryParams.get("success");
+    const sessionId = queryParams.get("session_id");
+    
+    if (success === "true" && sessionId) {
+      // Complete registration after successful payment
+      completeRegistration(sessionId);
+    } else if (success === "true") {
+      // Handle success without session ID (unlikely but possible)
+      toast({
+        title: "Payment successful!",
+        description: "Your registration is being processed.",
+      });
+    } else if (queryParams.get("canceled") === "true") {
+      toast({
+        title: "Registration canceled",
+        description: "You can try again when you're ready.",
+        variant: "destructive",
+      });
+    }
+  }, [location.search]);
+
+  // Complete registration after Stripe checkout
+  const completeRegistration = async (sessionId) => {
+    try {
+      setIsLoading(true);
+      
+      const { data, error } = await supabase.functions.invoke('workshop-registration', {
+        body: { sessionId },
+      });
+      
+      if (error) {
+        throw new Error(error.message || 'Error completing workshop registration');
+      }
+
+      toast({
+        title: "Registration successful!",
+        description: "We've reserved your spot for the AI Readiness Workshop. Check your email for details.",
+      });
+
+      setIsRegistered(true);
+    } catch (error) {
+      console.error('Registration completion error:', error);
+      toast({
+        title: "Something went wrong",
+        description: error.message || "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      console.log('Submitting registration:', { name, email, company });
+      console.log('Starting registration process for:', { name, email, company });
       
-      // Use the Supabase client to invoke the edge function
-      const { data, error } = await supabase.functions.invoke('workshop-registration', {
+      // Use the Stripe checkout function to create a checkout session
+      const { data, error } = await supabase.functions.invoke('workshop-checkout', {
         body: { name, email, company },
       });
       
-      console.log('Response:', data, error);
+      console.log('Checkout response:', data, error);
 
       if (error) {
-        throw new Error(error.message || 'Error registering for workshop');
+        throw new Error(error.message || 'Error creating checkout session');
       }
 
-      toast({
-        title: "Registration successful!",
-        description: "We've reserved your spot for the AI Readiness Workshop.",
-      });
-
-      // Show the registration success state
-      setIsRegistered(true);
-
-      // Reset form
-      setName("");
-      setEmail("");
-      setCompany("");
+      if (data.url) {
+        // Redirect to Stripe checkout
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL returned');
+      }
     } catch (error: any) {
       console.error('Detailed error:', error);
       toast({
@@ -52,7 +102,6 @@ const AIReadinessWorkshop = () => {
         description: error.message || "Please try again later.",
         variant: "destructive",
       });
-    } finally {
       setIsLoading(false);
     }
   };
@@ -248,6 +297,9 @@ const AIReadinessWorkshop = () => {
               <p className="text-xl text-gray-300 mt-4">
                 90 minutes. No tech skills required. Just clarity.
               </p>
+              <div className="mt-4 inline-block px-4 py-2 bg-primary/20 rounded-lg text-white">
+                <span className="font-semibold">Workshop Fee:</span> $99
+              </div>
             </div>
             
             {!isRegistered ? (
@@ -295,13 +347,13 @@ const AIReadinessWorkshop = () => {
                   </div>
                   <Button 
                     type="submit" 
-                    className="w-full bg-primary hover:bg-primary-dark text-white font-medium text-lg"
+                    className="w-full bg-primary hover:bg-primary-dark text-white font-medium text-lg py-6"
                     disabled={isLoading}
                   >
-                    {isLoading ? "Reserving..." : "Reserve My Spot"}
+                    {isLoading ? "Processing..." : "Secure My Spot - Pay Now"}
                   </Button>
                   <p className="text-xs text-gray-500 text-center">
-                    You'll receive workshop details via email. We respect your privacy.
+                    Secure transaction. You'll be taken to Stripe to complete your payment.
                   </p>
                 </form>
               </div>

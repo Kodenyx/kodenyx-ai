@@ -1,1 +1,8 @@
+
 project_id = "rnnyqyevlecouudctifl"
+
+[functions.workshop-checkout]
+verify_jwt = false
+
+[functions.workshop-registration]
+verify_jwt = false
