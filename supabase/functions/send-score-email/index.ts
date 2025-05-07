@@ -1,4 +1,3 @@
-
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
@@ -32,45 +31,70 @@ serve(async (req) => {
     // Calculate potential savings
     const potentialSavings = calculatePotentialSavings(formData);
 
-    const emailResponse = await resend.emails.send({
+    // HTML email content - same for both recipients
+    const htmlContent = `
+      <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+        <h1 style="color: #6941C6; text-align: center;">Your AI Readiness Score: ${score}/100</h1>
+        <div style="text-align: center; padding: 20px; background-color: #f9f5ff; border-radius: 8px; margin-bottom: 20px;">
+          <h2 style="margin: 0; color: #6941C6;">Your Level: ${scoreLevel}</h2>
+        </div>
+        
+        <h3 style="color: #333;">Business Insights</h3>
+        <div style="padding: 15px; background-color: #f5f5f5; border-radius: 8px; margin-bottom: 20px;">
+          ${businessInsights}
+        </div>
+        
+        <h3 style="color: #333;">Potential Time & Cost Savings</h3>
+        <div style="padding: 15px; background-color: #f5f5f5; border-radius: 8px; margin-bottom: 20px;">
+          <p>${potentialSavings}</p>
+        </div>
+        
+        <h3 style="color: #6941C6;">Next Steps</h3>
+        <p>Book a free consultation to discuss how you can implement AI in your business:</p>
+        <div style="text-align: center; margin: 25px 0;">
+          <a href="https://cal.com/aarti-anand82" style="background-color: #6941C6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold;">Book a Call</a>
+        </div>
+        
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+        <p style="color: #777; font-size: 14px; text-align: center;">
+          This is an automated email sent from the AI Readiness Score assessment.
+        </p>
+      </div>
+    `;
+
+    // Send email to the user who submitted the form
+    const userEmailResponse = await resend.emails.send({
       from: "AI Readiness Score <onboarding@resend.dev>",
       to: [formData.email],
       subject: `Your AI Readiness Score: ${score}/100 (${scoreLevel})`,
+      html: htmlContent,
+    });
+
+    console.log("Email sent to user:", userEmailResponse);
+
+    // Send a copy to a.anand@kodenyx.com with additional info in the subject
+    const adminEmailResponse = await resend.emails.send({
+      from: "AI Readiness Score <onboarding@resend.dev>",
+      to: ["a.anand@kodenyx.com"],
+      subject: `[COPY] AI Readiness Score for ${formData.fullName}: ${score}/100 (${scoreLevel})`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-          <h1 style="color: #6941C6; text-align: center;">Your AI Readiness Score: ${score}/100</h1>
-          <div style="text-align: center; padding: 20px; background-color: #f9f5ff; border-radius: 8px; margin-bottom: 20px;">
-            <h2 style="margin: 0; color: #6941C6;">Your Level: ${scoreLevel}</h2>
-          </div>
-          
-          <h3 style="color: #333;">Business Insights</h3>
-          <div style="padding: 15px; background-color: #f5f5f5; border-radius: 8px; margin-bottom: 20px;">
-            ${businessInsights}
-          </div>
-          
-          <h3 style="color: #333;">Potential Time & Cost Savings</h3>
-          <div style="padding: 15px; background-color: #f5f5f5; border-radius: 8px; margin-bottom: 20px;">
-            <p>${potentialSavings}</p>
-          </div>
-          
-          <h3 style="color: #6941C6;">Next Steps</h3>
-          <p>Book a free consultation to discuss how you can implement AI in your business:</p>
-          <div style="text-align: center; margin: 25px 0;">
-            <a href="https://cal.com/aarti-anand82" style="background-color: #6941C6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold;">Book a Call</a>
-          </div>
-          
-          <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
-          <p style="color: #777; font-size: 14px; text-align: center;">
-            This is an automated email sent from the AI Readiness Score assessment.
-          </p>
+          <h2 style="color: #6941C6;">New AI Readiness Assessment Submission</h2>
+          <p><strong>Name:</strong> ${formData.fullName}</p>
+          <p><strong>Email:</strong> ${formData.email}</p>
+          <p><strong>LinkedIn:</strong> ${formData.linkedin || 'Not provided'}</p>
+          <p><strong>Business Type:</strong> ${formData.businessType}</p>
+          <p><strong>Team Size:</strong> ${formData.teamSize}</p>
+          <hr style="margin: 20px 0;">
+          ${htmlContent}
         </div>
       `,
     });
 
-    console.log("Email sent successfully:", emailResponse);
+    console.log("Copy email sent to admin:", adminEmailResponse);
 
     return new Response(
-      JSON.stringify({ success: true, message: "Email sent successfully" }),
+      JSON.stringify({ success: true, message: "Emails sent successfully" }),
       {
         status: 200,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
