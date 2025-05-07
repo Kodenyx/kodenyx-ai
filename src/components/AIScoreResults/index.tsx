@@ -8,6 +8,7 @@ import AutomationOpportunityBlock from "./AutomationOpportunityBlock";
 import CtaBlock from "./CtaBlock";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { calculateCostOfInaction } from "@/utils/scoreUtils";
 
 interface AIScoreResultsProps {
   score: number;
@@ -18,6 +19,9 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
   const [isSending, setIsSending] = useState<boolean>(false);
   const { toast } = useToast();
   
+  // Calculate cost of inaction 
+  const costOfInaction = calculateCostOfInaction(formData.manualHours || "11-20", formData.hourlyValue || "skip");
+
   // Automatically store data in database when the component mounts
   useEffect(() => {
     const storeInDatabase = async () => {
@@ -26,7 +30,8 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
         const { data, error } = await supabase.functions.invoke('send-to-sheets', {
           body: { 
             score, 
-            formData
+            formData,
+            costOfInaction
           }
         });
 
@@ -54,7 +59,7 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
 
     // Call the function to store data automatically
     storeInDatabase();
-  }, [score, formData, toast]);
+  }, [score, formData, toast, costOfInaction]);
 
   return (
     <div className="p-4 md:p-8">
