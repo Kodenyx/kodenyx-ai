@@ -18,27 +18,23 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
   const [isSending, setIsSending] = useState<boolean>(false);
   const { toast } = useToast();
   
-  // Automatically send data to Google Sheets when the component mounts
+  // Automatically send data to webhook when the component mounts
   useEffect(() => {
-    const sendToGoogleSheets = async () => {
-      // Define a default webhook URL - this should be your main webhook URL that all results go to
-      const defaultWebhookUrl = "https://YOUR_DEFAULT_WEBHOOK_URL"; 
-      
+    const sendToWebhook = async () => {
       setIsSending(true);
       try {
         const { data, error } = await supabase.functions.invoke('send-to-sheets', {
           body: { 
             score, 
-            formData,
-            webhookUrl: defaultWebhookUrl
+            formData
           }
         });
 
         if (error) throw error;
         
-        console.log("Score data automatically sent to Google Sheets");
+        console.log("Score data automatically sent to webhook");
       } catch (error) {
-        console.error("Error sending to Google Sheets:", error);
+        console.error("Error sending to webhook:", error);
         // We don't show errors to the user since this is happening behind the scenes
       } finally {
         setIsSending(false);
@@ -46,7 +42,7 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
     };
 
     // Call the function to send data automatically
-    sendToGoogleSheets();
+    sendToWebhook();
   }, [score, formData]);
 
   return (

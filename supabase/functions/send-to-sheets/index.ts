@@ -6,8 +6,8 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-// Default webhook URL - replace this with your permanent webhook URL
-const DEFAULT_WEBHOOK_URL = "https://YOUR_DEFAULT_WEBHOOK_URL";
+// Your permanent webhook URL
+const DEFAULT_WEBHOOK_URL = "https://hook.us2.make.com/8ovy5wglhi3388o9pd87id43j9vmevot";
 
 serve(async (req) => {
   // Handle CORS preflight requests
