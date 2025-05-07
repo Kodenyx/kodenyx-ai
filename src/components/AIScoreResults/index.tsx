@@ -6,7 +6,6 @@ import CostOfInactionBlock from "./CostOfInactionBlock";
 import InsightsBlock from "./InsightsBlock";
 import AutomationOpportunityBlock from "./AutomationOpportunityBlock";
 import CtaBlock from "./CtaBlock";
-import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { calculateCostOfInaction } from "@/utils/scoreUtils";
 
@@ -17,7 +16,6 @@ interface AIScoreResultsProps {
 
 const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
   const [isSending, setIsSending] = useState<boolean>(false);
-  const { toast } = useToast();
   
   // Calculate cost of inaction 
   const costOfInaction = calculateCostOfInaction(formData.manualHours || "11-20", formData.hourlyValue || "skip");
@@ -39,19 +37,8 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
         
         console.log("Score data successfully stored in database");
         
-        toast({
-          title: "Data saved",
-          description: "Your results have been securely stored",
-          variant: "default"
-        });
       } catch (error) {
         console.error("Error storing data:", error);
-        
-        toast({
-          title: "Storage error",
-          description: "There was an issue saving your results, but you can still view them here",
-          variant: "destructive"
-        });
       } finally {
         setIsSending(false);
       }
@@ -59,7 +46,7 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
 
     // Call the function to store data automatically
     storeInDatabase();
-  }, [score, formData, toast, costOfInaction]);
+  }, [score, formData, costOfInaction]);
 
   return (
     <div className="p-4 md:p-8">
