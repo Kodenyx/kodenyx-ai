@@ -6,7 +6,6 @@ import CostOfInactionBlock from "./CostOfInactionBlock";
 import InsightsBlock from "./InsightsBlock";
 import AutomationOpportunityBlock from "./AutomationOpportunityBlock";
 import CtaBlock from "./CtaBlock";
-import FeedbackBlock from "./FeedbackBlock";
 
 interface AIScoreResultsProps {
   score: number;
@@ -36,9 +35,6 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
       <AutomationOpportunityBlock 
         automationPriority={formData.automationPriority || "lead-nurture"} 
       />
-      
-      {/* Feedback Block */}
-      <FeedbackBlock />
       
       {/* Call to Action Block */}
       <CtaBlock score={score} />
