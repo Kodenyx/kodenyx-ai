@@ -11,102 +11,66 @@ export type Database = {
     Tables: {
       ai_score_results: {
         Row: {
-          ai_comfort: string | null
           ai_comfort_label: string | null
-          automation_priority: string | null
           automation_priority_label: string | null
-          business_type: string | null
           business_type_label: string | null
           cost_of_inaction: number | null
           created_at: string
-          current_use: string | null
           current_use_label: string | null
           email: string | null
           full_name: string | null
-          hourly_value: string | null
           hourly_value_label: string | null
           id: string
-          lead_handling: string | null
           lead_handling_label: string | null
           linkedin: string | null
-          manual_areas: string[] | null
           manual_areas_labels: string[] | null
-          manual_hours: string | null
           manual_hours_label: string | null
-          repetitive_tasks: string | null
           repetitive_tasks_label: string | null
           score: number
-          sop_approach: string | null
           sop_approach_label: string | null
-          team_size: string | null
           team_size_label: string | null
-          time_owner: string | null
           time_owner_label: string | null
         }
         Insert: {
-          ai_comfort?: string | null
           ai_comfort_label?: string | null
-          automation_priority?: string | null
           automation_priority_label?: string | null
-          business_type?: string | null
           business_type_label?: string | null
           cost_of_inaction?: number | null
           created_at?: string
-          current_use?: string | null
           current_use_label?: string | null
           email?: string | null
           full_name?: string | null
-          hourly_value?: string | null
           hourly_value_label?: string | null
           id?: string
-          lead_handling?: string | null
           lead_handling_label?: string | null
           linkedin?: string | null
-          manual_areas?: string[] | null
           manual_areas_labels?: string[] | null
-          manual_hours?: string | null
           manual_hours_label?: string | null
-          repetitive_tasks?: string | null
           repetitive_tasks_label?: string | null
           score: number
-          sop_approach?: string | null
           sop_approach_label?: string | null
-          team_size?: string | null
           team_size_label?: string | null
-          time_owner?: string | null
           time_owner_label?: string | null
         }
         Update: {
-          ai_comfort?: string | null
           ai_comfort_label?: string | null
-          automation_priority?: string | null
           automation_priority_label?: string | null
-          business_type?: string | null
           business_type_label?: string | null
           cost_of_inaction?: number | null
           created_at?: string
-          current_use?: string | null
           current_use_label?: string | null
           email?: string | null
           full_name?: string | null
-          hourly_value?: string | null
           hourly_value_label?: string | null
           id?: string
-          lead_handling?: string | null
           lead_handling_label?: string | null
           linkedin?: string | null
-          manual_areas?: string[] | null
           manual_areas_labels?: string[] | null
-          manual_hours?: string | null
           manual_hours_label?: string | null
-          repetitive_tasks?: string | null
           repetitive_tasks_label?: string | null
           score?: number
-          sop_approach?: string | null
           sop_approach_label?: string | null
-          team_size?: string | null
           team_size_label?: string | null
-          time_owner?: string | null
           time_owner_label?: string | null
         }
         Relationships: []
