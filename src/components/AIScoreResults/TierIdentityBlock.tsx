@@ -42,7 +42,7 @@ const TierIdentityBlock: React.FC<TierIdentityBlockProps> = ({ score }) => {
         <Award className="h-10 w-10 text-primary" />
       </div>
       <h1 className="text-3xl md:text-4xl font-bold mb-3">
-        You're a <span className="text-primary">{tierName}</span>
+        You're <span className="text-primary">{tierName}</span>
       </h1>
       <h2 className="text-xl md:text-2xl font-semibold mb-3 text-gray-800">
         {emotionalTruth}
