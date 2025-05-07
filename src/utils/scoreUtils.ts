@@ -1,4 +1,3 @@
-
 // Function to calculate the AI readiness score based on form responses
 export function calculateReadinessScore(formData: any): number {
   let totalScore = 0;
@@ -248,6 +247,66 @@ export function calculateCostOfInaction(manualHours: string, hourlyValue: string
   
   // Calculate annual cost
   return weeklyHours * hourlyRate * 52;
+}
+
+// New function to get dynamic cost messages based on inputs
+export function getDynamicCostMessages(manualHours: string, annualCostOfInaction: number, teamSize: string): {
+  timeMessage: string;
+  costMessage: string;
+  opportunityMessage: string;
+} {
+  // Calculate total manual hours per week
+  const hoursMap: Record<string, number> = {
+    "0-5": 3,
+    "6-10": 8,
+    "11-20": 15,
+    "21-40": 30,
+    "40+": 45
+  };
+  
+  const weeklyHours = hoursMap[manualHours] || 15;
+  
+  // Get team size as number
+  let teamSizeMultiplier = 1;
+  if (teamSize === "small") teamSizeMultiplier = 3; // Average of 2-5
+  else if (teamSize === "medium") teamSizeMultiplier = 13; // Average of 6-20
+  else if (teamSize === "large") teamSizeMultiplier = 30; // 21+ (conservative estimate)
+  
+  const totalManualHoursWeek = weeklyHours * teamSizeMultiplier;
+  
+  // Dynamic time message based on total manual hours per week
+  let timeMessage = "";
+  if (totalManualHoursWeek < 20) {
+    timeMessage = "You're wasting at least a full day a week on tasks a bot could do.";
+  } else if (totalManualHoursWeek < 60) {
+    timeMessage = "You're losing over a workweek every month to repeatable tasks.";
+  } else {
+    timeMessage = "You're burning 60+ hours/week — the equivalent of 1.5 full-time roles.";
+  }
+  
+  // Dynamic cost message based on annual cost of inaction
+  let costMessage = "";
+  if (annualCostOfInaction < 50000) {
+    costMessage = "That's more than the cost of an AI automation system for a year.";
+  } else if (annualCostOfInaction < 100000) {
+    costMessage = "That's equivalent to hiring a full-time team member just to do manual tasks.";
+  } else {
+    costMessage = "That's the salary of an executive — being spent on inefficiency.";
+  }
+  
+  // Dynamic opportunity message based on annual cost of inaction
+  let opportunityMessage = "";
+  if (annualCostOfInaction >= 120000) {
+    opportunityMessage = "You could afford 5 dream vacations or 2 new hires every year with what you're losing.";
+  } else {
+    opportunityMessage = "Imagine what your business could do with that time and money back.";
+  }
+  
+  return {
+    timeMessage,
+    costMessage,
+    opportunityMessage
+  };
 }
 
 // Function to get readiness insights based on score tier

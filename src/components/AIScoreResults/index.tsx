@@ -1,11 +1,11 @@
 
 import React from "react";
-import TierIdentityBlock from "./TierIdentityBlock";
 import ScoreDisplayBlock from "./ScoreDisplayBlock";
-import AutomationOpportunityBlock from "./AutomationOpportunityBlock";
+import TierIdentityBlock from "./TierIdentityBlock";
 import CostOfInactionBlock from "./CostOfInactionBlock";
-import CtaBlock from "./CtaBlock";
 import InsightsBlock from "./InsightsBlock";
+import AutomationOpportunityBlock from "./AutomationOpportunityBlock";
+import CtaBlock from "./CtaBlock";
 import FeedbackBlock from "./FeedbackBlock";
 
 interface AIScoreResultsProps {
@@ -14,61 +14,34 @@ interface AIScoreResultsProps {
 }
 
 const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
-  // Generate insights based on score
-  const getScoreInsights = (score: number) => {
-    if (score < 3) {
-      return [
-        "Your business is in the early stages of AI adoption.",
-        "Manual processes are likely costing you significant time and potential revenue.",
-        "Focus on identifying 1-2 key areas where automation could provide immediate relief."
-      ];
-    } else if (score < 7) {
-      return [
-        "You've made good progress in leveraging some automation.",
-        "There are still significant opportunities to integrate AI more deeply into your operations.",
-        "Consider how AI could transform your customer interactions and internal processes."
-      ];
-    } else {
-      return [
-        "You're well-positioned to leverage AI as a competitive advantage.",
-        "Focus on refining and expanding your current AI implementations.",
-        "Consider creating AI workflows that can operate 24/7 without your direct involvement."
-      ];
-    }
-  };
-  
-  const insights = getScoreInsights(score);
-
   return (
-    <div className="p-6 bg-white rounded-lg">
-      {/* SECTION 1: Tier Identity Block */}
+    <div className="p-4 md:p-8">
+      {/* Score Display */}
+      <ScoreDisplayBlock score={score} />
+      
+      {/* Tier Identity Block */}
       <TierIdentityBlock score={score} />
       
-      {/* Grid Layout for Score and Opportunity Sections */}
-      <div className="grid md:grid-cols-2 gap-6 mb-10">
-        {/* SECTION 2: Enhanced Score Display */}
-        <ScoreDisplayBlock score={score} />
-
-        {/* SECTION 3: Enhanced Top Automation Opportunity */}
-        <AutomationOpportunityBlock 
-          automationPriority={formData.automationPriority} 
-        />
-      </div>
-
-      {/* SECTION 4: Enhanced Cost of Inaction */}
+      {/* Cost of Inaction Block */}
       <CostOfInactionBlock 
-        manualHours={formData.manualHours} 
-        hourlyValue={formData.hourlyValue || "skip"} 
+        manualHours={formData.manualHours || "11-20"} 
+        hourlyValue={formData.hourlyValue || "skip"}
+        teamSize={formData.teamSize}
       />
       
-      {/* SECTION 5: Insights Block */}
-      <InsightsBlock insights={insights} />
+      {/* Insights Block */}
+      <InsightsBlock score={score} />
       
-      {/* SECTION 6: Feedback Block - NEW */}
+      {/* Automation Opportunity Block */}
+      <AutomationOpportunityBlock 
+        automationPriority={formData.automationPriority || "lead-nurture"} 
+      />
+      
+      {/* Feedback Block */}
       <FeedbackBlock />
-
-      {/* SECTION 7: Enhanced CTA Block */}
-      {score > 7 && <CtaBlock />}
+      
+      {/* Call to Action Block */}
+      <CtaBlock score={score} />
     </div>
   );
 };

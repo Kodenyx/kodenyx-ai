@@ -3,16 +3,18 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Flame } from "lucide-react";
-import { calculateCostOfInaction, getCostComparisons } from "@/utils/scoreUtils";
+import { calculateCostOfInaction, getDynamicCostMessages } from "@/utils/scoreUtils";
 
 interface CostOfInactionBlockProps {
   manualHours: string;
   hourlyValue: string;
+  teamSize?: string;
 }
 
 const CostOfInactionBlock: React.FC<CostOfInactionBlockProps> = ({ 
   manualHours, 
-  hourlyValue 
+  hourlyValue,
+  teamSize = "solo" // Default to solo if not provided
 }) => {
   const [showCostBreakdown, setShowCostBreakdown] = useState(true);
   
@@ -33,7 +35,9 @@ const CostOfInactionBlock: React.FC<CostOfInactionBlockProps> = ({
   }).format(monthlyCost);
 
   const potentialHires = Math.round(costOfInaction / 110000);
-  const costComparisons = getCostComparisons(costOfInaction);
+  
+  // Get dynamic cost messages
+  const dynamicMessages = getDynamicCostMessages(manualHours, costOfInaction, teamSize);
 
   return (
     <div className="mb-10">
@@ -75,12 +79,18 @@ const CostOfInactionBlock: React.FC<CostOfInactionBlockProps> = ({
               <CollapsibleContent className="mt-4 bg-white/10 rounded-md p-4 border border-white/10 animate-slide-up">
                 <h4 className="font-semibold text-white mb-3">In real terms, you're losing:</h4>
                 <ul className="space-y-3">
-                  {costComparisons.map((comparison, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <span className="text-xl">{comparison.emoji}</span>
-                      <span className="text-gray-200">{comparison.text}</span>
-                    </li>
-                  ))}
+                  <li className="flex items-start gap-3">
+                    <span className="text-xl">🕒</span>
+                    <span className="text-gray-200">{dynamicMessages.timeMessage}</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-xl">💸</span>
+                    <span className="text-gray-200">{dynamicMessages.costMessage}</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-xl">🎯</span>
+                    <span className="text-gray-200">{dynamicMessages.opportunityMessage}</span>
+                  </li>
                 </ul>
               </CollapsibleContent>
             </Collapsible>
