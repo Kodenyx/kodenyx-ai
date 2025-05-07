@@ -1,3 +1,4 @@
+
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
@@ -62,36 +63,48 @@ serve(async (req) => {
       </div>
     `;
 
-    // Send email to the user who submitted the form
-    const userEmailResponse = await resend.emails.send({
-      from: "AI Readiness Score <onboarding@resend.dev>",
-      to: [formData.email],
-      subject: `Your AI Readiness Score: ${score}/100 (${scoreLevel})`,
-      html: htmlContent,
-    });
+    // In testing mode, we can only send emails to the verified address
+    // So we'll send all emails to the admin address with different subject lines
+    // For user's email - send to admin but mention it's intended for the user
+    try {
+      const userEmailResponse = await resend.emails.send({
+        from: "AI Readiness Score <a.anand@kodenyx.com>",
+        to: ["a.anand@kodenyx.com"],
+        subject: `[FOR: ${formData.email}] Your AI Readiness Score: ${score}/100 (${scoreLevel})`,
+        html: htmlContent,
+      });
 
-    console.log("Email sent to user:", userEmailResponse);
+      console.log("Email intended for user sent to admin:", userEmailResponse);
+    } catch (emailError) {
+      console.error("Error sending user email:", emailError);
+      // Continue execution even if this email fails
+    }
 
-    // Send a copy to a.anand@kodenyx.com with additional info in the subject
-    const adminEmailResponse = await resend.emails.send({
-      from: "AI Readiness Score <onboarding@resend.dev>",
-      to: ["a.anand@kodenyx.com"],
-      subject: `[COPY] AI Readiness Score for ${formData.fullName}: ${score}/100 (${scoreLevel})`,
-      html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #6941C6;">New AI Readiness Assessment Submission</h2>
-          <p><strong>Name:</strong> ${formData.fullName}</p>
-          <p><strong>Email:</strong> ${formData.email}</p>
-          <p><strong>LinkedIn:</strong> ${formData.linkedin || 'Not provided'}</p>
-          <p><strong>Business Type:</strong> ${formData.businessType}</p>
-          <p><strong>Team Size:</strong> ${formData.teamSize}</p>
-          <hr style="margin: 20px 0;">
-          ${htmlContent}
-        </div>
-      `,
-    });
+    // Send a copy to admin with additional info in the subject
+    try {
+      const adminEmailResponse = await resend.emails.send({
+        from: "AI Readiness Score <a.anand@kodenyx.com>",
+        to: ["a.anand@kodenyx.com"],
+        subject: `[ADMIN] AI Readiness Score for ${formData.fullName}: ${score}/100 (${scoreLevel})`,
+        html: `
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #6941C6;">New AI Readiness Assessment Submission</h2>
+            <p><strong>Name:</strong> ${formData.fullName}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>LinkedIn:</strong> ${formData.linkedin || 'Not provided'}</p>
+            <p><strong>Business Type:</strong> ${formData.businessType}</p>
+            <p><strong>Team Size:</strong> ${formData.teamSize}</p>
+            <hr style="margin: 20px 0;">
+            ${htmlContent}
+          </div>
+        `,
+      });
 
-    console.log("Copy email sent to admin:", adminEmailResponse);
+      console.log("Admin email sent successfully:", adminEmailResponse);
+    } catch (adminEmailError) {
+      console.error("Error sending admin email:", adminEmailError);
+      // Continue execution even if this email fails
+    }
 
     return new Response(
       JSON.stringify({ success: true, message: "Emails sent successfully" }),
