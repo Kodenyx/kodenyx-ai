@@ -37,7 +37,7 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
       />
       
       {/* Call to Action Block */}
-      <CtaBlock score={score} />
+      <CtaBlock />
     </div>
   );
 };
