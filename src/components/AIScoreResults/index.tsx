@@ -69,6 +69,8 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
       {/* Automation Opportunity Block */}
       <AutomationOpportunityBlock 
         automationPriority={formData.automationPriority || "lead-nurture"} 
+        industry={formData.industry}
+        teamSize={formData.teamSize}
       />
       
       {/* Call to Action Block */}

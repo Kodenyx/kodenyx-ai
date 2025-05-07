@@ -6,14 +6,62 @@ import { getAutomationPriorityLabel } from "@/utils/scoreUtils";
 
 interface AutomationOpportunityBlockProps {
   automationPriority: string;
+  industry?: string;
+  teamSize?: string;
 }
 
 const AutomationOpportunityBlock: React.FC<AutomationOpportunityBlockProps> = ({ 
-  automationPriority 
+  automationPriority,
+  industry,
+  teamSize
 }) => {
   const priorityLabel = getAutomationPriorityLabel(automationPriority);
 
-  // Automation opportunity contextual line
+  // Get personalized blurb based on industry, automationPriority and teamSize
+  const getPersonalizedBlurb = () => {
+    // Convert team size to a comparable format
+    const isSmallTeam = teamSize === "solo" || teamSize === "small";
+    const isLargeTeam = teamSize === "medium" || teamSize === "large";
+    
+    // Tech/SaaS conditions
+    if (industry === "tech" && automationPriority === "client-onboarding" && isSmallTeam) {
+      return "SaaS teams under 10 waste hours onboarding manually. AI can auto-trigger welcome emails, assign setup tasks, and track adoption — freeing up product and CS time.";
+    }
+    
+    if (industry === "tech" && automationPriority === "customer-support" && isLargeTeam) {
+      return "Larger SaaS companies use AI to auto-resolve Tier 1 support tickets and deflect FAQs — cutting ticket volume by 40% and letting CS focus on revenue-driving conversations.";
+    }
+    
+    // Coaching/Consulting conditions
+    if (industry === "coaching" && automationPriority === "lead-nurture" && isSmallTeam) {
+      return "Solo consultants can't follow up with every lead fast enough. AI handles reminders, drip sequences, and booking nudges — so no warm lead falls through.";
+    }
+    
+    // Real Estate conditions
+    if (industry === "real-estate" && automationPriority === "lead-nurture") {
+      return "Real estate pros lose deals to slow follow-up. AI responds instantly, pre-qualifies leads, and books showings — even while you're out in the field.";
+    }
+    
+    // Healthcare/Wellness conditions
+    if (industry === "healthcare" && automationPriority === "client-onboarding" && isSmallTeam) {
+      return "Small wellness teams are overwhelmed with intake forms and reminders. AI automates patient follow-ups, appointment prep, and handoffs — cutting no-shows and admin time.";
+    }
+    
+    // Professional Services conditions
+    if (industry === "professional-services" && automationPriority === "reporting") {
+      return "Law and finance teams often spend hours prepping client reports. AI pulls data, formats summaries, and delivers updates — no more late nights wrangling numbers.";
+    }
+    
+    // Admin tasks
+    if (automationPriority === "admin") {
+      return "Admin tasks silently eat hours — scheduling, forms, reminders. AI takes those off your plate so your team can focus on higher-leverage work.";
+    }
+    
+    // Default case
+    return "No matter your role or industry, AI can help reclaim hours, reduce friction, and give your team the systems edge to scale smarter — not harder.";
+  };
+
+  // Automation opportunity contextual line - fallback if no personalized blurb applies
   const getOpportunityContext = () => {
     switch (automationPriority) {
       case "lead-nurture":
@@ -44,6 +92,9 @@ const AutomationOpportunityBlock: React.FC<AutomationOpportunityBlockProps> = ({
     }
   };
 
+  // Use the personalized blurb if applicable, otherwise fall back to generic context
+  const contextMessage = getPersonalizedBlurb();
+
   return (
     <Card className="bg-white shadow-md">
       <CardHeader>
@@ -53,7 +104,7 @@ const AutomationOpportunityBlock: React.FC<AutomationOpportunityBlockProps> = ({
       </CardHeader>
       <CardContent>
         <p className="text-lg font-medium mb-2">{priorityLabel}</p>
-        <p className="text-sm text-gray-600 mb-3">{getOpportunityContext()}</p>
+        <p className="text-sm text-gray-600 mb-3">{contextMessage}</p>
         <div className="bg-gray-50 p-3 rounded-md mb-4">
           <div className="flex items-center gap-2 text-sm">
             <Star className="h-4 w-4 text-yellow-500" />
