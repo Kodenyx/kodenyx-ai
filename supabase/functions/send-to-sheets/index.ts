@@ -6,6 +6,9 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
+// Default webhook URL - replace this with your permanent webhook URL
+const DEFAULT_WEBHOOK_URL = "https://YOUR_DEFAULT_WEBHOOK_URL";
+
 serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
@@ -15,8 +18,11 @@ serve(async (req) => {
   try {
     const { score, formData, webhookUrl } = await req.json();
 
-    if (!webhookUrl || !score) {
-      throw new Error("Missing required parameters: webhookUrl and score must be provided");
+    // Use provided webhook URL or fall back to default
+    const targetWebhook = webhookUrl || DEFAULT_WEBHOOK_URL;
+
+    if (!targetWebhook) {
+      throw new Error("Missing webhook URL configuration");
     }
 
     // Format data for webhook
@@ -29,7 +35,7 @@ serve(async (req) => {
     console.log("Sending data to webhook:", payload);
     
     // Send data to the webhook
-    const response = await fetch(webhookUrl, {
+    const response = await fetch(targetWebhook, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
