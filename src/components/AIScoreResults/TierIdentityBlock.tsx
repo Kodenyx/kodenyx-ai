@@ -12,6 +12,24 @@ const TierIdentityBlock: React.FC<TierIdentityBlockProps> = ({ score }) => {
   const { tierName } = determineReadinessTier(score);
   const scorePercentage = Math.round((score / 27) * 100);
   
+  // Calculate time savings percentage based on the user's current tier and the next tier
+  const getTimeSavingsPercentage = (currentTierName: string): string => {
+    switch (currentTierName) {
+      case "The Do-It-All Founder":
+        return "20%"; // Process Builder is next
+      case "The Process Builder":
+        return "30%"; // System Architect is next
+      case "The System Architect":
+        return "40%"; // Automation Leader is next
+      case "The Automation Leader":
+        return "50%"; // AI-First Operator is next
+      case "The AI-First Operator":
+        return "10%"; // Expanded AI Deployment is next
+      default:
+        return "30%";
+    }
+  };
+  
   // Dynamic headline and subheadline based on score
   let emotionalTruth = "";
   let subHeadline = "";
@@ -36,6 +54,9 @@ const TierIdentityBlock: React.FC<TierIdentityBlockProps> = ({ score }) => {
   // Determine if there's a next tier based on score
   const { nextTier, nextTierName } = determineReadinessTier(score);
   
+  // Get time savings percentage for the current tier
+  const timeSavingsPercentage = getTimeSavingsPercentage(tierName);
+  
   return (
     <div className="text-center mb-10 animate-fade-in">
       <div className="inline-block bg-primary/10 p-3 rounded-full mb-4">
@@ -55,7 +76,7 @@ const TierIdentityBlock: React.FC<TierIdentityBlockProps> = ({ score }) => {
             <TrendingUp className="h-4 w-4 text-primary" />
             <span className="font-medium">Up Next: {nextTierName}</span>
             <ChevronRight className="h-4 w-4" />
-            <span className="text-sm text-gray-600">Where founders save 10+ hours/week</span>
+            <span className="text-sm text-gray-600">Where founders save {timeSavingsPercentage} of time/week</span>
           </div>
         </div>
       )}
