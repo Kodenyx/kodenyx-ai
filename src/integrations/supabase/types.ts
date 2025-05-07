@@ -9,6 +9,69 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      ai_score_results: {
+        Row: {
+          ai_comfort: string | null
+          automation_priority: string | null
+          business_type: string | null
+          created_at: string
+          current_use: string | null
+          email: string | null
+          full_name: string | null
+          hourly_value: string | null
+          id: string
+          lead_handling: string | null
+          linkedin: string | null
+          manual_areas: string[] | null
+          manual_hours: string | null
+          repetitive_tasks: string | null
+          score: number
+          sop_approach: string | null
+          team_size: string | null
+          time_owner: string | null
+        }
+        Insert: {
+          ai_comfort?: string | null
+          automation_priority?: string | null
+          business_type?: string | null
+          created_at?: string
+          current_use?: string | null
+          email?: string | null
+          full_name?: string | null
+          hourly_value?: string | null
+          id?: string
+          lead_handling?: string | null
+          linkedin?: string | null
+          manual_areas?: string[] | null
+          manual_hours?: string | null
+          repetitive_tasks?: string | null
+          score: number
+          sop_approach?: string | null
+          team_size?: string | null
+          time_owner?: string | null
+        }
+        Update: {
+          ai_comfort?: string | null
+          automation_priority?: string | null
+          business_type?: string | null
+          created_at?: string
+          current_use?: string | null
+          email?: string | null
+          full_name?: string | null
+          hourly_value?: string | null
+          id?: string
+          lead_handling?: string | null
+          linkedin?: string | null
+          manual_areas?: string[] | null
+          manual_hours?: string | null
+          repetitive_tasks?: string | null
+          score?: number
+          sop_approach?: string | null
+          team_size?: string | null
+          time_owner?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
