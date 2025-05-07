@@ -1,4 +1,3 @@
-
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
@@ -22,9 +21,13 @@ serve(async (req) => {
       throw new Error("Required data missing");
     }
 
-    const scoreLevel = score < 30 ? "Beginner" : score < 60 ? "Intermediate" : "Advanced";
+    // Use the readiness score (which is out of 27 points) to determine the level
+    // We keep this calculation logic here even though we'll use the same value as the score for now
+    const readinessScore = score; // In the future, this could be different from score
+    const scoreLevel = readinessScore < 7 ? "Beginner" : readinessScore < 13 ? "Intermediate" : 
+                       readinessScore < 19 ? "Advanced" : "Expert";
     
-    console.log("Sending email with score data:", { score, email: formData.email });
+    console.log("Sending email with score data:", { readinessScore, email: formData.email });
 
     // Format the business insights based on form data
     const businessInsights = formatBusinessInsights(formData);
@@ -35,7 +38,7 @@ serve(async (req) => {
     // HTML email content - same for both recipients
     const htmlContent = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-        <h1 style="color: #6941C6; text-align: center;">Your AI Readiness Score: ${score}/27</h1>
+        <h1 style="color: #6941C6; text-align: center;">Your AI Readiness Score: ${readinessScore}/27</h1>
         <div style="text-align: center; padding: 20px; background-color: #f9f5ff; border-radius: 8px; margin-bottom: 20px;">
           <h2 style="margin: 0; color: #6941C6;">Your Level: ${scoreLevel}</h2>
         </div>
@@ -70,7 +73,7 @@ serve(async (req) => {
       const userEmailResponse = await resend.emails.send({
         from: "AI Readiness Score <a.anand@kodenyx.com>",
         to: ["a.anand@kodenyx.com"],
-        subject: `[FOR: ${formData.email}] Your AI Readiness Score: ${score}/27 (${scoreLevel})`,
+        subject: `[FOR: ${formData.email}] Your AI Readiness Score: ${readinessScore}/27 (${scoreLevel})`,
         html: htmlContent,
       });
 
@@ -85,7 +88,7 @@ serve(async (req) => {
       const adminEmailResponse = await resend.emails.send({
         from: "AI Readiness Score <a.anand@kodenyx.com>",
         to: ["a.anand@kodenyx.com"],
-        subject: `[ADMIN] AI Readiness Score for ${formData.fullName}: ${score}/27 (${scoreLevel})`,
+        subject: `[ADMIN] AI Readiness Score for ${formData.fullName}: ${readinessScore}/27 (${scoreLevel})`,
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #6941C6;">New AI Readiness Assessment Submission</h2>
