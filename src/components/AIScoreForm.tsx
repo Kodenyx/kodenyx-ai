@@ -25,6 +25,8 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { calculateReadinessScore } from "@/utils/scoreUtils";
 import AIScoreResults from "./AIScoreResults";
+import { supabase } from "@/integrations/supabase/client";
+import { useNavigate } from "react-router-dom";
 
 // Define the form schema for each section
 const contactSchema = z.object({
@@ -152,6 +154,7 @@ type FormSection = "contact" | "readiness" | "results";
 
 const AIScoreForm = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [currentSection, setCurrentSection] = useState<FormSection>("contact");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [scoreData, setScoreData] = useState({
@@ -193,6 +196,26 @@ const AIScoreForm = () => {
     setCurrentSection("readiness");
   });
 
+  // Send score results via email
+  const sendScoreEmail = async (score: number, formData: any) => {
+    try {
+      console.log("Sending score email with data:", { score, email: formData.email });
+      
+      const { data, error } = await supabase.functions.invoke('send-score-email', {
+        body: { score, formData }
+      });
+      
+      if (error) {
+        console.error("Error sending score email:", error);
+        // Don't show error to user since this is a background task
+      } else {
+        console.log("Score email sent successfully:", data);
+      }
+    } catch (err) {
+      console.error("Exception sending score email:", err);
+    }
+  };
+
   const onReadinessSubmit = readinessForm.handleSubmit(async (data) => {
     setIsSubmitting(true);
     // Combine data from both forms
@@ -219,8 +242,19 @@ const AIScoreForm = () => {
         description: "Your AI readiness score has been calculated.",
       });
       
+      // Send score results via email
+      await sendScoreEmail(score, formData);
+
       // Show results section
       setCurrentSection("results");
+      
+      // Also navigate to results page for more persistent storage
+      navigate('/ai-score-results', { 
+        state: { 
+          score,
+          formData
+        }
+      });
       
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -642,6 +676,7 @@ const AIScoreForm = () => {
             
             <p className="text-xs text-center text-gray-500 mt-4">
               See your readiness score, your automation bottlenecks, and what to do next.
+              We'll also email these results to you.
             </p>
           </form>
         </Form>
