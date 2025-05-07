@@ -35,7 +35,7 @@ serve(async (req) => {
     // HTML email content - same for both recipients
     const htmlContent = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-        <h1 style="color: #6941C6; text-align: center;">Your AI Readiness Score: ${score}/100</h1>
+        <h1 style="color: #6941C6; text-align: center;">Your AI Readiness Score: ${score}/27</h1>
         <div style="text-align: center; padding: 20px; background-color: #f9f5ff; border-radius: 8px; margin-bottom: 20px;">
           <h2 style="margin: 0; color: #6941C6;">Your Level: ${scoreLevel}</h2>
         </div>
@@ -70,7 +70,7 @@ serve(async (req) => {
       const userEmailResponse = await resend.emails.send({
         from: "AI Readiness Score <a.anand@kodenyx.com>",
         to: ["a.anand@kodenyx.com"],
-        subject: `[FOR: ${formData.email}] Your AI Readiness Score: ${score}/100 (${scoreLevel})`,
+        subject: `[FOR: ${formData.email}] Your AI Readiness Score: ${score}/27 (${scoreLevel})`,
         html: htmlContent,
       });
 
@@ -85,7 +85,7 @@ serve(async (req) => {
       const adminEmailResponse = await resend.emails.send({
         from: "AI Readiness Score <a.anand@kodenyx.com>",
         to: ["a.anand@kodenyx.com"],
-        subject: `[ADMIN] AI Readiness Score for ${formData.fullName}: ${score}/100 (${scoreLevel})`,
+        subject: `[ADMIN] AI Readiness Score for ${formData.fullName}: ${score}/27 (${scoreLevel})`,
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #6941C6;">New AI Readiness Assessment Submission</h2>

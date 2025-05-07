@@ -25,6 +25,7 @@ export type Database = {
           linkedin: string | null
           manual_areas_labels: string[] | null
           manual_hours_label: string | null
+          readiness_score: number | null
           repetitive_tasks_label: string | null
           score: number
           sop_approach_label: string | null
@@ -46,6 +47,7 @@ export type Database = {
           linkedin?: string | null
           manual_areas_labels?: string[] | null
           manual_hours_label?: string | null
+          readiness_score?: number | null
           repetitive_tasks_label?: string | null
           score: number
           sop_approach_label?: string | null
@@ -67,6 +69,7 @@ export type Database = {
           linkedin?: string | null
           manual_areas_labels?: string[] | null
           manual_hours_label?: string | null
+          readiness_score?: number | null
           repetitive_tasks_label?: string | null
           score?: number
           sop_approach_label?: string | null

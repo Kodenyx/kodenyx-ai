@@ -54,6 +54,7 @@ serve(async (req) => {
       .from('ai_score_results')
       .insert({
         score,
+        readiness_score: score, // Store the score as readiness_score as well
         cost_of_inaction: costOfInaction,
         full_name: formData.fullName,
         email: formData.email,
