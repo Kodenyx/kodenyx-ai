@@ -95,7 +95,7 @@ const Media = () => {
       <SimpleNavbar />
       <div className="container mx-auto pt-24 pb-16 px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Media & Resources</h1>
+          <h1 className="text-4xl font-bold mb-4">Media Coverage</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Explore our collection of blogs, podcasts, and interviews featuring insights on AI-powered lead generation and business growth.
           </p>
