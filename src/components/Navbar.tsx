@@ -61,13 +61,6 @@ const Navbar = () => {
 
         {/* Desktop menu */}
         <div className="hidden md:flex items-center gap-6">
-          <button 
-            onClick={() => handleNavClick('features')} 
-            className="text-gray-300 hover:text-white transition-colors"
-          >
-            Features
-          </button>
-          <a href="#process" className="text-gray-300 hover:text-white transition-colors">How it Works</a>
           <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</a>
           <Link to="/media" className="text-gray-300 hover:text-white transition-colors">
             Media
@@ -113,19 +106,6 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-[72px] left-0 right-0 bg-secondary/95 backdrop-blur-md z-50 py-4 animate-fade-in px-4">
           <div className="flex flex-col gap-4">
-            <button 
-              onClick={() => handleNavClick('features')} 
-              className="text-gray-300 hover:text-white transition-colors py-2 text-left"
-            >
-              Features
-            </button>
-            <a 
-              href="#process" 
-              className="text-gray-300 hover:text-white transition-colors py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              How it Works
-            </a>
             <a 
               href="#testimonials" 
               className="text-gray-300 hover:text-white transition-colors py-2"
