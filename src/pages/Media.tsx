@@ -1,4 +1,3 @@
-
 import React from "react";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,7 +12,8 @@ const mediaPosts = [
     type: "blog",
     date: "April 28, 2025",
     description: "Aarti explains her unique ability to diagnose operational bottlenecks has helped clients add millions in revenue while reclaiming their time.",
-    link: "https://www.thewantrepreneurshow.com/blog/systems-over-hustle-how-aarti-anand-transforms-b2b-operations-with-ai-powered-automation/"
+    link: "https://www.thewantrepreneurshow.com/blog/systems-over-hustle-how-aarti-anand-transforms-b2b-operations-with-ai-powered-automation/",
+    image: "/lovable-uploads/2dbd721e-0e74-4a88-9a8d-db589f858572.png"
   },
   {
     id: 2,
@@ -130,7 +130,16 @@ const Media = () => {
                 </div>
                 <CardDescription>{post.date}</CardDescription>
               </CardHeader>
-              <CardContent className="flex-grow">
+              {post.image && (
+                <div className="px-6">
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="w-full h-48 object-cover rounded-md" 
+                  />
+                </div>
+              )}
+              <CardContent className={`${post.image ? 'pt-4' : ''} flex-grow`}>
                 <p>{post.description}</p>
               </CardContent>
               <CardFooter>
