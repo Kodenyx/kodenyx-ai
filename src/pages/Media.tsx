@@ -23,7 +23,7 @@ const mediaPosts = [
     date: "April 15, 2025",
     description: "Aarti sits down with Rob and Dean and discuss how she helps business owners eliminate bottlenecks and reclaim their time through strategic automation.",
     link: "https://simplybefound.com/ai-automation-can-save-business-from-burnout/",
-    image: "/lovable-uploads/b1e86897-d868-4e15-a424-53e1126a9a89.png"
+    image: "/lovable-uploads/10267656-0ccf-4c0c-a643-7f4a62e5cade.png"
   },
   {
     id: 3,
