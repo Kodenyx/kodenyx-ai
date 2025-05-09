@@ -1,3 +1,4 @@
+
 import React from "react";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -158,7 +159,7 @@ const Media = () => {
           <p className="mb-6 text-muted-foreground max-w-2xl mx-auto">
             If your audience is curious about AI, automation, or building scalable systems without burnout—let's collaborate. We love sharing actionable insights with podcasters, creators, and media platforms.
           </p>
-          <a href="https://cal.com/aarti-anand/interview" target="_blank" rel="noopener noreferrer">
+          <a href="https://cal.com/aarti-anand82/" target="_blank" rel="noopener noreferrer">
             <Button size="lg">
               Book a Guest Interview
             </Button>
