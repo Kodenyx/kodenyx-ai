@@ -45,7 +45,7 @@ const mediaPosts = [
     title: "Scaling Your Business with AI Solutions",
     type: "podcast",
     date: "February 28, 2025",
-    description: "Learn how AI solutions can help scale your business efficiently.",
+    description: "Aarti shares practical wisdom and lived experience offer real-world solutions to the problems most founders face—plus the mindset shifts required to stop running in circles and start flying.",
     link: "https://podcasts.apple.com/us/podcast/ai-automation-mindset-shift-for-founders-aarti-anand/id1568423486?i=1000704279690"
   },
 ];
