@@ -1,3 +1,4 @@
+
 import React from "react";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -39,7 +40,8 @@ const mediaPosts = [
     type: "youtube",
     date: "March 15, 2025",
     description: "Watch this comprehensive guide on implementing AI in your marketing strategy.",
-    link: "https://example.com/youtube/ai-marketing-strategy"
+    link: "https://example.com/youtube/ai-marketing-strategy",
+    image: "/lovable-uploads/d7bcb9bb-a19e-4980-9157-2f0df5e68d2c.png"
   },
   {
     id: 5,
