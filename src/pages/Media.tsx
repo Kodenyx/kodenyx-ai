@@ -17,11 +17,11 @@ const mediaPosts = [
   },
   {
     id: 2,
-    title: "Automating Sales Processes with AI Tools",
+    title: "How AI Automation Can Save Your Business From Burnout",
     type: "blog",
     date: "April 15, 2025",
     description: "Discover the latest AI tools that can automate your sales processes.",
-    link: "https://example.com/blog/automating-sales-processes"
+    link: "https://simplybefound.com/ai-automation-can-save-business-from-burnout/"
   },
   {
     id: 3,
