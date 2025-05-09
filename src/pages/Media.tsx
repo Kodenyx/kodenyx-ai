@@ -1,3 +1,4 @@
+
 import React from "react";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -21,7 +22,8 @@ const mediaPosts = [
     type: "blog",
     date: "April 15, 2025",
     description: "Aarti sits down with Rob and Dean and discuss how she helps business owners eliminate bottlenecks and reclaim their time through strategic automation.",
-    link: "https://simplybefound.com/ai-automation-can-save-business-from-burnout/"
+    link: "https://simplybefound.com/ai-automation-can-save-business-from-burnout/",
+    image: "/lovable-uploads/b1e86897-d868-4e15-a424-53e1126a9a89.png"
   },
   {
     id: 3,
@@ -135,7 +137,7 @@ const Media = () => {
                   <img 
                     src={post.image} 
                     alt={post.title} 
-                    className="w-full h-48 object-cover rounded-md" 
+                    className="w-full h-48 object-contain rounded-md" 
                   />
                 </div>
               )}
