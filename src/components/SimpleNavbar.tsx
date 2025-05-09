@@ -1,6 +1,8 @@
 
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
+import { Button } from "./ui/button";
+import { Home } from "lucide-react";
 
 const SimpleNavbar = () => {
   return (
@@ -9,6 +11,12 @@ const SimpleNavbar = () => {
         <div className="flex items-center justify-between">
           <Link to="/">
             <Logo />
+          </Link>
+          <Link to="/">
+            <Button variant="outline" className="text-gray-300 hover:text-white border-gray-700 hover:border-white">
+              <Home className="mr-2" size={18} />
+              Back to Home
+            </Button>
           </Link>
         </div>
       </div>
