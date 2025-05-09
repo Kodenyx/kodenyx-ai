@@ -1,4 +1,3 @@
-
 import React from "react";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,12 +26,12 @@ const mediaPosts = [
   },
   {
     id: 3,
-    title: "The Future of AI in Business Growth - Podcast Interview",
+    title: "Aarti on Financial Freedom Podcast with Dr. Choo",
     type: "podcast",
     date: "March 30, 2025",
     description: "Listen to our CEO discuss the future of AI in business growth strategies.",
-    link: "https://podcasts.apple.com/us/podcast/how-ai-automation-can-save-your-business-from-burnout/id1772143641?i=1000705679869",
-    image: "/lovable-uploads/b1e86897-d868-4e15-a424-53e1126a9a89.png"
+    link: "https://podcasts.apple.com/us/podcast/ai-automation-mindset-shift-for-founders-aarti-anand/id1568423486?i=1000704279690",
+    image: "/lovable-uploads/506cb0eb-6056-40ee-96c3-1ea7c661ab1a.png"
   },
   {
     id: 4,
