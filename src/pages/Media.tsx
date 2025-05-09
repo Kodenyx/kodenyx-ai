@@ -1,3 +1,4 @@
+
 import React from "react";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -28,7 +29,7 @@ const mediaPosts = [
     type: "podcast",
     date: "March 30, 2025",
     description: "Listen to our CEO discuss the future of AI in business growth strategies.",
-    link: "https://www.youtube.com/watch?v=RNbFKPMkhU4"
+    link: "https://podcasts.apple.com/us/podcast/how-ai-automation-can-save-your-business-from-burnout/id1772143641?i=1000705679869"
   },
   {
     id: 4,
