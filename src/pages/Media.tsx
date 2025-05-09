@@ -1,4 +1,3 @@
-
 import React from "react";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,7 +13,7 @@ const mediaPosts = [
     date: "April 28, 2025",
     description: "Aarti explains her unique ability to diagnose operational bottlenecks has helped clients add millions in revenue while reclaiming their time.",
     link: "https://www.thewantrepreneurshow.com/blog/systems-over-hustle-how-aarti-anand-transforms-b2b-operations-with-ai-powered-automation/",
-    image: "/lovable-uploads/2dbd721e-0e74-4a88-9a8d-db589f858572.png"
+    image: "/lovable-uploads/c331e81e-7bdf-4cc4-9b88-20cf7fb5a532.png"
   },
   {
     id: 2,
