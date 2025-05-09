@@ -12,7 +12,7 @@ const mediaPosts = [
     title: "Systems Over Hustle: How To Transform B2B Operations with AI-Powered Automation",
     type: "blog",
     date: "April 28, 2025",
-    description: "Learn how AI is transforming lead generation for businesses of all sizes.",
+    description: "Aarti explains her unique ability to diagnose operational bottlenecks has helped clients add millions in revenue while reclaiming their time.",
     link: "https://www.thewantrepreneurshow.com/blog/systems-over-hustle-how-aarti-anand-transforms-b2b-operations-with-ai-powered-automation/"
   },
   {
