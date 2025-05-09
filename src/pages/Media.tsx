@@ -29,7 +29,8 @@ const mediaPosts = [
     type: "podcast",
     date: "March 30, 2025",
     description: "Listen to our CEO discuss the future of AI in business growth strategies.",
-    link: "https://podcasts.apple.com/us/podcast/how-ai-automation-can-save-your-business-from-burnout/id1772143641?i=1000705679869"
+    link: "https://podcasts.apple.com/us/podcast/how-ai-automation-can-save-your-business-from-burnout/id1772143641?i=1000705679869",
+    image: "/lovable-uploads/b1e86897-d868-4e15-a424-53e1126a9a89.png"
   },
   {
     id: 4,
@@ -45,7 +46,7 @@ const mediaPosts = [
     type: "podcast",
     date: "February 28, 2025",
     description: "Learn how AI solutions can help scale your business efficiently.",
-    link: "https://example.com/podcast/scaling-with-ai"
+    link: "https://podcasts.apple.com/us/podcast/ai-automation-mindset-shift-for-founders-aarti-anand/id1568423486?i=1000704279690"
   },
 ];
 
