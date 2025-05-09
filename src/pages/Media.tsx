@@ -1,3 +1,4 @@
+
 import React from "react";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -154,13 +155,13 @@ const Media = () => {
         )}
         
         <div className="mt-16 text-center">
-          <h2 className="text-2xl font-bold mb-4">Want to feature Kodenyx AI in your content?</h2>
+          <h2 className="text-2xl font-bold mb-4">Want to Feature Kodenyx AI or Interview Aarti Anand?</h2>
           <p className="mb-6 text-muted-foreground max-w-2xl mx-auto">
-            We're always open to collaboration opportunities with podcasters, bloggers, and content creators.
+            If your audience is curious about AI, automation, or building scalable systems without burnout—let's collaborate. We love sharing actionable insights with podcasters, creators, and media platforms.
           </p>
           <Link to="/contact">
             <Button size="lg">
-              Contact Us
+              Book a Guest Interview
             </Button>
           </Link>
         </div>
