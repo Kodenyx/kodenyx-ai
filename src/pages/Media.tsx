@@ -9,11 +9,11 @@ import { Link } from "react-router-dom";
 const mediaPosts = [
   {
     id: 1,
-    title: "AI-Powered Lead Generation: The Ultimate Guide",
+    title: "Systems Over Hustle: How To Transform B2B Operations with AI-Powered Automation",
     type: "blog",
     date: "April 28, 2025",
     description: "Learn how AI is transforming lead generation for businesses of all sizes.",
-    link: "https://example.com/blog/ai-powered-lead-generation"
+    link: "https://www.thewantrepreneurshow.com/blog/systems-over-hustle-how-aarti-anand-transforms-b2b-operations-with-ai-powered-automation/"
   },
   {
     id: 2,
