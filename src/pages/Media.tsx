@@ -1,3 +1,4 @@
+
 import React from "react";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -135,7 +136,7 @@ const Media = () => {
                   <img 
                     src={post.image} 
                     alt={post.title} 
-                    className="w-full h-48 object-cover rounded-md" 
+                    className="w-full h-48 object-contain rounded-md" 
                   />
                 </div>
               )}
