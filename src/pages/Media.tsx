@@ -1,4 +1,3 @@
-
 import React from "react";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -42,14 +41,6 @@ const mediaPosts = [
     description: "Watch this comprehensive guide on implementing AI in your marketing strategy.",
     link: "https://www.youtube.com/watch?v=dwXucMUztDs",
     image: "/lovable-uploads/d7bcb9bb-a19e-4980-9157-2f0df5e68d2c.png"
-  },
-  {
-    id: 5,
-    title: "Scaling Your Business with AI Solutions",
-    type: "podcast",
-    date: "February 28, 2025",
-    description: "Aarti shares practical wisdom and lived experience offer real-world solutions to the problems most founders face—plus the mindset shifts required to stop running in circles and start flying.",
-    link: "https://podcasts.apple.com/us/podcast/ai-automation-mindset-shift-for-founders-aarti-anand/id1568423486?i=1000704279690"
   },
 ];
 
