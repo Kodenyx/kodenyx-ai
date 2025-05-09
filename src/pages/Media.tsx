@@ -1,4 +1,3 @@
-
 import React from "react";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -20,7 +19,7 @@ const mediaPosts = [
     title: "How AI Automation Can Save Your Business From Burnout",
     type: "blog",
     date: "April 15, 2025",
-    description: "Discover the latest AI tools that can automate your sales processes.",
+    description: "Aarti sits down with Rob and Dean and discuss how she helps business owners eliminate bottlenecks and reclaim their time through strategic automation.",
     link: "https://simplybefound.com/ai-automation-can-save-business-from-burnout/"
   },
   {
