@@ -28,7 +28,7 @@ const mediaPosts = [
     type: "podcast",
     date: "March 30, 2025",
     description: "Listen to our CEO discuss the future of AI in business growth strategies.",
-    link: "https://example.com/podcast/future-of-ai"
+    link: "https://www.youtube.com/watch?v=RNbFKPMkhU4"
   },
   {
     id: 4,
