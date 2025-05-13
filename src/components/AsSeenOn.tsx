@@ -40,7 +40,7 @@ const logos = [
   },
   {
     name: "The Globe and Mail",
-    imageSrc: "/lovable-uploads/1f88e83d-3c0a-4b80-b098-8bbc7806fb33.png"
+    imageSrc: "/lovable-uploads/85a321e4-04e9-4753-84f6-7d4822294311.png"
   },
   {
     name: "Google News",
@@ -48,7 +48,7 @@ const logos = [
   },
   {
     name: "Financial Post",
-    imageSrc: "/lovable-uploads/3904bb70-7006-40a3-b4d4-82e54b2ddc0e.png"
+    imageSrc: "/lovable-uploads/f6af16ea-aece-4e54-ad5b-f8ffe21d5fb9.png"
   },
   {
     name: "MarketWatch",
@@ -64,11 +64,31 @@ const logos = [
   },
   {
     name: "Street Insider",
-    imageSrc: "/lovable-uploads/202cee94-c69b-4c7c-9db8-dda8f49e305e.png"
+    imageSrc: "/lovable-uploads/dc4a69f6-6794-4e40-b6f1-d5e490f30b4f.png"
   },
   {
     name: "Yahoo Finance",
     imageSrc: "/lovable-uploads/dd244f54-851e-4f6b-9149-ce3d1a68e474.png"
+  },
+  {
+    name: "Barchart",
+    imageSrc: "/lovable-uploads/fee9a18d-f273-409f-a9e9-92ca32b1883d.png"
+  },
+  {
+    name: "Benzinga",
+    imageSrc: "/lovable-uploads/9122afee-2b60-4520-bb6b-c828af54cb01.png"
+  },
+  {
+    name: "Business Insider",
+    imageSrc: "/lovable-uploads/234ae182-d2f6-41ca-8b9c-108ae1267081.png"
+  },
+  {
+    name: "Canoe.com",
+    imageSrc: "/lovable-uploads/059d4fb8-49f0-4fb0-9f78-7ef5291376e4.png"
+  },
+  {
+    name: "Dow Jones Factiva",
+    imageSrc: "/lovable-uploads/6ec45d16-0e33-48a0-a746-bb802e4322d8.png"
   }
 ];
 

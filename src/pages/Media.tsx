@@ -62,6 +62,18 @@ const asSeenOnLogos = [
   {
     name: "WSB-TV",
     image: "/lovable-uploads/9f0e91b0-b81e-424c-a5c9-42e5a2650073.png"
+  },
+  {
+    name: "Financial Post",
+    image: "/lovable-uploads/f6af16ea-aece-4e54-ad5b-f8ffe21d5fb9.png"
+  },
+  {
+    name: "Business Insider",
+    image: "/lovable-uploads/234ae182-d2f6-41ca-8b9c-108ae1267081.png"
+  },
+  {
+    name: "The Globe and Mail",
+    image: "/lovable-uploads/85a321e4-04e9-4753-84f6-7d4822294311.png"
   }
 ];
 
