@@ -25,6 +25,26 @@ const logos = [
   {
     name: "WSB-TV",
     imageSrc: "/lovable-uploads/9f0e91b0-b81e-424c-a5c9-42e5a2650073.png"
+  },
+  {
+    name: "CNN",
+    imageSrc: "/lovable-uploads/8d5b5c8b-b152-40ee-8eed-c89b3fcc4829.png"
+  },
+  {
+    name: "Associated Press",
+    imageSrc: "/lovable-uploads/06e680a3-5618-4b93-882e-0d912a4a5e12.png"
+  },
+  {
+    name: "USA Today",
+    imageSrc: "/lovable-uploads/0b47662b-2f6d-493f-a191-2d15c5d62393.png"
+  },
+  {
+    name: "The Globe and Mail",
+    imageSrc: "/lovable-uploads/1f88e83d-3c0a-4b80-b098-8bbc7806fb33.png"
+  },
+  {
+    name: "Google News",
+    imageSrc: "/lovable-uploads/fb49d265-5923-468a-904c-fe770238e153.png"
   }
 ];
 
@@ -98,7 +118,7 @@ const AsSeenOn: React.FC = () => {
                   key={index}
                   className={cn(
                     "pl-2 md:pl-4",
-                    isMobile ? "basis-1/2" : "basis-1/3"
+                    isMobile ? "basis-1/3" : "basis-1/5"
                   )}
                 >
                   <LogoItem name={logo.name} imageSrc={logo.imageSrc} />
