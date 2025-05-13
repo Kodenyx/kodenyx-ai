@@ -1,13 +1,12 @@
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ScoreDisplayBlock from "./ScoreDisplayBlock";
 import TierIdentityBlock from "./TierIdentityBlock";
-import CostOfInactionBlock from "./CostOfInactionBlock";
 import InsightsBlock from "./InsightsBlock";
 import AutomationOpportunityBlock from "./AutomationOpportunityBlock";
+import CostOfInactionBlock from "./CostOfInactionBlock";
+import FeedbackBlock from "./FeedbackBlock";
 import CtaBlock from "./CtaBlock";
-import { supabase } from "@/integrations/supabase/client";
-import { calculateCostOfInaction } from "@/utils/scoreUtils";
 
 interface AIScoreResultsProps {
   score: number;
@@ -15,65 +14,14 @@ interface AIScoreResultsProps {
 }
 
 const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
-  const [isSending, setIsSending] = useState<boolean>(false);
-  
-  // Calculate cost of inaction 
-  const costOfInaction = calculateCostOfInaction(formData.manualHours || "11-20", formData.hourlyValue || "skip");
-
-  // Automatically store data in database when the component mounts
-  useEffect(() => {
-    const storeInDatabase = async () => {
-      setIsSending(true);
-      try {
-        const { data, error } = await supabase.functions.invoke('send-to-sheets', {
-          body: { 
-            score, 
-            formData,
-            costOfInaction
-          }
-        });
-
-        if (error) throw error;
-        
-        console.log("Score data successfully stored in database");
-        
-      } catch (error) {
-        console.error("Error storing data:", error);
-      } finally {
-        setIsSending(false);
-      }
-    };
-
-    // Call the function to store data automatically
-    storeInDatabase();
-  }, [score, formData, costOfInaction]);
-
   return (
-    <div className="p-4 md:p-8">
-      {/* Score Display */}
+    <div className="p-6 md:p-8 space-y-10">
       <ScoreDisplayBlock score={score} />
-      
-      {/* Tier Identity Block */}
       <TierIdentityBlock score={score} />
-      
-      {/* Cost of Inaction Block */}
-      <CostOfInactionBlock 
-        manualHours={formData.manualHours || "11-20"} 
-        hourlyValue={formData.hourlyValue || "skip"}
-        teamSize={formData.teamSize}
-      />
-      
-      {/* Insights Block */}
-      <InsightsBlock score={score} />
-      
-      {/* Automation Opportunity Block */}
-      <AutomationOpportunityBlock 
-        automationPriority={formData.automationPriority || "lead-nurture"} 
-        industry={formData.industry}
-        teamSize={formData.teamSize}
-      />
-      
-      {/* Call to Action Block */}
+      <InsightsBlock score={score} formData={formData} />
+      <AutomationOpportunityBlock score={score} formData={formData} />
+      <CostOfInactionBlock score={score} formData={formData} />
+      <FeedbackBlock />
       <CtaBlock />
     </div>
   );

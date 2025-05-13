@@ -1,7 +1,6 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { Clock, Zap } from "lucide-react";
 
 const CtaBlock: React.FC = () => {
@@ -15,13 +14,17 @@ const CtaBlock: React.FC = () => {
         </p>
         
         <div className="mt-6 mb-4">
-          <Link to="/ai-readiness-workshop">
+          <a 
+            href="/ai-readiness-workshop"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-white text-lg px-8 transform transition-transform duration-200 hover:scale-105">
               Reserve My Spot in the AI Workshop
             </Button>
-          </Link>
+          </a>
         </div>
         
         <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 text-sm">
