@@ -41,37 +41,8 @@ const Hero = () => {
 
           {/* Left side - Brand Text Content Only (logo removed) */}
           <div className="space-y-8 animate-fade-in">
-            {/* Removed logo image here */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              Transform Your Lead Generation with{" "}
-              <span className="text-primary">AI-Powered</span> Automation
-            </h1>
-            <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
-              Stop chasing leads manually. Let our AI agents attract, capture, and nurture your prospects 24/7.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a 
-                href="https://cal.com/aarti-anand82" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto"
-              >
-                <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 w-full sm:w-[200px]">
-                  <PhoneCall className="mr-2 h-5 w-5" /> Book A Call
-                </Button>
-              </a>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-lg border-white text-black bg-white hover:bg-white/90 w-full sm:w-[200px]"
-                onClick={scrollToFeatures}
-              >
-                Learn more
-              </Button>
-            </div>
-
-            {/* As Seen On Section */}
-            <div className="pt-6">
+            {/* As Seen On Section - Moved to the top */}
+            <div className="mb-6">
               <p className="text-sm uppercase tracking-wider text-gray-300 mb-3 font-medium">
                 As Featured In
               </p>
@@ -100,6 +71,35 @@ const Hero = () => {
                   </CarouselContent>
                 </Carousel>
               </div>
+            </div>
+
+            {/* Removed logo image here */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              Transform Your Lead Generation with{" "}
+              <span className="text-primary">AI-Powered</span> Automation
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
+              Stop chasing leads manually. Let our AI agents attract, capture, and nurture your prospects 24/7.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <a 
+                href="https://cal.com/aarti-anand82" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 w-full sm:w-[200px]">
+                  <PhoneCall className="mr-2 h-5 w-5" /> Book A Call
+                </Button>
+              </a>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-lg border-white text-black bg-white hover:bg-white/90 w-full sm:w-[200px]"
+                onClick={scrollToFeatures}
+              >
+                Learn more
+              </Button>
             </div>
           </div>
 
