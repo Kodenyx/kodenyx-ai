@@ -121,7 +121,7 @@ const AsSeenOn: React.FC = () => {
   return (
     <section className="py-8 bg-white">
       <div className="container px-4 mx-auto">
-        <h3 className="text-center text-sm uppercase tracking-wider text-primary/70 mb-6 font-medium">
+        <h3 className="text-center text-lg uppercase tracking-wider text-gray-800 mb-6 font-semibold">
           As Featured In
         </h3>
         
