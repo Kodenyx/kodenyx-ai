@@ -65,13 +65,13 @@ const Navbar = () => {
           <Link to="/media" className="text-gray-300 hover:text-white transition-colors">
             Media
           </Link>
-          <button 
-            onClick={() => handleNavClick('faq')} 
+          <Link 
+            to="/ai-workshop" 
             className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
           >
             <List size={18} />
-            FAQs
-          </button>
+            AI Workshop
+          </Link>
           <a 
             href="/newsletter" 
             target="_blank" 
@@ -120,13 +120,14 @@ const Navbar = () => {
             >
               Media
             </Link>
-            <button 
-              onClick={() => handleNavClick('faq')} 
+            <Link 
+              to="/ai-workshop" 
               className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2 w-full text-left"
+              onClick={() => setIsMenuOpen(false)}
             >
               <List size={18} />
-              FAQs
-            </button>
+              AI Workshop
+            </Link>
             <a 
               href="/newsletter" 
               target="_blank" 
