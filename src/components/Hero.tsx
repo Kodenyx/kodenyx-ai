@@ -1,18 +1,12 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { PhoneCall } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import ContactDialog from "./ContactDialog";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const scrollToFeatures = () => {
-    const featuresSection = document.getElementById('features');
-    if (featuresSection) {
-      featuresSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <div className="pt-24 md:pt-28 min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-secondary to-secondary/95 text-white">
@@ -29,24 +23,14 @@ const Hero = () => {
               Stop chasing leads manually. Let our AI agents attract, capture, and nurture your prospects 24/7.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a 
-                href="https://cal.com/aarti-anand82" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Link 
+                to="/ai-ready-score" 
                 className="w-full sm:w-auto"
               >
-                <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 w-full sm:w-[200px]">
-                  <PhoneCall className="mr-2 h-5 w-5" /> Book A Call
+                <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 w-full sm:w-auto">
+                  <ArrowRight className="mr-2 h-5 w-5" /> Get Instant AI-Ready Score
                 </Button>
-              </a>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-lg border-white text-black bg-white hover:bg-white/90 w-full sm:w-[200px]"
-                onClick={scrollToFeatures}
-              >
-                Learn more
-              </Button>
+              </Link>
             </div>
           </div>
 
