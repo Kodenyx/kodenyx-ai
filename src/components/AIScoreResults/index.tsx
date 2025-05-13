@@ -19,8 +19,18 @@ const AIScoreResults: React.FC<AIScoreResultsProps> = ({ score, formData }) => {
       <ScoreDisplayBlock score={score} />
       <TierIdentityBlock score={score} />
       <InsightsBlock score={score} formData={formData} />
-      <AutomationOpportunityBlock score={score} formData={formData} />
-      <CostOfInactionBlock score={score} formData={formData} />
+      <AutomationOpportunityBlock 
+        automationPriority={formData?.automationPriority || "other"}
+        industry={formData?.industry}
+        teamSize={formData?.teamSize}
+        formData={formData}
+      />
+      <CostOfInactionBlock
+        manualHours={formData?.manualHours}
+        hourlyValue={formData?.hourlyValue}
+        teamSize={formData?.teamSize}
+        formData={formData}
+      />
       <FeedbackBlock />
       <CtaBlock />
     </div>

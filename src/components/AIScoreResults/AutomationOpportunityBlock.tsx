@@ -8,18 +8,26 @@ interface AutomationOpportunityBlockProps {
   automationPriority: string;
   industry?: string;
   teamSize?: string;
+  score?: number; // Added score as an optional prop
+  formData?: any; // Added formData as an optional prop
 }
 
 const AutomationOpportunityBlock: React.FC<AutomationOpportunityBlockProps> = ({ 
   automationPriority,
   industry,
-  teamSize
+  teamSize,
+  formData
 }) => {
-  const priorityLabel = getAutomationPriorityLabel(automationPriority);
+  // If formData exists, extract properties from it
+  const actualAutomationPriority = formData?.automationPriority || automationPriority;
+  const actualIndustry = formData?.industry || industry;
+  const actualTeamSize = formData?.teamSize || teamSize;
+
+  const priorityLabel = getAutomationPriorityLabel(actualAutomationPriority);
   
   // Get personalized content based on automation priority
   const getPersonalizedContent = () => {
-    switch (automationPriority) {
+    switch (actualAutomationPriority) {
       case "lead-nurture":
         return {
           heading: "Lead Nurturing & Follow-Up",
@@ -69,40 +77,40 @@ const AutomationOpportunityBlock: React.FC<AutomationOpportunityBlockProps> = ({
   // Get personalized blurb based on industry, automationPriority and teamSize
   const getPersonalizedBlurb = () => {
     // Convert team size to a comparable format
-    const isSmallTeam = teamSize === "solo" || teamSize === "small";
-    const isLargeTeam = teamSize === "medium" || teamSize === "large";
+    const isSmallTeam = actualTeamSize === "solo" || actualTeamSize === "small";
+    const isLargeTeam = actualTeamSize === "medium" || actualTeamSize === "large";
     
     // Tech/SaaS conditions
-    if (industry === "tech" && automationPriority === "client-onboarding" && isSmallTeam) {
+    if (actualIndustry === "tech" && actualAutomationPriority === "client-onboarding" && isSmallTeam) {
       return "SaaS teams under 10 waste hours onboarding manually. AI can auto-trigger welcome emails, assign setup tasks, and track adoption — freeing up product and CS time.";
     }
     
-    if (industry === "tech" && automationPriority === "customer-support" && isLargeTeam) {
+    if (actualIndustry === "tech" && actualAutomationPriority === "customer-support" && isLargeTeam) {
       return "Larger SaaS companies use AI to auto-resolve Tier 1 support tickets and deflect FAQs — cutting ticket volume by 40% and letting CS focus on revenue-driving conversations.";
     }
     
     // Coaching/Consulting conditions
-    if (industry === "coaching" && automationPriority === "lead-nurture" && isSmallTeam) {
+    if (actualIndustry === "coaching" && actualAutomationPriority === "lead-nurture" && isSmallTeam) {
       return "Solo consultants can't follow up with every lead fast enough. AI handles reminders, drip sequences, and booking nudges — so no warm lead falls through.";
     }
     
     // Real Estate conditions
-    if (industry === "real-estate" && automationPriority === "lead-nurture") {
+    if (actualIndustry === "real-estate" && actualAutomationPriority === "lead-nurture") {
       return "Real estate pros lose deals to slow follow-up. AI responds instantly, pre-qualifies leads, and books showings — even while you're out in the field.";
     }
     
     // Healthcare/Wellness conditions
-    if (industry === "healthcare" && automationPriority === "client-onboarding" && isSmallTeam) {
+    if (actualIndustry === "healthcare" && actualAutomationPriority === "client-onboarding" && isSmallTeam) {
       return "Small wellness teams are overwhelmed with intake forms and reminders. AI automates patient follow-ups, appointment prep, and handoffs — cutting no-shows and admin time.";
     }
     
     // Professional Services conditions
-    if (industry === "professional-services" && automationPriority === "reporting") {
+    if (actualIndustry === "professional-services" && actualAutomationPriority === "reporting") {
       return "Law and finance teams often spend hours prepping client reports. AI pulls data, formats summaries, and delivers updates — no more late nights wrangling numbers.";
     }
     
     // Admin tasks
-    if (automationPriority === "admin") {
+    if (actualAutomationPriority === "admin") {
       return "Admin tasks silently eat hours — scheduling, forms, reminders. AI takes those off your plate so your team can focus on higher-leverage work.";
     }
     

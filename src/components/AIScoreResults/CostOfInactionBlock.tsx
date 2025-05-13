@@ -6,16 +6,24 @@ import { Flame } from "lucide-react";
 import { calculateCostOfInaction, getDynamicCostMessages } from "@/utils/scoreUtils";
 
 interface CostOfInactionBlockProps {
-  manualHours: string;
-  hourlyValue: string;
+  manualHours?: string;
+  hourlyValue?: string;
   teamSize?: string;
+  score?: number; // Added score as an optional prop
+  formData?: any; // Added formData as an optional prop
 }
 
 const CostOfInactionBlock: React.FC<CostOfInactionBlockProps> = ({ 
-  manualHours, 
-  hourlyValue,
-  teamSize = "solo" // Default to solo if not provided
+  manualHours: propManualHours, 
+  hourlyValue: propHourlyValue,
+  teamSize: propTeamSize = "solo", // Default to solo if not provided
+  formData
 }) => {
+  // Extract values from formData if provided
+  const manualHours = formData?.manualHours || propManualHours || "11-20"; // Default value
+  const hourlyValue = formData?.hourlyValue || propHourlyValue || "100-250"; // Default value
+  const teamSize = formData?.teamSize || propTeamSize || "solo"; // Default value
+
   const [showCostBreakdown, setShowCostBreakdown] = useState(true);
   
   // Calculate cost of inaction

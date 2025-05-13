@@ -3,6 +3,7 @@ import React from "react";
 
 interface InsightsBlockProps {
   score: number;
+  formData?: any; // Added formData as an optional prop
 }
 
 const InsightsBlock: React.FC<InsightsBlockProps> = ({ score }) => {
