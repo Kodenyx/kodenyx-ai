@@ -45,6 +45,30 @@ const logos = [
   {
     name: "Google News",
     imageSrc: "/lovable-uploads/fb49d265-5923-468a-904c-fe770238e153.png"
+  },
+  {
+    name: "Financial Post",
+    imageSrc: "/lovable-uploads/3904bb70-7006-40a3-b4d4-82e54b2ddc0e.png"
+  },
+  {
+    name: "MarketWatch",
+    imageSrc: "/lovable-uploads/d5ace4db-b569-4f5e-8b94-386303913552.png"
+  },
+  {
+    name: "National Post",
+    imageSrc: "/lovable-uploads/8a7db869-0bfd-463e-84aa-db87bcf886e3.png"
+  },
+  {
+    name: "Reuters",
+    imageSrc: "/lovable-uploads/b063844f-8187-4896-8883-13ce45036a61.png"
+  },
+  {
+    name: "Street Insider",
+    imageSrc: "/lovable-uploads/202cee94-c69b-4c7c-9db8-dda8f49e305e.png"
+  },
+  {
+    name: "Yahoo Finance",
+    imageSrc: "/lovable-uploads/dd244f54-851e-4f6b-9149-ce3d1a68e474.png"
   }
 ];
 
@@ -118,7 +142,7 @@ const AsSeenOn: React.FC = () => {
                   key={index}
                   className={cn(
                     "pl-2 md:pl-4",
-                    isMobile ? "basis-1/3" : "basis-1/5"
+                    isMobile ? "basis-1/3" : "basis-1/6"
                   )}
                 >
                   <LogoItem name={logo.name} imageSrc={logo.imageSrc} />
