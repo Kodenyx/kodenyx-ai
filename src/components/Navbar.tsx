@@ -66,7 +66,7 @@ const Navbar = () => {
             Media
           </Link>
           <Link 
-            to="/ai-workshop" 
+            to="/ai-readiness-workshop" 
             className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
           >
             <List size={18} />
@@ -121,7 +121,7 @@ const Navbar = () => {
               Media
             </Link>
             <Link 
-              to="/ai-workshop" 
+              to="/ai-readiness-workshop" 
               className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2 w-full text-left"
               onClick={() => setIsMenuOpen(false)}
             >
