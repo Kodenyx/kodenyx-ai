@@ -4,6 +4,11 @@ import SimpleNavbar from "@/components/SimpleNavbar";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, FileAudio, Youtube, Podcast } from "lucide-react";
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem
+} from "@/components/ui/carousel";
 import { Link } from "react-router-dom";
 
 const mediaPosts = [
@@ -43,6 +48,21 @@ const mediaPosts = [
     link: "https://www.youtube.com/watch?v=dwXucMUztDs",
     image: "/lovable-uploads/d7bcb9bb-a19e-4980-9157-2f0df5e68d2c.png"
   },
+];
+
+const asSeenOnLogos = [
+  {
+    name: "NBC News",
+    image: "/lovable-uploads/86270432-a17b-408e-a2f3-21cc9562fab1.png"
+  },
+  {
+    name: "Fox 40",
+    image: "/lovable-uploads/5617e93d-9a8e-4d9a-8e21-981ab3e0b538.png"
+  },
+  {
+    name: "WSB-TV",
+    image: "/lovable-uploads/9f0e91b0-b81e-424c-a5c9-42e5a2650073.png"
+  }
 ];
 
 const getMediaIcon = (type: string) => {
@@ -90,11 +110,43 @@ const Media = () => {
     <div className="min-h-screen bg-background">
       <SimpleNavbar />
       <div className="container mx-auto pt-24 pb-16 px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <h1 className="text-4xl font-bold mb-4">Media Coverage</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Explore our collection of blogs, podcasts, and interviews featuring insights on AI-powered lead generation and business growth.
           </p>
+        </div>
+        
+        {/* As Seen On Section */}
+        <div className="py-6 mb-8">
+          <h2 className="text-center text-sm uppercase tracking-wider text-muted-foreground mb-4 font-medium">
+            As Featured In
+          </h2>
+          <div className="relative overflow-hidden bg-muted/30 rounded-lg shadow-inner py-4 px-2">
+            <Carousel 
+              className="w-full" 
+              opts={{ 
+                align: "center",
+                loop: true,
+                dragFree: true
+              }}
+            >
+              <CarouselContent>
+                {asSeenOnLogos.map((logo, index) => (
+                  <CarouselItem key={index} className="basis-1/3 sm:basis-1/4 md:basis-1/6 pl-4">
+                    <div className="flex items-center justify-center p-2">
+                      <img 
+                        src={logo.image} 
+                        alt={`${logo.name} logo`} 
+                        className="h-12 md:h-16 w-auto object-contain hover:opacity-100 transition-opacity duration-300"
+                        style={{ filter: "grayscale(60%)", opacity: 0.8 }}
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
         </div>
         
         <div className="flex flex-wrap gap-3 justify-center mb-8">
