@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Menu, X, PhoneCall, List, Mail } from "lucide-react";
+import { Menu, X, PhoneCall, GraduationCap, Mail } from "lucide-react";
 import Logo from "./Logo";
 
 const Navbar = () => {
@@ -71,7 +71,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
           >
-            <List size={18} />
+            <GraduationCap size={18} />
             AI Workshop
           </a>
           <a 
@@ -129,7 +129,7 @@ const Navbar = () => {
               className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2 w-full text-left"
               onClick={() => setIsMenuOpen(false)}
             >
-              <List size={18} />
+              <GraduationCap size={18} />
               AI Workshop
             </a>
             <a 
