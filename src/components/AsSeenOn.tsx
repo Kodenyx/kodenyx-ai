@@ -13,14 +13,18 @@ interface LogoItemProps {
   imageSrc: string;
 }
 
-const logos: LogoItemProps[] = [
+const logos = [
   {
-    name: "U.S. Insider",
-    imageSrc: "/lovable-uploads/9df93f7c-2895-4c90-b3d1-925d07c534b6.png"
+    name: "NBC News",
+    imageSrc: "/lovable-uploads/86270432-a17b-408e-a2f3-21cc9562fab1.png"
   },
   {
-    name: "BoredSci",
-    imageSrc: "/lovable-uploads/08dec2a5-dfc7-4a8e-b172-631933eaee60.png"
+    name: "Fox 40",
+    imageSrc: "/lovable-uploads/5617e93d-9a8e-4d9a-8e21-981ab3e0b538.png"
+  },
+  {
+    name: "WSB-TV",
+    imageSrc: "/lovable-uploads/9f0e91b0-b81e-424c-a5c9-42e5a2650073.png"
   }
 ];
 
@@ -32,8 +36,8 @@ const LogoItem = ({ name, imageSrc }: LogoItemProps) => {
         alt={`${name} logo`}
         className="h-10 w-auto max-w-[180px] object-contain hover:opacity-100 transition-opacity duration-300"
         style={{
-          filter: "grayscale(100%)",
-          opacity: 0.7,
+          filter: "grayscale(70%)",
+          opacity: 0.85,
           boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
         }}
       />
@@ -77,7 +81,7 @@ const AsSeenOn: React.FC = () => {
           As Featured In
         </h3>
         
-        <div className="relative overflow-hidden bg-secondary/95 rounded-lg shadow-inner py-2">
+        <div className="relative overflow-hidden bg-secondary/5 rounded-lg shadow-inner py-2">
           <Carousel 
             className="w-full" 
             opts={{ 
@@ -89,7 +93,7 @@ const AsSeenOn: React.FC = () => {
             setApi={setApi}
           >
             <CarouselContent className="-ml-2 md:-ml-4">
-              {logos.concat(logos).concat(logos).map((logo, index) => (
+              {logos.concat(logos).map((logo, index) => (
                 <CarouselItem 
                   key={index}
                   className={cn(

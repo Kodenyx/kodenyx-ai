@@ -8,12 +8,14 @@ import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import ContactForm from "@/components/ContactForm";
 import FAQ from "@/components/FAQ";
+import AsSeenOn from "@/components/AsSeenOn";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
       <Hero />
+      <AsSeenOn />
       <Features />
       <AIAgents />
       <Process />

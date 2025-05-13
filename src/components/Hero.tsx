@@ -3,11 +3,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { PhoneCall } from "lucide-react";
 import ContactDialog from "./ContactDialog";
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem
-} from "@/components/ui/carousel";
 
 const Hero = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -19,61 +14,13 @@ const Hero = () => {
     }
   };
 
-  const asSeenOnLogos = [
-    {
-      name: "NBC News",
-      image: "/lovable-uploads/86270432-a17b-408e-a2f3-21cc9562fab1.png"
-    },
-    {
-      name: "Fox 40",
-      image: "/lovable-uploads/5617e93d-9a8e-4d9a-8e21-981ab3e0b538.png"
-    },
-    {
-      name: "WSB-TV",
-      image: "/lovable-uploads/9f0e91b0-b81e-424c-a5c9-42e5a2650073.png"
-    }
-  ];
-
   return (
     <div className="pt-24 md:pt-28 min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-secondary to-secondary/95 text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-          {/* Left side - Brand Text Content Only (logo removed) */}
+          {/* Left side - Brand Text Content Only */}
           <div className="space-y-8 animate-fade-in">
-            {/* As Seen On Section - Moved to the top */}
-            <div className="mb-6">
-              <p className="text-sm uppercase tracking-wider text-gray-300 mb-3 font-medium">
-                As Featured In
-              </p>
-              <div className="relative overflow-hidden bg-secondary-foreground/10 rounded-lg shadow-inner py-3 px-2">
-                <Carousel 
-                  className="w-full" 
-                  opts={{ 
-                    align: "start",
-                    loop: true,
-                    dragFree: true
-                  }}
-                >
-                  <CarouselContent>
-                    {asSeenOnLogos.map((logo, index) => (
-                      <CarouselItem key={index} className="basis-1/2 sm:basis-1/3 md:basis-1/4 pl-4">
-                        <div className="flex items-center justify-center p-2">
-                          <img 
-                            src={logo.image} 
-                            alt={`${logo.name} logo`} 
-                            className="h-10 w-auto object-contain hover:opacity-100 transition-opacity duration-300"
-                            style={{ filter: "grayscale(70%)", opacity: 0.85 }}
-                          />
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                </Carousel>
-              </div>
-            </div>
-
-            {/* Removed logo image here */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
               Transform Your Lead Generation with{" "}
               <span className="text-primary">AI-Powered</span> Automation
