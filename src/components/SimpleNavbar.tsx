@@ -13,7 +13,7 @@ const SimpleNavbar = () => {
             <Logo />
           </Link>
           <Link to="/">
-            <Button variant="outline" className="text-gray-300 hover:text-white border-gray-700 hover:border-white">
+            <Button className="bg-primary hover:bg-primary-dark text-white">
               <Home className="mr-2" size={18} />
               Back to Home
             </Button>
