@@ -23,14 +23,16 @@ const Hero = () => {
               Stop chasing leads manually. Let our AI agents attract, capture, and nurture your prospects 24/7.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link 
-                to="/ai-ready-score" 
+              <a 
+                href="/ai-ready-score" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto"
               >
                 <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 w-full sm:w-auto">
                   <ArrowRight className="mr-2 h-5 w-5" /> Get Instant AI-Ready Score
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
 
