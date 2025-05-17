@@ -1,5 +1,5 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { useLocation, useNavigate } from "react-router-dom";
 import AIScoreResults from "@/components/AIScoreResults";
@@ -12,9 +12,14 @@ const AIScoreResultsPage = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { score, formData } = location.state || { score: 0, formData: {} };
+  const [isSaving, setIsSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
 
   // Send score data to database
   const sendScoreToDatabase = async (score: number, formData: any) => {
+    if (saved) return; // Prevent duplicate submissions
+    
+    setIsSaving(true);
     try {
       // Calculate cost of inaction (simplified version)
       let costOfInaction = 0;
@@ -51,11 +56,28 @@ const AIScoreResultsPage = () => {
       
       if (error) {
         console.error("Error storing score in database:", error);
+        toast({
+          variant: "destructive",
+          title: "Database Error",
+          description: "Could not save your results. Please try again."
+        });
       } else {
         console.log("Score stored in database successfully:", data);
+        setSaved(true);
+        toast({
+          title: "Results Saved",
+          description: "Your AI readiness score has been saved."
+        });
       }
     } catch (err) {
       console.error("Exception storing score in database:", err);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "An unexpected error occurred. Please try again."
+      });
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -68,11 +90,11 @@ const AIScoreResultsPage = () => {
         variant: "destructive"
       });
       navigate('/ai-first-readiness-score');
-    } else {
+    } else if (!saved) {
       // Save score to database on page load
       sendScoreToDatabase(score, formData);
     }
-  }, [location.state, navigate, toast, score, formData]);
+  }, [location.state, navigate, toast, score, formData, saved]);
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">

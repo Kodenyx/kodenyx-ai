@@ -14,15 +14,26 @@ const supabaseAdmin = createClient(
 );
 
 serve(async (req) => {
+  console.log("Send-to-sheets function called");
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { score, formData, costOfInaction } = await req.json();
+    const requestData = await req.json();
+    const { score, formData, costOfInaction } = requestData;
 
-    console.log("Storing data in database:", { score, formData, costOfInaction });
+    if (!score) {
+      console.error("Missing required field: score");
+      return new Response(
+        JSON.stringify({ error: "Missing required field: score" }), 
+        { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 400 }
+      );
+    }
+
+    console.log("Received data:", { score, formData, costOfInaction });
+    console.log("Storing data in database with full form data:", formData);
     
     // Get the actual selection labels for fields with options
     const teamSizeMap = {
@@ -50,46 +61,51 @@ serve(async (req) => {
     };
 
     // Insert the data into the ai_score_results table
+    const insertData = {
+      score,
+      readiness_score: score, // Store the score as readiness_score as well
+      cost_of_inaction: costOfInaction,
+      full_name: formData.fullName,
+      email: formData.email,
+      linkedin: formData.linkedin,
+      business_type_label: getBusinessTypeLabel(formData.businessType),
+      team_size_label: teamSizeMap[formData.teamSize] || formData.teamSize,
+      current_use_label: currentUseMap[formData.currentUse] || formData.currentUse,
+      repetitive_tasks_label: getRepetitiveTasksLabel(formData.repetitiveTasks),
+      manual_areas_labels: getManualAreasLabels(formData.manualAreas),
+      lead_handling_label: getLeadHandlingLabel(formData.leadHandling),
+      sop_approach_label: getSopApproachLabel(formData.sopApproach),
+      ai_comfort_label: getAIComfortLabel(formData.aiComfort),
+      automation_priority_label: getAutomationPriorityLabel(formData.automationPriority),
+      manual_hours_label: getManualHoursLabel(formData.manualHours),
+      time_owner_label: getTimeOwnerLabel(formData.timeOwner),
+      hourly_value_label: hourlyValueMap[formData.hourlyValue] || formData.hourlyValue
+    };
+
+    console.log("Inserting data into ai_score_results:", insertData);
+
     const { data, error } = await supabaseAdmin
       .from('ai_score_results')
-      .insert({
-        score,
-        readiness_score: score, // Store the score as readiness_score as well
-        cost_of_inaction: costOfInaction,
-        full_name: formData.fullName,
-        email: formData.email,
-        linkedin: formData.linkedin,
-        business_type_label: getBusinessTypeLabel(formData.businessType),
-        team_size_label: teamSizeMap[formData.teamSize] || formData.teamSize,
-        current_use_label: currentUseMap[formData.currentUse] || formData.currentUse,
-        repetitive_tasks_label: getRepetitiveTasksLabel(formData.repetitiveTasks),
-        manual_areas_labels: getManualAreasLabels(formData.manualAreas),
-        lead_handling_label: getLeadHandlingLabel(formData.leadHandling),
-        sop_approach_label: getSopApproachLabel(formData.sopApproach),
-        ai_comfort_label: getAIComfortLabel(formData.aiComfort),
-        automation_priority_label: getAutomationPriorityLabel(formData.automationPriority),
-        manual_hours_label: getManualHoursLabel(formData.manualHours),
-        time_owner_label: getTimeOwnerLabel(formData.timeOwner),
-        hourly_value_label: hourlyValueMap[formData.hourlyValue] || formData.hourlyValue
-      })
+      .insert(insertData)
       .select();
 
     if (error) {
+      console.error("Database error:", error);
       throw new Error(`Database error: ${error.message}`);
     }
 
     console.log("Successfully stored score results in database:", data);
 
-    return new Response(JSON.stringify({ success: true, data }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-      status: 200,
-    });
+    return new Response(
+      JSON.stringify({ success: true, data }), 
+      { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 200 }
+    );
   } catch (error) {
     console.error("Error in send-to-sheets function:", error);
-    return new Response(JSON.stringify({ error: error.message }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-      status: 500,
-    });
+    return new Response(
+      JSON.stringify({ error: error.message }), 
+      { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 500 }
+    );
   }
 });
 
