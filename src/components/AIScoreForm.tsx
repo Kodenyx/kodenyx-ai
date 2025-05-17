@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -216,6 +217,26 @@ const AIScoreForm = () => {
     }
   };
 
+  // Send score data to database
+  const sendScoreToDatabase = async (score: number, formData: any, costOfInaction: number) => {
+    try {
+      console.log("Sending score to database:", { score, formData, costOfInaction });
+      
+      const { data, error } = await supabase.functions.invoke('send-to-sheets', {
+        body: { score, formData, costOfInaction }
+      });
+      
+      if (error) {
+        console.error("Error storing score in database:", error);
+        // Don't show error to user since this is a background task
+      } else {
+        console.log("Score stored in database successfully:", data);
+      }
+    } catch (err) {
+      console.error("Exception storing score in database:", err);
+    }
+  };
+
   const onReadinessSubmit = readinessForm.handleSubmit(async (data) => {
     setIsSubmitting(true);
     // Combine data from both forms
@@ -231,6 +252,33 @@ const AIScoreForm = () => {
       const score = calculateReadinessScore(data);
       console.log("AI Readiness Score:", score);
       
+      // Calculate cost of inaction (simplified version)
+      let costOfInaction = 0;
+      if (formData.hourlyValue && formData.hourlyValue !== 'skip' && formData.manualHours) {
+        // Rough hourly value based on selected range
+        const hourlyRates = {
+          "under-50": 25,
+          "50-100": 75,
+          "100-250": 175,
+          "250-500": 375,
+          "500+": 750
+        };
+        
+        // Rough weekly hours based on selected range
+        const weeklyHours = {
+          "0-5": 2.5,
+          "6-10": 8,
+          "11-20": 15,
+          "21-40": 30,
+          "40+": 50
+        };
+        
+        // Calculate monthly cost (4 weeks)
+        const hourlyRate = hourlyRates[formData.hourlyValue as keyof typeof hourlyRates] || 0;
+        const hours = weeklyHours[formData.manualHours as keyof typeof weeklyHours] || 0;
+        costOfInaction = hourlyRate * hours * 4;
+      }
+      
       // Store the score and form data
       setScoreData({
         score,
@@ -244,6 +292,9 @@ const AIScoreForm = () => {
       
       // Send score results via email
       await sendScoreEmail(score, formData);
+      
+      // Send score data to database
+      await sendScoreToDatabase(score, formData, costOfInaction);
 
       // Show results section
       setCurrentSection("results");

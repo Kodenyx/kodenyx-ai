@@ -5,12 +5,59 @@ import { useLocation, useNavigate } from "react-router-dom";
 import AIScoreResults from "@/components/AIScoreResults";
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const AIScoreResultsPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { toast } = useToast();
   const { score, formData } = location.state || { score: 0, formData: {} };
+
+  // Send score data to database
+  const sendScoreToDatabase = async (score: number, formData: any) => {
+    try {
+      // Calculate cost of inaction (simplified version)
+      let costOfInaction = 0;
+      if (formData.hourlyValue && formData.hourlyValue !== 'skip' && formData.manualHours) {
+        // Rough hourly value based on selected range
+        const hourlyRates = {
+          "under-50": 25,
+          "50-100": 75,
+          "100-250": 175,
+          "250-500": 375,
+          "500+": 750
+        };
+        
+        // Rough weekly hours based on selected range
+        const weeklyHours = {
+          "0-5": 2.5,
+          "6-10": 8,
+          "11-20": 15,
+          "21-40": 30,
+          "40+": 50
+        };
+        
+        // Calculate monthly cost (4 weeks)
+        const hourlyRate = hourlyRates[formData.hourlyValue as keyof typeof hourlyRates] || 0;
+        const hours = weeklyHours[formData.manualHours as keyof typeof weeklyHours] || 0;
+        costOfInaction = hourlyRate * hours * 4;
+      }
+      
+      console.log("Sending score to database:", { score, formData, costOfInaction });
+      
+      const { data, error } = await supabase.functions.invoke('send-to-sheets', {
+        body: { score, formData, costOfInaction }
+      });
+      
+      if (error) {
+        console.error("Error storing score in database:", error);
+      } else {
+        console.log("Score stored in database successfully:", data);
+      }
+    } catch (err) {
+      console.error("Exception storing score in database:", err);
+    }
+  };
 
   // Redirect if no score data is present
   useEffect(() => {
@@ -21,8 +68,11 @@ const AIScoreResultsPage = () => {
         variant: "destructive"
       });
       navigate('/ai-first-readiness-score');
+    } else {
+      // Save score to database on page load
+      sendScoreToDatabase(score, formData);
     }
-  }, [location.state, navigate, toast, score]);
+  }, [location.state, navigate, toast, score, formData]);
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
