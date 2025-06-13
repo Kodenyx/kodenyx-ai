@@ -39,7 +39,7 @@ interface FormData {
   // Time Drains
   inefficientTasks: string[];
   manualOnboarding: string;
-  chaseDownTask: string;
+  chaseDownTask: string[];
   updateGathering: string;
   timeConsumingWork: string;
   
@@ -62,6 +62,7 @@ const AIAuditWeek1IntakeForm = () => {
   const [selectedTools, setSelectedTools] = useState<string[]>([]);
   const [showOtherInput, setShowOtherInput] = useState(false);
   const [inefficientTasks, setInefficientTasks] = useState<string[]>(['']);
+  const [chaseDownTasks, setChaseDownTasks] = useState<string[]>(['']);
   
   const form = useForm<FormData>({
     defaultValues: {
@@ -73,7 +74,7 @@ const AIAuditWeek1IntakeForm = () => {
       trackingProgress: "",
       inefficientTasks: [''],
       manualOnboarding: "",
-      chaseDownTask: "",
+      chaseDownTask: [''],
       updateGathering: "",
       timeConsumingWork: "",
       salesOpsTools: "",
@@ -134,6 +135,27 @@ const AIAuditWeek1IntakeForm = () => {
     updatedTasks[index] = value;
     setInefficientTasks(updatedTasks);
     form.setValue('inefficientTasks', updatedTasks);
+  };
+
+  const addChaseDownTask = () => {
+    const newTasks = [...chaseDownTasks, ''];
+    setChaseDownTasks(newTasks);
+    form.setValue('chaseDownTask', newTasks);
+  };
+
+  const removeChaseDownTask = (index: number) => {
+    if (chaseDownTasks.length > 1) {
+      const updatedTasks = chaseDownTasks.filter((_, i) => i !== index);
+      setChaseDownTasks(updatedTasks);
+      form.setValue('chaseDownTask', updatedTasks);
+    }
+  };
+
+  const updateChaseDownTask = (index: number, value: string) => {
+    const updatedTasks = [...chaseDownTasks];
+    updatedTasks[index] = value;
+    setChaseDownTasks(updatedTasks);
+    form.setValue('chaseDownTask', updatedTasks);
   };
 
   const onSubmit = (data: FormData) => {
@@ -367,22 +389,42 @@ const AIAuditWeek1IntakeForm = () => {
                   )}
                 />
 
-                <FormField
-                  control={form.control}
-                  name="chaseDownTask"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>8. What do you often have to chase someone down for?</FormLabel>
-                      <FormControl>
-                        <Input 
+                <div>
+                  <FormLabel>8. What do you often have to chase someone down for?</FormLabel>
+                  <div className="space-y-3 mt-3">
+                    {chaseDownTasks.map((task, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <Input
                           placeholder="What do you frequently follow up on..."
-                          {...field}
+                          value={task}
+                          onChange={(e) => updateChaseDownTask(index, e.target.value)}
+                          className="flex-1"
                         />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                        {chaseDownTasks.length > 1 && (
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={() => removeChaseDownTask(index)}
+                            className="flex items-center gap-1 px-2"
+                          >
+                            <Minus className="w-4 h-4" />
+                          </Button>
+                        )}
+                      </div>
+                    ))}
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={addChaseDownTask}
+                      className="flex items-center gap-2"
+                    >
+                      <Plus className="w-4 h-4" />
+                      Add Another Item
+                    </Button>
+                  </div>
+                </div>
 
                 <FormField
                   control={form.control}
