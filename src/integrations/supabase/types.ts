@@ -9,6 +9,87 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      ai_audit_week1_responses: {
+        Row: {
+          additional_thoughts: string | null
+          audit_goal: string | null
+          chase_down_tasks: string[] | null
+          client_assignment: string | null
+          client_notes_storage: string | null
+          confidence_needs: string | null
+          created_at: string
+          delivery_tools: string[] | null
+          id: string
+          inefficient_tasks: string[] | null
+          manual_onboarding: string | null
+          needed_data: string | null
+          new_client_rejection: string | null
+          onboarding_process: string | null
+          other_delivery_tool: string | null
+          sales_ops_tools: string | null
+          scaling_issues: string | null
+          time_consuming_work: string | null
+          top_workflows: string | null
+          tracking_progress: string | null
+          underused_tools: string | null
+          update_gathering: string | null
+          updated_at: string
+          would_break_first: string | null
+        }
+        Insert: {
+          additional_thoughts?: string | null
+          audit_goal?: string | null
+          chase_down_tasks?: string[] | null
+          client_assignment?: string | null
+          client_notes_storage?: string | null
+          confidence_needs?: string | null
+          created_at?: string
+          delivery_tools?: string[] | null
+          id?: string
+          inefficient_tasks?: string[] | null
+          manual_onboarding?: string | null
+          needed_data?: string | null
+          new_client_rejection?: string | null
+          onboarding_process?: string | null
+          other_delivery_tool?: string | null
+          sales_ops_tools?: string | null
+          scaling_issues?: string | null
+          time_consuming_work?: string | null
+          top_workflows?: string | null
+          tracking_progress?: string | null
+          underused_tools?: string | null
+          update_gathering?: string | null
+          updated_at?: string
+          would_break_first?: string | null
+        }
+        Update: {
+          additional_thoughts?: string | null
+          audit_goal?: string | null
+          chase_down_tasks?: string[] | null
+          client_assignment?: string | null
+          client_notes_storage?: string | null
+          confidence_needs?: string | null
+          created_at?: string
+          delivery_tools?: string[] | null
+          id?: string
+          inefficient_tasks?: string[] | null
+          manual_onboarding?: string | null
+          needed_data?: string | null
+          new_client_rejection?: string | null
+          onboarding_process?: string | null
+          other_delivery_tool?: string | null
+          sales_ops_tools?: string | null
+          scaling_issues?: string | null
+          time_consuming_work?: string | null
+          top_workflows?: string | null
+          tracking_progress?: string | null
+          underused_tools?: string | null
+          update_gathering?: string | null
+          updated_at?: string
+          would_break_first?: string | null
+        }
+        Relationships: []
+      }
       ai_score_results: {
         Row: {
           ai_comfort_label: string | null

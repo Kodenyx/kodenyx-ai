@@ -17,6 +17,7 @@ import {
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import { 
   Settings, 
   Clock, 
@@ -66,6 +67,7 @@ const AIAuditWeek1IntakeForm = () => {
   const [showOtherInput, setShowOtherInput] = useState(false);
   const [inefficientTasks, setInefficientTasks] = useState<string[]>(['']);
   const [chaseDownTasks, setChaseDownTasks] = useState<string[]>(['']);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const form = useForm<FormData>({
     defaultValues: {
@@ -162,12 +164,47 @@ const AIAuditWeek1IntakeForm = () => {
     form.setValue('chaseDownTask', updatedTasks);
   };
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
     console.log("Form submitted:", data);
-    toast({
-      title: "Form Submitted Successfully",
-      description: "Thank you for completing the Week 1 intake form. We'll review your responses and get back to you soon.",
-    });
+    
+    try {
+      // Submit to our edge function
+      const { data: result, error } = await supabase.functions.invoke('submit-audit-intake', {
+        body: data
+      });
+
+      if (error) {
+        console.error("Error submitting form:", error);
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "There was an error submitting your form. Please try again.",
+        });
+      } else {
+        console.log("Form submitted successfully:", result);
+        toast({
+          title: "Form Submitted Successfully",
+          description: "Thank you for completing the Week 1 intake form. We'll review your responses and get back to you soon.",
+        });
+        
+        // Reset form after successful submission
+        form.reset();
+        setSelectedTools([]);
+        setShowOtherInput(false);
+        setInefficientTasks(['']);
+        setChaseDownTasks(['']);
+      }
+    } catch (error) {
+      console.error("Exception submitting form:", error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "There was an error submitting your form. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -686,9 +723,14 @@ const AIAuditWeek1IntakeForm = () => {
             <Card>
               <CardContent className="pt-6">
                 <div className="text-center">
-                  <Button type="submit" size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 py-4">
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="bg-primary hover:bg-primary-dark text-white text-lg px-8 py-4"
+                    disabled={isSubmitting}
+                  >
                     <Send className="mr-2 w-5 h-5" />
-                    Submit Week 1 Intake Form
+                    {isSubmitting ? "Submitting..." : "Submit Week 1 Intake Form"}
                   </Button>
                   <p className="text-sm text-muted-foreground mt-4">
                     We'll review your responses and contact you within 24 hours to schedule your audit kickoff call.
