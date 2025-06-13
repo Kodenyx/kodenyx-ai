@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -814,7 +815,7 @@ const AIAuditWeek1IntakeForm = () => {
                     {isSubmitting ? "Submitting..." : "Submit Week 1 Intake Form"}
                   </Button>
                   <p className="text-sm text-gray-500 mt-4">
-                    We'll review your responses and contact you within 24 hours to schedule your audit kickoff call.
+                    We will review your responses and contact you within 24 hours to schedule your Week 2 call.
                   </p>
                 </div>
               </CardContent>
