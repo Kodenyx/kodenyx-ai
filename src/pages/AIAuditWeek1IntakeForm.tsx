@@ -141,7 +141,7 @@ const AIAuditWeek1IntakeForm = () => {
                     <Settings className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <CardTitle className="text-2xl">🧩 System Flow</CardTitle>
+                    <CardTitle className="text-2xl">System Flow</CardTitle>
                     <CardDescription>Understanding your current workflow processes</CardDescription>
                   </div>
                 </div>
@@ -254,7 +254,7 @@ const AIAuditWeek1IntakeForm = () => {
                     <Clock className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <CardTitle className="text-2xl">⏳ Time Drains</CardTitle>
+                    <CardTitle className="text-2xl">Time Drains</CardTitle>
                     <CardDescription>Identifying inefficiencies and manual processes</CardDescription>
                   </div>
                 </div>
@@ -358,7 +358,7 @@ const AIAuditWeek1IntakeForm = () => {
                     <Database className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <CardTitle className="text-2xl">🧰 Data & Tools</CardTitle>
+                    <CardTitle className="text-2xl">Data & Tools</CardTitle>
                     <CardDescription>Understanding your current tech stack and data needs</CardDescription>
                   </div>
                 </div>
@@ -444,7 +444,7 @@ const AIAuditWeek1IntakeForm = () => {
                     <TrendingDown className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <CardTitle className="text-2xl">🚧 Growth Blockers</CardTitle>
+                    <CardTitle className="text-2xl">Growth Blockers</CardTitle>
                     <CardDescription>Identifying what prevents your business from scaling</CardDescription>
                   </div>
                 </div>
