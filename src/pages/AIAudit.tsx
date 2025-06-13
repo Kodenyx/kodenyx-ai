@@ -75,16 +75,16 @@ const AIAudit = () => {
       <SimpleNavbar />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 bg-secondary">
+      <section className="pt-24 pb-16 px-4 bg-gradient-to-br from-secondary to-secondary/95">
         <div className="container mx-auto text-center">
           <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 text-lg px-4 py-2">
             AI Audit: Go From AI-Curious to AI-First in 30 Days
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-4xl mx-auto animate-fade-in">
             Your business isn't too early for AI.
             <span className="text-primary block">It just needs a blueprint.</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
             This 4-week AI audit gives you a step-by-step automation roadmap tailored to your workflows, 
             tools, and team — no fluff, no guesswork.
           </p>
@@ -200,7 +200,7 @@ const AIAudit = () => {
             ))}
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Final CTA Section */}
       <section className="py-16 px-4 bg-secondary">
