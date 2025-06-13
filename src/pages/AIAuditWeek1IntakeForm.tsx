@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -26,10 +25,15 @@ import {
   TrendingDown,
   Send,
   Plus,
-  Minus
+  Minus,
+  Building
 } from "lucide-react";
 
 interface FormData {
+  // Business Overview
+  businessName: string;
+  teamSize: string;
+  
   // System Flow
   topWorkflows: string;
   clientAssignment: string;
@@ -72,6 +76,8 @@ const AIAuditWeek1IntakeForm = () => {
   
   const form = useForm<FormData>({
     defaultValues: {
+      businessName: "",
+      teamSize: "",
       topWorkflows: "",
       clientAssignment: "",
       onboardingProcess: "",
@@ -233,6 +239,75 @@ const AIAuditWeek1IntakeForm = () => {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-4xl mx-auto">
             
+            {/* New Section 0: Business Overview */}
+            <Card className="bg-white border-gray-200 shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-t-lg">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                    <Building className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl text-gray-900">Business Overview</CardTitle>
+                    <CardDescription className="text-gray-600">Tell us about your business basics</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-6 p-8">
+                <FormField
+                  control={form.control}
+                  name="businessName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-gray-900 font-medium">Business/Company Name</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Enter your business name..."
+                          {...field}
+                          className="border-gray-300 focus:border-primary focus:ring-primary"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="teamSize"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>How many team members do you have?</FormLabel>
+                      <FormControl>
+                        <RadioGroup onValueChange={field.onChange} value={field.value}>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="1-2" id="team-1-2" />
+                            <Label htmlFor="team-1-2">1-2 team members</Label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="3-5" id="team-3-5" />
+                            <Label htmlFor="team-3-5">3-5 team members</Label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="6-10" id="team-6-10" />
+                            <Label htmlFor="team-6-10">6-10 team members</Label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="11-25" id="team-11-25" />
+                            <Label htmlFor="team-11-25">11-25 team members</Label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="26+" id="team-26-plus" />
+                            <Label htmlFor="team-26-plus">26+ team members</Label>
+                          </div>
+                        </RadioGroup>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </CardContent>
+            </Card>
+
             {/* Section 1: System Flow */}
             <Card className="bg-white border-gray-200 shadow-lg">
               <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-t-lg">
