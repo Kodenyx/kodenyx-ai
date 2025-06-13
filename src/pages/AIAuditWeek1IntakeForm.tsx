@@ -55,6 +55,9 @@ interface FormData {
   confidenceNeeds: string;
   scalingIssues: string;
   auditGoal: string;
+  
+  // Additional Thoughts
+  additionalThoughts: string;
 }
 
 const AIAuditWeek1IntakeForm = () => {
@@ -86,6 +89,7 @@ const AIAuditWeek1IntakeForm = () => {
       confidenceNeeds: "",
       scalingIssues: "",
       auditGoal: "",
+      additionalThoughts: "",
     },
   });
 
@@ -644,6 +648,29 @@ const AIAuditWeek1IntakeForm = () => {
                       <FormControl>
                         <Textarea 
                           placeholder="Define success for this audit..."
+                          {...field}
+                          rows={4}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </CardContent>
+            </Card>
+
+            {/* Additional Thoughts Section */}
+            <Card>
+              <CardContent className="pt-6">
+                <FormField
+                  control={form.control}
+                  name="additionalThoughts"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>20. Anything on your mind you don't see on this form and would want our team to consider?</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Share any additional thoughts, concerns, or context that might be helpful for our team to know..."
                           {...field}
                           rows={4}
                         />
