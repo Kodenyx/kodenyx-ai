@@ -71,20 +71,20 @@ const AIAudit = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-secondary text-white">
       <SimpleNavbar />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
+      <section className="pt-24 pb-16 px-4 bg-secondary">
         <div className="container mx-auto text-center">
-          <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">
+          <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 text-lg px-4 py-2">
             AI Audit: Go From AI-Curious to AI-First in 30 Days
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 max-w-4xl mx-auto">
             Your business isn't too early for AI.
             <span className="text-primary block">It just needs a blueprint.</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8 leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
             This 4-week AI audit gives you a step-by-step automation roadmap tailored to your workflows, 
             tools, and team — no fluff, no guesswork.
           </p>
@@ -95,16 +95,16 @@ const AIAudit = () => {
       </section>
 
       {/* What You Get Section */}
-      <section className="py-16 px-4 bg-secondary/50">
+      <section className="py-16 px-4 bg-secondary/80">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
             By the end of the audit, you'll walk away with:
           </h2>
           <div className="max-w-4xl mx-auto">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-start gap-4 mb-6">
                 <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                <p className="text-lg text-foreground">{benefit}</p>
+                <p className="text-lg text-gray-200">{benefit}</p>
               </div>
             ))}
           </div>
@@ -112,18 +112,18 @@ const AIAudit = () => {
       </section>
 
       {/* Who This Is For Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-secondary">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
             This audit is built for:
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {targetAudience.map((audience, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="hover:shadow-lg transition-shadow bg-secondary/60 border-gray-700">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <Target className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                    <p className="text-foreground">{audience}</p>
+                    <p className="text-gray-200">{audience}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -133,22 +133,22 @@ const AIAudit = () => {
       </section>
 
       {/* MAPS Framework Section */}
-      <section className="py-16 px-4 bg-secondary/50">
+      <section className="py-16 px-4 bg-secondary/80">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
             We run every audit using the MAPS Framework
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {mapsFramework.map((step, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+              <Card key={index} className="text-center hover:shadow-lg transition-shadow bg-secondary/60 border-gray-700">
                 <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary">
+                  <div className="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary">
                     {step.icon}
                   </div>
-                  <CardTitle className="text-xl">{step.title}</CardTitle>
+                  <CardTitle className="text-xl text-white">{step.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base">{step.description}</CardDescription>
+                  <CardDescription className="text-base text-gray-300">{step.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}
@@ -157,19 +157,19 @@ const AIAudit = () => {
       </section>
 
       {/* Price + CTA Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-secondary">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Let's Make This Easy</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Let's Make This Easy</h2>
           <div className="max-w-2xl mx-auto mb-8">
-            <p className="text-xl text-muted-foreground mb-6">
+            <p className="text-xl text-gray-300 mb-6">
               The AI Audit is $1,999. You pay $1,000 upfront to reserve your spot.
             </p>
             <div className="flex items-center justify-center gap-6 mb-8">
-              <div className="flex items-center text-muted-foreground">
+              <div className="flex items-center text-gray-300">
                 <DollarSign className="w-5 h-5 mr-2 text-primary" />
                 <span>$1,999 Total Investment</span>
               </div>
-              <div className="flex items-center text-muted-foreground">
+              <div className="flex items-center text-gray-300">
                 <Clock className="w-5 h-5 mr-2 text-primary" />
                 <span>4-Week Timeline</span>
               </div>
@@ -182,19 +182,19 @@ const AIAudit = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 px-4 bg-secondary/50">
+      <section className="py-16 px-4 bg-secondary/80">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
             Frequently Asked Questions
           </h2>
           <div className="max-w-4xl mx-auto space-y-6">
             {faqs.map((faq, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="hover:shadow-lg transition-shadow bg-secondary/60 border-gray-700">
                 <CardHeader>
-                  <CardTitle className="text-xl text-left">{faq.question}</CardTitle>
+                  <CardTitle className="text-xl text-left text-white">{faq.question}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground text-left">{faq.answer}</p>
+                  <p className="text-gray-300 text-left">{faq.answer}</p>
                 </CardContent>
               </Card>
             ))}
@@ -203,13 +203,13 @@ const AIAudit = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-secondary">
         <div className="container mx-auto text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Ready to Build Your AI-First Blueprint?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl text-gray-300 mb-8">
               Stop wondering where to start with AI. Get a clear, actionable roadmap 
               tailored specifically to your business in just 30 days.
             </p>
