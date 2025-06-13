@@ -32,6 +32,7 @@ interface FormData {
   clientAssignment: string;
   onboardingProcess: string;
   deliveryTools: string[];
+  otherDeliveryTool: string;
   trackingProgress: string;
   
   // Time Drains
@@ -58,6 +59,7 @@ interface FormData {
 const AIAuditWeek1IntakeForm = () => {
   const { toast } = useToast();
   const [selectedTools, setSelectedTools] = useState<string[]>([]);
+  const [showOtherInput, setShowOtherInput] = useState(false);
   
   const form = useForm<FormData>({
     defaultValues: {
@@ -65,6 +67,7 @@ const AIAuditWeek1IntakeForm = () => {
       clientAssignment: "",
       onboardingProcess: "",
       deliveryTools: [],
+      otherDeliveryTool: "",
       trackingProgress: "",
       inefficientTask: "",
       manualOnboarding: "",
@@ -96,8 +99,15 @@ const AIAuditWeek1IntakeForm = () => {
     let updatedTools;
     if (checked) {
       updatedTools = [...selectedTools, tool];
+      if (tool === "Other") {
+        setShowOtherInput(true);
+      }
     } else {
       updatedTools = selectedTools.filter(t => t !== tool);
+      if (tool === "Other") {
+        setShowOtherInput(false);
+        form.setValue('otherDeliveryTool', '');
+      }
     }
     setSelectedTools(updatedTools);
     form.setValue('deliveryTools', updatedTools);
@@ -224,6 +234,25 @@ const AIAuditWeek1IntakeForm = () => {
                       </div>
                     ))}
                   </div>
+                  {showOtherInput && (
+                    <div className="mt-4">
+                      <FormField
+                        control={form.control}
+                        name="otherDeliveryTool"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input 
+                                placeholder="Please specify other tool..."
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  )}
                 </div>
 
                 <FormField
