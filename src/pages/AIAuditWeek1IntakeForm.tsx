@@ -23,7 +23,8 @@ import {
   Database, 
   TrendingDown,
   Send,
-  Plus
+  Plus,
+  Minus
 } from "lucide-react";
 
 interface FormData {
@@ -118,6 +119,14 @@ const AIAuditWeek1IntakeForm = () => {
     const newTasks = [...inefficientTasks, ''];
     setInefficientTasks(newTasks);
     form.setValue('inefficientTasks', newTasks);
+  };
+
+  const removeInefficientTask = (index: number) => {
+    if (inefficientTasks.length > 1) {
+      const updatedTasks = inefficientTasks.filter((_, i) => i !== index);
+      setInefficientTasks(updatedTasks);
+      form.setValue('inefficientTasks', updatedTasks);
+    }
   };
 
   const updateInefficientTask = (index: number, value: string) => {
@@ -307,12 +316,25 @@ const AIAuditWeek1IntakeForm = () => {
                   <FormLabel>6. What's one task your team repeats that feels inefficient?</FormLabel>
                   <div className="space-y-3 mt-3">
                     {inefficientTasks.map((task, index) => (
-                      <Input
-                        key={index}
-                        placeholder="Enter an inefficient task..."
-                        value={task}
-                        onChange={(e) => updateInefficientTask(index, e.target.value)}
-                      />
+                      <div key={index} className="flex items-center gap-2">
+                        <Input
+                          placeholder="Enter an inefficient task..."
+                          value={task}
+                          onChange={(e) => updateInefficientTask(index, e.target.value)}
+                          className="flex-1"
+                        />
+                        {inefficientTasks.length > 1 && (
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={() => removeInefficientTask(index)}
+                            className="flex items-center gap-1 px-2"
+                          >
+                            <Minus className="w-4 h-4" />
+                          </Button>
+                        )}
+                      </div>
                     ))}
                     <Button
                       type="button"
