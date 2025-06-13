@@ -208,17 +208,17 @@ const AIAuditWeek1IntakeForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-secondary text-white">
       <SimpleNavbar />
       
       {/* Header Section */}
-      <section className="pt-24 pb-8 px-4">
+      <section className="pt-24 pb-8 px-4 bg-secondary">
         <div className="container mx-auto text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4 max-w-4xl mx-auto">
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 max-w-4xl mx-auto">
             AI Audit Intake – Week 1: 
             <span className="text-primary block">Understanding Your Business Today</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
             Help us understand your current workflows, pain points, and growth challenges 
             so we can create the most effective AI automation roadmap for your business.
           </p>
@@ -230,15 +230,15 @@ const AIAuditWeek1IntakeForm = () => {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-4xl mx-auto">
             
             {/* Section 1: System Flow */}
-            <Card>
+            <Card className="bg-secondary/60 border-gray-700">
               <CardHeader>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
                     <Settings className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <CardTitle className="text-2xl">System Flow</CardTitle>
-                    <CardDescription>Understanding your current workflow processes</CardDescription>
+                    <CardTitle className="text-2xl text-white">System Flow</CardTitle>
+                    <CardDescription className="text-gray-300">Understanding your current workflow processes</CardDescription>
                   </div>
                 </div>
               </CardHeader>
@@ -362,15 +362,15 @@ const AIAuditWeek1IntakeForm = () => {
             </Card>
 
             {/* Section 2: Time Drains */}
-            <Card>
+            <Card className="bg-secondary/60 border-gray-700">
               <CardHeader>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
                     <Clock className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <CardTitle className="text-2xl">Time Drains</CardTitle>
-                    <CardDescription>Identifying inefficiencies and manual processes</CardDescription>
+                    <CardTitle className="text-2xl text-white">Time Drains</CardTitle>
+                    <CardDescription className="text-gray-300">Identifying inefficiencies and manual processes</CardDescription>
                   </div>
                 </div>
               </CardHeader>
@@ -506,15 +506,15 @@ const AIAuditWeek1IntakeForm = () => {
             </Card>
 
             {/* Section 3: Data & Tools */}
-            <Card>
+            <Card className="bg-secondary/60 border-gray-700">
               <CardHeader>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
                     <Database className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <CardTitle className="text-2xl">Data & Tools</CardTitle>
-                    <CardDescription>Understanding your current tech stack and data needs</CardDescription>
+                    <CardTitle className="text-2xl text-white">Data & Tools</CardTitle>
+                    <CardDescription className="text-gray-300">Understanding your current tech stack and data needs</CardDescription>
                   </div>
                 </div>
               </CardHeader>
@@ -592,15 +592,15 @@ const AIAuditWeek1IntakeForm = () => {
             </Card>
 
             {/* Section 4: Growth Blockers */}
-            <Card>
+            <Card className="bg-secondary/60 border-gray-700">
               <CardHeader>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
                     <TrendingDown className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <CardTitle className="text-2xl">Growth Blockers</CardTitle>
-                    <CardDescription>Identifying what prevents your business from scaling</CardDescription>
+                    <CardTitle className="text-2xl text-white">Growth Blockers</CardTitle>
+                    <CardDescription className="text-gray-300">Identifying what prevents your business from scaling</CardDescription>
                   </div>
                 </div>
               </CardHeader>
@@ -697,7 +697,7 @@ const AIAuditWeek1IntakeForm = () => {
             </Card>
 
             {/* Additional Thoughts Section */}
-            <Card>
+            <Card className="bg-secondary/60 border-gray-700">
               <CardContent className="pt-6">
                 <FormField
                   control={form.control}
@@ -720,7 +720,7 @@ const AIAuditWeek1IntakeForm = () => {
             </Card>
 
             {/* Submit Section */}
-            <Card>
+            <Card className="bg-secondary/60 border-gray-700">
               <CardContent className="pt-6">
                 <div className="text-center">
                   <Button 
@@ -732,7 +732,7 @@ const AIAuditWeek1IntakeForm = () => {
                     <Send className="mr-2 w-5 h-5" />
                     {isSubmitting ? "Submitting..." : "Submit Week 1 Intake Form"}
                   </Button>
-                  <p className="text-sm text-muted-foreground mt-4">
+                  <p className="text-sm text-gray-400 mt-4">
                     We'll review your responses and contact you within 24 hours to schedule your audit kickoff call.
                   </p>
                 </div>
