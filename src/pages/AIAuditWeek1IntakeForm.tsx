@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -214,13 +215,15 @@ const AIAuditWeek1IntakeForm = () => {
       {/* Header Section - Keep Dark */}
       <section className="pt-24 pb-8 px-4 bg-secondary">
         <div className="container mx-auto text-center">
+          <p className="text-sm font-semibold text-primary mb-2 uppercase tracking-wide">
+            Step 1 of Your AI Roadmap
+          </p>
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 max-w-4xl mx-auto">
-            AI Audit Intake – Week 1: 
-            <span className="text-primary block">Understanding Your Business Today</span>
+            Tell Us About Your Business—
+            <span className="text-primary block">We'll Show You Where AI Fits</span>
           </h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
-            Help us understand your current workflows, pain points, and growth challenges 
-            so we can create the most effective AI automation roadmap for your business.
+            This intake helps us create a personalized automation blueprint that actually works for your team and processes.
           </p>
         </div>
       </section>
