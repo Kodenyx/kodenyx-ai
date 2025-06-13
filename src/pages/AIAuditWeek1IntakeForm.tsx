@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -23,7 +22,8 @@ import {
   Clock, 
   Database, 
   TrendingDown,
-  Send
+  Send,
+  Plus
 } from "lucide-react";
 
 interface FormData {
@@ -36,7 +36,7 @@ interface FormData {
   trackingProgress: string;
   
   // Time Drains
-  inefficientTask: string;
+  inefficientTasks: string[];
   manualOnboarding: string;
   chaseDownTask: string;
   updateGathering: string;
@@ -60,6 +60,7 @@ const AIAuditWeek1IntakeForm = () => {
   const { toast } = useToast();
   const [selectedTools, setSelectedTools] = useState<string[]>([]);
   const [showOtherInput, setShowOtherInput] = useState(false);
+  const [inefficientTasks, setInefficientTasks] = useState<string[]>(['']);
   
   const form = useForm<FormData>({
     defaultValues: {
@@ -69,7 +70,7 @@ const AIAuditWeek1IntakeForm = () => {
       deliveryTools: [],
       otherDeliveryTool: "",
       trackingProgress: "",
-      inefficientTask: "",
+      inefficientTasks: [''],
       manualOnboarding: "",
       chaseDownTask: "",
       updateGathering: "",
@@ -111,6 +112,19 @@ const AIAuditWeek1IntakeForm = () => {
     }
     setSelectedTools(updatedTools);
     form.setValue('deliveryTools', updatedTools);
+  };
+
+  const addInefficientTask = () => {
+    const newTasks = [...inefficientTasks, ''];
+    setInefficientTasks(newTasks);
+    form.setValue('inefficientTasks', newTasks);
+  };
+
+  const updateInefficientTask = (index: number, value: string) => {
+    const updatedTasks = [...inefficientTasks];
+    updatedTasks[index] = value;
+    setInefficientTasks(updatedTasks);
+    form.setValue('inefficientTasks', updatedTasks);
   };
 
   const onSubmit = (data: FormData) => {
@@ -289,22 +303,29 @@ const AIAuditWeek1IntakeForm = () => {
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
-                <FormField
-                  control={form.control}
-                  name="inefficientTask"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>6. What's one task your team repeats that feels inefficient?</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="Enter the inefficient task..."
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div>
+                  <FormLabel>6. What's one task your team repeats that feels inefficient?</FormLabel>
+                  <div className="space-y-3 mt-3">
+                    {inefficientTasks.map((task, index) => (
+                      <Input
+                        key={index}
+                        placeholder="Enter an inefficient task..."
+                        value={task}
+                        onChange={(e) => updateInefficientTask(index, e.target.value)}
+                      />
+                    ))}
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={addInefficientTask}
+                      className="flex items-center gap-2"
+                    >
+                      <Plus className="w-4 h-4" />
+                      Add Another Task
+                    </Button>
+                  </div>
+                </div>
 
                 <FormField
                   control={form.control}
