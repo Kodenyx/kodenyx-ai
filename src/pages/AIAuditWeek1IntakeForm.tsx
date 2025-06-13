@@ -208,10 +208,10 @@ const AIAuditWeek1IntakeForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-secondary text-white">
+    <div className="min-h-screen bg-gray-50">
       <SimpleNavbar />
       
-      {/* Header Section */}
+      {/* Header Section - Keep Dark */}
       <section className="pt-24 pb-8 px-4 bg-secondary">
         <div className="container mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 max-w-4xl mx-auto">
@@ -225,35 +225,37 @@ const AIAuditWeek1IntakeForm = () => {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 pb-16">
+      {/* Form Content - Light Background */}
+      <div className="container mx-auto px-4 pb-16 -mt-4">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-4xl mx-auto">
             
             {/* Section 1: System Flow */}
-            <Card className="bg-secondary/60 border-gray-700">
-              <CardHeader>
+            <Card className="bg-white border-gray-200 shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-t-lg">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
                     <Settings className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <CardTitle className="text-2xl text-white">System Flow</CardTitle>
-                    <CardDescription className="text-gray-300">Understanding your current workflow processes</CardDescription>
+                    <CardTitle className="text-2xl text-gray-900">System Flow</CardTitle>
+                    <CardDescription className="text-gray-600">Understanding your current workflow processes</CardDescription>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-6 p-8">
                 <FormField
                   control={form.control}
                   name="topWorkflows"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>1. What are the top 3 workflows your team handles regularly?</FormLabel>
+                      <FormLabel className="text-gray-900 font-medium">1. What are the top 3 workflows your team handles regularly?</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Describe your most common workflows..."
                           {...field}
                           rows={4}
+                          className="border-gray-300 focus:border-primary focus:ring-primary"
                         />
                       </FormControl>
                       <FormMessage />
@@ -362,19 +364,19 @@ const AIAuditWeek1IntakeForm = () => {
             </Card>
 
             {/* Section 2: Time Drains */}
-            <Card className="bg-secondary/60 border-gray-700">
-              <CardHeader>
+            <Card className="bg-white border-gray-200 shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-t-lg">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
                     <Clock className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <CardTitle className="text-2xl text-white">Time Drains</CardTitle>
-                    <CardDescription className="text-gray-300">Identifying inefficiencies and manual processes</CardDescription>
+                    <CardTitle className="text-2xl text-gray-900">Time Drains</CardTitle>
+                    <CardDescription className="text-gray-600">Identifying inefficiencies and manual processes</CardDescription>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-6 p-8">
                 <div>
                   <FormLabel>6. What's one task your team repeats that feels inefficient?</FormLabel>
                   <div className="space-y-3 mt-3">
@@ -506,19 +508,19 @@ const AIAuditWeek1IntakeForm = () => {
             </Card>
 
             {/* Section 3: Data & Tools */}
-            <Card className="bg-secondary/60 border-gray-700">
-              <CardHeader>
+            <Card className="bg-white border-gray-200 shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-t-lg">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
                     <Database className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <CardTitle className="text-2xl text-white">Data & Tools</CardTitle>
-                    <CardDescription className="text-gray-300">Understanding your current tech stack and data needs</CardDescription>
+                    <CardTitle className="text-2xl text-gray-900">Data & Tools</CardTitle>
+                    <CardDescription className="text-gray-600">Understanding your current tech stack and data needs</CardDescription>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-6 p-8">
                 <FormField
                   control={form.control}
                   name="salesOpsTools"
@@ -592,19 +594,19 @@ const AIAuditWeek1IntakeForm = () => {
             </Card>
 
             {/* Section 4: Growth Blockers */}
-            <Card className="bg-secondary/60 border-gray-700">
-              <CardHeader>
+            <Card className="bg-white border-gray-200 shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-t-lg">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
                     <TrendingDown className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <CardTitle className="text-2xl text-white">Growth Blockers</CardTitle>
-                    <CardDescription className="text-gray-300">Identifying what prevents your business from scaling</CardDescription>
+                    <CardTitle className="text-2xl text-gray-900">Growth Blockers</CardTitle>
+                    <CardDescription className="text-gray-600">Identifying what prevents your business from scaling</CardDescription>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-6 p-8">
                 <FormField
                   control={form.control}
                   name="newClientRejection"
@@ -697,19 +699,20 @@ const AIAuditWeek1IntakeForm = () => {
             </Card>
 
             {/* Additional Thoughts Section */}
-            <Card className="bg-secondary/60 border-gray-700">
-              <CardContent className="pt-6">
+            <Card className="bg-white border-gray-200 shadow-lg">
+              <CardContent className="pt-6 p-8">
                 <FormField
                   control={form.control}
                   name="additionalThoughts"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>20. Anything on your mind you don't see on this form and would want our team to consider?</FormLabel>
+                      <FormLabel className="text-gray-900 font-medium">20. Anything on your mind you don't see on this form and would want our team to consider?</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Share any additional thoughts, concerns, or context that might be helpful for our team to know..."
                           {...field}
                           rows={4}
+                          className="border-gray-300 focus:border-primary focus:ring-primary"
                         />
                       </FormControl>
                       <FormMessage />
@@ -720,8 +723,8 @@ const AIAuditWeek1IntakeForm = () => {
             </Card>
 
             {/* Submit Section */}
-            <Card className="bg-secondary/60 border-gray-700">
-              <CardContent className="pt-6">
+            <Card className="bg-white border-gray-200 shadow-lg">
+              <CardContent className="pt-6 p-8">
                 <div className="text-center">
                   <Button 
                     type="submit" 
@@ -732,7 +735,7 @@ const AIAuditWeek1IntakeForm = () => {
                     <Send className="mr-2 w-5 h-5" />
                     {isSubmitting ? "Submitting..." : "Submit Week 1 Intake Form"}
                   </Button>
-                  <p className="text-sm text-gray-400 mt-4">
+                  <p className="text-sm text-gray-500 mt-4">
                     We'll review your responses and contact you within 24 hours to schedule your audit kickoff call.
                   </p>
                 </div>
