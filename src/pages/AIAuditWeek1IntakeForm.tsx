@@ -1,4 +1,5 @@
 
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -172,7 +173,150 @@ const AIAuditWeek1IntakeForm = () => {
     form.setValue('chaseDownTask', updatedTasks);
   };
 
+  const validateForm = (): boolean => {
+    const data = form.getValues();
+    let hasErrors = false;
+    
+    // Check required fields
+    if (!data.businessName.trim()) {
+      form.setError('businessName', { message: 'Business name is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.teamSize) {
+      form.setError('teamSize', { message: 'Team size is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.topWorkflows.trim()) {
+      form.setError('topWorkflows', { message: 'Top workflows is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.clientAssignment.trim()) {
+      form.setError('clientAssignment', { message: 'Client assignment process is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.onboardingProcess) {
+      form.setError('onboardingProcess', { message: 'Onboarding process selection is required' });
+      hasErrors = true;
+    }
+    
+    if (data.deliveryTools.length === 0) {
+      toast({
+        variant: "destructive",
+        title: "Required Field Missing",
+        description: "Please select at least one delivery tool.",
+      });
+      hasErrors = true;
+    }
+    
+    if (!data.trackingProgress.trim()) {
+      form.setError('trackingProgress', { message: 'Progress tracking method is required' });
+      hasErrors = true;
+    }
+    
+    // Check inefficient tasks - at least one non-empty task
+    const validInefficientTasks = data.inefficientTasks.filter(task => task.trim());
+    if (validInefficientTasks.length === 0) {
+      toast({
+        variant: "destructive",
+        title: "Required Field Missing",
+        description: "Please enter at least one inefficient task.",
+      });
+      hasErrors = true;
+    }
+    
+    if (!data.manualOnboarding.trim()) {
+      form.setError('manualOnboarding', { message: 'Manual onboarding description is required' });
+      hasErrors = true;
+    }
+    
+    // Check chase down tasks - at least one non-empty task
+    const validChaseDownTasks = data.chaseDownTask.filter(task => task.trim());
+    if (validChaseDownTasks.length === 0) {
+      toast({
+        variant: "destructive",
+        title: "Required Field Missing",
+        description: "Please enter at least one item you chase down for.",
+      });
+      hasErrors = true;
+    }
+    
+    if (!data.updateGathering.trim()) {
+      form.setError('updateGathering', { message: 'Update gathering process is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.timeConsumingWork.trim()) {
+      form.setError('timeConsumingWork', { message: 'Time consuming work description is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.salesOpsTools.trim()) {
+      form.setError('salesOpsTools', { message: 'Sales/ops tools list is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.underusedTools.trim()) {
+      form.setError('underusedTools', { message: 'Underused tools information is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.neededData.trim()) {
+      form.setError('neededData', { message: 'Needed data description is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.clientNotesStorage.trim()) {
+      form.setError('clientNotesStorage', { message: 'Client notes storage location is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.newClientRejection.trim()) {
+      form.setError('newClientRejection', { message: 'New client rejection reason is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.wouldBreakFirst.trim()) {
+      form.setError('wouldBreakFirst', { message: 'Scaling bottleneck description is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.confidenceNeeds.trim()) {
+      form.setError('confidenceNeeds', { message: 'Confidence needs description is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.scalingIssues.trim()) {
+      form.setError('scalingIssues', { message: 'Scaling issues description is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.auditGoal.trim()) {
+      form.setError('auditGoal', { message: 'Audit goal is required' });
+      hasErrors = true;
+    }
+    
+    if (!data.additionalThoughts.trim()) {
+      form.setError('additionalThoughts', { message: 'Additional thoughts are required' });
+      hasErrors = true;
+    }
+    
+    return !hasErrors;
+  };
+
   const onSubmit = async (data: FormData) => {
+    if (!validateForm()) {
+      toast({
+        variant: "destructive",
+        title: "Please Complete All Fields",
+        description: "All questions are required. Please fill in all fields before submitting.",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     console.log("Form submitted:", data);
     
@@ -259,12 +403,13 @@ const AIAuditWeek1IntakeForm = () => {
                   name="businessName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-900 font-medium">Business/Company Name</FormLabel>
+                      <FormLabel className="text-gray-900 font-medium">Business/Company Name *</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="Enter your business name..."
                           {...field}
                           className="border-gray-300 focus:border-primary focus:ring-primary"
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -277,9 +422,9 @@ const AIAuditWeek1IntakeForm = () => {
                   name="teamSize"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>How many team members do you have?</FormLabel>
+                      <FormLabel>How many team members do you have? *</FormLabel>
                       <FormControl>
-                        <RadioGroup onValueChange={field.onChange} value={field.value}>
+                        <RadioGroup onValueChange={field.onChange} value={field.value} required>
                           <div className="flex items-center space-x-2">
                             <RadioGroupItem value="1-2" id="team-1-2" />
                             <Label htmlFor="team-1-2">1-2 team members</Label>
@@ -328,13 +473,14 @@ const AIAuditWeek1IntakeForm = () => {
                   name="topWorkflows"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-900 font-medium">1. What are the top 3 workflows your team handles regularly?</FormLabel>
+                      <FormLabel className="text-gray-900 font-medium">1. What are the top 3 workflows your team handles regularly? *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Describe your most common workflows..."
                           {...field}
                           rows={4}
                           className="border-gray-300 focus:border-primary focus:ring-primary"
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -347,12 +493,13 @@ const AIAuditWeek1IntakeForm = () => {
                   name="clientAssignment"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>2. How are new clients assigned internally?</FormLabel>
+                      <FormLabel>2. How are new clients assigned internally? *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Explain your client assignment process..."
                           {...field}
                           rows={3}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -365,9 +512,9 @@ const AIAuditWeek1IntakeForm = () => {
                   name="onboardingProcess"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>3. Do you follow a standard onboarding process?</FormLabel>
+                      <FormLabel>3. Do you follow a standard onboarding process? *</FormLabel>
                       <FormControl>
-                        <RadioGroup onValueChange={field.onChange} value={field.value}>
+                        <RadioGroup onValueChange={field.onChange} value={field.value} required>
                           <div className="flex items-center space-x-2">
                             <RadioGroupItem value="yes" id="yes" />
                             <Label htmlFor="yes">Yes</Label>
@@ -388,7 +535,7 @@ const AIAuditWeek1IntakeForm = () => {
                 />
 
                 <div>
-                  <Label className="text-sm font-medium">4. Which tools do you use to manage client delivery?</Label>
+                  <Label className="text-sm font-medium">4. Which tools do you use to manage client delivery? *</Label>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-3">
                     {deliveryToolOptions.map((tool) => (
                       <div key={tool} className="flex items-center space-x-2">
@@ -427,12 +574,13 @@ const AIAuditWeek1IntakeForm = () => {
                   name="trackingProgress"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>5. How do you track work and progress after onboarding?</FormLabel>
+                      <FormLabel>5. How do you track work and progress after onboarding? *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Describe your progress tracking methods..."
                           {...field}
                           rows={3}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -457,7 +605,7 @@ const AIAuditWeek1IntakeForm = () => {
               </CardHeader>
               <CardContent className="space-y-6 p-8">
                 <div>
-                  <FormLabel>6. What's one task your team repeats that feels inefficient?</FormLabel>
+                  <FormLabel>6. What's one task your team repeats that feels inefficient? *</FormLabel>
                   <div className="space-y-3 mt-3">
                     {inefficientTasks.map((task, index) => (
                       <div key={index} className="flex items-center gap-2">
@@ -466,6 +614,7 @@ const AIAuditWeek1IntakeForm = () => {
                           value={task}
                           onChange={(e) => updateInefficientTask(index, e.target.value)}
                           className="flex-1"
+                          required={index === 0}
                         />
                         {inefficientTasks.length > 1 && (
                           <Button
@@ -498,12 +647,13 @@ const AIAuditWeek1IntakeForm = () => {
                   name="manualOnboarding"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>7. What's the most manual part of your onboarding process?</FormLabel>
+                      <FormLabel>7. What's the most manual part of your onboarding process? *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Describe the manual onboarding steps..."
                           {...field}
                           rows={3}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -512,7 +662,7 @@ const AIAuditWeek1IntakeForm = () => {
                 />
 
                 <div>
-                  <FormLabel>8. What do you often have to chase someone down for?</FormLabel>
+                  <FormLabel>8. What do you often have to chase someone down for? *</FormLabel>
                   <div className="space-y-3 mt-3">
                     {chaseDownTasks.map((task, index) => (
                       <div key={index} className="flex items-center gap-2">
@@ -521,6 +671,7 @@ const AIAuditWeek1IntakeForm = () => {
                           value={task}
                           onChange={(e) => updateChaseDownTask(index, e.target.value)}
                           className="flex-1"
+                          required={index === 0}
                         />
                         {chaseDownTasks.length > 1 && (
                           <Button
@@ -553,12 +704,13 @@ const AIAuditWeek1IntakeForm = () => {
                   name="updateGathering"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>9. How do you gather updates before a client check-in?</FormLabel>
+                      <FormLabel>9. How do you gather updates before a client check-in? *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Describe your update gathering process..."
                           {...field}
                           rows={3}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -571,12 +723,13 @@ const AIAuditWeek1IntakeForm = () => {
                   name="timeConsumingWork"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>10. What part of your work (or your team's) eats up too much time?</FormLabel>
+                      <FormLabel>10. What part of your work (or your team's) eats up too much time? *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Identify time-consuming activities..."
                           {...field}
                           rows={3}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -605,12 +758,13 @@ const AIAuditWeek1IntakeForm = () => {
                   name="salesOpsTools"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>11. Which tools do you use for sales, internal ops, and reporting?</FormLabel>
+                      <FormLabel>11. Which tools do you use for sales, internal ops, and reporting? *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="List your current tools and their purposes..."
                           {...field}
                           rows={4}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -623,11 +777,12 @@ const AIAuditWeek1IntakeForm = () => {
                   name="underusedTools"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>12. Are any tools underused, duplicated, or not working as intended?</FormLabel>
+                      <FormLabel>12. Are any tools underused, duplicated, or not working as intended? *</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="Identify problematic tools..."
                           {...field}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -640,12 +795,13 @@ const AIAuditWeek1IntakeForm = () => {
                   name="neededData"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>13. What's a piece of data you wish you had at your fingertips?</FormLabel>
+                      <FormLabel>13. What's a piece of data you wish you had at your fingertips? *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Describe the data you need but don't easily have..."
                           {...field}
                           rows={3}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -658,11 +814,12 @@ const AIAuditWeek1IntakeForm = () => {
                   name="clientNotesStorage"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>14. Where are important client notes or convos stored today?</FormLabel>
+                      <FormLabel>14. Where are important client notes or convos stored today? *</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="Where do you store client information..."
                           {...field}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -691,11 +848,12 @@ const AIAuditWeek1IntakeForm = () => {
                   name="newClientRejection"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>15. What's one reason you've said "no" to taking on a new client?</FormLabel>
+                      <FormLabel>15. What's one reason you've said "no" to taking on a new client? *</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="Why have you turned down clients..."
                           {...field}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -708,12 +866,13 @@ const AIAuditWeek1IntakeForm = () => {
                   name="wouldBreakFirst"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>16. If 10 new clients signed next month, what would break first?</FormLabel>
+                      <FormLabel>16. If 10 new clients signed next month, what would break first? *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="What would be your biggest bottleneck..."
                           {...field}
                           rows={3}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -726,12 +885,13 @@ const AIAuditWeek1IntakeForm = () => {
                   name="confidenceNeeds"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>17. What would need to happen for your team to confidently take on more clients?</FormLabel>
+                      <FormLabel>17. What would need to happen for your team to confidently take on more clients? *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="What changes would give you confidence to scale..."
                           {...field}
                           rows={3}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -744,12 +904,13 @@ const AIAuditWeek1IntakeForm = () => {
                   name="scalingIssues"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>18. What system or process hasn't scaled well as your business has grown?</FormLabel>
+                      <FormLabel>18. What system or process hasn't scaled well as your business has grown? *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Identify scaling challenges..."
                           {...field}
                           rows={3}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -762,12 +923,13 @@ const AIAuditWeek1IntakeForm = () => {
                   name="auditGoal"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>19. What's your #1 goal for this audit? What would make it a win?</FormLabel>
+                      <FormLabel>19. What's your #1 goal for this audit? What would make it a win? *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Define success for this audit..."
                           {...field}
                           rows={4}
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -785,13 +947,14 @@ const AIAuditWeek1IntakeForm = () => {
                   name="additionalThoughts"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-900 font-medium">20. Anything on your mind you don't see on this form and would want our team to consider?</FormLabel>
+                      <FormLabel className="text-gray-900 font-medium">20. Anything on your mind you don't see on this form and would want our team to consider? *</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Share any additional thoughts, concerns, or context that might be helpful for our team to know..."
                           {...field}
                           rows={4}
                           className="border-gray-300 focus:border-primary focus:ring-primary"
+                          required
                         />
                       </FormControl>
                       <FormMessage />
@@ -828,3 +991,4 @@ const AIAuditWeek1IntakeForm = () => {
 };
 
 export default AIAuditWeek1IntakeForm;
+
