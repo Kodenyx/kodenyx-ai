@@ -200,7 +200,7 @@ const AIAudit = () => {
             ))}
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* Final CTA Section */}
       <section className="py-16 px-4 bg-secondary">
