@@ -222,7 +222,7 @@ const AIAuditWeek1IntakeForm = () => {
       <section className="pt-24 pb-8 px-4 bg-secondary">
         <div className="container mx-auto text-center">
           <p className="text-sm font-semibold text-primary mb-2 uppercase tracking-wide">
-            Step 1 of Your AI Roadmap
+            Step 1 of Your AI Audit
           </p>
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 max-w-4xl mx-auto">
             Tell Us About Your Business—
