@@ -17,6 +17,7 @@ import AIReadyScore from "./pages/AIReadyScore";
 import Media from "./pages/Media";
 import AIForYouth from "./pages/AIForYouth";
 import AIAudit from "./pages/AIAudit";
+import AIAuditWeek1IntakeForm from "./pages/AIAuditWeek1IntakeForm";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient({
@@ -45,6 +46,7 @@ const App = () => {
             <Route path="/media" element={<Media />} />
             <Route path="/ai-for-youth" element={<AIForYouth />} />
             <Route path="/ai-audit" element={<AIAudit />} />
+            <Route path="/ai-audit/week1-intake-form" element={<AIAuditWeek1IntakeForm />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
