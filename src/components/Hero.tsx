@@ -17,7 +17,7 @@ const Hero = () => {
           <div className="space-y-8 animate-fade-in">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
               Transform Your Lead Generation with{" "}
-              <span className="text-primary">AI-Powered</span> Automation
+              <span className="text-primary-light">AI-Powered</span> Automation
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
               Stop chasing leads manually. Let our AI agents attract, capture, and nurture your prospects 24/7.
