@@ -13,8 +13,13 @@ const Logo = ({ size = 180, className = "" }: LogoProps) => {
       alt="Kodenyx AI logo"
       width={size}
       height={size}
-      style={{ display: "block", backgroundColor: "transparent", boxShadow: "none" }}
-      className={`object-contain rounded-md ${className}`}
+      style={{ 
+        display: "block", 
+        backgroundColor: "transparent", 
+        boxShadow: "none",
+        filter: "drop-shadow(0 0 0 transparent)"
+      }}
+      className={`object-contain ${className}`}
     />
   );
 };
