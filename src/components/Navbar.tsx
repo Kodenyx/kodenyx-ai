@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Menu, X, PhoneCall, GraduationCap, Mail } from "lucide-react";
+import { Menu, X, PhoneCall, GraduationCap, Mail, Mic } from "lucide-react";
 import Logo from "./Logo";
 
 const Navbar = () => {
@@ -65,6 +65,13 @@ const Navbar = () => {
           <Link to="/media" className="text-gray-300 hover:text-white transition-colors">
             Media
           </Link>
+          <Link 
+            to="/ai-first-ceo-podcast" 
+            className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
+          >
+            <Mic size={18} />
+            Podcast
+          </Link>
           <a 
             href="/ai-readiness-workshop" 
             target="_blank"
@@ -121,6 +128,14 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Media
+            </Link>
+            <Link 
+              to="/ai-first-ceo-podcast"
+              className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Mic size={18} />
+              Podcast
             </Link>
             <a 
               href="/ai-readiness-workshop" 
