@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -49,7 +48,7 @@ const AIFirstCEOPodcast = () => {
       <SimpleNavbar />
       
       {/* Hero Section */}
-      <section className="pt-24 md:pt-28 min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-secondary to-secondary/95 text-white">
+      <section className="pt-16 md:pt-20 min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-secondary to-secondary/95 text-white">
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Content */}

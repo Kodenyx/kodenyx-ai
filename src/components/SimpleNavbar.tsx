@@ -6,11 +6,11 @@ import { Home } from "lucide-react";
 
 const SimpleNavbar = () => {
   return (
-    <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-4">
+    <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-2 max-h-[48px] flex items-center">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <Link to="/">
-            <Logo />
+            <Logo size={120} className="max-h-[32px] w-auto" />
           </Link>
           <Link to="/">
             <Button className="bg-primary hover:bg-primary-dark text-white">
