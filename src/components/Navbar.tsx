@@ -65,13 +65,13 @@ const Navbar = () => {
           <Link to="/media" className="text-gray-300 hover:text-white transition-colors">
             Media
           </Link>
-          <Link 
+          {/* <Link 
             to="/ai-first-ceo-podcast" 
             className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
           >
             <Mic size={18} />
             Podcast
-          </Link>
+          </Link> */}
           <a 
             href="/ai-readiness-workshop" 
             target="_blank"
@@ -129,14 +129,14 @@ const Navbar = () => {
             >
               Media
             </Link>
-            <Link 
+            {/* <Link 
               to="/ai-first-ceo-podcast"
               className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
               onClick={() => setIsMenuOpen(false)}
             >
               <Mic size={18} />
               Podcast
-            </Link>
+            </Link> */}
             <a 
               href="/ai-readiness-workshop" 
               target="_blank"
