@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -44,10 +45,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-4 max-h-[96px] flex items-center">
+    <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-4">
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <Logo size={240} className="w-auto" />
+          <Logo />
         </Link>
 
         {/* Mobile menu button */}
@@ -112,7 +113,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-[96px] left-0 right-0 bg-secondary/95 backdrop-blur-md z-50 py-4 animate-fade-in px-4">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-secondary/95 backdrop-blur-md z-50 py-4 animate-fade-in px-4">
           <div className="flex flex-col gap-4">
             <a 
               href="#testimonials" 
