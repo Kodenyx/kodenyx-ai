@@ -47,7 +47,7 @@ const Navbar = () => {
     <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-4 max-h-[96px] flex items-center">
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <Logo size={240} className="max-h-[64px] w-auto" />
+          <Logo size={240} className="w-auto" />
         </Link>
 
         {/* Mobile menu button */}
