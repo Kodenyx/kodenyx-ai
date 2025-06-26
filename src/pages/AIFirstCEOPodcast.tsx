@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -59,7 +60,7 @@ const AIFirstCEOPodcast = () => {
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 The <span className="text-primary-light">AI First</span> CEO Show
               </h1>
-              <p className="text-2xl md:text-3xl text-gray-300 font-medium">
+              <p className="text-lg md:text-xl text-gray-300 font-medium">
                 Where modern founders learn to scale with leverage - not labor
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
