@@ -86,14 +86,12 @@ const AIFirstCEOPodcast = () => {
 
             {/* Right side - Podcast Cover Art */}
             <div className="relative w-full max-w-[500px] mx-auto animate-slide-up">
-              <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl shadow-2xl overflow-hidden border border-gray-800 flex items-center justify-center">
-                {/* Placeholder for podcast cover art */}
-                <div className="text-center p-8">
-                  <div className="w-32 h-32 bg-primary/30 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Play className="w-16 h-16 text-white" />
-                  </div>
-                  <p className="text-gray-300 text-sm">Podcast Cover Art<br />3000x3000 px</p>
-                </div>
+              <div className="aspect-square rounded-2xl shadow-2xl overflow-hidden border border-gray-800">
+                <img 
+                  src="/lovable-uploads/e2064264-e7c2-44cb-b20e-65efa2d122d9.png" 
+                  alt="The AI-First CEO Talk Show with Aarti Anand" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-primary/30 via-accent/30 to-primary/30 blur-3xl opacity-20"></div>
             </div>
