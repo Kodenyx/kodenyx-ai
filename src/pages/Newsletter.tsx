@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -58,7 +57,7 @@ const Newsletter = () => {
     <div className="flex flex-col min-h-screen">
       <SimpleNavbar />
       <main className="flex-1 bg-gradient-to-br from-[#E5DEFF] via-[#F1F0FB] to-[#D3E4FD] text-gray-800">
-        <div className="container mx-auto px-4 pt-32 pb-16 max-w-3xl">
+        <div className="container mx-auto px-4 pt-40 pb-16 max-w-3xl">
           <div className="text-center mb-12 animate-fade-in">
             <div className="flex justify-center mb-6">
               <div className="relative w-40 h-40 md:w-48 md:h-48 overflow-hidden rounded-full border-4 border-primary shadow-xl">
