@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -55,7 +54,7 @@ const AIFirstCEOPodcast = () => {
             {/* Left side - Content */}
             <div className="space-y-8 animate-fade-in">
               <p className="text-lg md:text-xl text-primary-light font-medium uppercase tracking-wide">
-                You built the business. Now it's time to stop being the bottleneck.
+                Where modern founders learn to scale with leverage - not labor
               </p>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 The <span className="text-primary-light">AI First</span> CEO Show
