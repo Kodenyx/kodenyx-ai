@@ -8,7 +8,7 @@ const Hero = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
-    <div className="pt-40 md:pt-44 min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-secondary to-secondary/95 text-white">
+    <div className="pt-48 md:pt-52 min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-secondary to-secondary/95 text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
