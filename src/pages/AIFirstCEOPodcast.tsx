@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -58,7 +57,7 @@ const AIFirstCEOPodcast = () => {
                 You built the business. Now it's time to stop being the bottleneck.
               </p>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                The <span className="text-primary-light">AI First</span> CEO Show
+                The <span className="text-primary-light">AI-First</span> CEO Show
               </h1>
               <p className="text-lg md:text-xl text-gray-300 font-medium">
                 Where modern founders learn to scale with leverage - not labor
