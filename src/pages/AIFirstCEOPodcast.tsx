@@ -54,6 +54,9 @@ const AIFirstCEOPodcast = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Content */}
             <div className="space-y-8 animate-fade-in">
+              <p className="text-lg md:text-xl text-primary-light font-medium uppercase tracking-wide">
+                You built the business. Now it's time to stop being the bottleneck.
+              </p>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 The <span className="text-primary-light">AI First</span> CEO Show
               </h1>
