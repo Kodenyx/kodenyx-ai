@@ -88,8 +88,8 @@ const AIFirstCEOPodcast = () => {
             <div className="relative w-full max-w-[500px] mx-auto animate-slide-up">
               <div className="aspect-square rounded-2xl shadow-2xl overflow-hidden border border-gray-800">
                 <img 
-                  src="/lovable-uploads/e2064264-e7c2-44cb-b20e-65efa2d122d9.png" 
-                  alt="The AI-First CEO Talk Show with Aarti Anand" 
+                  src="/lovable-uploads/8f1d4cc2-2367-49c3-a33a-1d192fb0dfb3.png" 
+                  alt="The AI-First CEO Podcast with Aarti Anand" 
                   className="w-full h-full object-cover"
                 />
               </div>
