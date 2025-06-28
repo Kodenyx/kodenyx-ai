@@ -2,7 +2,6 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import { Button } from "./ui/button";
-import { Home } from "lucide-react";
 
 const SimpleNavbar = () => {
   const handleGuestApplicationClick = () => {
@@ -24,7 +23,6 @@ const SimpleNavbar = () => {
             onClick={handleGuestApplicationClick}
             className="bg-primary hover:bg-primary-dark text-white"
           >
-            <Home className="mr-2" size={18} />
             Apply to be a guest
           </Button>
         </div>
