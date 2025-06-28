@@ -1,3 +1,4 @@
+
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
@@ -24,9 +25,9 @@ serve(async (req) => {
   }
 
   try {
-    const { email } = await req.json()
+    const { email, linkedinProfile } = await req.json()
     
-    console.log('Received guest application:', { email })
+    console.log('Received guest application:', { email, linkedinProfile })
 
     // Simple validation
     if (!email || !email.includes('@')) {
@@ -49,6 +50,7 @@ serve(async (req) => {
       .from('podcast_guest_applications')
       .insert({
         email,
+        linkedin_profile: linkedinProfile || null,
         status: 'pending'
       })
 
