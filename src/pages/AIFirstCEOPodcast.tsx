@@ -25,11 +25,6 @@ const AIFirstCEOPodcast = () => {
         throw new Error(error.message || 'Error subscribing to newsletter');
       }
 
-      toast({
-        title: "Thanks for subscribing!",
-        description: "You've been added to our newsletter list.",
-      });
-
       setIsSubscribed(true);
       setEmail("");
     } catch (error: any) {
@@ -193,7 +188,7 @@ const AIFirstCEOPodcast = () => {
           ) : (
             <div className="bg-primary/20 rounded-lg p-8">
               <h3 className="text-2xl font-bold mb-4">Thank You!</h3>
-              <p className="text-lg">You've successfully applied to be a guest on The AI-First CEO Podcast.</p>
+              <p className="text-lg">Thanks for your interest to be a guest on The AI-First CEO Podcast. Our team will be in touch with you.</p>
             </div>
           )}
         </div>
