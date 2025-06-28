@@ -196,13 +196,14 @@ const AIFirstCEOPodcast = () => {
               </div>
               
               <div className="space-y-2 text-left">
-                <Label htmlFor="linkedinProfile" className="text-white">LinkedIn Profile</Label>
+                <Label htmlFor="linkedinProfile" className="text-white">LinkedIn Profile *</Label>
                 <Input 
                   id="linkedinProfile"
                   type="url"
                   value={formData.linkedinProfile}
                   onChange={(e) => setFormData(prev => ({ ...prev, linkedinProfile: e.target.value }))}
                   placeholder="https://linkedin.com/in/yourprofile" 
+                  required
                   className="bg-white/10 text-white placeholder:text-gray-400 text-lg py-6 border-white/20"
                 />
               </div>
