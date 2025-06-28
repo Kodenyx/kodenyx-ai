@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -163,37 +162,23 @@ const AIFirstCEOPodcast = () => {
         </div>
       </section>
 
-      {/* Newsletter Signup */}
+      {/* Guest Application */}
       <section className="py-20 bg-secondary text-white">
         <div className="container mx-auto px-4 max-w-2xl text-center">
-          <h2 className="text-4xl font-bold mb-6">Want insights from the show delivered to your inbox?</h2>
+          <h2 className="text-4xl font-bold mb-6">Interested in being a guest on the AI-First CEO Podcast?</h2>
+          <p className="text-lg md:text-xl text-gray-300 mb-8">
+            Share your story, your systems, and how you've scaled without doing it all.
+          </p>
           
-          {!isSubscribed ? (
-            <form onSubmit={handleNewsletterSubmit} className="space-y-4">
-              <Input 
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email address" 
-                required
-                className="bg-white/10 text-white placeholder:text-gray-400 text-lg py-6"
-              />
-              <Button 
-                type="submit" 
-                size="lg"
-                className="w-full bg-primary hover:bg-primary-dark text-white font-medium text-lg py-6"
-                disabled={isLoading}
-              >
-                {isLoading ? "Subscribing..." : "Subscribe to Newsletter"}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </form>
-          ) : (
-            <div className="bg-primary/20 rounded-lg p-8">
-              <h3 className="text-2xl font-bold mb-4">Thank You!</h3>
-              <p className="text-lg">You've successfully subscribed to The AI-First CEO newsletter.</p>
-            </div>
-          )}
+          <a href="/ai-first-ceo-podcast-guest-intake" className="inline-block">
+            <Button 
+              size="lg"
+              className="bg-primary hover:bg-primary-dark text-white font-medium text-lg py-6 px-8"
+            >
+              Apply to be a guest
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </a>
         </div>
       </section>
     </div>
