@@ -65,7 +65,7 @@ const AIFirstCEOPodcast = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <a 
-                  href="https://podcasts.apple.com" 
+                  href="https://podcasts.apple.com/us/podcast/the-ai-first-ceo-show/id1823336395" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto"
