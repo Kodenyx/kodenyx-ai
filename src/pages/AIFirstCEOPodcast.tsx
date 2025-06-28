@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -106,15 +107,18 @@ const AIFirstCEOPodcast = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-secondary">Latest Episodes</h2>
           
-          {/* Spotify Embed Placeholder */}
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-12 text-center border border-gray-200">
-              <div className="w-20 h-20 bg-green-500 rounded-full mx-auto mb-6 flex items-center justify-center">
-                <Play className="w-10 h-10 text-white" />
-              </div>
-              <p className="text-gray-600 text-lg mb-4">Spotify Podcast Player</p>
-              <p className="text-gray-500 text-sm">Embed code will be placed here</p>
-            </div>
+          {/* Spotify Embed */}
+          <div className="max-w-4xl mx-auto flex justify-center">
+            <iframe 
+              style={{borderRadius:"12px"}} 
+              src="https://open.spotify.com/embed/episode/6Rvud7R4KidgjdStwia5re/video?utm_source=generator" 
+              width="624" 
+              height="351" 
+              frameBorder="0" 
+              allowFullScreen={true}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
