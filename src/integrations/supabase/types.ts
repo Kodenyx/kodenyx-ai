@@ -159,6 +159,27 @@ export type Database = {
         }
         Relationships: []
       }
+      podcast_guest_applications: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          status: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          status?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          status?: string | null
+        }
+        Relationships: []
+      }
       podcast_guest_responses: {
         Row: {
           avoid_topics: string | null

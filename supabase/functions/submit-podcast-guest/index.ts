@@ -44,26 +44,19 @@ serve(async (req) => {
     const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
     const supabase = createClient(supabaseUrl, supabaseKey)
 
-    // Store in Supabase database (we'll store minimal info for now)
+    // Store in the new podcast_guest_applications table
     const { data: dbData, error: dbError } = await supabase
-      .from('podcast_guest_responses')
+      .from('podcast_guest_applications')
       .insert({
         email,
-        full_name: '', // We'll make this required later when we expand the form
-        company_name: 'Pending', // Placeholder
-        title_role: 'Pending', // Placeholder
-        website: 'Pending', // Placeholder
-        linkedin_profile: 'Pending', // Placeholder
-        business_description: 'Initial interest submitted via email',
-        scaling_system: 'To be provided',
-        bottleneck_breakthrough: 'To be discussed'
+        status: 'pending'
       })
 
     if (dbError) {
       console.error('Supabase error:', dbError)
       // Continue with ConvertKit even if DB fails
     } else {
-      console.log('Successfully stored in database:', dbData)
+      console.log('Successfully stored guest application in database:', dbData)
     }
 
     // Also send to ConvertKit (keep existing functionality)
