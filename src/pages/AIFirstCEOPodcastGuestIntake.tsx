@@ -42,7 +42,31 @@ const AIFirstCEOPodcastGuestIntake = () => {
     e.preventDefault();
     setIsLoading(true);
 
+    console.log('Starting form submission...');
+    console.log('Form data:', formData);
+
     try {
+      // Validate required fields
+      const requiredFields = [
+        'fullName', 'companyName', 'titleRole', 'email', 
+        'website', 'linkedinProfile', 'businessDescription', 
+        'scalingSystem', 'bottleneckBreakthrough'
+      ];
+      
+      const missingFields = requiredFields.filter(field => !formData[field as keyof typeof formData]);
+      
+      if (missingFields.length > 0) {
+        console.error('Missing required fields:', missingFields);
+        toast({
+          title: "Missing required fields",
+          description: `Please fill in: ${missingFields.join(', ')}`,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      console.log('All required fields present, submitting to database...');
+
       // Save to Supabase database
       const { data, error } = await supabase
         .from('podcast_guest_responses')
@@ -61,13 +85,17 @@ const AIFirstCEOPodcastGuestIntake = () => {
           avoid_topics: formData.avoidTopics || null,
           short_bio: formData.shortBio || null,
           headshot_url: formData.headshotUrl || null
-        });
+        })
+        .select(); // Add select to get the inserted data back
+
+      console.log('Supabase response:', { data, error });
 
       if (error) {
+        console.error('Supabase error:', error);
         throw error;
       }
 
-      console.log('Guest intake form saved to database:', data);
+      console.log('Guest intake form saved successfully:', data);
       
       toast({
         title: "Form submitted successfully!",
