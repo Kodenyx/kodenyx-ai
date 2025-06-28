@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -172,56 +171,29 @@ const AIFirstCEOPodcast = () => {
           </p>
           
           {!isSubscribed ? (
-            <div className="space-y-6">
-              <form onSubmit={handleNewsletterSubmit} className="space-y-4">
-                <Input 
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address" 
-                  required
-                  className="bg-white/10 text-white placeholder:text-gray-400 text-lg py-6"
-                />
-                <Button 
-                  type="submit" 
-                  size="lg"
-                  className="w-full bg-primary hover:bg-primary-dark text-white font-medium text-lg py-6"
-                  disabled={isLoading}
-                >
-                  {isLoading ? "Applying..." : "Apply to be a guest"}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </form>
-              
-              <div className="pt-4">
-                <a href="/ai-first-ceo-podcast-guest-intake" className="inline-block">
-                  <Button 
-                    size="lg"
-                    variant="outline"
-                    className="bg-transparent border-white text-white hover:bg-white hover:text-secondary font-medium text-lg py-6 px-8"
-                  >
-                    Apply to be a guest
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </a>
-              </div>
-            </div>
+            <form onSubmit={handleNewsletterSubmit} className="space-y-4">
+              <Input 
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email address" 
+                required
+                className="bg-white/10 text-white placeholder:text-gray-400 text-lg py-6"
+              />
+              <Button 
+                type="submit" 
+                size="lg"
+                className="w-full bg-primary hover:bg-primary-dark text-white font-medium text-lg py-6"
+                disabled={isLoading}
+              >
+                {isLoading ? "Applying..." : "Apply to be a guest"}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </form>
           ) : (
-            <div className="space-y-6">
-              <div className="bg-primary/20 rounded-lg p-8">
-                <h3 className="text-2xl font-bold mb-4">Thank You!</h3>
-                <p className="text-lg">You've successfully subscribed to The AI-First CEO newsletter.</p>
-              </div>
-              
-              <a href="/ai-first-ceo-podcast-guest-intake" className="inline-block">
-                <Button 
-                  size="lg"
-                  className="bg-primary hover:bg-primary-dark text-white font-medium text-lg py-6 px-8"
-                >
-                  Apply to be a guest
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </a>
+            <div className="bg-primary/20 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-4">Thank You!</h3>
+              <p className="text-lg">You've successfully applied to be a guest on The AI-First CEO Podcast.</p>
             </div>
           )}
         </div>
