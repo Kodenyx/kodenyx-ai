@@ -159,7 +159,7 @@ const AIFirstCEOPodcast = () => {
       </section>
 
       {/* Guest Application */}
-      <section className="py-20 bg-secondary text-white">
+      <section id="guest-application" className="py-20 bg-secondary text-white">
         <div className="container mx-auto px-4 max-w-2xl text-center">
           <h2 className="text-4xl font-bold mb-6">Interested in being a guest on the AI-First CEO Podcast?</h2>
           <p className="text-lg md:text-xl text-gray-300 mb-8 font-serif leading-relaxed">
