@@ -1,17 +1,8 @@
 
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
-import { Button } from "./ui/button";
 
 const SimpleNavbar = () => {
-  const handleGuestApplicationClick = () => {
-    // Scroll to the guest application form at the bottom of the page
-    const guestSection = document.getElementById('guest-application');
-    if (guestSection) {
-      guestSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-2">
       <div className="container mx-auto px-4">
@@ -19,12 +10,6 @@ const SimpleNavbar = () => {
           <Link to="/">
             <Logo size={140} />
           </Link>
-          <Button 
-            onClick={handleGuestApplicationClick}
-            className="bg-primary hover:bg-primary-dark text-white"
-          >
-            Apply to be a guest
-          </Button>
         </div>
       </div>
     </nav>
