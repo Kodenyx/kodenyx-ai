@@ -164,18 +164,21 @@ export type Database = {
           created_at: string
           email: string
           id: string
+          linkedin_profile: string | null
           status: string | null
         }
         Insert: {
           created_at?: string
           email: string
           id?: string
+          linkedin_profile?: string | null
           status?: string | null
         }
         Update: {
           created_at?: string
           email?: string
           id?: string
+          linkedin_profile?: string | null
           status?: string | null
         }
         Relationships: []
