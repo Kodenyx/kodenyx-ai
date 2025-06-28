@@ -188,7 +188,7 @@ const AIFirstCEOPodcast = () => {
                   className="w-full bg-primary hover:bg-primary-dark text-white font-medium text-lg py-6"
                   disabled={isLoading}
                 >
-                  {isLoading ? "Subscribing..." : "Subscribe to Newsletter"}
+                  {isLoading ? "Applying..." : "Apply to be a guest"}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </form>
