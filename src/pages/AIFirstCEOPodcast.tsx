@@ -18,16 +18,21 @@ const AIFirstCEOPodcast = () => {
     setIsLoading(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('subscribe-newsletter', {
-        body: { name: "", email },
+      const { data, error } = await supabase.functions.invoke('submit-podcast-guest', {
+        body: { email },
       });
 
       if (error) {
-        throw new Error(error.message || 'Error subscribing to newsletter');
+        throw new Error(error.message || 'Error submitting guest application');
       }
 
       setIsSubscribed(true);
       setEmail("");
+      
+      toast({
+        title: "Application Submitted!",
+        description: "Thank you for your interest. We'll be in touch soon!",
+      });
     } catch (error: any) {
       toast({
         title: "Something went wrong",
@@ -184,7 +189,7 @@ const AIFirstCEOPodcast = () => {
                 className="w-full bg-primary hover:bg-primary-dark text-white font-medium text-lg py-6"
                 disabled={isLoading}
               >
-                {isLoading ? "Applying..." : "Apply to be a guest"}
+                {isLoading ? "Submitting..." : "Apply to be a guest"}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </form>
