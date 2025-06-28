@@ -159,6 +159,66 @@ export type Database = {
         }
         Relationships: []
       }
+      podcast_guest_responses: {
+        Row: {
+          avoid_topics: string | null
+          bottleneck_breakthrough: string
+          business_description: string
+          company_name: string
+          created_at: string
+          email: string
+          full_name: string
+          headshot_url: string | null
+          id: string
+          linkedin_profile: string
+          scaling_system: string
+          short_bio: string | null
+          social_media_links: string | null
+          title_role: string
+          updated_at: string
+          website: string
+          workflows_to_share: string | null
+        }
+        Insert: {
+          avoid_topics?: string | null
+          bottleneck_breakthrough: string
+          business_description: string
+          company_name: string
+          created_at?: string
+          email: string
+          full_name: string
+          headshot_url?: string | null
+          id?: string
+          linkedin_profile: string
+          scaling_system: string
+          short_bio?: string | null
+          social_media_links?: string | null
+          title_role: string
+          updated_at?: string
+          website: string
+          workflows_to_share?: string | null
+        }
+        Update: {
+          avoid_topics?: string | null
+          bottleneck_breakthrough?: string
+          business_description?: string
+          company_name?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          headshot_url?: string | null
+          id?: string
+          linkedin_profile?: string
+          scaling_system?: string
+          short_bio?: string | null
+          social_media_links?: string | null
+          title_role?: string
+          updated_at?: string
+          website?: string
+          workflows_to_share?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null

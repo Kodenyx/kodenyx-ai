@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -44,9 +43,31 @@ const AIFirstCEOPodcastGuestIntake = () => {
     setIsLoading(true);
 
     try {
-      // Here you would typically send to your backend or Supabase
-      // For now, we'll just show a success message
-      console.log('Guest intake form submitted:', formData);
+      // Save to Supabase database
+      const { data, error } = await supabase
+        .from('podcast_guest_responses')
+        .insert({
+          full_name: formData.fullName,
+          company_name: formData.companyName,
+          title_role: formData.titleRole,
+          email: formData.email,
+          website: formData.website,
+          linkedin_profile: formData.linkedinProfile,
+          social_media_links: formData.socialMediaLinks || null,
+          business_description: formData.businessDescription,
+          scaling_system: formData.scalingSystem,
+          bottleneck_breakthrough: formData.bottleneckBreakthrough,
+          workflows_to_share: formData.workflowsToShare || null,
+          avoid_topics: formData.avoidTopics || null,
+          short_bio: formData.shortBio || null,
+          headshot_url: formData.headshotUrl || null
+        });
+
+      if (error) {
+        throw error;
+      }
+
+      console.log('Guest intake form saved to database:', data);
       
       toast({
         title: "Form submitted successfully!",
@@ -55,9 +76,10 @@ const AIFirstCEOPodcastGuestIntake = () => {
 
       setIsSubmitted(true);
     } catch (error: any) {
+      console.error('Error saving guest intake form:', error);
       toast({
         title: "Something went wrong",
-        description: "Please try again later.",
+        description: error.message || "Please try again later.",
         variant: "destructive",
       });
     } finally {
