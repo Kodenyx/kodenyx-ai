@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { supabase } from "@/integrations/supabase/client";
@@ -10,7 +11,10 @@ import { ArrowRight, Play } from "lucide-react";
 const AIFirstCEOPodcast = () => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
-  const [email, setEmail] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    linkedinProfile: ""
+  });
   const [isSubscribed, setIsSubscribed] = useState(false);
 
   const handleNewsletterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -19,7 +23,10 @@ const AIFirstCEOPodcast = () => {
 
     try {
       const { data, error } = await supabase.functions.invoke('submit-podcast-guest', {
-        body: { email },
+        body: { 
+          email: formData.email,
+          linkedinProfile: formData.linkedinProfile
+        },
       });
 
       if (error) {
@@ -27,7 +34,7 @@ const AIFirstCEOPodcast = () => {
       }
 
       setIsSubscribed(true);
-      setEmail("");
+      setFormData({ email: "", linkedinProfile: "" });
       
       toast({
         title: "Application Submitted!",
@@ -174,15 +181,32 @@ const AIFirstCEOPodcast = () => {
           </p>
           
           {!isSubscribed ? (
-            <form onSubmit={handleNewsletterSubmit} className="space-y-4">
-              <Input 
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email address" 
-                required
-                className="bg-white/10 text-white placeholder:text-gray-400 text-lg py-6"
-              />
+            <form onSubmit={handleNewsletterSubmit} className="space-y-6">
+              <div className="space-y-2 text-left">
+                <Label htmlFor="email" className="text-white">Email *</Label>
+                <Input 
+                  id="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                  placeholder="Enter your email address" 
+                  required
+                  className="bg-white/10 text-white placeholder:text-gray-400 text-lg py-6 border-white/20"
+                />
+              </div>
+              
+              <div className="space-y-2 text-left">
+                <Label htmlFor="linkedinProfile" className="text-white">LinkedIn Profile</Label>
+                <Input 
+                  id="linkedinProfile"
+                  type="url"
+                  value={formData.linkedinProfile}
+                  onChange={(e) => setFormData(prev => ({ ...prev, linkedinProfile: e.target.value }))}
+                  placeholder="https://linkedin.com/in/yourprofile" 
+                  className="bg-white/10 text-white placeholder:text-gray-400 text-lg py-6 border-white/20"
+                />
+              </div>
+              
               <Button 
                 type="submit" 
                 size="lg"
