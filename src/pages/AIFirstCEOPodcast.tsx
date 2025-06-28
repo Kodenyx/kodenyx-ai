@@ -75,7 +75,7 @@ const AIFirstCEOPodcast = () => {
                   </Button>
                 </a>
                 <a 
-                  href="https://open.spotify.com" 
+                  href="https://creators.spotify.com/pod/dashboard/episodes" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto"
