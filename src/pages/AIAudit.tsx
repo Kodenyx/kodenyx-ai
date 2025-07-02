@@ -13,23 +13,43 @@ import {
   PenTool, 
   ArrowRight,
   Clock,
-  DollarSign
+  DollarSign,
+  AlertTriangle,
+  Zap,
+  Star
 } from "lucide-react";
 
 const AIAudit = () => {
-  const benefits = [
-    "A complete map of your current workflows",
-    "A breakdown of where time, money, and energy are leaking", 
-    "A ranked list of high-ROI automation opportunities",
-    "A personalized rollout plan (in priority order)",
-    "A blueprint you can hand to any tech team to execute — including us"
+  const agitationPoints = [
+    "Your competitors are already automating their workflows while you're still doing everything manually",
+    "Every day you delay AI adoption costs you thousands in lost productivity and missed opportunities", 
+    "Your team is burning out from repetitive tasks that could be eliminated tomorrow",
+    "You're leaving money on the table because you don't know which processes to automate first"
   ];
 
-  const targetAudience = [
-    "Founders feeling behind on AI but not sure where to start",
-    "Teams spending too much time on repeatable, manual work", 
-    "Businesses using a patchwork of tools with no clear system",
-    "Operators who want to scale *without* burning out their team"
+  const intrigueQuestions = [
+    "What if your biggest bottleneck could become your biggest competitive advantage?",
+    "What if you could reclaim 20+ hours per week without hiring a single new employee?", 
+    "What if there was a way to know exactly which AI tools would 10X your ROI?",
+    "What if you could automate your business growth while you sleep?"
+  ];
+
+  const transformationScenarios = [
+    {
+      icon: <Clock className="w-6 h-6" />,
+      before: "Spending 15 hours/week on manual follow-ups",
+      after: "AI handles all follow-ups automatically, freeing up your entire week"
+    },
+    {
+      icon: <DollarSign className="w-6 h-6" />,
+      before: "Losing leads because of slow response times",
+      after: "Converting 40% more leads with instant, personalized AI responses"
+    },
+    {
+      icon: <Users className="w-6 h-6" />,
+      before: "Team overwhelmed by repetitive tasks",
+      after: "Team focused on high-value work that actually grows your business"
+    }
   ];
 
   const mapsFramework = [
@@ -55,6 +75,14 @@ const AIAudit = () => {
     }
   ];
 
+  const blueprintDeliverables = [
+    "A complete workflow automation roadmap (worth $5,000 if done by consultants)",
+    "Priority-ranked list of high-ROI opportunities (save months of trial and error)", 
+    "Step-by-step implementation plan (hand it to any tech team to execute)",
+    "Custom AI tool recommendations (no more guessing what works)",
+    "ROI calculations for each automation (know your returns before you invest)"
+  ];
+
   const faqs = [
     {
       question: "Will you implement the automations too?",
@@ -71,73 +99,179 @@ const AIAudit = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#E5DEFF] via-[#F1F0FB] to-[#D3E4FD]">
+    <div className="min-h-screen bg-gradient-to-br from-[#F8F9FA] via-[#F1F3F4] to-[#E8EAED]">
       <SimpleNavbar />
       
-      {/* Hero Section */}
+      {/* PROBLEM - Hero Section */}
       <section className="pt-24 pb-16 px-4">
         <div className="container mx-auto text-center">
-          <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 text-lg px-4 py-2">
-            AI Audit: Go From AI-Curious to AI-First in 30 Days
+          <Badge className="mb-6 bg-red-100 text-red-700 border-red-200 text-lg px-4 py-2">
+            The #1 Problem Holding Back Smart Business Owners
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6 max-w-4xl mx-auto animate-fade-in">
-            Your business isn't too early for AI.
-            <span className="text-primary block">It just needs a blueprint.</span>
+            You know you should be using AI...
+            <span className="text-red-600 block">But you have no idea where to start.</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed">
-            This 4-week AI audit gives you a step-by-step automation roadmap tailored to your workflows, 
-            tools, and team — no fluff, no guesswork.
+            Every day you're drowning in manual work while your competitors automate their way to the top. 
+            The problem isn't AI itself — it's knowing which processes to automate first.
           </p>
-          <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 py-4">
-            Book My AI Audit
-          </Button>
         </div>
       </section>
 
-      {/* What You Get Section */}
+      {/* AGITATE - Pain Amplification */}
+      <section className="py-16 px-4 bg-red-50">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-4" />
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
+              Here's What's Really Happening While You Wait
+            </h2>
+          </div>
+          <div className="max-w-4xl mx-auto space-y-6">
+            {agitationPoints.map((point, index) => (
+              <div key={index} className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-sm border-l-4 border-red-500">
+                <AlertTriangle className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
+                <p className="text-lg text-gray-700 font-medium">{point}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <p className="text-xl text-red-700 font-semibold">
+              Every week you delay = $10,000+ in lost productivity and missed opportunities
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* INTRIGUE - Pattern Interrupts */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <Zap className="w-16 h-16 text-primary mx-auto mb-4" />
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
+              But What If I Told You...
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {intrigueQuestions.map((question, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
+                <CardContent className="p-8 text-center">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-primary font-bold text-xl">?</span>
+                  </div>
+                  <p className="text-lg font-semibold text-gray-800">{question}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <p className="text-xl text-gray-600 italic">
+              The difference between successful AI adoption and expensive mistakes? 
+              <span className="text-primary font-semibold"> A proper roadmap.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* POSITIVE FUTURE - Transformation Vision */}
+      <section className="py-16 px-4 bg-gradient-to-br from-green-50 to-blue-50">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <Star className="w-16 h-16 text-green-500 mx-auto mb-4" />
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
+              Picture Your Business 90 Days From Now
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              After implementing your custom AI automation roadmap
+            </p>
+          </div>
+          <div className="space-y-8 max-w-5xl mx-auto">
+            {transformationScenarios.map((scenario, index) => (
+              <div key={index} className="grid md:grid-cols-2 gap-8 items-center">
+                <Card className="bg-red-50 border-red-200">
+                  <CardHeader>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                        <span className="text-red-500 font-bold">✕</span>
+                      </div>
+                      <CardTitle className="text-red-700">Before</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-700">{scenario.before}</p>
+                  </CardContent>
+                </Card>
+                <Card className="bg-green-50 border-green-200">
+                  <CardHeader>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-500">
+                        {scenario.icon}
+                      </div>
+                      <CardTitle className="text-green-700">After</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-700 font-semibold">{scenario.after}</p>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-12 p-8 bg-white rounded-lg shadow-lg max-w-3xl mx-auto">
+            <h3 className="text-2xl font-bold text-secondary mb-4">The Result?</h3>
+            <p className="text-xl text-gray-700 mb-4">
+              You'll reclaim 20+ hours per week, increase revenue by 40%, and finally have the automated business you've always wanted.
+            </p>
+            <p className="text-lg text-primary font-semibold">
+              All without the guesswork, expensive mistakes, or endless trial and error.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SOLUTION - The AI Audit */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-secondary">
+            Introducing: The AI-First Business Blueprint
+          </h2>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+            A 4-week deep-dive audit that creates your custom AI automation roadmap — 
+            so you know exactly what to automate, when, and why.
+          </p>
+          <Badge className="mb-8 bg-primary/20 text-primary border-primary/30 text-lg px-4 py-2">
+            No more guessing. No more expensive mistakes. Just results.
+          </Badge>
+        </div>
+      </section>
+
+      {/* What You Get - Enhanced */}
+      <section className="py-16 px-4 bg-white/50">
+        <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-secondary">
-            By the end of the audit, you'll walk away with:
+            Your Complete AI Transformation Blueprint Includes:
           </h2>
           <div className="max-w-4xl mx-auto">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start gap-4 mb-6">
-                <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                <p className="text-lg text-gray-700">{benefit}</p>
+            {blueprintDeliverables.map((deliverable, index) => (
+              <div key={index} className="flex items-start gap-4 mb-6 p-4 bg-white rounded-lg shadow-sm">
+                <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                <p className="text-lg text-gray-700">{deliverable}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Who This Is For Section */}
-      <section className="py-16 px-4 bg-white/50">
-        <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-secondary">
-            This audit is built for:
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {targetAudience.map((audience, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow bg-white/80 border-gray-200">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <Target className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                    <p className="text-gray-700">{audience}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* MAPS Framework Section */}
+      {/* MAPS Framework - Positioned as Solution Methodology */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-secondary">
-            We run every audit using the MAPS Framework
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-secondary">
+            How We Build Your AI-First Blueprint
           </h2>
+          <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+            Our proven MAPS Framework eliminates the guesswork and delivers a clear path to AI success
+          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {mapsFramework.map((step, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow bg-white/80 border-gray-200">
@@ -156,28 +290,35 @@ const AIAudit = () => {
         </div>
       </section>
 
-      {/* Price + CTA Section */}
-      <section className="py-16 px-4 bg-white/50">
+      {/* Investment + CTA */}
+      <section className="py-16 px-4 bg-secondary text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-secondary">Let's Make This Easy</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Stop Guessing and Start Winning?</h2>
           <div className="max-w-2xl mx-auto mb-8">
-            <p className="text-xl text-gray-700 mb-6">
-              The AI Audit is $1,999. You pay $1,000 upfront to reserve your spot.
+            <p className="text-xl mb-6">
+              The AI Audit Blueprint: $1,999 total investment
             </p>
             <div className="flex items-center justify-center gap-6 mb-8">
-              <div className="flex items-center text-gray-700">
+              <div className="flex items-center text-gray-300">
                 <DollarSign className="w-5 h-5 mr-2 text-primary" />
                 <span>$1,999 Total Investment</span>
               </div>
-              <div className="flex items-center text-gray-700">
+              <div className="flex items-center text-gray-300">
                 <Clock className="w-5 h-5 mr-2 text-primary" />
-                <span>4-Week Timeline</span>
+                <span>4-Week Transformation</span>
               </div>
             </div>
+            <p className="text-lg text-gray-300 mb-8">
+              Reserve your spot with $1,000 today. The ROI from just one automation will pay for the entire audit.
+            </p>
           </div>
-          <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 py-4">
-            Book Now
+          <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 py-4 shadow-xl">
+            <TrendingUp className="mr-2 w-5 h-5" />
+            Get My AI Blueprint Now
           </Button>
+          <p className="text-sm text-gray-400 mt-4">
+            ⚡ Limited spots available — We only take 5 audits per month
+          </p>
         </div>
       </section>
 
@@ -202,21 +343,24 @@ const AIAudit = () => {
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-16 px-4 bg-white/50">
+      {/* Final CTA with Urgency */}
+      <section className="py-16 px-4 bg-gradient-to-r from-primary to-primary-dark text-white">
         <div className="container mx-auto text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-secondary">
-              Ready to Build Your AI-First Blueprint?
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Don't Let Another Month Go By Without Your AI Blueprint
             </h2>
-            <p className="text-xl text-gray-700 mb-8">
-              Stop wondering where to start with AI. Get a clear, actionable roadmap 
-              tailored specifically to your business in just 30 days.
+            <p className="text-xl mb-8">
+              Every day you wait is another day your competitors get further ahead. 
+              Get your AI-first roadmap and start automating your way to success.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 py-4">
-              <TrendingUp className="mr-2 w-5 h-5" />
-              Book My AI Audit Now
+            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 text-lg px-8 py-4 shadow-xl">
+              <ArrowRight className="mr-2 w-5 h-5" />
+              Secure My Spot Now
             </Button>
+            <p className="text-sm text-gray-200 mt-4">
+              💡 What if this could save you 6 months of trial and error?
+            </p>
           </div>
         </div>
       </section>
