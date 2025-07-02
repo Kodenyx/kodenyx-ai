@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -102,19 +101,24 @@ const AIAudit = () => {
     <div className="min-h-screen bg-gradient-to-br from-[#F8F9FA] via-[#F1F3F4] to-[#E8EAED]">
       <SimpleNavbar />
       
-      {/* PROBLEM - Hero Section */}
+      {/* HERO - Problem with Preheadline, Headline, Subheadline Structure */}
       <section className="pt-24 pb-16 px-4">
         <div className="container mx-auto text-center">
-          <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 text-lg px-4 py-2">
+          {/* Preheadline */}
+          <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 text-lg px-6 py-3">
             The #1 Problem Holding Back Smart Business Owners
           </Badge>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6 max-w-4xl mx-auto animate-fade-in">
-            You know you should be using AI...
-            <span className="text-primary block">But you have no idea where to start.</span>
+          
+          {/* Headline */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-secondary mb-8 max-w-5xl mx-auto leading-tight">
+            You Know You Should Be Using AI...
+            <span className="text-primary block mt-2">But You Have No Idea Where to Start</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed">
+          
+          {/* Subheadline */}
+          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12 leading-relaxed font-medium">
             Every day you're drowning in manual work while your competitors automate their way to the top. 
-            The problem isn't AI itself — it's knowing which processes to automate first.
+            The problem isn't AI itself — it's knowing which processes to automate first for maximum ROI.
           </p>
         </div>
       </section>
