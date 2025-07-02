@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -105,8 +106,8 @@ const AIAudit = () => {
       <section className="pt-24 pb-16 px-4">
         <div className="container mx-auto text-center">
           {/* Preheadline */}
-          <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 text-lg px-6 py-3">
-            The #1 Problem Holding Back Smart Business Owners
+          <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 text-base px-4 py-2">
+            still stuck doing everything yourself — and wondering why it all feels so heavy?
           </Badge>
           
           {/* Headline */}
