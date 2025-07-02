@@ -105,12 +105,12 @@ const AIAudit = () => {
       {/* PROBLEM - Hero Section */}
       <section className="pt-24 pb-16 px-4">
         <div className="container mx-auto text-center">
-          <Badge className="mb-6 bg-red-100 text-red-700 border-red-200 text-lg px-4 py-2">
+          <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 text-lg px-4 py-2">
             The #1 Problem Holding Back Smart Business Owners
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6 max-w-4xl mx-auto animate-fade-in">
             You know you should be using AI...
-            <span className="text-red-600 block">But you have no idea where to start.</span>
+            <span className="text-primary block">But you have no idea where to start.</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed">
             Every day you're drowning in manual work while your competitors automate their way to the top. 
@@ -120,24 +120,24 @@ const AIAudit = () => {
       </section>
 
       {/* AGITATE - Pain Amplification */}
-      <section className="py-16 px-4 bg-red-50">
+      <section className="py-16 px-4 bg-primary/5">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-4" />
+            <AlertTriangle className="w-16 h-16 text-accent mx-auto mb-4" />
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
               Here's What's Really Happening While You Wait
             </h2>
           </div>
           <div className="max-w-4xl mx-auto space-y-6">
             {agitationPoints.map((point, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-sm border-l-4 border-red-500">
-                <AlertTriangle className="w-6 h-6 text-red-500 mt-1 flex-shrink-0" />
+              <div key={index} className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-sm border-l-4 border-accent">
+                <AlertTriangle className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
                 <p className="text-lg text-gray-700 font-medium">{point}</p>
               </div>
             ))}
           </div>
           <div className="text-center mt-12">
-            <p className="text-xl text-red-700 font-semibold">
+            <p className="text-xl text-secondary font-semibold">
               Every week you delay = $10,000+ in lost productivity and missed opportunities
             </p>
           </div>
@@ -175,10 +175,10 @@ const AIAudit = () => {
       </section>
 
       {/* POSITIVE FUTURE - Transformation Vision */}
-      <section className="py-16 px-4 bg-gradient-to-br from-green-50 to-blue-50">
+      <section className="py-16 px-4 bg-gradient-to-br from-primary/5 to-accent/10">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <Star className="w-16 h-16 text-green-500 mx-auto mb-4" />
+            <Star className="w-16 h-16 text-accent mx-auto mb-4" />
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
               Picture Your Business 90 Days From Now
             </h2>
@@ -189,26 +189,26 @@ const AIAudit = () => {
           <div className="space-y-8 max-w-5xl mx-auto">
             {transformationScenarios.map((scenario, index) => (
               <div key={index} className="grid md:grid-cols-2 gap-8 items-center">
-                <Card className="bg-red-50 border-red-200">
+                <Card className="bg-gray-50 border-gray-200">
                   <CardHeader>
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-                        <span className="text-red-500 font-bold">✕</span>
+                      <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                        <span className="text-gray-500 font-bold">✕</span>
                       </div>
-                      <CardTitle className="text-red-700">Before</CardTitle>
+                      <CardTitle className="text-gray-700">Before</CardTitle>
                     </div>
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-700">{scenario.before}</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-green-50 border-green-200">
+                <Card className="bg-primary/10 border-primary/20">
                   <CardHeader>
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-500">
+                      <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center text-primary">
                         {scenario.icon}
                       </div>
-                      <CardTitle className="text-green-700">After</CardTitle>
+                      <CardTitle className="text-primary">After</CardTitle>
                     </div>
                   </CardHeader>
                   <CardContent>
@@ -255,7 +255,7 @@ const AIAudit = () => {
           <div className="max-w-4xl mx-auto">
             {blueprintDeliverables.map((deliverable, index) => (
               <div key={index} className="flex items-start gap-4 mb-6 p-4 bg-white rounded-lg shadow-sm">
-                <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
+                <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                 <p className="text-lg text-gray-700">{deliverable}</p>
               </div>
             ))}
@@ -312,7 +312,7 @@ const AIAudit = () => {
               Reserve your spot with $1,000 today. The ROI from just one automation will pay for the entire audit.
             </p>
           </div>
-          <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 py-4 shadow-xl">
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-4 shadow-xl">
             <TrendingUp className="mr-2 w-5 h-5" />
             Get My AI Blueprint Now
           </Button>
@@ -344,7 +344,7 @@ const AIAudit = () => {
       </section>
 
       {/* Final CTA with Urgency */}
-      <section className="py-16 px-4 bg-gradient-to-r from-primary to-primary-dark text-white">
+      <section className="py-16 px-4 bg-gradient-to-r from-primary to-accent text-white">
         <div className="container mx-auto text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -354,7 +354,7 @@ const AIAudit = () => {
               Every day you wait is another day your competitors get further ahead. 
               Get your AI-first roadmap and start automating your way to success.
             </p>
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 text-lg px-8 py-4 shadow-xl">
+            <Button size="lg" className="bg-white hover:bg-gray-100 text-primary text-lg px-8 py-4 shadow-xl">
               <ArrowRight className="mr-2 w-5 h-5" />
               Secure My Spot Now
             </Button>
