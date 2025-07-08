@@ -1,5 +1,3 @@
-
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -24,7 +22,7 @@ const Hero = () => {
               <span className="text-primary-light">We Find What Should</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
-              Stop chasing leads manually. Let our AI agents attract, capture, and nurture your prospects 24/7.
+              We map your workflows, score them for ROI, and build custom automations that unlock calm, scalable growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a 
@@ -81,4 +79,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
