@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -14,6 +15,9 @@ const Hero = () => {
 
           {/* Left side - Brand Text Content Only */}
           <div className="space-y-8 animate-fade-in">
+            <div className="bg-primary/20 rounded-full px-4 py-2 text-base text-primary-light font-medium inline-block">
+              Most AI advice is just noise.
+            </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
               Transform Your Lead Generation with{" "}
               <span className="text-primary-light">AI-Powered</span> Automation
