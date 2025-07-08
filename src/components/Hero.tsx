@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -18,7 +19,7 @@ const Hero = () => {
               Most AI advice is just noise.
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              Not Everything Should Be Automated —{" "}
+              Not Everything Should Be Automated -{" "}
               <span className="text-primary-light">We Find What Should</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
