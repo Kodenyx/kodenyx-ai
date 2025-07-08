@@ -20,8 +20,8 @@ const Hero = () => {
               Most AI advice is just noise.
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              We Map, Score, and Automate the{" "}
-              <span className="text-primary-light">Workflows That Slow You Down</span>
+              Not Everything Should Be Automated —{" "}
+              <span className="text-primary-light">We Find What Should</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
               Stop chasing leads manually. Let our AI agents attract, capture, and nurture your prospects 24/7.
