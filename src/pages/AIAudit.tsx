@@ -102,7 +102,7 @@ const AIAudit = () => {
       <SimpleNavbar />
       
       {/* HERO - Problem with Preheadline, Headline, Subheadline Structure */}
-      <section className="pt-24 pb-16 px-4">
+      <section className="pt-20 pb-16 px-4">
         <div className="container mx-auto text-center">
           {/* Preheadline */}
           <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 text-base px-4 py-2">
