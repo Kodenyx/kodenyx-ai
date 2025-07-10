@@ -4,11 +4,11 @@ import Logo from "./Logo";
 
 const SimpleNavbar = () => {
   return (
-    <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-2">
+    <nav className="fixed w-full bg-secondary/95 backdrop-blur-md z-50 py-1">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-center">
           <Link to="/">
-            <Logo size={140} />
+            <Logo size={100} />
           </Link>
         </div>
       </div>
