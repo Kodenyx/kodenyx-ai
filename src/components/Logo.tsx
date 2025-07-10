@@ -15,7 +15,7 @@ const Logo = ({ size = 180, className = "" }: LogoProps) => {
       height={size}
       style={{ 
         display: "block", 
-        backgroundColor: "transparent", 
+        backgroundColor: "hsl(var(--secondary))", 
         boxShadow: "none",
         filter: "drop-shadow(0 0 0 transparent)"
       }}
