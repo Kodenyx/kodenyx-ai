@@ -1,5 +1,5 @@
 
-import SimpleNavbar from "@/components/SimpleNavbar";
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import AIAgents from "@/components/AIAgents";
@@ -13,7 +13,7 @@ import AsSeenOn from "@/components/AsSeenOn";
 const LandingPage = () => {
   return (
     <div className="min-h-screen">
-      <SimpleNavbar />
+      <Navbar />
       <Hero />
       <AsSeenOn />
       <Features />
