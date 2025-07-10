@@ -107,19 +107,20 @@ const AIAudit = () => {
         <div className="container mx-auto text-center">
           {/* Preheadline */}
           <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 text-base px-4 py-2">
-            still stuck doing everything yourself — and wondering why it all feels so heavy?
+            Still Duct-Taping Tools Together?
           </Badge>
           
           {/* Headline */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-secondary mb-8 max-w-5xl mx-auto leading-tight">
-            You Know You Should Be Using AI...
-            <span className="text-primary block mt-2">But You Have No Idea Where to Start</span>
+            We Build AI Systems That Scale{" "}
+            <span className="text-primary block mt-2">— Not Just More Tech to Manage</span>
           </h1>
           
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12 leading-relaxed font-medium">
-            Every day you're drowning in manual work while your competitors automate their way to the top. 
-            The problem isn't AI itself — it's knowing which processes to automate first for maximum ROI.
+            You've got the tools. But where's the leverage?
+            <br />
+            In 30 days, we'll audit your workflows, identify automation opportunities, and give you a step-by-step AI roadmap that pays for itself.
           </p>
         </div>
       </section>
