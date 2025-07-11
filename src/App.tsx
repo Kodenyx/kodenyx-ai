@@ -23,6 +23,7 @@ import AIFirstCEOPodcast from "./pages/AIFirstCEOPodcast";
 import AIFirstCEOPodcastGuestIntake from "./pages/AIFirstCEOPodcastGuestIntake";
 import LandingPage from "./pages/LandingPage";
 import BackupLandingPage from "./pages/BackupLandingPage";
+import ColdEmailAutomationOffer from "./pages/ColdEmailAutomationOffer";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient({
@@ -57,6 +58,7 @@ const App = () => {
             <Route path="/ai-first-ceo-podcast/guest-intake-form" element={<AIFirstCEOPodcastGuestIntake />} />
             <Route path="/landingpage" element={<LandingPage />} />
             <Route path="/backup-landing" element={<BackupLandingPage />} />
+            <Route path="/cold-email-automation-offer" element={<ColdEmailAutomationOffer />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

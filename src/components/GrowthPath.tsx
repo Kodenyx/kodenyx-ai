@@ -14,7 +14,7 @@ const GrowthPath = () => {
     {
       title: "Cold Email Automation",
       description: "We build the list, write the copy, and automate outbound so your calendar fills itself.",
-      link: "https://cal.com/aarti-anand82",
+      link: "/cold-email-automation-offer",
       cta: "See How It Works"
     },
     {
@@ -43,8 +43,8 @@ const GrowthPath = () => {
                   <p className="text-gray-700 mb-6 leading-relaxed">{offer.description}</p>
                   <a 
                     href={offer.link}
-                    target={offer.link.startsWith('http') ? "_blank" : undefined}
-                    rel={offer.link.startsWith('http') ? "noopener noreferrer" : undefined}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Button variant="outline" className="w-full">
                       {offer.cta} <ArrowRight className="ml-2 h-4 w-4" />
