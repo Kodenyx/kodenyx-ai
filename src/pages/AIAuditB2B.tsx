@@ -21,14 +21,25 @@ const AIAuditB2B = () => {
         {/* Hero Section - Dark Background */}
         <section className="bg-secondary text-white">
           <div className="container mx-auto px-4 py-16 md:py-24 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
               Automating Without a Blueprint Is Like{" "}
               <span className="text-primary block mt-2">Driving Without a Map</span>
             </h1>
             
-            <div className="max-w-4xl mx-auto text-lg md:text-xl text-gray-300 mb-12 leading-relaxed font-medium">
-              <p className="mb-4">In 4 weeks, we audit your operations, uncover high-ROI automation opportunities, and deliver a custom AI roadmap — so you prioritize what drives ROI, and cut what doesn't.</p>
+            <div className="max-w-4xl mx-auto text-lg md:text-xl text-gray-300 mb-8 leading-relaxed font-medium">
+              <p className="mb-6">In 4 weeks, we audit your operations, uncover high-ROI automation opportunities, and deliver a custom AI roadmap — so you prioritize what drives ROI, and cut what doesn't.</p>
             </div>
+
+            <a 
+              href="https://cal.com/aarti-anand82" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <Button size="lg" className="text-lg px-8 py-4 bg-primary hover:bg-primary/90 text-white shadow-xl">
+                Book A Call
+              </Button>
+            </a>
           </div>
         </section>
 
@@ -58,7 +69,7 @@ const AIAuditB2B = () => {
                   </li>
                 </ul>
                 <p className="text-xl font-medium text-secondary">
-                  Without a clear roadmap, automation feels overwhelming — and expensive to get wrong.
+                  Without a clear plan, automation becomes guesswork. And guesswork gets expensive.
                 </p>
               </div>
             </div>
@@ -320,35 +331,28 @@ const AIAuditB2B = () => {
         </section>
 
         {/* Final CTA Section - Dark Background */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-primary to-accent text-white">
+        <section className="py-16 md:py-24 bg-secondary text-white">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Let's Build Your Automation Roadmap
+              <h2 className="text-3xl md:text-5xl font-bold mb-8">
+                Your AI Roadmap Starts with One Smart Step
               </h2>
-              <p className="text-lg text-gray-200 mb-8">
-                Click below to schedule a discovery call. We'll confirm fit and walk you through the next steps.
-              </p>
-              
-              <div className="space-y-4">
-                <a 
-                  href="https://cal.com/aarti-anand82" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-block"
-                >
-                  <Button size="lg" className="text-lg px-8 py-4 bg-white hover:bg-gray-100 text-primary shadow-xl">
-                    Book My AI Audit
-                  </Button>
-                </a>
-                
-                <div className="text-gray-200">
-                  <p className="mb-4">Want to preview the kind of report you'll get?</p>
-                  <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary">
-                    See Sample Report
-                  </Button>
-                </div>
+              <div className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed">
+                <p className="mb-4">You've got the tools. You've got the team.</p>
+                <p className="mb-4">Now it's time to build the systems that scale.</p>
+                <p className="text-xl font-medium text-white">Let's start with the blueprint.</p>
               </div>
+              
+              <a 
+                href="https://cal.com/aarti-anand82" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Button size="lg" className="text-lg px-8 py-4 bg-primary hover:bg-primary/90 text-white shadow-xl">
+                  Book A Call
+                </Button>
+              </a>
             </div>
           </div>
         </section>
