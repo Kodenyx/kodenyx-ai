@@ -20,20 +20,18 @@ const ColdEmailAutomationOffer = () => {
       <SimpleNavbar />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-20 bg-secondary text-white">
+      <section className="pt-24 pb-20 bg-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Never Wake Up Wondering Where Your Next Lead Will Come From
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-              A Fully Done-for-You Cold Email System That Books Qualified Appointments — While You Focus on Growing Your Business
+            <p className="text-lg md:text-xl text-gray-600 mb-4">
+              Wake Up Wondering Where Your Next Lead Will Come From?
             </p>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8">
-              <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
-                We write the copy. Set up the tech. Send the emails. Book the calls.<br />
-                Your only job? Drop your leads in a Google Drive folder once a month.<br />
-                We take care of the rest.
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-black">
+              A Cold Email System That Books Qualified Calls — While You Focus on Growing Your Business
+            </h1>
+            <div className="bg-gray-50 rounded-lg p-6 mb-8">
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                We write the copy. Set up the automation. Your only job? Drop your leads in a Google Drive folder once a month.
               </p>
             </div>
           </div>
@@ -41,7 +39,7 @@ const ColdEmailAutomationOffer = () => {
       </section>
 
       {/* Lead Capture Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
@@ -69,10 +67,10 @@ const ColdEmailAutomationOffer = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-secondary text-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-black">
               How It Works (You'll Only Touch It Once a Month)
             </h2>
             
@@ -84,8 +82,8 @@ const ColdEmailAutomationOffer = () => {
                   </div>
                 </div>
                 <div className="md:w-2/3">
-                  <h3 className="text-2xl font-bold mb-4">Drop Your Leads</h3>
-                  <p className="text-gray-300 text-lg">
+                  <h3 className="text-2xl font-bold mb-4 text-black">Drop Your Leads</h3>
+                  <p className="text-gray-700 text-lg">
                     Upload a simple lead list to a shared Google Drive folder once per month.
                   </p>
                 </div>
@@ -98,8 +96,8 @@ const ColdEmailAutomationOffer = () => {
                   </div>
                 </div>
                 <div className="md:w-2/3">
-                  <h3 className="text-2xl font-bold mb-4">We Do the Rest</h3>
-                  <div className="text-gray-300 text-lg">
+                  <h3 className="text-2xl font-bold mb-4 text-black">We Do the Rest</h3>
+                  <div className="text-gray-700 text-lg">
                     <p className="mb-2">We:</p>
                     <ul className="space-y-2">
                       <li className="flex items-center gap-2">
@@ -134,8 +132,8 @@ const ColdEmailAutomationOffer = () => {
                   </div>
                 </div>
                 <div className="md:w-2/3">
-                  <h3 className="text-2xl font-bold mb-4">Your Calendar Fills Up</h3>
-                  <p className="text-gray-300 text-lg">
+                  <h3 className="text-2xl font-bold mb-4 text-black">Your Calendar Fills Up</h3>
+                  <p className="text-gray-700 text-lg">
                     We track performance and optimize as we go — all you see are qualified prospects booking time with you.
                   </p>
                 </div>
@@ -146,7 +144,7 @@ const ColdEmailAutomationOffer = () => {
       </section>
 
       {/* Who This Is For */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-center text-black mb-16">
@@ -184,10 +182,10 @@ const ColdEmailAutomationOffer = () => {
       </section>
 
       {/* What You Get */}
-      <section className="py-20 bg-secondary text-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-black">
               What You Get
             </h2>
             
@@ -203,7 +201,7 @@ const ColdEmailAutomationOffer = () => {
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <p className="text-lg text-gray-300">{item}</p>
+                  <p className="text-lg text-gray-700">{item}</p>
                 </div>
               ))}
             </div>
@@ -227,7 +225,7 @@ const ColdEmailAutomationOffer = () => {
       </section>
 
       {/* Common Objections */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-center text-black mb-16">
@@ -276,13 +274,13 @@ const ColdEmailAutomationOffer = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-secondary text-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-black">
               Want a Lead Engine That Runs Itself?
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-gray-700 mb-8">
               Stop chasing. Start booking.
             </p>
             
@@ -301,7 +299,7 @@ const ColdEmailAutomationOffer = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-secondary text-lg px-8 py-4">
+                <Button variant="outline" size="lg" className="text-black border-gray-300 hover:bg-gray-50 hover:text-black text-lg px-8 py-4">
                   💬 Book a Free 15-Minute Discovery Call
                 </Button>
               </a>
