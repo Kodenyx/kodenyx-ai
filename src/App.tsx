@@ -17,6 +17,7 @@ import AIReadyScore from "./pages/AIReadyScore";
 import Media from "./pages/Media";
 import AIForYouth from "./pages/AIForYouth";
 import AIAudit from "./pages/AIAudit";
+import AIAuditB2B from "./pages/AIAuditB2B";
 import AIAuditWeek1IntakeForm from "./pages/AIAuditWeek1IntakeForm";
 import AIFirstCEOPodcast from "./pages/AIFirstCEOPodcast";
 import AIFirstCEOPodcastGuestIntake from "./pages/AIFirstCEOPodcastGuestIntake";
@@ -49,6 +50,7 @@ const App = () => {
             <Route path="/media" element={<Media />} />
             <Route path="/ai-for-youth" element={<AIForYouth />} />
             <Route path="/ai-audit" element={<AIAudit />} />
+            <Route path="/ai-audit-b2b" element={<AIAuditB2B />} />
             <Route path="/ai-audit/week1-intake-form" element={<AIAuditWeek1IntakeForm />} />
             <Route path="/ai-first-ceo-podcast" element={<AIFirstCEOPodcast />} />
             <Route path="/ai-first-ceo-podcast/guest-intake-form" element={<AIFirstCEOPodcastGuestIntake />} />
