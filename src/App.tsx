@@ -22,6 +22,7 @@ import AIAuditWeek1IntakeForm from "./pages/AIAuditWeek1IntakeForm";
 import AIFirstCEOPodcast from "./pages/AIFirstCEOPodcast";
 import AIFirstCEOPodcastGuestIntake from "./pages/AIFirstCEOPodcastGuestIntake";
 import LandingPage from "./pages/LandingPage";
+import BackupLandingPage from "./pages/BackupLandingPage";
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient({
@@ -55,6 +56,7 @@ const App = () => {
             <Route path="/ai-first-ceo-podcast" element={<AIFirstCEOPodcast />} />
             <Route path="/ai-first-ceo-podcast/guest-intake-form" element={<AIFirstCEOPodcastGuestIntake />} />
             <Route path="/landingpage" element={<LandingPage />} />
+            <Route path="/backup-landing" element={<BackupLandingPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

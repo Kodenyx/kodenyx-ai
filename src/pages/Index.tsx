@@ -1,28 +1,28 @@
 
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import AIAgents from "@/components/AIAgents";
-import Process from "@/components/Process";
-import Testimonials from "@/components/Testimonials";
-import About from "@/components/About";
-import ContactForm from "@/components/ContactForm";
-import FAQ from "@/components/FAQ";
+import NewHero from "@/components/NewHero";
 import AsSeenOn from "@/components/AsSeenOn";
+import WhoThisIsFor from "@/components/WhoThisIsFor";
+import WhatWeFix from "@/components/WhatWeFix";
+import GrowthPath from "@/components/GrowthPath";
+import HowItWorks from "@/components/HowItWorks";
+import ProofWins from "@/components/ProofWins";
+import WhyKodenyx from "@/components/WhyKodenyx";
+import FinalCTA from "@/components/FinalCTA";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Hero />
+      <NewHero />
       <AsSeenOn />
-      <Features />
-      <AIAgents />
-      <Process />
-      <Testimonials />
-      <FAQ />
-      <About />
-      <ContactForm />
+      <WhoThisIsFor />
+      <WhatWeFix />
+      <GrowthPath />
+      <HowItWorks />
+      <ProofWins />
+      <WhyKodenyx />
+      <FinalCTA />
     </div>
   );
 };
