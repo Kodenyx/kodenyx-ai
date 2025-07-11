@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,7 +18,7 @@ const ColdEmailAutomationOffer = () => {
     <div className="min-h-screen">
       <SimpleNavbar />
       
-      {/* Hero Section */}
+      {/* Hero Section - White */}
       <section className="pt-24 pb-20 bg-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
@@ -38,7 +37,7 @@ const ColdEmailAutomationOffer = () => {
         </div>
       </section>
 
-      {/* Lead Capture Section */}
+      {/* Lead Capture Section - Gray */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
@@ -66,7 +65,7 @@ const ColdEmailAutomationOffer = () => {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* How It Works - White */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -143,7 +142,7 @@ const ColdEmailAutomationOffer = () => {
         </div>
       </section>
 
-      {/* Who This Is For */}
+      {/* Who This Is For - Gray */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -181,7 +180,7 @@ const ColdEmailAutomationOffer = () => {
         </div>
       </section>
 
-      {/* What You Get */}
+      {/* What You Get - White */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -209,7 +208,7 @@ const ColdEmailAutomationOffer = () => {
         </div>
       </section>
 
-      {/* Performance Guarantee */}
+      {/* Performance Guarantee - Primary */}
       <section className="py-20 bg-primary text-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
@@ -224,7 +223,7 @@ const ColdEmailAutomationOffer = () => {
         </div>
       </section>
 
-      {/* Common Objections */}
+      {/* Common Objections - Gray */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -273,7 +272,7 @@ const ColdEmailAutomationOffer = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* Final CTA - White */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
