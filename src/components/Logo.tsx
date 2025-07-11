@@ -9,13 +9,13 @@ interface LogoProps {
 const Logo = ({ size = 180, className = "" }: LogoProps) => {
   return (
     <img
-      src="/lovable-uploads/3b2c9ddf-a4f6-48aa-9cea-7d9708f57089.png"
-      alt="KAI logo"
+      src="/lovable-uploads/fa2197d3-f566-4cca-8edb-e93e86b348e7.png"
+      alt="KAI KODENYX AI logo"
       width={size}
       height={size}
       style={{ 
         display: "block", 
-        backgroundColor: "transparent", 
+        backgroundColor: "hsl(var(--secondary))",
         boxShadow: "none",
         filter: "drop-shadow(0 0 0 transparent)"
       }}
