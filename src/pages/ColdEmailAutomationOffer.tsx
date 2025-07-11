@@ -37,14 +37,14 @@ const ColdEmailAutomationOffer = () => {
         </div>
       </section>
 
-      {/* Lead Capture Section - Gray */}
-      <section className="py-16 bg-gray-50">
+      {/* Lead Capture Section - Dark */}
+      <section className="py-16 bg-secondary text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to See How It Works?
             </h2>
-            <p className="text-lg text-gray-700 mb-8">
+            <p className="text-lg text-white/90 mb-8">
               Enter your email to get the walkthrough + sample results
             </p>
             <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
@@ -53,7 +53,7 @@ const ColdEmailAutomationOffer = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1"
+                className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/70"
                 required
               />
               <Button type="submit" size="lg" className="bg-primary hover:bg-primary/90 text-white">
@@ -142,11 +142,11 @@ const ColdEmailAutomationOffer = () => {
         </div>
       </section>
 
-      {/* Who This Is For - Gray */}
-      <section className="py-20 bg-gray-50">
+      {/* Who This Is For - Dark */}
+      <section className="py-20 bg-secondary text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-center text-black mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-center text-white mb-16">
               This Is Built for Founders Who:
             </h2>
             
@@ -154,25 +154,25 @@ const ColdEmailAutomationOffer = () => {
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-primary mt-1" />
-                  <p className="text-lg text-gray-700">Don't have time to learn another outreach tool</p>
+                  <p className="text-lg text-white/90">Don't have time to learn another outreach tool</p>
                 </div>
                 <div className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-primary mt-1" />
-                  <p className="text-lg text-gray-700">Don't want to spend hours writing copy or managing campaigns</p>
+                  <p className="text-lg text-white/90">Don't want to spend hours writing copy or managing campaigns</p>
                 </div>
                 <div className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-primary mt-1" />
-                  <p className="text-lg text-gray-700">Need leads consistently, not randomly</p>
+                  <p className="text-lg text-white/90">Need leads consistently, not randomly</p>
                 </div>
               </div>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-primary mt-1" />
-                  <p className="text-lg text-gray-700">Want predictable revenue without hiring a full sales team</p>
+                  <p className="text-lg text-white/90">Want predictable revenue without hiring a full sales team</p>
                 </div>
                 <div className="flex items-start gap-4">
                   <Check className="h-6 w-6 text-primary mt-1" />
-                  <p className="text-lg text-gray-700">Prefer results over dashboards</p>
+                  <p className="text-lg text-white/90">Prefer results over dashboards</p>
                 </div>
               </div>
             </div>
@@ -223,46 +223,46 @@ const ColdEmailAutomationOffer = () => {
         </div>
       </section>
 
-      {/* Common Objections - Gray */}
-      <section className="py-20 bg-gray-50">
+      {/* Common Objections - Dark */}
+      <section className="py-20 bg-secondary text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-center text-black mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-center text-white mb-16">
               Common Objections (And Why They Don't Apply Here)
             </h2>
             
             <div className="space-y-8">
-              <Card className="border-2">
+              <Card className="border-2 border-white/20 bg-white/5">
                 <CardContent className="p-8">
-                  <h3 className="text-xl font-bold text-black mb-4">"Cold email doesn't work anymore."</h3>
-                  <p className="text-gray-700 text-lg">
+                  <h3 className="text-xl font-bold text-white mb-4">"Cold email doesn't work anymore."</h3>
+                  <p className="text-white/90 text-lg">
                     → Most cold emails don't work because they're written and sent like spam. Ours are personalized, strategic, and optimized to convert.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
+              <Card className="border-2 border-white/20 bg-white/5">
                 <CardContent className="p-8">
-                  <h3 className="text-xl font-bold text-black mb-4">"I don't have time to manage another system."</h3>
-                  <p className="text-gray-700 text-lg">
+                  <h3 className="text-xl font-bold text-white mb-4">"I don't have time to manage another system."</h3>
+                  <p className="text-white/90 text-lg">
                     → You don't need to. You drop a file into Google Drive once a month. That's it.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
+              <Card className="border-2 border-white/20 bg-white/5">
                 <CardContent className="p-8">
-                  <h3 className="text-xl font-bold text-black mb-4">"I've tried other agencies — they were all fluff."</h3>
-                  <p className="text-gray-700 text-lg">
+                  <h3 className="text-xl font-bold text-white mb-4">"I've tried other agencies — they were all fluff."</h3>
+                  <p className="text-white/90 text-lg">
                     → We don't sell fluff. We sell booked calls. And we back it up with a guarantee.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
+              <Card className="border-2 border-white/20 bg-white/5">
                 <CardContent className="p-8">
-                  <h3 className="text-xl font-bold text-black mb-4">"Will this damage my domain?"</h3>
-                  <p className="text-gray-700 text-lg">
+                  <h3 className="text-xl font-bold text-white mb-4">"Will this damage my domain?"</h3>
+                  <p className="text-white/90 text-lg">
                     → Nope. We use properly warmed inboxes, monitor deliverability, and handle every technical detail behind the scenes.
                   </p>
                 </CardContent>
