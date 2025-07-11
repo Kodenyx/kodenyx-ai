@@ -12,28 +12,28 @@ const AIAuditB2B = () => {
       
       <main className="pt-20">
         {/* Pre-headline */}
-        <div className="text-center py-4 bg-primary/5">
+        <div className="text-center py-4 bg-secondary">
           <Badge className="bg-primary/20 text-primary border-primary/30 text-base px-4 py-2">
-            Still Duct-Taping Tools Together?
+            Most Businesses Are Rushing to Automate Without Direction
           </Badge>
         </div>
 
-        {/* Hero Section */}
-        <section className="container mx-auto px-4 py-16 md:py-24 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-secondary mb-6 leading-tight">
-            We Build AI Systems That Scale{" "}
-            <span className="text-primary block mt-2">— Not Just More Tech to Manage</span>
-          </h1>
-          
-          <div className="max-w-4xl mx-auto text-lg md:text-xl text-gray-700 mb-12 leading-relaxed font-medium">
-            <p className="mb-4">You've invested in the tools.</p>
-            <p className="mb-4">Now it's time to extract the leverage.</p>
-            <p>In 30 days, we'll map your operations, identify high-ROI automation opportunities, and deliver a clear AI implementation plan.</p>
+        {/* Hero Section - Dark Background */}
+        <section className="bg-secondary text-white">
+          <div className="container mx-auto px-4 py-16 md:py-24 text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              Automating Without a Blueprint Is Like{" "}
+              <span className="text-primary block mt-2">Driving Without a Map</span>
+            </h1>
+            
+            <div className="max-w-4xl mx-auto text-lg md:text-xl text-gray-300 mb-12 leading-relaxed font-medium">
+              <p className="mb-4">In 4 weeks, we audit your operations, uncover high-ROI automation opportunities, and deliver a custom AI roadmap — so you prioritize what drives ROI, and cut what doesn't.</p>
+            </div>
           </div>
         </section>
 
-        {/* The Problem Section */}
-        <section className="py-16 md:py-20 bg-primary/5">
+        {/* The Problem Section - Light Background */}
+        <section className="py-16 md:py-20 bg-white/80">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8">
@@ -65,31 +65,31 @@ const AIAuditB2B = () => {
           </div>
         </section>
 
-        {/* Cost of Inaction Section */}
-        <section className="py-16 md:py-20 bg-white/50">
+        {/* Cost of Inaction Section - Dark Background */}
+        <section className="py-16 md:py-20 bg-secondary text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-8">
                 The Cost of Inaction
               </h2>
-              <div className="text-lg text-gray-700 leading-relaxed">
+              <div className="text-lg text-gray-300 leading-relaxed">
                 <p className="mb-6">
                   While competitors are systemizing with AI to move faster and scale lean…
                 </p>
-                <p className="mb-6 text-xl font-medium text-secondary">
+                <p className="mb-6 text-xl font-medium text-white">
                   You're still relying on duct-taped tools and team bandwidth.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-accent rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                    <span className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></span>
                     Every delayed system costs margin
                   </li>
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-accent rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                    <span className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></span>
                     Every manual task limits scale
                   </li>
                   <li className="flex items-start">
-                    <span className="w-2 h-2 bg-accent rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                    <span className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></span>
                     Every missed opportunity compounds
                   </li>
                 </ul>
@@ -98,8 +98,8 @@ const AIAuditB2B = () => {
           </div>
         </section>
 
-        {/* What You Need Section */}
-        <section className="py-16 md:py-20 bg-gradient-to-br from-primary/5 to-accent/10">
+        {/* What You Need Section - Light Background */}
+        <section className="py-16 md:py-20 bg-white/80">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8">
@@ -129,25 +129,25 @@ const AIAuditB2B = () => {
           </div>
         </section>
 
-        {/* AI Audit Process Section */}
-        <section className="py-16 md:py-20 bg-white/80">
+        {/* AI Audit Process Section - Dark Background */}
+        <section className="py-16 md:py-20 bg-secondary text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
                 The AI Audit — A 4-Week Operational Diagnostic
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
                 {/* Week 1 */}
-                <Card className="bg-white/80 border-gray-200 hover:shadow-lg transition-shadow">
+                <Card className="bg-white/10 border-white/20 hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="text-primary font-bold text-sm mb-2">WEEK 1</div>
-                    <CardTitle className="text-xl font-bold text-secondary">
+                    <CardTitle className="text-xl font-bold text-white">
                       Map Your Operations
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2 text-gray-700">
+                    <ul className="space-y-2 text-gray-300">
                       <li className="flex items-start">
                         <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         Analyze current workflows, tools, and team handoffs
@@ -161,15 +161,15 @@ const AIAuditB2B = () => {
                 </Card>
 
                 {/* Week 2 */}
-                <Card className="bg-white/80 border-gray-200 hover:shadow-lg transition-shadow">
+                <Card className="bg-white/10 border-white/20 hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="text-primary font-bold text-sm mb-2">WEEK 2</div>
-                    <CardTitle className="text-xl font-bold text-secondary">
+                    <CardTitle className="text-xl font-bold text-white">
                       Assess Automation Opportunities
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2 text-gray-700">
+                    <ul className="space-y-2 text-gray-300">
                       <li className="flex items-start">
                         <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         Spot high-potential automation use cases
@@ -183,15 +183,15 @@ const AIAuditB2B = () => {
                 </Card>
 
                 {/* Week 3 */}
-                <Card className="bg-white/80 border-gray-200 hover:shadow-lg transition-shadow">
+                <Card className="bg-white/10 border-white/20 hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="text-primary font-bold text-sm mb-2">WEEK 3</div>
-                    <CardTitle className="text-xl font-bold text-secondary">
+                    <CardTitle className="text-xl font-bold text-white">
                       Prioritize for ROI
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2 text-gray-700">
+                    <ul className="space-y-2 text-gray-300">
                       <li className="flex items-start">
                         <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         Score each opportunity by complexity and return
@@ -205,15 +205,15 @@ const AIAuditB2B = () => {
                 </Card>
 
                 {/* Week 4 */}
-                <Card className="bg-white/80 border-gray-200 hover:shadow-lg transition-shadow">
+                <Card className="bg-white/10 border-white/20 hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="text-primary font-bold text-sm mb-2">WEEK 4</div>
-                    <CardTitle className="text-xl font-bold text-secondary">
+                    <CardTitle className="text-xl font-bold text-white">
                       Deliver the Blueprint
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2 text-gray-700">
+                    <ul className="space-y-2 text-gray-300">
                       <li className="flex items-start">
                         <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         A custom 90/180/365-day roadmap
@@ -230,8 +230,8 @@ const AIAuditB2B = () => {
           </div>
         </section>
 
-        {/* Deliverables Section */}
-        <section className="py-16 md:py-20 bg-primary/5">
+        {/* Deliverables Section - Light Background */}
+        <section className="py-16 md:py-20 bg-white/80">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
@@ -264,11 +264,11 @@ const AIAuditB2B = () => {
           </div>
         </section>
 
-        {/* Who This Is For Section */}
-        <section className="py-16 md:py-20 bg-white/50">
+        {/* Who This Is For Section - Dark Background */}
+        <section className="py-16 md:py-20 bg-secondary text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-12 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
                 Who This Is For
               </h2>
               
@@ -276,21 +276,21 @@ const AIAuditB2B = () => {
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <span className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                    <span className="text-lg text-gray-700">Founders scaling with lean ops</span>
+                    <span className="text-lg text-gray-300">Founders scaling with lean ops</span>
                   </div>
                   <div className="flex items-start">
                     <span className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                    <span className="text-lg text-gray-700">Teams over-relying on headcount</span>
+                    <span className="text-lg text-gray-300">Teams over-relying on headcount</span>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <span className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                    <span className="text-lg text-gray-700">COOs tackling operational bloat</span>
+                    <span className="text-lg text-gray-300">COOs tackling operational bloat</span>
                   </div>
                   <div className="flex items-start">
                     <span className="w-2 h-2 bg-primary rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                    <span className="text-lg text-gray-700">B2B businesses unsure where to start with AI</span>
+                    <span className="text-lg text-gray-300">B2B businesses unsure where to start with AI</span>
                   </div>
                 </div>
               </div>
@@ -298,20 +298,20 @@ const AIAuditB2B = () => {
           </div>
         </section>
 
-        {/* Investment Section */}
-        <section className="py-16 md:py-20 bg-secondary text-white">
+        {/* Investment Section - Light Background */}
+        <section className="py-16 md:py-20 bg-white/80">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8">
                 Investment
               </h2>
               <div className="text-5xl md:text-6xl font-bold text-primary mb-4">
                 $1,999
               </div>
-              <div className="text-lg text-gray-300 mb-6">
+              <div className="text-lg text-gray-700 mb-6">
                 <p className="mb-2">Flat Fee</p>
                 <p className="mb-2">One-time. No upsells. No long-term contract.</p>
-                <p className="text-xl font-medium text-white">
+                <p className="text-xl font-medium text-secondary">
                   Pays for itself if you implement just one automation.
                 </p>
               </div>
@@ -319,7 +319,7 @@ const AIAuditB2B = () => {
           </div>
         </section>
 
-        {/* Final CTA Section */}
+        {/* Final CTA Section - Dark Background */}
         <section className="py-16 md:py-24 bg-gradient-to-r from-primary to-accent text-white">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto">
