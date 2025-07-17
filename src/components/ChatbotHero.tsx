@@ -84,55 +84,55 @@ const ChatbotHero = () => {
           </div>
 
           {/* Right side - Chatbot Interface */}
-          <div className="relative w-full max-w-[400px] mx-auto animate-slide-up">
+          <div className="relative w-full max-w-[150px] mx-auto animate-slide-up">
             <div className="bg-[#1a1a2e] rounded-xl shadow-2xl overflow-hidden border border-gray-800">
-              <div className="px-4 py-3 bg-[#13131f] border-b border-gray-800 flex items-center gap-3">
+              <div className="px-1 py-2 bg-[#13131f] border-b border-gray-800 flex items-center gap-1">
                 <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                  <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
                 </div>
-                <div className="flex items-center gap-2 ml-4">
-                  <MessageCircle className="w-4 h-4 text-primary-light" />
-                  <span className="text-sm text-gray-300">AI Workflow Assistant</span>
+                <div className="flex items-center gap-1 ml-1">
+                  <MessageCircle className="w-3 h-3 text-primary-light" />
+                  <span className="text-xs text-gray-300">AI Assistant</span>
                 </div>
               </div>
               
-              <div className="h-60 p-4 overflow-y-auto space-y-3">
+              <div className="h-40 p-2 overflow-y-auto space-y-2">
                 {messages.map((message, index) => (
                   <div
                     key={index}
                     className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`max-w-[80%] rounded-lg p-3 ${
+                      className={`max-w-[80%] rounded-lg p-1 ${
                         message.type === 'user'
                           ? 'bg-primary text-white ml-4'
                           : 'bg-[#2d2d3d] text-white'
                       }`}
                     >
-                      <p className="text-xs leading-relaxed">{message.text}</p>
+                      <p className="text-[8px] leading-relaxed">{message.text}</p>
                     </div>
                   </div>
                 ))}
               </div>
               
-              <div className="p-4 border-t border-gray-800">
-                <div className="flex gap-3">
+              <div className="p-2 border-t border-gray-800">
+                <div className="flex gap-1">
                   <input
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    placeholder="Describe your workflow challenge..."
-                    className="flex-1 bg-[#2d2d3d] rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary text-sm"
+                    placeholder="Ask..."
+                    className="flex-1 bg-[#2d2d3d] rounded-lg px-2 py-1 text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary text-xs"
                   />
                   <Button 
                     onClick={handleSendMessage}
-                    className="bg-primary hover:bg-primary-dark text-white px-4"
+                    className="bg-primary hover:bg-primary-dark text-white px-2 py-1 h-auto"
                     disabled={!inputValue.trim() || isLoading}
                   >
-                    {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                    {isLoading ? <Loader2 className="w-3 h-3 animate-spin" /> : <Send className="w-3 h-3" />}
                   </Button>
                 </div>
               </div>
