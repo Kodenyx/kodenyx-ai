@@ -20,7 +20,7 @@ const GrowthPath = () => {
     {
       title: "Custom AI Workflows",
       description: "We automate onboarding, follow-ups, capacity planning, and more to save 30+ hours/month.",
-      link: "/trusted-partner",
+      link: "/trusted-ai-partner",
       cta: "View Workflow Examples"
     }
   ];

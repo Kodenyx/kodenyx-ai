@@ -60,7 +60,7 @@ const App = () => {
             <Route path="/landingpage" element={<LandingPage />} />
             <Route path="/backup-landing" element={<BackupLandingPage />} />
             <Route path="/cold-email-automation-offer" element={<ColdEmailAutomationOffer />} />
-            <Route path="/trusted-partner" element={<TrustedPartner />} />
+            <Route path="/trusted-ai-partner" element={<TrustedPartner />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
