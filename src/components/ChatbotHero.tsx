@@ -124,7 +124,7 @@ const ChatbotHero = () => {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    placeholder="Ask about properties..."
+                    placeholder="Curious what we can automate? Ask here."
                     className="flex-1 bg-[#2d2d3d] rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary text-sm"
                   />
                   <Button 
