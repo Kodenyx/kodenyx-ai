@@ -20,7 +20,7 @@ const GrowthPath = () => {
     {
       title: "Custom AI Workflows",
       description: "We automate onboarding, follow-ups, capacity planning, and more to save 30+ hours/month.",
-      link: "https://cal.com/aarti-anand82",
+      link: "/trusted-partner",
       cta: "View Workflow Examples"
     }
   ];
@@ -43,8 +43,8 @@ const GrowthPath = () => {
                   <p className="text-gray-700 mb-6 leading-relaxed">{offer.description}</p>
                   <a 
                     href={offer.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={offer.link.startsWith('http') ? "_blank" : undefined}
+                    rel={offer.link.startsWith('http') ? "noopener noreferrer" : undefined}
                   >
                     <Button variant="outline" className="w-full">
                       {offer.cta} <ArrowRight className="ml-2 h-4 w-4" />
