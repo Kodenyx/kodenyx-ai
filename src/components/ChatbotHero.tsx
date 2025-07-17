@@ -84,7 +84,7 @@ const ChatbotHero = () => {
           </div>
 
           {/* Right side - Chatbot Interface */}
-          <div className="relative w-full max-w-[400px] mx-auto animate-slide-up">
+          <div className="relative w-full max-w-[600px] mx-auto animate-slide-up">
             <div className="bg-[#1a1a2e] rounded-xl shadow-2xl overflow-hidden border border-gray-800">
               <div className="px-4 py-3 bg-[#13131f] border-b border-gray-800 flex items-center gap-3">
                 <div className="flex gap-2">
