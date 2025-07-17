@@ -10,7 +10,7 @@ const TrustedPartner = () => {
     "Dedicated team for implementation, revisions, and optimization",
     "Async support via Slack or Notion",
     "Priority access to new workflow templates and agents",
-    "Month-to-month model — no long-term contract"
+    "Month-to-month model: no long-term contract"
   ];
 
 
@@ -26,11 +26,10 @@ const TrustedPartner = () => {
               Most AI implementation fails because no one owns it.
             </p>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Plug In a Trusted AI Partner — Without Hiring or Slowing Down
+              Plug In a Trusted AI Partner - Without Hiring or Slowing Down
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8">
-              Done-for-you automation builds. Weekly strategy syncs. Real results.<br />
-              We're your on-demand AI implementation team — so you scale without duct tape.
+              We're your on-demand AI implementation team - so you scale without duct tape.
             </p>
             <div className="bg-primary/10 border border-primary/20 rounded-lg p-6 inline-block mb-8">
               <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
@@ -53,11 +52,11 @@ const TrustedPartner = () => {
               But AI keeps falling through the cracks.
             </p>
             <p className="text-lg text-gray-600 mb-6">
-              You know the opportunities are massive — but someone on your team has to own the workflows, the tools, the testing, and the implementation.
+              You know the opportunities are massive - but someone on your team has to own the workflows, the tools, the testing, and the implementation.
             </p>
             <p className="text-lg text-gray-600 mb-6">
               And right now, that someone is you.<br />
-              Which means it doesn't get done — or it gets duct-taped together by different vendors who don't talk to each other.
+              Which means it doesn't get done - or it gets duct-taped together by different vendors who don't talk to each other.
             </p>
             <p className="text-lg text-gray-600">
               Meanwhile, the business is growing… but the systems?<br />
@@ -104,7 +103,7 @@ const TrustedPartner = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-8">
-              What if AI implementation worked more like plugging in a senior hire — minus the headcount?
+              What if AI implementation worked more like plugging in a senior hire - minus the headcount?
             </h2>
             <p className="text-xl text-gray-600 mb-8">
               What if you had:
@@ -136,7 +135,7 @@ const TrustedPartner = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-8">
-              This is how modern teams scale — with systems that grow with them.
+              This is how modern teams scale - with systems that grow with them.
             </h2>
             <div className="text-left max-w-2xl mx-auto space-y-4">
               <div className="flex items-start space-x-4">
@@ -175,7 +174,7 @@ const TrustedPartner = () => {
               Your on-demand AI implementation team.
             </p>
             <p className="text-lg text-gray-600 text-center mb-8">
-              We handle the execution — so you don't have to chase it.
+              We handle the execution - so you don't have to chase it.
             </p>
             <h3 className="text-xl font-bold text-center mb-8">
               Here's what's included:
@@ -217,16 +216,16 @@ const TrustedPartner = () => {
               Let's Build Your Automation Backbone
             </h2>
             <p className="text-xl mb-8 text-gray-600">
-              No bloat. No fluff. Just fast, focused execution by a team that gets it.
+              You Bring the Vision. We'll Build the System.
             </p>
             <a 
               href="https://cal.com/aarti-anand82"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" variant="default" className="text-lg px-8 py-4">
-                👉 Book a Fit Call <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+               <Button size="lg" variant="default" className="text-lg px-8 py-4">
+                 👉 Book a Fit Call
+               </Button>
             </a>
           </div>
         </div>
