@@ -224,7 +224,7 @@ const TrustedPartner = () => {
               rel="noopener noreferrer"
             >
                <Button size="lg" variant="default" className="text-lg px-8 py-4">
-                 👉 Book a Fit Call
+                 Book A Call
                </Button>
             </a>
           </div>

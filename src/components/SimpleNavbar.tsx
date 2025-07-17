@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
+import { Button } from "@/components/ui/button";
 
 const SimpleNavbar = () => {
   return (
@@ -10,6 +11,15 @@ const SimpleNavbar = () => {
           <Link to="/">
             <Logo size={140} />
           </Link>
+          <a 
+            href="https://cal.com/aarti-anand82"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="default" size="lg">
+              Book A Call
+            </Button>
+          </a>
         </div>
       </div>
     </nav>
