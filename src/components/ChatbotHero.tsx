@@ -7,7 +7,7 @@ const ChatbotHero = () => {
   const [messages, setMessages] = useState([
     {
       type: "bot",
-      text: "👋 Hi! I'm your AI assistant. I can help you find your dream home or investment property. What type of property are you looking for?"
+      text: "Hi! I'm your AI assistant. I'm here to help you explore what we offer and point you to the right place. What part of your business feels the most manual or chaotic right now?"
     }
   ]);
   const [inputValue, setInputValue] = useState("");
