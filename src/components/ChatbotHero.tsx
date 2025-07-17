@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Send, MessageCircle } from "lucide-react";
+import { ArrowRight, Send, MessageCircle, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const ChatbotHero = () => {
   const [messages, setMessages] = useState([
@@ -10,23 +11,41 @@ const ChatbotHero = () => {
     }
   ]);
   const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (!inputValue.trim()) return;
     
     const userMessage = { type: "user", text: inputValue };
     setMessages(prev => [...prev, userMessage]);
+    setIsLoading(true);
     
-    // Simulate bot response
-    setTimeout(() => {
+    try {
+      const userInput = inputValue;
+      setInputValue("");
+      
+      const { data, error } = await supabase.functions.invoke('chatbot-response', {
+        body: { userMessage: userInput }
+      });
+      
+      if (error) throw error;
+      
       const botResponse = {
         type: "bot",
-        text: "Thanks for sharing that! Based on what you've told me, I'd recommend starting with an AI audit to identify your highest-ROI automation opportunities. Would you like to schedule one?"
+        text: data.botResponse
       };
+      
       setMessages(prev => [...prev, botResponse]);
-    }, 1000);
-    
-    setInputValue("");
+    } catch (error) {
+      console.error('Error getting chatbot response:', error);
+      const errorResponse = {
+        type: "bot",
+        text: "Sorry, I encountered an error. Please try again or consider scheduling an AI audit for personalized assistance."
+      };
+      setMessages(prev => [...prev, errorResponse]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -65,7 +84,7 @@ const ChatbotHero = () => {
           </div>
 
           {/* Right side - Chatbot Interface */}
-          <div className="relative w-full max-w-[600px] mx-auto animate-slide-up">
+          <div className="relative w-full max-w-[400px] mx-auto animate-slide-up">
             <div className="bg-[#1a1a2e] rounded-xl shadow-2xl overflow-hidden border border-gray-800">
               <div className="px-4 py-3 bg-[#13131f] border-b border-gray-800 flex items-center gap-3">
                 <div className="flex gap-2">
@@ -79,20 +98,20 @@ const ChatbotHero = () => {
                 </div>
               </div>
               
-              <div className="h-80 p-6 overflow-y-auto space-y-4">
+              <div className="h-60 p-4 overflow-y-auto space-y-3">
                 {messages.map((message, index) => (
                   <div
                     key={index}
                     className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`max-w-[80%] rounded-lg p-4 ${
+                      className={`max-w-[80%] rounded-lg p-3 ${
                         message.type === 'user'
                           ? 'bg-primary text-white ml-4'
                           : 'bg-[#2d2d3d] text-white'
                       }`}
                     >
-                      <p className="text-sm leading-relaxed">{message.text}</p>
+                      <p className="text-xs leading-relaxed">{message.text}</p>
                     </div>
                   </div>
                 ))}
@@ -111,9 +130,9 @@ const ChatbotHero = () => {
                   <Button 
                     onClick={handleSendMessage}
                     className="bg-primary hover:bg-primary-dark text-white px-4"
-                    disabled={!inputValue.trim()}
+                    disabled={!inputValue.trim() || isLoading}
                   >
-                    <Send className="w-4 h-4" />
+                    {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                   </Button>
                 </div>
               </div>
