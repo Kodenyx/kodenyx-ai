@@ -164,6 +164,27 @@ export type Database = {
         }
         Relationships: []
       }
+      chatbot_conversations: {
+        Row: {
+          bot_response: string
+          created_at: string
+          id: string
+          user_message: string
+        }
+        Insert: {
+          bot_response: string
+          created_at?: string
+          id?: string
+          user_message: string
+        }
+        Update: {
+          bot_response?: string
+          created_at?: string
+          id?: string
+          user_message?: string
+        }
+        Relationships: []
+      }
       podcast_guest_applications: {
         Row: {
           created_at: string
