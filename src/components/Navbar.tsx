@@ -61,22 +61,29 @@ const Navbar = () => {
 
         {/* Desktop menu */}
         <div className="hidden md:flex items-center gap-6">
-          <Link 
-            to="/ai-first-ceo-podcast" 
+          <a 
+            href="/ai-first-ceo-podcast"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
           >
             <Mic size={18} />
             AI-First CEO Podcast
-          </Link>
+          </a>
           <button 
             onClick={() => handleNavClick('services')}
             className="text-gray-300 hover:text-white transition-colors"
           >
             Services
           </button>
-          <Link to="/media" className="text-gray-300 hover:text-white transition-colors">
+          <a 
+            href="/media"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-white transition-colors"
+          >
             Media
-          </Link>
+          </a>
           {user && (
             <Button 
               onClick={handleLogout}
@@ -102,14 +109,16 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-secondary/95 backdrop-blur-md z-50 py-4 animate-fade-in px-4">
           <div className="flex flex-col gap-4">
-            <Link 
-              to="/ai-first-ceo-podcast"
+            <a 
+              href="/ai-first-ceo-podcast"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
               onClick={() => setIsMenuOpen(false)}
             >
               <Mic size={18} />
               AI-First CEO Podcast
-            </Link>
+            </a>
             <button 
               onClick={() => {
                 handleNavClick('services');
@@ -119,13 +128,15 @@ const Navbar = () => {
             >
               Services
             </button>
-            <Link 
-              to="/media"
+            <a 
+              href="/media"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-300 hover:text-white transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Media
-            </Link>
+            </a>
             {user && (
               <Button 
                 onClick={() => {

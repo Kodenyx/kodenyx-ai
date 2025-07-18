@@ -9,19 +9,22 @@ const GrowthPath = () => {
       title: "AI Audit",
       description: "We map your systems and deliver a 90-day roadmap that shows what to automate — and in what order.",
       link: "/ai-audit-b2b",
-      cta: "Learn More"
+      cta: "Learn More",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop"
     },
     {
       title: "Cold Email Automation",
       description: "We build the list, write the copy, and automate outbound so your calendar fills itself.",
       link: "/cold-email-automation-offer",
-      cta: "See How It Works"
+      cta: "See How It Works",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop"
     },
     {
       title: "Trusted Partner Program",
       description: "We automate onboarding, follow-ups, capacity planning, and more to save 30+ hours/month.",
       link: "/trusted-ai-partner",
-      cta: "View Program Details"
+      cta: "View Program Details",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=250&fit=crop"
     }
   ];
 
@@ -40,7 +43,15 @@ const GrowthPath = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {offers.map((offer, index) => (
-              <Card key={index} className="bg-black text-white border-2 border-gray-800 hover:shadow-xl transition-shadow duration-300">
+              <Card key={index} className="bg-secondary text-white border-2 border-gray-800 hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={offer.image} 
+                    alt={offer.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-secondary/20"></div>
+                </div>
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-4">{offer.title}</h3>
                   <p className="text-gray-300 mb-6 leading-relaxed">{offer.description}</p>
