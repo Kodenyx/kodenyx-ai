@@ -24,6 +24,8 @@ const NewHero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a 
               href="/ai-audit-b2b"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto"
             >
               <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 w-full sm:w-auto">
@@ -31,7 +33,7 @@ const NewHero = () => {
               </Button>
             </a>
             <p className="text-sm text-gray-400 max-w-xs">
-              Clarity on what to automate — and what to ignore.
+              Clarity on what to automate - and what to ignore.
             </p>
           </div>
         </div>

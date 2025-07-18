@@ -75,6 +75,8 @@ const ChatbotHero = () => {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a 
                 href="/ai-audit-b2b"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto"
               >
                 <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 w-full sm:w-auto">

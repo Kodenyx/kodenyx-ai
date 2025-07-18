@@ -27,7 +27,7 @@ const AIAuditB2B = () => {
             </h1>
             
             <div className="max-w-4xl mx-auto text-lg md:text-xl text-gray-300 mb-8 leading-relaxed font-medium">
-              <p className="mb-6">In 4 weeks, we audit your operations, uncover high-ROI automation opportunities, and deliver a custom AI roadmap — so you prioritize what drives ROI, and cut what doesn't.</p>
+              <p className="mb-6">In 4 weeks, we audit your operations, uncover high-ROI automation opportunities, and deliver a custom AI roadmap - so you prioritize what drives ROI, and cut what doesn't.</p>
             </div>
 
             <a 
@@ -52,7 +52,7 @@ const AIAuditB2B = () => {
               </h2>
               <div className="text-lg text-gray-700 mb-8 leading-relaxed">
                 <p className="mb-6">
-                  Most teams are operating below their potential — not because of lack of effort, but because of inefficiency.
+                  Most teams are operating below their potential - not because of lack of effort, but because of inefficiency.
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start">
@@ -85,7 +85,7 @@ const AIAuditB2B = () => {
               </h2>
               <div className="text-lg text-gray-300 leading-relaxed">
                 <p className="mb-6">
-                  While competitors are systemizing with AI to move faster and scale lean…
+                  While competitors are systemizing with AI to move faster and scale lean...
                 </p>
                 <p className="mb-6 text-xl font-medium text-white">
                   You're still relying on duct-taped tools and team bandwidth.
@@ -129,7 +129,7 @@ const AIAuditB2B = () => {
                   </li>
                   <li className="flex items-start">
                     <Check className="w-5 h-5 text-primary mt-1 mr-4 flex-shrink-0" />
-                    What systems will generate the highest return — and in what order
+                    What systems will generate the highest return - and in what order
                   </li>
                 </ul>
                 <p className="text-xl font-bold text-secondary">
@@ -145,7 +145,7 @@ const AIAuditB2B = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-                The AI Audit — A 4-Week Operational Diagnostic
+                The AI Audit - A 4-Week Operational Diagnostic
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
@@ -257,7 +257,7 @@ const AIAuditB2B = () => {
                   </div>
                   <div className="flex items-start">
                     <Check className="w-5 h-5 text-primary mt-1 mr-4 flex-shrink-0" />
-                    <span className="text-lg text-gray-700">Workflow maps for top 3–5 systems</span>
+                    <span className="text-lg text-gray-700">Workflow maps for top 3-5 systems</span>
                   </div>
                 </div>
                 <div className="space-y-4">

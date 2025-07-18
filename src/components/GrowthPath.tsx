@@ -7,7 +7,7 @@ const GrowthPath = () => {
   const offers = [
     {
       title: "AI Audit",
-      description: "We map your systems and deliver a 90-day roadmap that shows what to automate — and in what order.",
+      description: "We map your systems and deliver a 90-day roadmap that shows what to automate - and in what order.",
       link: "/ai-audit-b2b",
       cta: "Learn More",
       image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop"
@@ -37,7 +37,7 @@ const GrowthPath = () => {
               What's Slowing You Down?
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              From messy ops to zero leads — we solve high-impact bottlenecks with fast, done-for-you systems
+              From messy ops to zero leads - we solve high-impact bottlenecks with fast, done-for-you systems
             </p>
           </div>
           
