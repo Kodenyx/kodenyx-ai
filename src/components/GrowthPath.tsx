@@ -31,8 +31,11 @@ const GrowthPath = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-black mb-4">
-              Different Bottlenecks. One Proven System.
+              What's Slowing You Down? We've Got a System for That.
             </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              From messy ops to zero leads — we solve high-impact bottlenecks with fast, done-for-you systems
+            </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
