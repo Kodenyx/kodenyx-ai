@@ -70,31 +70,13 @@ const Navbar = () => {
           </Link>
           <button 
             onClick={() => handleNavClick('services')}
-            className="text-gray-300 hover:text-white transition-colors"
+            className="text-gray-800 hover:text-gray-600 transition-colors"
           >
             Services
           </button>
           <Link to="/media" className="text-gray-300 hover:text-white transition-colors">
             Media
           </Link>
-          <a 
-            href="/ai-readiness-workshop" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
-          >
-            <GraduationCap size={18} />
-            AI Workshop
-          </a>
-          <a 
-            href="/newsletter" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
-          >
-            <Mail size={18} />
-            Newsletter
-          </a>
           {user && (
             <Button 
               onClick={handleLogout}
@@ -133,7 +115,7 @@ const Navbar = () => {
                 handleNavClick('services');
                 setIsMenuOpen(false);
               }}
-              className="text-gray-300 hover:text-white transition-colors py-2 text-left"
+              className="text-gray-800 hover:text-gray-600 transition-colors py-2 text-left"
             >
               Services
             </button>
@@ -144,26 +126,6 @@ const Navbar = () => {
             >
               Media
             </Link>
-            <a 
-              href="/ai-readiness-workshop" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2 w-full text-left"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <GraduationCap size={18} />
-              AI Workshop
-            </a>
-            <a 
-              href="/newsletter" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Mail size={18} />
-              Newsletter
-            </a>
             {user && (
               <Button 
                 onClick={() => {
