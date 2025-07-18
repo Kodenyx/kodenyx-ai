@@ -10,21 +10,21 @@ const GrowthPath = () => {
       description: "We map your systems and deliver a 90-day roadmap that shows what to automate — and in what order.",
       link: "/ai-audit-b2b",
       cta: "Learn More",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop"
+      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop"
     },
     {
       title: "Cold Email Automation",
       description: "We build the list, write the copy, and automate outbound so your calendar fills itself.",
       link: "/cold-email-automation-offer",
       cta: "See How It Works",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop"
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop"
     },
     {
       title: "Trusted Partner Program",
       description: "We automate onboarding, follow-ups, capacity planning, and more to save 30+ hours/month.",
       link: "/trusted-ai-partner",
       cta: "View Program Details",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=250&fit=crop"
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop"
     }
   ];
 

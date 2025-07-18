@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Send, MessageCircle, Loader2 } from "lucide-react";
@@ -7,7 +8,7 @@ const ChatbotHero = () => {
   const [messages, setMessages] = useState([
     {
       type: "bot",
-      text: "Hi! I'm your AI assistant. I'm here to help you explore what we offer and point you to the right place. What part of your business feels the most manual or chaotic right now?"
+      text: "Hi! I'm Kodenyx's AI assistant. I'm here to help you explore what we offer and point you to the right place. What part of your business feels the most manual or chaotic right now?"
     }
   ]);
   const [inputValue, setInputValue] = useState("");
@@ -94,7 +95,7 @@ const ChatbotHero = () => {
                 </div>
                 <div className="flex items-center gap-2 ml-4">
                   <MessageCircle className="w-4 h-4 text-primary-light" />
-                  <span className="text-sm text-gray-300">AI Assistant</span>
+                  <span className="text-sm text-gray-300">Kodenyx AI Assistant</span>
                 </div>
               </div>
               
