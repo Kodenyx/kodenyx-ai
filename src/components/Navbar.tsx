@@ -70,7 +70,7 @@ const Navbar = () => {
           </Link>
           <button 
             onClick={() => handleNavClick('services')}
-            className="text-gray-800 hover:text-gray-600 transition-colors"
+            className="text-gray-300 hover:text-white transition-colors"
           >
             Services
           </button>
@@ -115,7 +115,7 @@ const Navbar = () => {
                 handleNavClick('services');
                 setIsMenuOpen(false);
               }}
-              className="text-gray-800 hover:text-gray-600 transition-colors py-2 text-left"
+              className="text-gray-300 hover:text-white transition-colors py-2 text-left"
             >
               Services
             </button>
