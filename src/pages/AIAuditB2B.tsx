@@ -317,7 +317,7 @@ const AIAuditB2B = () => {
                 Investment
               </h2>
               <div className="text-5xl md:text-6xl font-bold text-primary mb-4">
-                $1,999
+                $2,499
               </div>
               <div className="text-lg text-gray-700 mb-6">
                 <p className="mb-2">Flat Fee</p>
