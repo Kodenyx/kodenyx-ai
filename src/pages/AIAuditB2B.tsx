@@ -10,7 +10,7 @@ const AIAuditB2B = () => {
     <div className="min-h-screen bg-gradient-to-br from-[#F8F9FA] via-[#F1F3F4] to-[#E8EAED]">
       <SimpleNavbar />
       
-      <main className="pt-20">
+      <main>
         {/* Pre-headline */}
         <div className="text-center py-4 bg-secondary">
           <Badge className="bg-primary/20 text-primary border-primary/30 text-base px-4 py-2">
@@ -316,15 +316,23 @@ const AIAuditB2B = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-8">
                 Investment
               </h2>
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-4">
-                $2,499
-              </div>
-              <div className="text-lg text-gray-700 mb-6">
-                <p className="mb-2">Flat Fee</p>
-                <p className="mb-2">One-time. No upsells. No long-term contract.</p>
-                <p className="text-xl font-medium text-secondary">
+              <div className="mb-6">
+                <p className="mb-4 text-xl text-gray-700 font-medium">
+                  One-time flat fee. No upsells. No long-term contract.
+                </p>
+                <p className="text-xl font-medium text-secondary mb-8">
                   Pays for itself if you implement just one automation.
                 </p>
+                <a 
+                  href="https://cal.com/aarti-anand82" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <Button size="lg" className="text-lg px-8 py-4 bg-primary hover:bg-primary/90 text-white shadow-xl">
+                    Book A Call
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
