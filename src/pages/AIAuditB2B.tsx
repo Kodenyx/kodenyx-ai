@@ -10,9 +10,9 @@ const AIAuditB2B = () => {
     <div className="min-h-screen bg-gradient-to-br from-[#F8F9FA] via-[#F1F3F4] to-[#E8EAED]">
       <SimpleNavbar />
       
-      <main className="pt-20">
+      <main>
         {/* Hero Section with integrated pre-headline - Dark Background */}
-        <section className="bg-secondary text-white">
+        <section className="bg-secondary text-white pt-20">
           <div className="container mx-auto px-4 py-12 md:py-16 text-center">
             {/* Pre-headline integrated into hero */}
             <div className="mb-6">
