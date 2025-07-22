@@ -10,7 +10,7 @@ const AIAuditB2B = () => {
     <div className="min-h-screen bg-gradient-to-br from-[#F8F9FA] via-[#F1F3F4] to-[#E8EAED]">
       <SimpleNavbar />
       
-      <main>
+      <main className="pt-20">
         {/* Pre-headline */}
         <div className="text-center py-4 bg-secondary">
           <Badge className="bg-primary/20 text-primary border-primary/30 text-base px-4 py-2">
