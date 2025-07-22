@@ -11,16 +11,16 @@ const AIAuditB2B = () => {
       <SimpleNavbar />
       
       <main className="pt-20">
-        {/* Pre-headline */}
-        <div className="text-center py-2 bg-secondary">
-          <Badge className="bg-primary/20 text-primary border-primary/30 text-base px-4 py-2">
-            Most Businesses Are Rushing to Automate Without Direction
-          </Badge>
-        </div>
-
-        {/* Hero Section - Dark Background */}
+        {/* Hero Section with integrated pre-headline - Dark Background */}
         <section className="bg-secondary text-white">
           <div className="container mx-auto px-4 py-12 md:py-16 text-center">
+            {/* Pre-headline integrated into hero */}
+            <div className="mb-6">
+              <Badge className="bg-primary/20 text-primary border-primary/30 text-base px-4 py-2">
+                Most Businesses Are Rushing to Automate Without Direction
+              </Badge>
+            </div>
+            
             <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
               Automating Without a Blueprint Is Like{" "}
               <span className="text-primary block mt-2">Driving Without a Map</span>
