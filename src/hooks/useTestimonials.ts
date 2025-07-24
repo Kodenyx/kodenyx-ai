@@ -37,6 +37,9 @@ export const useTestimonials = (category?: string) => {
         throw error;
       }
 
+      console.log('Fetched testimonials:', data);
+      console.log('Filter category:', category);
+      
       return data as Testimonial[];
     },
   });
