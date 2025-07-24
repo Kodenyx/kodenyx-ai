@@ -91,18 +91,27 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
         {/* Video Testimonial */}
         {isVideoTestimonial && (
           <div className="mb-4">
-            <div className="relative">
-              <div className="w-full h-48 bg-[#1A1F2C] rounded-lg flex items-center justify-center cursor-pointer hover:bg-[#2A2F3C] transition-colors border-2 border-[#9b87f5]/30 hover:border-[#9b87f5]/50"
+            <div className="relative group">
+              <div className="w-full h-48 rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity border-2 border-[#9b87f5]/30 hover:border-[#9b87f5]/50"
                    onClick={handleVideoClick}>
-                <div className="text-center">
-                  <div className="flex items-center justify-center mb-2">
-                    <Play className="w-12 h-12 text-[#9b87f5] mr-2" />
-                    <ExternalLink className="w-6 h-6 text-[#9b87f5]" />
+                <img 
+                  src="/lovable-uploads/56ff0bb4-cc2b-4bed-8ad9-84ee1498ee49.png" 
+                  alt="Video testimonial thumbnail"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="flex items-center justify-center mb-2">
+                      <div className="bg-[#9b87f5] rounded-full p-3 mr-2">
+                        <Play className="w-8 h-8 text-white fill-white" />
+                      </div>
+                      <ExternalLink className="w-6 h-6 text-white" />
+                    </div>
+                    <p className="text-white text-sm font-medium mb-1">Click to watch video testimonial</p>
+                    {isYouTubeShorts && (
+                      <p className="text-gray-200 text-xs">Opens in new tab</p>
+                    )}
                   </div>
-                  <p className="text-gray-300 text-sm mb-1">Click to watch video testimonial</p>
-                  {isYouTubeShorts && (
-                    <p className="text-gray-400 text-xs">Opens in new tab</p>
-                  )}
                 </div>
               </div>
             </div>
