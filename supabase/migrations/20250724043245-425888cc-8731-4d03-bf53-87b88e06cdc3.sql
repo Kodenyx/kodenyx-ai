@@ -1,8 +1,5 @@
 
--- Add video_url column if it doesn't exist
-ALTER TABLE public.testimonials 
-ADD COLUMN IF NOT EXISTS video_url text;
-
+-- First, let's check if Sheri's testimonial exists and fix any issues
 -- Delete any existing Sheri testimonial to avoid conflicts
 DELETE FROM public.testimonials WHERE name = 'Sheri Otto' OR name = 'Sheri Henley';
 
@@ -19,7 +16,7 @@ INSERT INTO public.testimonials (name, role, company, testimonial, rating, categ
   'https://youtube.com/shorts/nUz7qk7c27E?feature=share'
 );
 
--- Ensure Rashmi's testimonial is under AI-First Business Coaching Program
+-- Also ensure Rashmi's testimonial is correctly categorized
 UPDATE public.testimonials 
 SET category = 'ai-first-business-coaching'
 WHERE name = 'Rashmi Munjal';
