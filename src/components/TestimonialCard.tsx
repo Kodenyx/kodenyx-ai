@@ -1,8 +1,9 @@
+
 import { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Star, ChevronDown, ChevronUp, Play } from "lucide-react";
+import { Star, ChevronDown, ChevronUp, Play, ExternalLink } from "lucide-react";
 import { Testimonial } from "@/hooks/useTestimonials";
 
 interface TestimonialCardProps {
@@ -13,7 +14,6 @@ interface TestimonialCardProps {
 
 const TestimonialCard = ({ testimonial, showCategory = false, expandable = false }: TestimonialCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [showVideo, setShowVideo] = useState(false);
   
   const categoryLabels = {
     'business-coaching': 'Business Coaching',
@@ -37,6 +37,15 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
   const displayText = shouldTruncate && !isExpanded ? truncatedText : testimonial.testimonial;
 
   const isVideoTestimonial = testimonial.video_url && testimonial.video_url.trim() !== '';
+
+  // Check if it's a YouTube Shorts URL
+  const isYouTubeShorts = testimonial.video_url?.includes('youtube.com/shorts/') || testimonial.video_url?.includes('youtu.be/');
+
+  const handleVideoClick = () => {
+    if (testimonial.video_url) {
+      window.open(testimonial.video_url, '_blank');
+    }
+  };
 
   return (
     <Card className="hover:shadow-lg transition-shadow duration-300 h-full border-[#3A3F4C] bg-[#2A2F3C]">
@@ -82,28 +91,21 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
         {/* Video Testimonial */}
         {isVideoTestimonial && (
           <div className="mb-4">
-            {!showVideo ? (
-              <div className="relative">
-                <div className="w-full h-48 bg-[#1A1F2C] rounded-lg flex items-center justify-center cursor-pointer hover:bg-[#2A2F3C] transition-colors"
-                     onClick={() => setShowVideo(true)}>
-                  <div className="text-center">
-                    <Play className="w-12 h-12 text-[#9b87f5] mx-auto mb-2" />
-                    <p className="text-gray-300 text-sm">Click to watch video testimonial</p>
+            <div className="relative">
+              <div className="w-full h-48 bg-[#1A1F2C] rounded-lg flex items-center justify-center cursor-pointer hover:bg-[#2A2F3C] transition-colors border-2 border-[#9b87f5]/30 hover:border-[#9b87f5]/50"
+                   onClick={handleVideoClick}>
+                <div className="text-center">
+                  <div className="flex items-center justify-center mb-2">
+                    <Play className="w-12 h-12 text-[#9b87f5] mr-2" />
+                    <ExternalLink className="w-6 h-6 text-[#9b87f5]" />
                   </div>
+                  <p className="text-gray-300 text-sm mb-1">Click to watch video testimonial</p>
+                  {isYouTubeShorts && (
+                    <p className="text-gray-400 text-xs">Opens in new tab</p>
+                  )}
                 </div>
               </div>
-            ) : (
-              <div className="w-full">
-                <iframe
-                  src={testimonial.video_url}
-                  className="w-full h-48 rounded-lg"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title={`${testimonial.name} testimonial`}
-                />
-              </div>
-            )}
+            </div>
           </div>
         )}
 
