@@ -29,7 +29,7 @@ function App() {
           <Route path="/ai-for-youth" element={<AIForYouth />} />
           <Route path="/ai-audit-b2b" element={<AIAuditB2B />} />
           <Route path="/audit-intake" element={<AIAuditWeek1IntakeForm />} />
-          <Route path="/podcast" element={<AIFirstCEOPodcast />} />
+          <Route path="/ai-first-ceo-podcast" element={<AIFirstCEOPodcast />} />
           <Route path="/podcast-guest" element={<AIFirstCEOPodcastGuestIntake />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/testimonials/submit" element={<TestimonialCollection />} />
