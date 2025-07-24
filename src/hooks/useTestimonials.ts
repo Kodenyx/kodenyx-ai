@@ -10,6 +10,7 @@ export interface Testimonial {
   testimonial: string;
   rating?: number;
   image_url?: string;
+  video_url?: string;
   category: string;
   created_at: string;
   is_approved?: boolean;

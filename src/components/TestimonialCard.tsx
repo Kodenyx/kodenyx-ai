@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Star, ChevronDown, ChevronUp } from "lucide-react";
+import { Star, ChevronDown, ChevronUp, Play } from "lucide-react";
 import { Testimonial } from "@/hooks/useTestimonials";
 
 interface TestimonialCardProps {
@@ -14,6 +14,7 @@ interface TestimonialCardProps {
 
 const TestimonialCard = ({ testimonial, showCategory = false, expandable = false }: TestimonialCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
   
   const categoryLabels = {
     'business-coaching': 'AI-First Business Coaching Program',
@@ -36,6 +37,8 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
   const shouldTruncate = expandable && testimonial.testimonial.length > 200;
   const truncatedText = shouldTruncate ? testimonial.testimonial.substring(0, 200) + '...' : testimonial.testimonial;
   const displayText = shouldTruncate && !isExpanded ? truncatedText : testimonial.testimonial;
+
+  const isVideoTestimonial = testimonial.video_url && testimonial.video_url.trim() !== '';
 
   return (
     <Card className="hover:shadow-lg transition-shadow duration-300 h-full border-[#3A3F4C] bg-[#2A2F3C]">
@@ -78,6 +81,35 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
           </div>
         </div>
         
+        {/* Video Testimonial */}
+        {isVideoTestimonial && (
+          <div className="mb-4">
+            {!showVideo ? (
+              <div className="relative">
+                <div className="w-full h-48 bg-[#1A1F2C] rounded-lg flex items-center justify-center cursor-pointer hover:bg-[#2A2F3C] transition-colors"
+                     onClick={() => setShowVideo(true)}>
+                  <div className="text-center">
+                    <Play className="w-12 h-12 text-[#9b87f5] mx-auto mb-2" />
+                    <p className="text-gray-300 text-sm">Click to watch video testimonial</p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="w-full">
+                <iframe
+                  src={testimonial.video_url}
+                  className="w-full h-48 rounded-lg"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title={`${testimonial.name} testimonial`}
+                />
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Text Testimonial */}
         <blockquote className="text-gray-300 italic leading-relaxed mb-4">
           "{displayText}"
         </blockquote>
