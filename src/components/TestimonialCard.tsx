@@ -21,14 +21,14 @@ const TestimonialCard = ({ testimonial, showCategory = false }: TestimonialCardP
       <Star
         key={i}
         className={`w-4 h-4 ${
-          i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
+          i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-muted-foreground'
         }`}
       />
     ));
   };
 
   return (
-    <Card className="hover:shadow-lg transition-shadow duration-300 h-full">
+    <Card className="hover:shadow-lg transition-shadow duration-300 h-full border-border bg-card">
       <CardContent className="p-6">
         <div className="flex items-start gap-4 mb-4">
           {testimonial.image_url ? (
@@ -46,7 +46,7 @@ const TestimonialCard = ({ testimonial, showCategory = false }: TestimonialCardP
           )}
           <div className="flex-1">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="font-semibold text-lg">{testimonial.name}</h3>
+              <h3 className="font-semibold text-lg text-foreground">{testimonial.name}</h3>
               {testimonial.rating && (
                 <div className="flex items-center gap-1">
                   {renderStars(testimonial.rating)}
@@ -61,7 +61,7 @@ const TestimonialCard = ({ testimonial, showCategory = false }: TestimonialCardP
               </p>
             )}
             {showCategory && (
-              <Badge variant="secondary" className="mb-2">
+              <Badge variant="secondary" className="mb-2 bg-secondary text-secondary-foreground">
                 {categoryLabels[testimonial.category as keyof typeof categoryLabels]}
               </Badge>
             )}

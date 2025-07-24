@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Star, Send, CheckCircle } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const TestimonialCollection = () => {
   const [formData, setFormData] = useState({
@@ -52,8 +53,22 @@ const TestimonialCollection = () => {
     setIsSubmitting(true);
 
     try {
-      // For now, just simulate submission since the database table doesn't exist yet
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const { error } = await supabase
+        .from('testimonials')
+        .insert([{
+          name: formData.name,
+          role: formData.role || null,
+          company: formData.company || null,
+          testimonial: formData.testimonial,
+          rating: formData.rating,
+          category: formData.category,
+          image_url: formData.image_url || null,
+          is_approved: false // Will need manual approval
+        }]);
+
+      if (error) {
+        throw error;
+      }
       
       setIsSubmitted(true);
       toast({
@@ -77,7 +92,7 @@ const TestimonialCollection = () => {
       <Star
         key={i}
         className={`w-6 h-6 cursor-pointer transition-colors ${
-          i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
+          i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-muted-foreground'
         }`}
         onClick={() => handleInputChange('rating', i + 1)}
       />
@@ -91,11 +106,14 @@ const TestimonialCollection = () => {
         <div className="container mx-auto px-4 py-24">
           <div className="max-w-2xl mx-auto text-center">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
-            <h1 className="text-3xl font-bold mb-4">Thank You!</h1>
+            <h1 className="text-3xl font-bold mb-4 text-foreground">Thank You!</h1>
             <p className="text-xl text-muted-foreground mb-8">
               Your testimonial has been submitted successfully and will be reviewed before being published on our website.
             </p>
-            <Button onClick={() => window.location.href = '/'}>
+            <Button 
+              onClick={() => window.location.href = '/'}
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+            >
               Return to Home
             </Button>
           </div>
@@ -111,16 +129,16 @@ const TestimonialCollection = () => {
       <div className="container mx-auto px-4 py-24">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">Share Your Experience</h1>
+            <h1 className="text-4xl font-bold mb-4 text-foreground">Share Your Experience</h1>
             <p className="text-xl text-muted-foreground">
               Help others learn about your experience with our programs and services
             </p>
           </div>
 
-          <Card>
+          <Card className="border-border bg-card">
             <CardHeader>
-              <CardTitle>Submit Your Testimonial</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-foreground">Submit Your Testimonial</CardTitle>
+              <CardDescription className="text-muted-foreground">
                 Your feedback helps us improve and helps others make informed decisions
               </CardDescription>
             </CardHeader>
@@ -128,39 +146,42 @@ const TestimonialCollection = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="name">Full Name *</Label>
+                    <Label htmlFor="name" className="text-foreground">Full Name *</Label>
                     <Input
                       id="name"
                       value={formData.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       required
+                      className="bg-background border-border"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="role">Role/Title</Label>
+                    <Label htmlFor="role" className="text-foreground">Role/Title</Label>
                     <Input
                       id="role"
                       value={formData.role}
                       onChange={(e) => handleInputChange('role', e.target.value)}
                       placeholder="e.g., CEO, Student, etc."
+                      className="bg-background border-border"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <Label htmlFor="company">Company/Organization</Label>
+                  <Label htmlFor="company" className="text-foreground">Company/Organization</Label>
                   <Input
                     id="company"
                     value={formData.company}
                     onChange={(e) => handleInputChange('company', e.target.value)}
                     placeholder="Optional"
+                    className="bg-background border-border"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="category">Program/Service *</Label>
+                  <Label htmlFor="category" className="text-foreground">Program/Service *</Label>
                   <Select value={formData.category} onValueChange={(value) => handleInputChange('category', value)}>
-                    <SelectTrigger>
+                    <SelectTrigger className="bg-background border-border">
                       <SelectValue placeholder="Select the program or service" />
                     </SelectTrigger>
                     <SelectContent>
@@ -174,7 +195,7 @@ const TestimonialCollection = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="rating">Rating</Label>
+                  <Label htmlFor="rating" className="text-foreground">Rating</Label>
                   <div className="flex items-center gap-1 mt-2">
                     {renderStars(formData.rating)}
                     <span className="ml-2 text-sm text-muted-foreground">
@@ -184,24 +205,25 @@ const TestimonialCollection = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="testimonial">Your Testimonial *</Label>
+                  <Label htmlFor="testimonial" className="text-foreground">Your Testimonial *</Label>
                   <Textarea
                     id="testimonial"
                     value={formData.testimonial}
                     onChange={(e) => handleInputChange('testimonial', e.target.value)}
                     placeholder="Share your experience with our program or service..."
-                    className="min-h-[120px]"
+                    className="min-h-[120px] bg-background border-border"
                     required
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="image_url">Profile Image URL (Optional)</Label>
+                  <Label htmlFor="image_url" className="text-foreground">Profile Image URL (Optional)</Label>
                   <Input
                     id="image_url"
                     value={formData.image_url}
                     onChange={(e) => handleInputChange('image_url', e.target.value)}
                     placeholder="https://example.com/your-photo.jpg"
+                    className="bg-background border-border"
                   />
                 </div>
 
@@ -212,7 +234,11 @@ const TestimonialCollection = () => {
                   </p>
                 </div>
 
-                <Button type="submit" disabled={isSubmitting} className="w-full">
+                <Button 
+                  type="submit" 
+                  disabled={isSubmitting} 
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                >
                   {isSubmitting ? (
                     "Submitting..."
                   ) : (

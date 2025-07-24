@@ -31,11 +31,11 @@ const TestimonialsSection = ({
 
   if (isLoading) {
     return (
-      <section className="py-20 bg-secondary/50">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center">
-            <Loader2 className="w-8 h-8 animate-spin" />
-            <span className="ml-2">Loading testimonials...</span>
+            <Loader2 className="w-8 h-8 animate-spin text-primary" />
+            <span className="ml-2 text-foreground">Loading testimonials...</span>
           </div>
         </div>
       </section>
@@ -44,7 +44,7 @@ const TestimonialsSection = ({
 
   if (error) {
     return (
-      <section className="py-20 bg-secondary/50">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <p className="text-center text-muted-foreground">
             Unable to load testimonials at this time.
@@ -60,9 +60,9 @@ const TestimonialsSection = ({
 
   if (!displayedTestimonials || displayedTestimonials.length === 0) {
     return (
-      <section className="py-20 bg-secondary/50">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">{title}</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">{title}</h2>
           <p className="text-center text-muted-foreground">
             No testimonials available yet. Be the first to share your experience!
           </p>
@@ -70,6 +70,7 @@ const TestimonialsSection = ({
             <Button 
               onClick={() => window.location.href = '/testimonials/submit'}
               variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
             >
               Submit a Testimonial
             </Button>
@@ -80,9 +81,9 @@ const TestimonialsSection = ({
   }
 
   return (
-    <section className="py-20 bg-secondary/50">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">{title}</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-foreground">{title}</h2>
         
         {showCategoryFilter && (
           <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -90,7 +91,7 @@ const TestimonialsSection = ({
               <Badge
                 key={cat.value || 'all'}
                 variant={selectedCategory === cat.value ? "default" : "outline"}
-                className="cursor-pointer px-4 py-2"
+                className="cursor-pointer px-4 py-2 hover:bg-primary hover:text-primary-foreground transition-colors"
                 onClick={() => setSelectedCategory(cat.value)}
               >
                 {cat.label}
@@ -113,6 +114,7 @@ const TestimonialsSection = ({
           <Button 
             onClick={() => window.location.href = '/testimonials/submit'}
             variant="outline"
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
           >
             Submit Your Testimonial
           </Button>
