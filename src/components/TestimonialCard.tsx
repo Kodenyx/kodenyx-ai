@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -17,8 +16,7 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
   const [showVideo, setShowVideo] = useState(false);
   
   const categoryLabels = {
-    'business-coaching': 'AI-First Business Coaching Program',
-    'ai-first-business-coaching': 'AI-First Business Coaching Program',
+    'business-coaching': 'Business Coaching',
     'ai-youth-program': 'AI for Youth',
     'ai-automation-services': 'AI/Automation Services'
   };
