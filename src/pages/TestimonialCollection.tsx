@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -31,6 +32,7 @@ const TestimonialCollection = () => {
   ];
 
   const handleInputChange = (field: string, value: string | number) => {
+    console.log('Form field updated:', field, value);
     setFormData(prev => ({
       ...prev,
       [field]: value
@@ -40,7 +42,14 @@ const TestimonialCollection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    console.log('Form submission started with data:', formData);
+    
     if (!formData.name || !formData.testimonial || !formData.category) {
+      console.log('Validation failed - missing required fields:', {
+        name: !!formData.name,
+        testimonial: !!formData.testimonial,
+        category: !!formData.category
+      });
       toast({
         title: "Missing Information",
         description: "Please fill in all required fields",
@@ -50,25 +59,35 @@ const TestimonialCollection = () => {
     }
 
     setIsSubmitting(true);
+    console.log('Starting database insertion...');
 
     try {
-      const { error } = await supabase
+      const testimonialData = {
+        name: formData.name,
+        role: formData.role || null,
+        company: formData.company || null,
+        testimonial: formData.testimonial,
+        rating: formData.rating,
+        category: formData.category,
+        image_url: formData.image_url || null,
+        is_approved: false
+      };
+
+      console.log('Attempting to insert testimonial:', testimonialData);
+
+      const { data, error } = await supabase
         .from('testimonials')
-        .insert([{
-          name: formData.name,
-          role: formData.role || null,
-          company: formData.company || null,
-          testimonial: formData.testimonial,
-          rating: formData.rating,
-          category: formData.category,
-          image_url: formData.image_url || null,
-          is_approved: false
-        }]);
+        .insert([testimonialData])
+        .select();
+
+      console.log('Supabase response:', { data, error });
 
       if (error) {
+        console.error('Supabase error:', error);
         throw error;
       }
       
+      console.log('Testimonial successfully inserted:', data);
       setIsSubmitted(true);
       toast({
         title: "Thank you!",
