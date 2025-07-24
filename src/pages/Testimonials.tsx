@@ -15,7 +15,7 @@ const Testimonials = () => {
             <div className="max-w-4xl mx-auto text-center">
               <div className="flex flex-col items-center mb-8">
                 <img 
-                  src="/lovable-uploads/photo-1581090464777-f3220bbe1b8b" 
+                  src="/lovable-uploads/dd244f54-851e-4f6b-9149-ce3d1a68e474.png" 
                   alt="Kodenyx Team" 
                   className="w-20 h-20 rounded-full object-cover mb-6"
                 />
