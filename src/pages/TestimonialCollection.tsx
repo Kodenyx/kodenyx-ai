@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -26,7 +25,7 @@ const TestimonialCollection = () => {
   const { toast } = useToast();
 
   const categories = [
-    { value: "business-coaching", label: "Business Coaching Program" },
+    { value: "business-coaching", label: "AI-First Business Coaching Program" },
     { value: "ai-youth-program", label: "AI for Youth Program" },
     { value: "ai-automation-services", label: "AI/Automation Services" }
   ];
@@ -63,7 +62,7 @@ const TestimonialCollection = () => {
           rating: formData.rating,
           category: formData.category,
           image_url: formData.image_url || null,
-          is_approved: false // Will need manual approval
+          is_approved: false
         }]);
 
       if (error) {
@@ -129,10 +128,17 @@ const TestimonialCollection = () => {
       <div className="container mx-auto px-4 py-24">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
+            <img 
+              src="/lovable-uploads/your-image.jpg" 
+              alt="Thank you" 
+              className="w-20 h-20 rounded-full object-cover mx-auto mb-6"
+            />
             <h1 className="text-4xl font-bold mb-4 text-foreground">Share Your Experience</h1>
-            <p className="text-xl text-muted-foreground">
-              Help others learn about your experience with our programs and services
-            </p>
+            <div className="bg-card border border-border rounded-lg p-6 mb-8">
+              <p className="text-muted-foreground italic text-lg leading-relaxed">
+                "Thank you for taking the time to share your experience. Your story matters and helps others understand the real impact of this work. I'm grateful for your trust and excited to share your transformation with others who are on a similar journey."
+              </p>
+            </div>
           </div>
 
           <Card className="border-border bg-card">

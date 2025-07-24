@@ -11,20 +11,22 @@ interface TestimonialsSectionProps {
   category?: string;
   showCategoryFilter?: boolean;
   maxItems?: number;
+  expandable?: boolean;
 }
 
 const TestimonialsSection = ({ 
   title = "What Our Clients Say", 
   category,
   showCategoryFilter = false,
-  maxItems
+  maxItems,
+  expandable = false
 }: TestimonialsSectionProps) => {
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>(category);
   const { data: testimonials, isLoading, error } = useTestimonials(selectedCategory);
 
   const categories = [
     { value: undefined, label: "All" },
-    { value: "business-coaching", label: "Business Coaching" },
+    { value: "ai-first-business-coaching", label: "AI-First Business Coaching Program" },
     { value: "ai-youth-program", label: "AI for Youth" },
     { value: "ai-automation-services", label: "AI/Automation Services" }
   ];
@@ -106,6 +108,7 @@ const TestimonialsSection = ({
               key={testimonial.id}
               testimonial={testimonial}
               showCategory={!selectedCategory}
+              expandable={expandable}
             />
           ))}
         </div>
