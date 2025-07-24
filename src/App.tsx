@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster"
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import AIForYouth from "./pages/AIForYouth";
+import AIAuditB2B from "./pages/AIAuditB2B";
 import {
   QueryClient,
   QueryClientProvider,
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/ai-for-youth" element={<AIForYouth />} />
+          <Route path="/ai-audit-b2b" element={<AIAuditB2B />} />
           <Route path="/audit-intake" element={<AIAuditWeek1IntakeForm />} />
           <Route path="/podcast-guest" element={<AIFirstCEOPodcastGuestIntake />} />
           <Route path="/testimonials" element={<Testimonials />} />

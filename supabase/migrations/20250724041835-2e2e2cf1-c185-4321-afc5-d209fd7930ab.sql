@@ -13,3 +13,7 @@ WHERE name = 'Rashmi Munjal';
 UPDATE public.testimonials 
 SET category = 'ai-first-business-coaching'
 WHERE name = 'Sheri Otto';
+
+-- Add video_url column if it doesn't exist
+ALTER TABLE public.testimonials 
+ADD COLUMN IF NOT EXISTS video_url text;
