@@ -9,8 +9,8 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
-import AuditIntake from "./pages/AuditIntake";
-import PodcastGuest from "./pages/PodcastGuest";
+import AIAuditWeek1IntakeForm from "./pages/AIAuditWeek1IntakeForm";
+import AIFirstCEOPodcastGuestIntake from "./pages/AIFirstCEOPodcastGuestIntake";
 import TestimonialCollection from "@/pages/TestimonialCollection";
 import Testimonials from "@/pages/Testimonials";
 
@@ -24,8 +24,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/ai-for-youth" element={<AIForYouth />} />
-          <Route path="/audit-intake" element={<AuditIntake />} />
-          <Route path="/podcast-guest" element={<PodcastGuest />} />
+          <Route path="/audit-intake" element={<AIAuditWeek1IntakeForm />} />
+          <Route path="/podcast-guest" element={<AIFirstCEOPodcastGuestIntake />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/testimonials/submit" element={<TestimonialCollection />} />
           <Route path="*" element={<NotFound />} />
