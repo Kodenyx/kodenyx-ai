@@ -27,7 +27,7 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
       <Star
         key={i}
         className={`w-4 h-4 ${
-          i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-muted-foreground'
+          i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-500'
         }`}
       />
     ));
@@ -38,7 +38,7 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
   const displayText = shouldTruncate && !isExpanded ? truncatedText : testimonial.testimonial;
 
   return (
-    <Card className="hover:shadow-lg transition-shadow duration-300 h-full border-border bg-card">
+    <Card className="hover:shadow-lg transition-shadow duration-300 h-full border-[#3A3F4C] bg-[#2A2F3C]">
       <CardContent className="p-6">
         <div className="flex items-start gap-4 mb-4">
           {testimonial.image_url ? (
@@ -48,15 +48,15 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
               className="w-12 h-12 rounded-full object-cover"
             />
           ) : (
-            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-              <span className="text-primary font-semibold">
+            <div className="w-12 h-12 rounded-full bg-[#9b87f5]/20 flex items-center justify-center">
+              <span className="text-[#9b87f5] font-semibold">
                 {testimonial.name.charAt(0)}
               </span>
             </div>
           )}
           <div className="flex-1">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="font-semibold text-lg text-foreground">{testimonial.name}</h3>
+              <h3 className="font-semibold text-lg text-white">{testimonial.name}</h3>
               {testimonial.rating && (
                 <div className="flex items-center gap-1">
                   {renderStars(testimonial.rating)}
@@ -64,21 +64,21 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
               )}
             </div>
             {(testimonial.role || testimonial.company) && (
-              <p className="text-sm text-muted-foreground mb-2">
+              <p className="text-sm text-gray-300 mb-2">
                 {testimonial.role}
                 {testimonial.role && testimonial.company && ' at '}
                 {testimonial.company}
               </p>
             )}
             {showCategory && (
-              <Badge variant="secondary" className="mb-2 bg-secondary text-secondary-foreground">
+              <Badge variant="secondary" className="mb-2 bg-[#9b87f5]/20 text-[#9b87f5] border-[#9b87f5]/30">
                 {categoryLabels[testimonial.category as keyof typeof categoryLabels]}
               </Badge>
             )}
           </div>
         </div>
         
-        <blockquote className="text-muted-foreground italic leading-relaxed mb-4">
+        <blockquote className="text-gray-300 italic leading-relaxed mb-4">
           "{displayText}"
         </blockquote>
 
@@ -87,7 +87,7 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
             variant="ghost"
             size="sm"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="w-full justify-center text-primary hover:text-primary-foreground hover:bg-primary"
+            className="w-full justify-center text-[#9b87f5] hover:text-white hover:bg-[#9b87f5]"
           >
             {isExpanded ? (
               <>
