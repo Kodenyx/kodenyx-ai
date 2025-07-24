@@ -39,6 +39,7 @@ export const useTestimonials = (category?: string) => {
 
       console.log('Fetched testimonials:', data);
       console.log('Filter category:', category);
+      console.log('Testimonials by category:', data?.map(t => ({ name: t.name, category: t.category })));
       
       return data as Testimonial[];
     },

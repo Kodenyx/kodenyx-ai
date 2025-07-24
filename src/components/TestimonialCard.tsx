@@ -75,7 +75,7 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
             )}
             {showCategory && (
               <Badge variant="secondary" className="mb-2 bg-[#9b87f5]/20 text-[#9b87f5] border-[#9b87f5]/30">
-                {categoryLabels[testimonial.category as keyof typeof categoryLabels]}
+                {categoryLabels[testimonial.category as keyof typeof categoryLabels] || testimonial.category}
               </Badge>
             )}
           </div>

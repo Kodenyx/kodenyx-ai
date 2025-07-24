@@ -27,6 +27,7 @@ const TestimonialsSection = ({
   const categories = [
     { value: undefined, label: "All" },
     { value: "ai-first-business-coaching", label: "AI-First Business Coaching Program" },
+    { value: "business-coaching", label: "Business Coaching" },
     { value: "ai-youth-program", label: "AI for Youth" },
     { value: "ai-automation-services", label: "AI/Automation Services" }
   ];
@@ -66,7 +67,7 @@ const TestimonialsSection = ({
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-white">{title}</h2>
           <p className="text-center text-gray-300">
-            No testimonials available yet. Be the first to share your experience!
+            No testimonials available for this category yet.
           </p>
           <div className="text-center mt-6">
             <Button 
