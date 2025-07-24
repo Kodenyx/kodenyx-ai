@@ -12,6 +12,7 @@ export interface Testimonial {
   image_url?: string;
   category: string;
   created_at: string;
+  is_approved?: boolean;
 }
 
 export const useTestimonials = (category?: string) => {
@@ -19,7 +20,7 @@ export const useTestimonials = (category?: string) => {
     queryKey: ['testimonials', category],
     queryFn: async () => {
       let query = supabase
-        .from('testimonials')
+        .from('testimonials' as any)
         .select('*')
         .eq('is_approved', true)
         .order('created_at', { ascending: false });

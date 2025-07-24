@@ -55,7 +55,7 @@ const TestimonialCollection = () => {
 
     try {
       const { error } = await supabase
-        .from('testimonials')
+        .from('testimonials' as any)
         .insert([formData]);
 
       if (error) throw error;
