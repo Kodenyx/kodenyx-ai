@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -148,8 +147,8 @@ const TestimonialCollection = () => {
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
             <img 
-              src="/lovable-uploads/your-image.jpg" 
-              alt="Thank you" 
+              src="/lovable-uploads/84e44840-f20f-465e-ab64-1d50c66bf786.png" 
+              alt="Aarti Kodenyx" 
               className="w-20 h-20 rounded-full object-cover mx-auto mb-6"
             />
             <h1 className="text-4xl font-bold mb-4 text-foreground">Share Your Experience</h1>

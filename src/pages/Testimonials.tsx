@@ -9,7 +9,7 @@ const Testimonials = () => {
       <SimpleNavbar />
       
       <div className="pt-20">
-        {/* Hero Section with Personal Note */}
+        {/* Hero Section */}
         <section className="py-16 bg-[#1A1F2C]">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
@@ -19,11 +19,6 @@ const Testimonials = () => {
                   alt="Aarti Kodenyx" 
                   className="w-20 h-20 rounded-full object-cover mb-6"
                 />
-                <div className="bg-[#2A2F3C] border border-[#3A3F4C] rounded-lg p-6 max-w-2xl">
-                  <p className="text-gray-300 italic text-lg leading-relaxed">
-                    "Thank you for taking the time to share your experience. Your story matters and helps others understand the real impact of this work. I'm grateful for your trust and excited to share your transformation with others who are on a similar journey."
-                  </p>
-                </div>
               </div>
               
               <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
