@@ -14,10 +14,7 @@ const Logo = ({ size = 180, className = "" }: LogoProps) => {
       width={size}
       height={size}
       style={{ 
-        display: "block", 
-        backgroundColor: "white",
-        boxShadow: "none",
-        filter: "drop-shadow(0 0 0 transparent)"
+        display: "block"
       }}
       className={`object-contain ${className}`}
     />

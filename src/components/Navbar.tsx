@@ -1,9 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Menu, X, PhoneCall, GraduationCap, Mail, Mic } from "lucide-react";
+import { Menu, X, PhoneCall, GraduationCap, Mail, Star } from "lucide-react";
 import Logo from "./Logo";
 
 const Navbar = () => {
@@ -61,15 +60,13 @@ const Navbar = () => {
 
         {/* Desktop menu */}
         <div className="hidden md:flex items-center gap-6">
-          <a 
-            href="/ai-first-ceo-podcast"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link 
+            to="/testimonials"
             className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
           >
-            <Mic size={18} />
-            AI-First CEO Podcast
-          </a>
+            <Star size={18} />
+            Testimonials
+          </Link>
           <button 
             onClick={() => handleNavClick('services')}
             className="text-gray-300 hover:text-white transition-colors"
@@ -109,16 +106,14 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-secondary/95 backdrop-blur-md z-50 py-4 animate-fade-in px-4">
           <div className="flex flex-col gap-4">
-            <a 
-              href="/ai-first-ceo-podcast"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link 
+              to="/testimonials"
               className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              <Mic size={18} />
-              AI-First CEO Podcast
-            </a>
+              <Star size={18} />
+              Testimonials
+            </Link>
             <button 
               onClick={() => {
                 handleNavClick('services');
