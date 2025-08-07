@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -88,19 +89,25 @@ const TestimonialCollection = () => {
 
       console.log('Submitting payload:', payload);
 
-      const { data, error } = await supabase.functions.invoke('submit-testimonial', {
+      const response = await supabase.functions.invoke('submit-testimonial', {
         body: payload
       });
 
-      console.log('Function response:', { data, error });
+      console.log('Full response:', response);
 
-      // Check for function-level errors first
-      if (error) {
-        console.error('Function invocation error:', error);
-        throw new Error(error.message || 'Failed to submit testimonial');
+      // Handle both error and data from the response
+      if (response.error) {
+        console.error('Function invocation error:', response.error);
+        throw new Error(response.error.message || 'Failed to submit testimonial');
       }
 
-      // The function returns success, so proceed with success flow
+      // Check if the function returned an error in the data
+      if (response.data && response.data.error) {
+        console.error('Function returned error:', response.data.error);
+        throw new Error(response.data.error);
+      }
+
+      // Success - either data exists or no error occurred
       console.log('Testimonial submitted successfully');
       
       setIsSubmitted(true);
@@ -122,7 +129,7 @@ const TestimonialCollection = () => {
       
     } catch (error: any) {
       console.error('Submission error:', error);
-      const errorMessage = error?.message || 'An unexpected error occurred';
+      const errorMessage = error?.message || 'An unexpected error occurred while submitting your testimonial';
       
       setSubmitError(errorMessage);
       toast({
