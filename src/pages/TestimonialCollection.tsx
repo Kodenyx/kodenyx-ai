@@ -32,7 +32,6 @@ const TestimonialCollection = () => {
   ];
 
   const handleInputChange = (field: string, value: string | number) => {
-    console.log('Form field updated:', field, value);
     setFormData(prev => ({
       ...prev,
       [field]: value
@@ -42,11 +41,8 @@ const TestimonialCollection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    console.log('Form submission started with data:', formData);
-    
     // Validate required fields
     if (!formData.name.trim()) {
-      console.log('Validation failed - name is required');
       toast({
         title: "Missing Information",
         description: "Please enter your full name",
@@ -56,7 +52,6 @@ const TestimonialCollection = () => {
     }
 
     if (!formData.testimonial.trim()) {
-      console.log('Validation failed - testimonial is required');
       toast({
         title: "Missing Information", 
         description: "Please enter your testimonial",
@@ -66,7 +61,6 @@ const TestimonialCollection = () => {
     }
 
     if (!formData.category) {
-      console.log('Validation failed - category is required');
       toast({
         title: "Missing Information",
         description: "Please select a program or service",
@@ -76,36 +70,8 @@ const TestimonialCollection = () => {
     }
 
     setIsSubmitting(true);
-    console.log('Starting testimonial submission...');
 
     try {
-      // First, let's check if we can access the table at all
-      console.log('Testing table access...');
-      const { data: testData, error: testError } = await supabase
-        .from('testimonials')
-        .select('count(*)')
-        .limit(1);
-      
-      console.log('Table access test result:', { testData, testError });
-
-      // Check current user session
-      const { data: session, error: sessionError } = await supabase.auth.getSession();
-      console.log('Current session:', { 
-        user: session?.session?.user?.id || 'no user', 
-        sessionError,
-        isAuthenticated: !!session?.session?.user 
-      });
-
-      // Test if we can perform a simple select with the exact same conditions as our policy
-      console.log('Testing SELECT with policy conditions...');
-      const { data: selectTest, error: selectError } = await supabase
-        .from('testimonials')
-        .select('*')
-        .eq('is_approved', true)
-        .limit(1);
-      
-      console.log('SELECT test result:', { selectTest, selectError });
-
       const testimonialData = {
         name: formData.name.trim(),
         role: formData.role.trim() || null,
@@ -117,64 +83,20 @@ const TestimonialCollection = () => {
         is_approved: false
       };
 
-      console.log('Preparing to insert testimonial with exact data:', testimonialData);
-      console.log('Data types check:', {
-        name: typeof testimonialData.name,
-        role: typeof testimonialData.role,
-        company: typeof testimonialData.company,
-        testimonial: typeof testimonialData.testimonial,
-        rating: typeof testimonialData.rating,
-        category: typeof testimonialData.category,
-        image_url: typeof testimonialData.image_url,
-        is_approved: typeof testimonialData.is_approved
-      });
-
-      // Try a very simple insert first to test RLS
-      console.log('Testing minimal insert...');
-      const minimalData = {
-        name: 'Test Name',
-        testimonial: 'Test testimonial',
-        category: 'business-coaching'
-      };
-      
-      const { data: testInsert, error: testInsertError } = await supabase
-        .from('testimonials')
-        .insert([minimalData])
-        .select();
-      
-      console.log('Minimal insert test:', { testInsert, testInsertError });
-
-      if (testInsertError) {
-        console.error('Minimal insert failed, trying full insert anyway...');
-      } else {
-        console.log('Minimal insert succeeded, proceeding with full insert...');
-      }
-
       const { data, error } = await supabase
         .from('testimonials')
         .insert([testimonialData])
         .select();
 
-      console.log('Supabase response:', { data, error });
-
       if (error) {
-        console.error('Supabase error details:', {
-          message: error.message,
-          details: error.details,
-          hint: error.hint,
-          code: error.code,
-          full_error: error
-        });
-        
+        console.error('Supabase error:', error);
         throw new Error(`Submission failed: ${error.message}`);
       }
       
       if (!data || data.length === 0) {
-        console.error('No data returned from insert operation');
         throw new Error('Testimonial submission failed - no confirmation received');
       }
       
-      console.log('Testimonial successfully inserted:', data);
       setIsSubmitted(true);
       toast({
         title: "Thank you!",

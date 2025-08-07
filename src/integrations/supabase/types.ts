@@ -297,7 +297,7 @@ export type Database = {
         Row: {
           category: string
           company: string | null
-          created_at: string | null
+          created_at: string
           id: string
           image_url: string | null
           is_approved: boolean | null
@@ -305,13 +305,13 @@ export type Database = {
           rating: number | null
           role: string | null
           testimonial: string
-          updated_at: string | null
+          updated_at: string
           video_url: string | null
         }
         Insert: {
           category?: string
           company?: string | null
-          created_at?: string | null
+          created_at?: string
           id?: string
           image_url?: string | null
           is_approved?: boolean | null
@@ -319,13 +319,13 @@ export type Database = {
           rating?: number | null
           role?: string | null
           testimonial: string
-          updated_at?: string | null
+          updated_at?: string
           video_url?: string | null
         }
         Update: {
           category?: string
           company?: string | null
-          created_at?: string | null
+          created_at?: string
           id?: string
           image_url?: string | null
           is_approved?: boolean | null
@@ -333,7 +333,7 @@ export type Database = {
           rating?: number | null
           role?: string | null
           testimonial?: string
-          updated_at?: string | null
+          updated_at?: string
           video_url?: string | null
         }
         Relationships: []
