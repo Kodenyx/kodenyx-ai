@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -79,6 +78,15 @@ const TestimonialCollection = () => {
     console.log('Starting testimonial submission...');
 
     try {
+      // First, let's check if we can access the table at all
+      console.log('Testing table access...');
+      const { data: testData, error: testError } = await supabase
+        .from('testimonials')
+        .select('count(*)')
+        .limit(1);
+      
+      console.log('Table access test result:', { testData, testError });
+
       const testimonialData = {
         name: formData.name.trim(),
         role: formData.role.trim() || null,
@@ -90,7 +98,17 @@ const TestimonialCollection = () => {
         is_approved: false
       };
 
-      console.log('Attempting to insert testimonial:', testimonialData);
+      console.log('Preparing to insert testimonial with exact data:', testimonialData);
+      console.log('Data types check:', {
+        name: typeof testimonialData.name,
+        role: typeof testimonialData.role,
+        company: typeof testimonialData.company,
+        testimonial: typeof testimonialData.testimonial,
+        rating: typeof testimonialData.rating,
+        category: typeof testimonialData.category,
+        image_url: typeof testimonialData.image_url,
+        is_approved: typeof testimonialData.is_approved
+      });
 
       const { data, error } = await supabase
         .from('testimonials')
@@ -104,7 +122,8 @@ const TestimonialCollection = () => {
           message: error.message,
           details: error.details,
           hint: error.hint,
-          code: error.code
+          code: error.code,
+          full_error: error
         });
         
         throw new Error(`Submission failed: ${error.message}`);
