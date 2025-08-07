@@ -164,15 +164,15 @@ const ColdEmailAutomation = () => {
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-4">Setup Investment</h3>
-                    <p className="text-lg text-white/90 mb-2">40-50% paid upfront: <span className="text-primary font-bold">$1,100</span></p>
+                    <p className="text-lg text-white/90 mb-2">Paid upfront: <span className="text-primary font-bold">$997</span></p>
                     <p className="text-white/80">We build and launch your complete system</p>
                   </div>
                   
                   <div className="border-t border-white/20 pt-6">
                     <h3 className="text-2xl font-bold text-white mb-4">Performance Payment</h3>
                     <p className="text-lg text-white/90 mb-2">If we deliver 10 qualified appointments in under 60 days:</p>
-                    <p className="text-lg text-white/90 mb-2">You pay the remaining: <span className="text-primary font-bold">$1,400-$1,900</span></p>
-                    <p className="text-white/80">Total investment: $2,500-$3,000</p>
+                    <p className="text-lg text-white/90 mb-2">You pay the remaining: <span className="text-primary font-bold">$2,000</span></p>
+                    <p className="text-white/80">Total investment: $2,997</p>
                   </div>
                   
                   <div className="bg-primary/20 border border-primary/30 rounded-lg p-6">
