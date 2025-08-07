@@ -1,44 +1,46 @@
 
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import AIForYouth from "./pages/AIForYouth";
+import AIAudit from "./pages/AIAudit";
 import AIAuditB2B from "./pages/AIAuditB2B";
-import AIFirstCEOPodcast from "./pages/AIFirstCEOPodcast";
-import {
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query'
-import AIAuditWeek1IntakeForm from "./pages/AIAuditWeek1IntakeForm";
-import AIFirstCEOPodcastGuestIntake from "./pages/AIFirstCEOPodcastGuestIntake";
-import TestimonialCollection from "@/pages/TestimonialCollection";
-import Testimonials from "@/pages/Testimonials";
-import Media from "@/pages/Media";
+import AIForYouth from "./pages/AIForYouth";
+import AIReadyScore from "./pages/AIReadyScore";
+import AIScoreResultsPage from "./pages/AIScoreResultsPage";
+import Testimonials from "./pages/Testimonials";
+import AdminTestimonials from "./pages/AdminTestimonials";
+import TestimonialCollection from "./pages/TestimonialCollection";
+import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
-function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Toaster />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/ai-for-youth" element={<AIForYouth />} />
-          <Route path="/ai-audit-b2b" element={<AIAuditB2B />} />
-          <Route path="/audit-intake" element={<AIAuditWeek1IntakeForm />} />
-          <Route path="/ai-first-ceo-podcast" element={<AIFirstCEOPodcast />} />
-          <Route path="/podcast-guest" element={<AIFirstCEOPodcastGuestIntake />} />
-          <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/testimonials/submit" element={<TestimonialCollection />} />
-          <Route path="/media" element={<Media />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
-    </QueryClientProvider>
-  );
-}
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/ai-audit" element={<AIAudit />} />
+            <Route path="/ai-audit-b2b" element={<AIAuditB2B />} />
+            <Route path="/ai-for-youth" element={<AIForYouth />} />
+            <Route path="/ai-ready-score" element={<AIReadyScore />} />
+            <Route path="/ai-score-results" element={<AIScoreResultsPage />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/testimonials/submit" element={<TestimonialCollection />} />
+            <Route path="/admin/testimonials" element={<AdminTestimonials />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </ThemeProvider>
+  </QueryClientProvider>
+);
 
 export default App;
