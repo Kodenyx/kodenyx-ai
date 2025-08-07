@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -72,6 +71,12 @@ const TestimonialCollection = () => {
     setIsSubmitting(true);
 
     try {
+      console.log('Submitting testimonial with data:', {
+        name: formData.name.trim(),
+        category: formData.category,
+        testimonial_length: formData.testimonial.trim().length
+      });
+
       const { data, error } = await supabase.functions.invoke('submit-testimonial', {
         body: {
           name: formData.name.trim(),
@@ -84,9 +89,14 @@ const TestimonialCollection = () => {
         }
       });
 
+      console.log('Function response:', { data, error });
+
       if (error) {
+        console.error('Function invocation error:', error);
         throw new Error(error.message || 'Failed to submit testimonial');
       }
+      
+      console.log('Testimonial submitted successfully:', data);
       
       setIsSubmitted(true);
       toast({
