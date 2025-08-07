@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -93,39 +92,48 @@ const TestimonialCollection = () => {
         body: payload
       });
 
-      console.log('Full response:', response);
+      console.log('Full response object:', JSON.stringify(response, null, 2));
 
-      // Handle both error and data from the response
-      if (response.error) {
-        console.error('Function invocation error:', response.error);
-        throw new Error(response.error.message || 'Failed to submit testimonial');
+      // More robust error checking
+      const hasError = response.error || (response.data && typeof response.data === 'object' && response.data.error);
+      
+      if (hasError) {
+        const errorMessage = response.error?.message || response.data?.error || 'Unknown error occurred';
+        console.error('Submission failed with error:', errorMessage);
+        throw new Error(errorMessage);
       }
 
-      // Check if the function returned an error in the data
-      if (response.data && response.data.error) {
-        console.error('Function returned error:', response.data.error);
-        throw new Error(response.data.error);
-      }
+      // Check if we got a successful response with data
+      const hasSuccessData = response.data && (
+        response.data.message || 
+        response.data.data || 
+        (typeof response.data === 'object' && !response.data.error)
+      );
 
-      // Success - either data exists or no error occurred
-      console.log('Testimonial submitted successfully');
-      
-      setIsSubmitted(true);
-      toast({
-        title: "Success!",
-        description: "Your testimonial has been submitted and will be reviewed before being published.",
-      });
-      
-      // Clear form data
-      setFormData({
-        name: "",
-        role: "",
-        company: "",
-        testimonial: "",
-        rating: 5,
-        category: "",
-        image_url: ""
-      });
+      if (hasSuccessData || (!response.error && !hasError)) {
+        console.log('Testimonial submitted successfully');
+        
+        setIsSubmitted(true);
+        toast({
+          title: "Success!",
+          description: "Your testimonial has been submitted and will be reviewed before being published.",
+        });
+        
+        // Clear form data
+        setFormData({
+          name: "",
+          role: "",
+          company: "",
+          testimonial: "",
+          rating: 5,
+          category: "",
+          image_url: ""
+        });
+      } else {
+        // Fallback for unexpected response structure
+        console.warn('Unexpected response structure:', response);
+        throw new Error('Received unexpected response from server');
+      }
       
     } catch (error: any) {
       console.error('Submission error:', error);
