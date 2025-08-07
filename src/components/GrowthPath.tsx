@@ -11,7 +11,7 @@ const GrowthPath = () => {
       description: "We map your systems and deliver a 90-day roadmap that shows what to automate - and in what order.",
       link: "/ai-audit-b2b",
       cta: "Learn More",
-      image: "/lovable-uploads/33b842cb-cb51-41b4-886c-d5d7adab2437.png"
+      image: "/lovable-uploads/49d54cb6-4472-4e49-b78f-d3793aac28e5.png"
     },
     {
       title: "AI Automation Services (Implementation)",
