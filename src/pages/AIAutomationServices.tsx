@@ -63,7 +63,7 @@ const AIAutomationServices = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               AI Automation Services (Implementation)
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8">
+            <p className="text-xl md:text-2xl text-white mb-8">
               Complete AI automation implementation across all your business processes
             </p>
           </div>
@@ -83,7 +83,7 @@ const AIAutomationServices = () => {
                       <Card key={itemIndex} className="border-2 border-gray-200 hover:shadow-xl transition-shadow duration-300">
                         <CardContent className="p-8">
                           <h3 className="text-2xl font-bold text-black mb-4">{item.title}</h3>
-                          <p className="text-gray-600 mb-6 leading-relaxed text-lg">{item.description}</p>
+                          <p className="text-white mb-6 leading-relaxed font-medium text-lg">{item.description}</p>
                           <a 
                             href={item.link}
                             target="_blank"
