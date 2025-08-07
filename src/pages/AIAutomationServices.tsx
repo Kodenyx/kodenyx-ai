@@ -12,7 +12,7 @@ const AIAutomationServices = () => {
         {
           title: "Cold Email Automation",
           description: "We build the list, write the copy, and automate outbound so your calendar fills itself.",
-          link: "/cold-email-automation-offer",
+          link: "/cold-email-automation",
           cta: "See How It Works"
         }
       ]
