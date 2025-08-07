@@ -47,7 +47,7 @@ const GrowthPath = () => {
                 </div>
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-4">{offer.title}</h3>
-                  <p className="text-gray-100 mb-6 leading-relaxed font-medium text-base">{offer.description}</p>
+                  <p className="text-white mb-6 leading-relaxed font-medium text-base">{offer.description}</p>
                   <a 
                     href={offer.link}
                     target="_blank"
