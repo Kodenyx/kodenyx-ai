@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -130,13 +131,13 @@ const TestimonialCollection = () => {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-background">
         <SimpleNavbar />
         <div className="container mx-auto px-4 py-24">
           <div className="max-w-2xl mx-auto text-center">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
-            <h1 className="text-3xl font-bold mb-4 text-gray-900">Thank You!</h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <h1 className="text-3xl font-bold mb-4 text-foreground">Thank You!</h1>
+            <p className="text-xl text-muted-foreground mb-8">
               Your testimonial has been submitted successfully and will be reviewed before being published on our website.
             </p>
             <Button 
@@ -155,7 +156,7 @@ const TestimonialCollection = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <SimpleNavbar />
       
       <div className="container mx-auto px-4 py-24">
@@ -166,18 +167,18 @@ const TestimonialCollection = () => {
               alt="Aarti Kodenyx" 
               className="w-20 h-20 rounded-full object-cover mx-auto mb-6"
             />
-            <h1 className="text-4xl font-bold mb-4 text-gray-900">Share Your Experience</h1>
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
-              <p className="text-gray-600 italic text-lg leading-relaxed">
+            <h1 className="text-4xl font-bold mb-4 text-foreground">Share Your Experience</h1>
+            <div className="bg-muted border border-border rounded-lg p-6 mb-8">
+              <p className="text-muted-foreground italic text-lg leading-relaxed">
                 "Thank you for taking the time to share your experience. Your story matters and helps others understand the real impact of this work. I'm grateful for your trust and excited to share your transformation with others who are on a similar journey."
               </p>
             </div>
           </div>
 
-          <Card className="border-gray-200 bg-white shadow-sm">
+          <Card className="border-border bg-card shadow-sm">
             <CardHeader>
-              <CardTitle className="text-gray-900">Submit Your Testimonial</CardTitle>
-              <CardDescription className="text-gray-600">
+              <CardTitle className="text-card-foreground">Submit Your Testimonial</CardTitle>
+              <CardDescription className="text-muted-foreground">
                 Your feedback helps us improve and helps others make informed decisions
               </CardDescription>
             </CardHeader>
@@ -185,43 +186,43 @@ const TestimonialCollection = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="name" className="text-gray-700">Full Name *</Label>
+                    <Label htmlFor="name" className="text-foreground">Full Name *</Label>
                     <Input
                       id="name"
                       value={formData.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       required
-                      className="bg-white border-gray-300"
+                      className="bg-background border-border text-foreground placeholder:text-muted-foreground"
                       placeholder="Enter your full name"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="role" className="text-gray-700">Role/Title</Label>
+                    <Label htmlFor="role" className="text-foreground">Role/Title</Label>
                     <Input
                       id="role"
                       value={formData.role}
                       onChange={(e) => handleInputChange('role', e.target.value)}
                       placeholder="e.g., CEO, Student, etc."
-                      className="bg-white border-gray-300"
+                      className="bg-background border-border text-foreground placeholder:text-muted-foreground"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <Label htmlFor="company" className="text-gray-700">Company/Organization</Label>
+                  <Label htmlFor="company" className="text-foreground">Company/Organization</Label>
                   <Input
                     id="company"
                     value={formData.company}
                     onChange={(e) => handleInputChange('company', e.target.value)}
                     placeholder="Optional"
-                    className="bg-white border-gray-300"
+                    className="bg-background border-border text-foreground placeholder:text-muted-foreground"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="category" className="text-gray-700">Program/Service *</Label>
+                  <Label htmlFor="category" className="text-foreground">Program/Service *</Label>
                   <Select value={formData.category} onValueChange={(value) => handleInputChange('category', value)}>
-                    <SelectTrigger className="bg-white border-gray-300">
+                    <SelectTrigger className="bg-background border-border text-foreground">
                       <SelectValue placeholder="Select the program or service" />
                     </SelectTrigger>
                     <SelectContent>
@@ -235,40 +236,40 @@ const TestimonialCollection = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="rating" className="text-gray-700">Rating</Label>
+                  <Label htmlFor="rating" className="text-foreground">Rating</Label>
                   <div className="flex items-center gap-1 mt-2">
                     {renderStars(formData.rating)}
-                    <span className="ml-2 text-sm text-gray-500">
+                    <span className="ml-2 text-sm text-muted-foreground">
                       ({formData.rating}/5)
                     </span>
                   </div>
                 </div>
 
                 <div>
-                  <Label htmlFor="testimonial" className="text-gray-700">Your Testimonial *</Label>
+                  <Label htmlFor="testimonial" className="text-foreground">Your Testimonial *</Label>
                   <Textarea
                     id="testimonial"
                     value={formData.testimonial}
                     onChange={(e) => handleInputChange('testimonial', e.target.value)}
                     placeholder="Share your experience with our program or service..."
-                    className="min-h-[120px] bg-white border-gray-300"
+                    className="min-h-[120px] bg-background border-border text-foreground placeholder:text-muted-foreground"
                     required
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="image_url" className="text-gray-700">Profile Image URL (Optional)</Label>
+                  <Label htmlFor="image_url" className="text-foreground">Profile Image URL (Optional)</Label>
                   <Input
                     id="image_url"
                     value={formData.image_url}
                     onChange={(e) => handleInputChange('image_url', e.target.value)}
                     placeholder="https://example.com/your-photo.jpg"
-                    className="bg-white border-gray-300"
+                    className="bg-background border-border text-foreground placeholder:text-muted-foreground"
                   />
                 </div>
 
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <p className="text-sm text-gray-600">
+                <div className="bg-muted p-4 rounded-lg border border-border">
+                  <p className="text-sm text-muted-foreground">
                     <strong>Note:</strong> All testimonials are reviewed before being published. 
                     We may contact you to verify your submission.
                   </p>
