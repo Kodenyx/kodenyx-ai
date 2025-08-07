@@ -1,4 +1,5 @@
 
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
@@ -10,14 +11,14 @@ const GrowthPath = () => {
       description: "We map your systems and deliver a 90-day roadmap that shows what to automate - and in what order.",
       link: "/ai-audit-b2b",
       cta: "Learn More",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center"
+      image: "/lovable-uploads/33b842cb-cb51-41b4-886c-d5d7adab2437.png"
     },
     {
       title: "AI Automation Services (Implementation)",
       description: "Complete AI automation implementation across all your business processes including lead generation, nurturing, internal ops, and custom AI tools.",
       link: "/ai-automation-services",
       cta: "View All Services",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop&crop=center"
+      image: "/lovable-uploads/33499c43-6dc8-41e8-b60f-6832a8f809e6.png"
     }
   ];
 
@@ -68,3 +69,4 @@ const GrowthPath = () => {
 };
 
 export default GrowthPath;
+
