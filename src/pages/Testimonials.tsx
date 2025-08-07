@@ -5,12 +5,12 @@ import { Button } from "@/components/ui/button";
 
 const Testimonials = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       <SimpleNavbar />
       
       <div className="pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <div className="flex flex-col items-center mb-8">
@@ -38,7 +38,7 @@ const Testimonials = () => {
         />
 
         {/* Call to Action Section */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
@@ -51,21 +51,13 @@ const Testimonials = () => {
                 Let's unlock your next level.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex justify-center">
                 <Button 
                   size="lg" 
                   className="bg-[#9b87f5] text-white hover:bg-[#7E69AB] px-8 py-4 text-lg"
                   onClick={() => window.location.href = '/ai-audit-b2b'}
                 >
                   Book a Free AI Audit
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="border-[#9b87f5] text-[#9b87f5] hover:bg-[#9b87f5] hover:text-white px-8 py-4 text-lg"
-                  onClick={() => window.location.href = '/ai-for-youth'}
-                >
-                  Explore AI for Youth Program
                 </Button>
               </div>
             </div>
