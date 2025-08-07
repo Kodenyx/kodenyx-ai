@@ -1,5 +1,3 @@
-
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
@@ -18,7 +16,7 @@ const GrowthPath = () => {
       description: "Complete AI automation implementation across all your business processes including lead generation, nurturing, internal ops, and custom AI tools.",
       link: "/ai-automation-services",
       cta: "View All Services",
-      image: "/lovable-uploads/33499c43-6dc8-41e8-b60f-6832a8f809e6.png"
+      image: "/lovable-uploads/a403ee5f-e2aa-4c77-a564-0a8508497414.png"
     }
   ];
 
@@ -69,4 +67,3 @@ const GrowthPath = () => {
 };
 
 export default GrowthPath;
-
