@@ -11,6 +11,7 @@ import AIAuditB2B from "./pages/AIAuditB2B";
 import AIForYouth from "./pages/AIForYouth";
 import AIReadyScore from "./pages/AIReadyScore";
 import AIScoreResultsPage from "./pages/AIScoreResultsPage";
+import AIAutomationServices from "./pages/AIAutomationServices";
 import Testimonials from "./pages/Testimonials";
 import AdminTestimonials from "./pages/AdminTestimonials";
 import TestimonialCollection from "./pages/TestimonialCollection";
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/ai-for-youth" element={<AIForYouth />} />
             <Route path="/ai-ready-score" element={<AIReadyScore />} />
             <Route path="/ai-score-results" element={<AIScoreResultsPage />} />
+            <Route path="/ai-automation-services" element={<AIAutomationServices />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/testimonials/submit" element={<TestimonialCollection />} />
             <Route path="/admin/testimonials" element={<AdminTestimonials />} />
