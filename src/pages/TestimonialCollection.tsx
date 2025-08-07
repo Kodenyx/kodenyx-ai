@@ -79,6 +79,19 @@ const TestimonialCollection = () => {
     console.log('Starting database insertion...');
 
     try {
+      // Test database connection first
+      console.log('Testing database connection...');
+      const { data: testData, error: testError } = await supabase
+        .from('testimonials')
+        .select('count(*)', { count: 'exact', head: true });
+      
+      if (testError) {
+        console.error('Database connection test failed:', testError);
+        throw new Error(`Database connection failed: ${testError.message}`);
+      }
+      
+      console.log('Database connection successful, current testimonials count:', testData);
+
       const testimonialData = {
         name: formData.name.trim(),
         role: formData.role.trim() || null,
@@ -106,7 +119,20 @@ const TestimonialCollection = () => {
           hint: error.hint,
           code: error.code
         });
-        throw error;
+        
+        // More specific error messages
+        if (error.code === '23505') {
+          throw new Error('A testimonial with this information already exists. Please modify your submission.');
+        } else if (error.code === '42501') {
+          throw new Error('Permission denied. Please try again or contact support.');
+        } else {
+          throw new Error(`Submission failed: ${error.message}`);
+        }
+      }
+      
+      if (!data || data.length === 0) {
+        console.error('No data returned from insert operation');
+        throw new Error('Testimonial submission failed - no confirmation received');
       }
       
       console.log('Testimonial successfully inserted:', data);
@@ -115,6 +141,18 @@ const TestimonialCollection = () => {
         title: "Thank you!",
         description: "Your testimonial has been submitted and will be reviewed before being published.",
       });
+      
+      // Clear form data
+      setFormData({
+        name: "",
+        role: "",
+        company: "",
+        testimonial: "",
+        rating: 5,
+        category: "",
+        image_url: ""
+      });
+      
     } catch (error: any) {
       console.error('Error submitting testimonial:', error);
       toast({
@@ -151,7 +189,10 @@ const TestimonialCollection = () => {
               Your testimonial has been submitted successfully and will be reviewed before being published on our website.
             </p>
             <Button 
-              onClick={() => window.location.href = '/'}
+              onClick={() => {
+                setIsSubmitted(false);
+                window.location.href = '/';
+              }}
               className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
               Return to Home
