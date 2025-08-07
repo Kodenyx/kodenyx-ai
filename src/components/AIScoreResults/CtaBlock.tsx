@@ -21,7 +21,7 @@ const CtaBlock: React.FC = () => {
           >
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-white text-lg px-8 transform transition-transform duration-200 hover:scale-105">
+              className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 transform transition-transform duration-200 hover:scale-105">
               Reserve My Spot in the AI Workshop
             </Button>
           </a>

@@ -28,7 +28,7 @@ const NewHero = () => {
               rel="noopener noreferrer"
               className="w-full sm:w-auto"
             >
-              <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 w-full sm:w-auto">
+              <Button size="lg" className="bg-primary hover:bg-primary-dark text-white font-semibold text-lg px-8 w-full sm:w-auto">
                 <ArrowRight className="mr-2 h-5 w-5" /> Start with an AI Audit
               </Button>
             </a>

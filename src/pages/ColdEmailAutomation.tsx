@@ -67,7 +67,7 @@ const ColdEmailAutomation = () => {
                 className="flex-1 border-gray-300"
                 required
               />
-              <Button type="submit" size="lg" className="bg-primary hover:bg-primary/90 text-white">
+              <Button type="submit" size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold">
                 <Zap className="mr-2 h-4 w-4" />
                 Get Details
               </Button>
@@ -207,12 +207,12 @@ const ColdEmailAutomation = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-4">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-4">
                   <Calendar className="mr-2 h-5 w-5" />
                   Book Strategy Call
                 </Button>
               </a>
-              <Button variant="outline" size="lg" className="text-black border-gray-300 hover:bg-gray-50 hover:text-black text-lg px-8 py-4">
+              <Button variant="outline" size="lg" className="text-black border-gray-300 hover:bg-gray-50 hover:text-black font-semibold text-lg px-8 py-4">
                 <Mail className="mr-2 h-5 w-5" />
                 Get More Details
               </Button>

@@ -18,7 +18,7 @@ const FinalCTA = () => {
               href="/ai-audit-b2b" 
               className="inline-block"
             >
-              <Button size="lg" className="text-lg px-8 py-4 bg-primary hover:bg-primary/90 text-white shadow-xl">
+              <Button size="lg" className="text-lg px-8 py-4 bg-primary hover:bg-primary/90 text-white font-semibold shadow-xl">
                 Book Your AI Audit
               </Button>
             </a>
