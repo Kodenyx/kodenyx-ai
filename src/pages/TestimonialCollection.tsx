@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import SimpleNavbar from "@/components/SimpleNavbar";
-import { Star, Send, CheckCircle } from "lucide-react";
+import { Star, Send, CheckCircle, AlertCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const TestimonialCollection = () => {
@@ -22,6 +23,7 @@ const TestimonialCollection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const { toast } = useToast();
 
   const categories = [
@@ -31,6 +33,7 @@ const TestimonialCollection = () => {
   ];
 
   const handleInputChange = (field: string, value: string | number) => {
+    setSubmitError(null); // Clear any previous errors
     setFormData(prev => ({
       ...prev,
       [field]: value
@@ -39,6 +42,7 @@ const TestimonialCollection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
     
     // Validate required fields
     if (!formData.name.trim()) {
@@ -71,36 +75,66 @@ const TestimonialCollection = () => {
     setIsSubmitting(true);
 
     try {
-      console.log('Submitting testimonial with data:', {
+      console.log('Starting testimonial submission...');
+      console.log('Form data:', {
         name: formData.name.trim(),
+        role: formData.role.trim() || null,
+        company: formData.company.trim() || null,
         category: formData.category,
-        testimonial_length: formData.testimonial.trim().length
+        rating: formData.rating,
+        testimonialLength: formData.testimonial.trim().length,
+        hasImageUrl: !!formData.image_url.trim()
       });
+
+      const payload = {
+        name: formData.name.trim(),
+        role: formData.role.trim() || null,
+        company: formData.company.trim() || null,
+        testimonial: formData.testimonial.trim(),
+        rating: formData.rating,
+        category: formData.category,
+        image_url: formData.image_url.trim() || null
+      };
+
+      console.log('Calling supabase function with payload:', payload);
 
       const { data, error } = await supabase.functions.invoke('submit-testimonial', {
-        body: {
-          name: formData.name.trim(),
-          role: formData.role.trim() || null,
-          company: formData.company.trim() || null,
-          testimonial: formData.testimonial.trim(),
-          rating: formData.rating,
-          category: formData.category,
-          image_url: formData.image_url.trim() || null
-        }
+        body: payload
       });
 
-      console.log('Function response:', { data, error });
+      console.log('Raw function response:', { data, error });
 
       if (error) {
-        console.error('Function invocation error:', error);
-        throw new Error(error.message || 'Failed to submit testimonial');
+        console.error('Supabase function error:', error);
+        const errorMessage = typeof error === 'string' ? error : 
+                           error.message || 
+                           'Unknown error occurred during submission';
+        
+        setSubmitError(errorMessage);
+        toast({
+          title: "Submission Failed",
+          description: errorMessage,
+          variant: "destructive"
+        });
+        return;
+      }
+
+      if (!data) {
+        console.error('No data returned from function');
+        setSubmitError('No response received from server');
+        toast({
+          title: "Submission Failed",
+          description: "No response received from server",
+          variant: "destructive"
+        });
+        return;
       }
       
       console.log('Testimonial submitted successfully:', data);
       
       setIsSubmitted(true);
       toast({
-        title: "Thank you!",
+        title: "Success!",
         description: "Your testimonial has been submitted and will be reviewed before being published.",
       });
       
@@ -116,10 +150,13 @@ const TestimonialCollection = () => {
       });
       
     } catch (error: any) {
-      console.error('Error submitting testimonial:', error);
+      console.error('Catch block error:', error);
+      const errorMessage = error?.message || error?.toString() || 'An unexpected error occurred';
+      
+      setSubmitError(errorMessage);
       toast({
         title: "Submission Error",
-        description: error.message || "There was an error submitting your testimonial. Please try again.",
+        description: errorMessage,
         variant: "destructive"
       });
     } finally {
@@ -193,6 +230,19 @@ const TestimonialCollection = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
+              {submitError && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-red-800 mb-1">Submission Failed</h3>
+                    <p className="text-red-700 text-sm">{submitError}</p>
+                    <p className="text-red-600 text-xs mt-2">
+                      Please try again. If the problem persists, please contact support.
+                    </p>
+                  </div>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
