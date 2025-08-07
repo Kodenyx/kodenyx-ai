@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -21,31 +20,27 @@ const AdminTestimonials = () => {
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
-  // Fetch all testimonials (both approved and pending)
+  // Fetch all testimonials using the edge function
   const { data: allTestimonials, isLoading } = useQuery({
     queryKey: ['admin-testimonials'],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('testimonials')
-        .select('*')
-        .order('created_at', { ascending: false });
+      const { data, error } = await supabase.functions.invoke('get-admin-testimonials');
 
       if (error) {
         console.error('Error fetching testimonials:', error);
         throw error;
       }
 
-      return data as Testimonial[];
+      return data.data as Testimonial[];
     },
   });
 
   // Mutation for updating testimonial approval status
   const updateApprovalMutation = useMutation({
     mutationFn: async ({ id, isApproved }: { id: string; isApproved: boolean }) => {
-      const { error } = await supabase
-        .from('testimonials')
-        .update({ is_approved: isApproved })
-        .eq('id', id);
+      const { error } = await supabase.functions.invoke('update-testimonial-status', {
+        body: { id, isApproved }
+      });
 
       if (error) throw error;
     },
@@ -68,10 +63,9 @@ const AdminTestimonials = () => {
   // Mutation for deleting testimonials
   const deleteTestimonialMutation = useMutation({
     mutationFn: async (id: string) => {
-      const { error } = await supabase
-        .from('testimonials')
-        .delete()
-        .eq('id', id);
+      const { error } = await supabase.functions.invoke('update-testimonial-status', {
+        body: { id, action: 'delete' }
+      });
 
       if (error) throw error;
     },
