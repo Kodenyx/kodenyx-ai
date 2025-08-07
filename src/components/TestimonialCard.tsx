@@ -26,7 +26,7 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
       <Star
         key={i}
         className={`w-4 h-4 ${
-          i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-500'
+          i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-400'
         }`}
       />
     ));
@@ -48,7 +48,7 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
   };
 
   return (
-    <Card className="hover:shadow-lg transition-shadow duration-300 h-full border-[#3A3F4C] bg-[#2A2F3C]">
+    <Card className="hover:shadow-lg transition-shadow duration-300 h-full border-gray-200 bg-gray-900 shadow-md">
       <CardContent className="p-6">
         <div className="flex items-start gap-4 mb-4">
           {testimonial.image_url ? (

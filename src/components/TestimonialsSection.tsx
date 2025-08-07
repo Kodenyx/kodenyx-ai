@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -32,11 +33,11 @@ const TestimonialsSection = ({
 
   if (isLoading) {
     return (
-      <section className="py-20 bg-[#1A1F2C]">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center">
             <Loader2 className="w-8 h-8 animate-spin text-[#9b87f5]" />
-            <span className="ml-2 text-white">Loading testimonials...</span>
+            <span className="ml-2 text-gray-900">Loading testimonials...</span>
           </div>
         </div>
       </section>
@@ -45,9 +46,9 @@ const TestimonialsSection = ({
 
   if (error) {
     return (
-      <section className="py-20 bg-[#1A1F2C]">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <p className="text-center text-gray-300">
+          <p className="text-center text-gray-700">
             Unable to load testimonials at this time.
           </p>
         </div>
@@ -61,10 +62,10 @@ const TestimonialsSection = ({
 
   if (!displayedTestimonials || displayedTestimonials.length === 0) {
     return (
-      <section className="py-20 bg-[#1A1F2C]">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-white">{title}</h2>
-          <p className="text-center text-gray-300">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">{title}</h2>
+          <p className="text-center text-gray-700">
             No testimonials available for this category yet.
           </p>
           <div className="text-center mt-6">
@@ -82,9 +83,9 @@ const TestimonialsSection = ({
   }
 
   return (
-    <section className="py-20 bg-[#1A1F2C]">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-white">{title}</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">{title}</h2>
         
         {showCategoryFilter && (
           <div className="flex flex-wrap justify-center gap-3 mb-12">
