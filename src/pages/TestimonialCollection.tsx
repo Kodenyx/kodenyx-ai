@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -87,6 +88,24 @@ const TestimonialCollection = () => {
       
       console.log('Table access test result:', { testData, testError });
 
+      // Check current user session
+      const { data: session, error: sessionError } = await supabase.auth.getSession();
+      console.log('Current session:', { 
+        user: session?.session?.user?.id || 'no user', 
+        sessionError,
+        isAuthenticated: !!session?.session?.user 
+      });
+
+      // Test if we can perform a simple select with the exact same conditions as our policy
+      console.log('Testing SELECT with policy conditions...');
+      const { data: selectTest, error: selectError } = await supabase
+        .from('testimonials')
+        .select('*')
+        .eq('is_approved', true)
+        .limit(1);
+      
+      console.log('SELECT test result:', { selectTest, selectError });
+
       const testimonialData = {
         name: formData.name.trim(),
         role: formData.role.trim() || null,
@@ -109,6 +128,27 @@ const TestimonialCollection = () => {
         image_url: typeof testimonialData.image_url,
         is_approved: typeof testimonialData.is_approved
       });
+
+      // Try a very simple insert first to test RLS
+      console.log('Testing minimal insert...');
+      const minimalData = {
+        name: 'Test Name',
+        testimonial: 'Test testimonial',
+        category: 'business-coaching'
+      };
+      
+      const { data: testInsert, error: testInsertError } = await supabase
+        .from('testimonials')
+        .insert([minimalData])
+        .select();
+      
+      console.log('Minimal insert test:', { testInsert, testInsertError });
+
+      if (testInsertError) {
+        console.error('Minimal insert failed, trying full insert anyway...');
+      } else {
+        console.log('Minimal insert succeeded, proceeding with full insert...');
+      }
 
       const { data, error } = await supabase
         .from('testimonials')
