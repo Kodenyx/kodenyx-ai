@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
@@ -10,14 +9,14 @@ const GrowthPath = () => {
       description: "We map your systems and deliver a 90-day roadmap that shows what to automate - and in what order.",
       link: "/ai-audit-b2b",
       cta: "Learn More",
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop"
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center"
     },
     {
       title: "AI Automation Services (Implementation)",
       description: "Complete AI automation implementation across all your business processes including lead generation, nurturing, internal ops, and custom AI tools.",
       link: "/ai-automation-services",
       cta: "View All Services",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop"
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop&crop=center"
     }
   ];
 
