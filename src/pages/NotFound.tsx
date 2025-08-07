@@ -26,12 +26,12 @@ const NotFound = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/">
-              <Button className="bg-[#9b87f5] hover:bg-[#7E69AB] w-full sm:w-auto">
+              <Button className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white font-semibold w-full sm:w-auto">
                 Return to Home
               </Button>
             </Link>
             <Link to="/newsletter">
-              <Button variant="outline" className="w-full sm:w-auto">
+              <Button variant="outline" className="text-[#9b87f5] border-[#9b87f5] hover:bg-[#9b87f5] hover:text-white font-semibold w-full sm:w-auto">
                 Newsletter
               </Button>
             </Link>

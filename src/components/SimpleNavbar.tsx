@@ -16,7 +16,7 @@ const SimpleNavbar = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button variant="default" size="lg">
+            <Button variant="default" size="lg" className="bg-primary text-white hover:bg-primary-dark font-semibold">
               Book A Call
             </Button>
           </a>

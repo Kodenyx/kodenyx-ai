@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -70,7 +71,7 @@ const Auth = () => {
           />
           <Button
             type="submit"
-            className="w-full bg-primary hover:bg-primary-dark"
+            className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3"
             disabled={isLoading}
           >
             {isLoading
@@ -84,7 +85,7 @@ const Auth = () => {
           {isSignUp ? "Already have an account?" : "Don't have an account?"}{" "}
           <button
             onClick={() => setIsSignUp(!isSignUp)}
-            className="text-primary hover:underline"
+            className="text-primary hover:underline font-semibold"
           >
             {isSignUp ? "Sign In" : "Sign Up"}
           </button>

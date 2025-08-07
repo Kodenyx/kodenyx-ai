@@ -54,7 +54,7 @@ const Testimonials = () => {
               <div className="flex justify-center">
                 <Button 
                   size="lg" 
-                  className="bg-[#9b87f5] text-white hover:bg-[#7E69AB] px-8 py-4 text-lg"
+                  className="bg-[#9b87f5] text-white hover:bg-[#7E69AB] font-semibold px-8 py-4 text-lg"
                   onClick={() => window.location.href = '/ai-audit-b2b'}
                 >
                   Book a Free AI Audit

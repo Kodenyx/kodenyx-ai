@@ -178,7 +178,7 @@ const TestimonialCollection = () => {
                 setIsSubmitted(false);
                 window.location.href = '/';
               }}
-              className="bg-[#9b87f5] text-white hover:bg-[#7E69AB]"
+              className="bg-[#9b87f5] text-white hover:bg-[#7E69AB] font-semibold px-6 py-3"
             >
               Return to Home
             </Button>
@@ -321,7 +321,7 @@ const TestimonialCollection = () => {
                 <Button 
                   type="submit" 
                   disabled={isSubmitting} 
-                  className="w-full bg-[#9b87f5] text-white hover:bg-[#7E69AB] disabled:opacity-50"
+                  className="w-full bg-[#9b87f5] text-white hover:bg-[#7E69AB] font-semibold py-3 disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     "Submitting..."
