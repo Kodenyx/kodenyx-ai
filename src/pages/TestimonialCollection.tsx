@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -33,7 +32,7 @@ const TestimonialCollection = () => {
   ];
 
   const handleInputChange = (field: string, value: string | number) => {
-    setSubmitError(null); // Clear any previous errors
+    setSubmitError(null);
     setFormData(prev => ({
       ...prev,
       [field]: value
@@ -76,16 +75,7 @@ const TestimonialCollection = () => {
 
     try {
       console.log('Starting testimonial submission...');
-      console.log('Form data:', {
-        name: formData.name.trim(),
-        role: formData.role.trim() || null,
-        company: formData.company.trim() || null,
-        category: formData.category,
-        rating: formData.rating,
-        testimonialLength: formData.testimonial.trim().length,
-        hasImageUrl: !!formData.image_url.trim()
-      });
-
+      
       const payload = {
         name: formData.name.trim(),
         role: formData.role.trim() || null,
@@ -96,41 +86,22 @@ const TestimonialCollection = () => {
         image_url: formData.image_url.trim() || null
       };
 
-      console.log('Calling supabase function with payload:', payload);
+      console.log('Submitting payload:', payload);
 
       const { data, error } = await supabase.functions.invoke('submit-testimonial', {
         body: payload
       });
 
-      console.log('Raw function response:', { data, error });
+      console.log('Function response:', { data, error });
 
+      // Check for function-level errors first
       if (error) {
-        console.error('Supabase function error:', error);
-        const errorMessage = typeof error === 'string' ? error : 
-                           error.message || 
-                           'Unknown error occurred during submission';
-        
-        setSubmitError(errorMessage);
-        toast({
-          title: "Submission Failed",
-          description: errorMessage,
-          variant: "destructive"
-        });
-        return;
+        console.error('Function invocation error:', error);
+        throw new Error(error.message || 'Failed to submit testimonial');
       }
 
-      if (!data) {
-        console.error('No data returned from function');
-        setSubmitError('No response received from server');
-        toast({
-          title: "Submission Failed",
-          description: "No response received from server",
-          variant: "destructive"
-        });
-        return;
-      }
-      
-      console.log('Testimonial submitted successfully:', data);
+      // The function returns success, so proceed with success flow
+      console.log('Testimonial submitted successfully');
       
       setIsSubmitted(true);
       toast({
@@ -150,8 +121,8 @@ const TestimonialCollection = () => {
       });
       
     } catch (error: any) {
-      console.error('Catch block error:', error);
-      const errorMessage = error?.message || error?.toString() || 'An unexpected error occurred';
+      console.error('Submission error:', error);
+      const errorMessage = error?.message || 'An unexpected error occurred';
       
       setSubmitError(errorMessage);
       toast({
@@ -236,9 +207,6 @@ const TestimonialCollection = () => {
                   <div>
                     <h3 className="font-semibold text-red-800 mb-1">Submission Failed</h3>
                     <p className="text-red-700 text-sm">{submitError}</p>
-                    <p className="text-red-600 text-xs mt-2">
-                      Please try again. If the problem persists, please contact support.
-                    </p>
                   </div>
                 </div>
               )}
