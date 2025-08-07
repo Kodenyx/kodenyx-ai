@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -43,15 +44,32 @@ const TestimonialCollection = () => {
     
     console.log('Form submission started with data:', formData);
     
-    if (!formData.name || !formData.testimonial || !formData.category) {
-      console.log('Validation failed - missing required fields:', {
-        name: !!formData.name,
-        testimonial: !!formData.testimonial,
-        category: !!formData.category
-      });
+    // Validate required fields
+    if (!formData.name.trim()) {
+      console.log('Validation failed - name is required');
       toast({
         title: "Missing Information",
-        description: "Please fill in all required fields",
+        description: "Please enter your full name",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!formData.testimonial.trim()) {
+      console.log('Validation failed - testimonial is required');
+      toast({
+        title: "Missing Information", 
+        description: "Please enter your testimonial",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!formData.category) {
+      console.log('Validation failed - category is required');
+      toast({
+        title: "Missing Information",
+        description: "Please select a program or service",
         variant: "destructive"
       });
       return;
@@ -62,13 +80,13 @@ const TestimonialCollection = () => {
 
     try {
       const testimonialData = {
-        name: formData.name,
-        role: formData.role || null,
-        company: formData.company || null,
-        testimonial: formData.testimonial,
+        name: formData.name.trim(),
+        role: formData.role.trim() || null,
+        company: formData.company.trim() || null,
+        testimonial: formData.testimonial.trim(),
         rating: formData.rating,
         category: formData.category,
-        image_url: formData.image_url || null,
+        image_url: formData.image_url.trim() || null,
         is_approved: false
       };
 
@@ -82,7 +100,12 @@ const TestimonialCollection = () => {
       console.log('Supabase response:', { data, error });
 
       if (error) {
-        console.error('Supabase error:', error);
+        console.error('Supabase error details:', {
+          message: error.message,
+          details: error.details,
+          hint: error.hint,
+          code: error.code
+        });
         throw error;
       }
       
@@ -92,11 +115,11 @@ const TestimonialCollection = () => {
         title: "Thank you!",
         description: "Your testimonial has been submitted and will be reviewed before being published.",
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error submitting testimonial:', error);
       toast({
-        title: "Error",
-        description: "There was an error submitting your testimonial. Please try again.",
+        title: "Submission Error",
+        description: error.message || "There was an error submitting your testimonial. Please try again.",
         variant: "destructive"
       });
     } finally {
@@ -177,6 +200,7 @@ const TestimonialCollection = () => {
                       onChange={(e) => handleInputChange('name', e.target.value)}
                       required
                       className="bg-background border-border"
+                      placeholder="Enter your full name"
                     />
                   </div>
                   <div>
@@ -261,7 +285,7 @@ const TestimonialCollection = () => {
                 <Button 
                   type="submit" 
                   disabled={isSubmitting} 
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     "Submitting..."
