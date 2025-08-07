@@ -128,12 +128,12 @@ const TestimonialCard = ({ testimonial, showCategory = false, expandable = false
             variant="ghost"
             size="sm"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="w-full justify-center text-[#9b87f5] hover:text-white hover:bg-[#9b87f5]"
+            className="w-full justify-center text-white bg-gray-800 hover:text-white hover:bg-gray-700 border-2 border-gray-600 hover:border-gray-500 font-semibold"
           >
             {isExpanded ? (
               <>
                 <ChevronUp className="w-4 h-4 mr-1" />
-                Show Less
+                Read Less
               </>
             ) : (
               <>
