@@ -207,12 +207,12 @@ const ColdEmailAutomation = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-4">
+                <Button size="lg" className="bg-primary hover:bg-primary-dark text-white font-bold text-lg px-8 py-4 border border-white/20 shadow-lg">
                   <Calendar className="mr-2 h-5 w-5" />
                   Book Strategy Call
                 </Button>
               </a>
-              <Button variant="outline" size="lg" className="text-black border-gray-300 hover:bg-gray-50 hover:text-black font-semibold text-lg px-8 py-4">
+              <Button variant="outline" size="lg" className="text-black border-2 border-gray-400 hover:bg-gray-50 hover:text-black font-semibold text-lg px-8 py-4 bg-white">
                 <Mail className="mr-2 h-5 w-5" />
                 Get More Details
               </Button>

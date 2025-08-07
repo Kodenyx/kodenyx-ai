@@ -53,7 +53,7 @@ const GrowthPath = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 rounded-lg transition-colors">
+                    <Button className="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 rounded-lg transition-colors border border-white/20 shadow-lg">
                       {offer.cta} <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
