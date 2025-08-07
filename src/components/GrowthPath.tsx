@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
@@ -35,14 +36,14 @@ const GrowthPath = () => {
           
           <div className="grid md:grid-cols-2 gap-8">
             {offers.map((offer, index) => (
-              <Card key={index} className="bg-secondary text-white border-2 border-gray-800 hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+              <Card key={index} className="bg-[#2A2F3E] text-white border-2 border-gray-700 hover:shadow-xl transition-shadow duration-300 overflow-hidden">
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={offer.image} 
                     alt={offer.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-secondary/20"></div>
+                  <div className="absolute inset-0 bg-[#2A2F3E]/20"></div>
                 </div>
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-white mb-4">{offer.title}</h3>
@@ -52,7 +53,7 @@ const GrowthPath = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button variant="outline" className="w-full border-white text-white hover:bg-white hover:text-black bg-transparent">
+                    <Button className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 rounded-lg transition-colors">
                       {offer.cta} <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </a>
