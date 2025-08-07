@@ -9,7 +9,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Star, Send, CheckCircle } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 
 const TestimonialCollection = () => {
   const [formData, setFormData] = useState({
@@ -72,29 +71,26 @@ const TestimonialCollection = () => {
     setIsSubmitting(true);
 
     try {
-      const testimonialData = {
-        name: formData.name.trim(),
-        role: formData.role.trim() || null,
-        company: formData.company.trim() || null,
-        testimonial: formData.testimonial.trim(),
-        rating: formData.rating,
-        category: formData.category,
-        image_url: formData.image_url.trim() || null,
-        is_approved: false
-      };
+      const response = await fetch('/functions/v1/submit-testimonial', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          role: formData.role.trim() || null,
+          company: formData.company.trim() || null,
+          testimonial: formData.testimonial.trim(),
+          rating: formData.rating,
+          category: formData.category,
+          image_url: formData.image_url.trim() || null
+        })
+      });
 
-      const { data, error } = await supabase
-        .from('testimonials')
-        .insert([testimonialData])
-        .select();
+      const result = await response.json();
 
-      if (error) {
-        console.error('Supabase error:', error);
-        throw new Error(`Submission failed: ${error.message}`);
-      }
-      
-      if (!data || data.length === 0) {
-        throw new Error('Testimonial submission failed - no confirmation received');
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit testimonial');
       }
       
       setIsSubmitted(true);
