@@ -14,6 +14,7 @@ export interface Testimonial {
   category: string;
   created_at: string;
   is_approved?: boolean;
+  age?: number;
 }
 
 export const useTestimonials = (category?: string) => {

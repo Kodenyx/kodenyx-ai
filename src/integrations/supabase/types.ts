@@ -295,6 +295,7 @@ export type Database = {
       }
       testimonials: {
         Row: {
+          age: number | null
           category: string
           company: string | null
           created_at: string
@@ -309,6 +310,7 @@ export type Database = {
           video_url: string | null
         }
         Insert: {
+          age?: number | null
           category?: string
           company?: string | null
           created_at?: string
@@ -323,6 +325,7 @@ export type Database = {
           video_url?: string | null
         }
         Update: {
+          age?: number | null
           category?: string
           company?: string | null
           created_at?: string
