@@ -6,7 +6,7 @@ import SimpleNavbar from "@/components/SimpleNavbar";
 
 const AIForBusiness = () => {
   const features = [
-    "Run an AI Audit to find your biggest time leaks and automation wins",
+    "Identify your biggest time leaks and automation opportunities",
     "Build workflows, SOPs, and offers that scale without you at the center", 
     "Install repeatable sales and content systems powered by smart AI tools",
     "Make faster, cleaner decisions as a calm, focused CEO"
