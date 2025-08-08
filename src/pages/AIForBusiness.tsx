@@ -36,7 +36,7 @@ const AIForBusiness = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed">
-              A coaching experience that combines strategy, systems, and execution — helping you scale with confidence without adding more hours or headcount.
+              A coaching experience that combines strategy, systems, and execution - helping you scale with confidence without adding more hours or headcount.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -68,21 +68,21 @@ const AIForBusiness = () => {
             
             <div className="space-y-8 text-lg text-gray-700 leading-relaxed">
               <p className="text-xl font-semibold text-black">
-                Founders, operators, and entrepreneurs who are scaling… but stuck in the weeds.
+                Founders, operators, and entrepreneurs who are scaling but stuck in the weeds.
               </p>
               
               <p>
                 You've hit a point where more effort doesn't mean more growth.<br />
-                You're smart, capable, and working hard — but your business still depends too much on you.
+                You're smart, capable, and working hard - but your business still depends too much on you.
               </p>
               
               <p>
-                You know AI could help — but you don't know where to start, what to automate, or how to turn it into ROI.
+                You know AI could help - but you don't know where to start, what to automate, or how to turn it into ROI.
               </p>
               
               <div className="bg-primary/10 border border-primary/20 rounded-lg p-6">
                 <p className="text-black font-semibold">
-                  This is for you if you're ready to buy back your time, build systems that scale, and lead like a CEO — not a task manager.
+                  This is for you if you're ready to buy back your time, build systems that scale, and lead like a CEO - not a task manager.
                 </p>
               </div>
             </div>
@@ -104,11 +104,11 @@ const AIForBusiness = () => {
               </p>
               
               <p>
-                They're juggling everything — sales, delivery, marketing — and stuck in $10/hour work that keeps them busy, but not better.
+                They're juggling everything - sales, delivery, marketing - and stuck in $10/hour work that keeps them busy, but not better.
               </p>
               
               <p>
-                They've tried courses, hired agencies, downloaded templates… but nothing sticks.<br />
+                They've tried courses, hired agencies, downloaded templates but nothing sticks.<br />
                 <span className="font-semibold">Why?</span> Because they're missing a clear, tailored strategy that works for their business, their stage, and their goals.
               </p>
               
@@ -117,7 +117,7 @@ const AIForBusiness = () => {
                   They don't need more hacks.
                 </p>
                 <p className="text-white/90">
-                  They need a complete operating system — with the right mindset, tools, and structure to scale without breaking themselves or their business.
+                  They need a complete operating system - with the right mindset, tools, and structure to scale without breaking themselves or their business.
                 </p>
               </div>
             </div>
@@ -135,7 +135,7 @@ const AIForBusiness = () => {
             
             <div className="space-y-8 text-lg text-gray-700 leading-relaxed">
               <p>
-                When I first started building systems with founders, they didn't need more information — they needed clarity.
+                When I first started building systems with founders, they didn't need more information - they needed clarity.
               </p>
               
               <div className="grid md:grid-cols-3 gap-4 my-8">
@@ -151,11 +151,11 @@ const AIForBusiness = () => {
               </div>
               
               <p>
-                That's why I created AI for Business — a coaching experience that combines strategy, systems, and execution — with an AI Audit as the first step.
+                That's why I created AI for Business - a coaching experience that combines strategy, systems, and execution - with an AI Audit as the first step.
               </p>
               
               <p>
-                I've helped founders go from scattered and stuck to scaling with confidence — without adding more hours or headcount.
+                I've helped founders go from scattered and stuck to scaling with confidence - without adding more hours or headcount.
               </p>
               
               <div className="bg-gray-100 border-l-4 border-primary p-6 rounded">
@@ -163,7 +163,7 @@ const AIForBusiness = () => {
                   This isn't about turning your business into a robot.
                 </p>
                 <p className="text-gray-700">
-                  It's about creating leverage — so you can lead.
+                  It's about creating leverage - so you can lead.
                 </p>
               </div>
             </div>
