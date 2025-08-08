@@ -90,12 +90,12 @@ const AIForBusiness = () => {
         </div>
       </section>
 
-      {/* The Problem */}
+      {/* The Challenge */}
       <section className="py-20 bg-secondary text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 text-white">
-              The Problem
+              Here's What's Really Happening
             </h2>
             
             <div className="space-y-8 text-lg text-white/90 leading-relaxed">
@@ -171,12 +171,12 @@ const AIForBusiness = () => {
         </div>
       </section>
 
-      {/* The Solution */}
+      {/* The Approach */}
       <section className="py-20 bg-secondary text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 text-white">
-              The Solution
+              How We'll Transform Your Business
             </h2>
             
             <p className="text-xl text-center text-white/90 mb-12">
