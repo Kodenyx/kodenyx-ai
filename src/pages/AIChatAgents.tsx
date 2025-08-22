@@ -97,7 +97,7 @@ const AIChatAgents = () => {
               <div className="bg-white/10 border border-white/20 rounded-lg p-8">
                 <h3 className="text-2xl font-bold text-white mb-4">They Never Sleep on Opportunities</h3>
                 <p className="text-white/90 text-lg">
-                  Top-performing companies capture leads 24/7 with AI agents that instantly engage, qualify, and book meetings—even at 2 AM on weekends.
+                  Top-performing companies capture leads 24/7 with AI agents that instantly engage, qualify, and book meetings - even at 2 AM on weekends.
                 </p>
               </div>
 
@@ -157,7 +157,7 @@ const AIChatAgents = () => {
               <blockquote className="text-xl text-gray-700 italic mb-4">
                 "Our AI chat agent books more qualified meetings in a week than our sales team used to book in a month. It's like having our best salesperson working 24/7."
               </blockquote>
-              <cite className="text-primary font-semibold">— Sarah Chen, VP Sales, TechFlow Solutions</cite>
+              <cite className="text-primary font-semibold">- Sarah C, VP Sales</cite>
             </div>
           </div>
         </div>
@@ -240,7 +240,7 @@ const AIChatAgents = () => {
             <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-6 mb-8">
               <p className="text-lg text-yellow-800 font-medium">
                 <Clock className="inline h-5 w-5 mr-2" />
-                Limited Time: Free setup for the first 10 companies (normally $2,997)
+                Limited Time: Setup includes a free trial for 30 days (normally $499)
               </p>
             </div>
 
@@ -255,16 +255,12 @@ const AIChatAgents = () => {
                   Book Your Free Demo Now
                 </Button>
               </a>
-              <Button variant="outline" size="lg" className="text-black border-2 border-gray-400 hover:bg-gray-50 hover:text-black font-semibold text-lg px-8 py-4 bg-white">
-                <MessageCircle className="mr-2 h-5 w-5" />
-                See Live Demo
-              </Button>
             </div>
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 text-sm text-gray-600">
               <div className="flex items-center">
                 <Users className="h-4 w-4 text-primary mr-1" />
-                <span>500+ companies already using our AI agents</span>
+                <span>10+ companies already using our AI agents</span>
               </div>
               <div className="flex items-center">
                 <Zap className="h-4 w-4 text-yellow-500 mr-1" />
