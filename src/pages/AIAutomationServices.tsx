@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
@@ -32,9 +31,9 @@ const AIAutomationServices = () => {
       title: "Internal Ops",
       items: [
         {
-          title: "Trusted Partner Program",
+          title: "Internal Ops Automation",
           description: "We automate onboarding, follow-ups, capacity planning, and more to save 30+ hours/month.",
-          link: "/trusted-ai-partner",
+          link: "/ai-internal-ops",
           cta: "View Program Details"
         }
       ]
