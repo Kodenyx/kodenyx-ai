@@ -255,7 +255,8 @@ const AIInternalOps = () => {
             Book a demo and see how we can automate your post-deal processes in 30 days.
           </p>
           <div className="mb-6">
-            <Badge variant="secondary" className="px-4 py-2 text-sm font-medium mb-4">
+            {/* Force readable text on dark secondary badge */}
+            <Badge variant="secondary" className="px-4 py-2 text-sm font-medium mb-4 text-white">
               Limited Time: Setup includes a free trial for 30 days (normally $499)
             </Badge>
           </div>
