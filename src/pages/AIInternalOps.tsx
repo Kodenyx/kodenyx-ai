@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle, ArrowRight, Clock, Users, FileText, Zap, Target, TrendingUp } from 'lucide-react';
-import { SimpleNavbar } from '@/components/SimpleNavbar';
+import SimpleNavbar from '@/components/SimpleNavbar';
 
 const AIInternalOps = () => {
   return (
