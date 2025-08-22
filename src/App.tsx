@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,6 +10,7 @@ import AIFirstReadinessScore from "./pages/AIFirstReadinessScore";
 import AIAudit from "./pages/AIAudit";
 import AIAuditB2B from "./pages/AIAuditB2B";
 import AIAutomationServices from "./pages/AIAutomationServices";
+import AIChatAgents from "./pages/AIChatAgents";
 import AIForBusiness from "./pages/AIForBusiness";
 import AIForYouth from "./pages/AIForYouth";
 import AIWorkshop from "./pages/AIWorkshop";
@@ -47,6 +47,7 @@ const App = () => (
           <Route path="/ai-audit" element={<AIAudit />} />
           <Route path="/ai-audit-b2b" element={<AIAuditB2B />} />
           <Route path="/ai-automation-services" element={<AIAutomationServices />} />
+          <Route path="/ai-chat-agents" element={<AIChatAgents />} />
           <Route path="/ai-for-business" element={<AIForBusiness />} />
           <Route path="/ai-for-youth" element={<AIForYouth />} />
           <Route path="/ai-workshop" element={<AIWorkshop />} />
