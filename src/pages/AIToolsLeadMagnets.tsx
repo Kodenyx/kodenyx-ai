@@ -153,11 +153,20 @@ const AIToolsLeadMagnets = () => {
               </Card>
             </div>
 
-            <div className="bg-gray-50 p-8 rounded-lg">
-              <blockquote className="text-xl text-gray-700 italic mb-4">
-                "Our AI lead magnet tools generate more qualified leads in a week than our old PDFs did in six months. Prospects actually thank us for creating them."
-              </blockquote>
-              <cite className="text-primary font-semibold">- Marcus R, Marketing Director</cite>
+            <div className="space-y-6">
+              <div className="bg-gray-50 p-8 rounded-lg">
+                <blockquote className="text-xl text-gray-700 italic mb-4">
+                  "Our AI lead magnet tools generate more qualified leads in a week than our old PDFs did in six months. Prospects actually thank us for creating them."
+                </blockquote>
+                <cite className="text-primary font-semibold">- Marcus R, Marketing Director</cite>
+              </div>
+
+              <div className="bg-gray-50 p-8 rounded-lg">
+                <blockquote className="text-xl text-gray-700 italic mb-4">
+                  "Most 'AI projects' create noise. Aarti creates momentum. She's masterful at spotting the real leverage points—and turning them into systems that deliver ROI on repeat."
+                </blockquote>
+                <cite className="text-primary font-semibold">- Sheri O, Founder, Growth Lane Strategies</cite>
+              </div>
             </div>
           </div>
         </div>
