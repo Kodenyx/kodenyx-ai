@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -26,7 +27,7 @@ const AIInternalOps = () => {
             in operational tasks while clients wait.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="px-8 py-6 text-lg">
+            <Button size="lg" className="px-8 py-6 text-lg bg-primary text-primary-foreground hover:bg-primary/90">
               Automate Your Operations
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
@@ -184,8 +185,8 @@ const AIInternalOps = () => {
                       <Users className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="font-semibold">Michael R, Operations Director</p>
-                      <p className="text-sm text-muted-foreground">Tech Services Firm</p>
+                      <p className="font-semibold">Daniel J, Founder</p>
+                      <p className="text-sm text-muted-foreground">Marketing Agency</p>
                     </div>
                   </div>
                   <p className="text-muted-foreground italic">
