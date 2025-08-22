@@ -13,6 +13,7 @@ import AIAuditB2B from "./pages/AIAuditB2B";
 import AIAutomationServices from "./pages/AIAutomationServices";
 import AIChatAgents from "./pages/AIChatAgents";
 import AIToolsLeadMagnets from "./pages/AIToolsLeadMagnets";
+import AIInternalOps from "./pages/AIInternalOps";
 import AIForBusiness from "./pages/AIForBusiness";
 import AIForYouth from "./pages/AIForYouth";
 import AIWorkshop from "./pages/AIWorkshop";
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/ai-automation-services" element={<AIAutomationServices />} />
           <Route path="/ai-chat-agents" element={<AIChatAgents />} />
           <Route path="/ai-tools-lead-magnets" element={<AIToolsLeadMagnets />} />
+          <Route path="/ai-internal-ops" element={<AIInternalOps />} />
           <Route path="/ai-for-business" element={<AIForBusiness />} />
           <Route path="/ai-for-youth" element={<AIForYouth />} />
           <Route path="/ai-workshop" element={<AIWorkshop />} />
