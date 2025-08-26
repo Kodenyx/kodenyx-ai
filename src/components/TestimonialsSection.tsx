@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -28,7 +27,8 @@ const TestimonialsSection = ({
     { value: undefined, label: "All" },
     { value: "business-coaching", label: "Business Coaching" },
     { value: "ai-youth-program", label: "AI for Youth" },
-    { value: "ai-automation-services", label: "AI/Automation Services" }
+    { value: "ai-automation-services", label: "AI/Automation Services" },
+    { value: "ai-audit", label: "AI Audit" }
   ];
 
   if (isLoading) {

@@ -103,7 +103,8 @@ const AdminTestimonials = () => {
     { value: undefined, label: "All Categories" },
     { value: "business-coaching", label: "Business Coaching" },
     { value: "ai-youth-program", label: "AI for Youth" },
-    { value: "ai-automation-services", label: "AI/Automation Services" }
+    { value: "ai-automation-services", label: "AI/Automation Services" },
+    { value: "ai-audit", label: "AI Audit" }
   ];
 
   // Filter testimonials based on search and category
