@@ -7,7 +7,7 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instantiate createClient with right options
+  // Allows to automatically instanciate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "12.2.3 (519615d)"
@@ -161,75 +161,6 @@ export type Database = {
           sop_approach_label?: string | null
           team_size_label?: string | null
           time_owner_label?: string | null
-        }
-        Relationships: []
-      }
-      case_studies: {
-        Row: {
-          challenge: string
-          client_logo_url: string | null
-          client_name: string
-          created_at: string
-          featured: boolean
-          id: string
-          image_url: string | null
-          industry: string | null
-          is_published: boolean
-          metrics: Json | null
-          project_duration: string | null
-          results: string
-          services_provided: string[] | null
-          solution: string
-          tags: string[] | null
-          testimonial_author: string | null
-          testimonial_quote: string | null
-          testimonial_role: string | null
-          title: string
-          updated_at: string
-        }
-        Insert: {
-          challenge: string
-          client_logo_url?: string | null
-          client_name: string
-          created_at?: string
-          featured?: boolean
-          id?: string
-          image_url?: string | null
-          industry?: string | null
-          is_published?: boolean
-          metrics?: Json | null
-          project_duration?: string | null
-          results: string
-          services_provided?: string[] | null
-          solution: string
-          tags?: string[] | null
-          testimonial_author?: string | null
-          testimonial_quote?: string | null
-          testimonial_role?: string | null
-          title: string
-          updated_at?: string
-        }
-        Update: {
-          challenge?: string
-          client_logo_url?: string | null
-          client_name?: string
-          created_at?: string
-          featured?: boolean
-          id?: string
-          image_url?: string | null
-          industry?: string | null
-          is_published?: boolean
-          metrics?: Json | null
-          project_duration?: string | null
-          results?: string
-          services_provided?: string[] | null
-          solution?: string
-          tags?: string[] | null
-          testimonial_author?: string | null
-          testimonial_quote?: string | null
-          testimonial_role?: string | null
-          title?: string
-          updated_at?: string
         }
         Relationships: []
       }
