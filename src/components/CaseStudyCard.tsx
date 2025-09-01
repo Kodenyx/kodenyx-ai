@@ -70,7 +70,7 @@ export const CaseStudyCard = ({ caseStudy }: CaseStudyCardProps) => {
           <div className="grid grid-cols-2 gap-2 pt-4 border-t">
             {Object.entries(caseStudy.metrics).map(([key, value]) => (
               <div key={key} className="text-center">
-                <div className="font-bold text-lg text-primary">{value}</div>
+                <div className="font-bold text-lg text-primary">{String(value)}</div>
                 <div className="text-xs text-muted-foreground capitalize">
                   {key.replace('_', ' ')}
                 </div>

@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { SimpleNavbar } from "@/components/SimpleNavbar";
+import SimpleNavbar from "@/components/SimpleNavbar";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
 import { useCaseStudies } from "@/hooks/useCaseStudies";
 import { Button } from "@/components/ui/button";
