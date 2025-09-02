@@ -1,8 +1,9 @@
+
 import { Button } from "@/components/ui/button";
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Menu, X, PhoneCall, GraduationCap, Mail, Star } from "lucide-react";
+import { Menu, X, PhoneCall, GraduationCap, Mail, Star, FileText } from "lucide-react";
 import Logo from "./Logo";
 
 const Navbar = () => {
@@ -67,6 +68,13 @@ const Navbar = () => {
             <Star size={18} />
             Testimonials
           </Link>
+          <Link 
+            to="/case-studies"
+            className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
+          >
+            <FileText size={18} />
+            Case Studies
+          </Link>
           <button 
             onClick={() => handleNavClick('services')}
             className="text-gray-300 hover:text-white transition-colors"
@@ -113,6 +121,14 @@ const Navbar = () => {
             >
               <Star size={18} />
               Testimonials
+            </Link>
+            <Link 
+              to="/case-studies"
+              className="text-gray-300 hover:text-white transition-colors py-2 flex items-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <FileText size={18} />
+              Case Studies
             </Link>
             <button 
               onClick={() => {
