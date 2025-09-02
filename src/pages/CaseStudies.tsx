@@ -87,7 +87,7 @@ const CaseStudies = () => {
                 }`}
                 onClick={() => setShowFeaturedOnly(true)}
               >
-                Featured Only
+                Featured Case Studies
               </Badge>
             </div>
           </div>
@@ -139,15 +139,6 @@ const CaseStudies = () => {
               <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
                 Join these successful businesses and discover how AI automation can transform your operations and free up your time for what matters most.
               </p>
-              
-              <div className="flex justify-center">
-                <button 
-                  className="bg-[#9b87f5] text-white hover:bg-[#7E69AB] font-semibold px-8 py-4 text-lg rounded-md transition-colors"
-                  onClick={() => window.location.href = '/ai-audit-b2b'}
-                >
-                  Book a Free AI Audit
-                </button>
-              </div>
             </div>
           </div>
         </section>
