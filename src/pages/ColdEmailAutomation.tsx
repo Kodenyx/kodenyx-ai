@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -198,7 +197,7 @@ const ColdEmailAutomation = () => {
               Let's build your cold email system that works while you sleep
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <a 
                 href="https://cal.com/aarti-anand82" 
                 target="_blank" 
@@ -209,10 +208,6 @@ const ColdEmailAutomation = () => {
                   Book Strategy Call
                 </Button>
               </a>
-              <Button variant="outline" size="lg" className="text-black border-2 border-gray-400 hover:bg-gray-50 hover:text-black font-semibold text-lg px-8 py-4 bg-white">
-                <Mail className="mr-2 h-5 w-5" />
-                Get More Details
-              </Button>
             </div>
           </div>
         </div>
