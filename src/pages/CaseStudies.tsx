@@ -1,4 +1,3 @@
-
 import { useCaseStudies } from "@/hooks/useCaseStudies";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
 import { AddCaseStudyForm } from "@/components/AddCaseStudyForm";
@@ -7,6 +6,7 @@ import SimpleNavbar from "@/components/SimpleNavbar";
 import { Loader2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const CaseStudies = () => {
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
@@ -128,6 +128,17 @@ const CaseStudies = () => {
               <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
                 Join these successful businesses and discover how AI automation can transform your operations and free up your time for what matters most.
               </p>
+              
+              <div className="flex justify-center">
+                <a 
+                  href="/ai-audit-b2b" 
+                  className="inline-block"
+                >
+                  <Button size="lg" className="text-lg px-8 py-4 bg-primary hover:bg-primary/90 text-white font-semibold shadow-xl">
+                    Book a Free AI Audit
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         </section>
