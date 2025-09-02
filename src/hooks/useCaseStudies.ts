@@ -12,6 +12,7 @@ export interface CaseStudy {
   results: string;
   image_url?: string;
   client_logo_url?: string;
+  gamma_url?: string;
   tags?: string[];
   testimonial_quote?: string;
   testimonial_author?: string;

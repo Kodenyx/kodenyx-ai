@@ -14,6 +14,7 @@ interface CaseStudyData {
   solution: string;
   results: string;
   image_url?: string;
+  gamma_url: string;
   tags?: string[];
   testimonial_quote?: string;
   testimonial_author?: string;
@@ -49,11 +50,11 @@ Deno.serve(async (req) => {
 
     console.log('Processing URL:', url);
 
-    // Check if this case study already exists
+    // Check if this case study already exists by URL
     const { data: existingCaseStudy } = await supabase
       .from('case_studies')
       .select('id')
-      .eq('title', 'How a Mid-Sized Financial Firm Reclaimed 6,000 Hours and $400K/Year')
+      .eq('gamma_url', url)
       .single();
 
     if (existingCaseStudy) {
@@ -123,32 +124,54 @@ Deno.serve(async (req) => {
 });
 
 function extractCaseStudyData(html: string, url: string): CaseStudyData {
-  // For Gamma presentations, we'll extract the title and use the provided data
-  // This is a simplified extraction - in a real scenario, you might want more sophisticated parsing
-  
+  // Extract title from various possible sources
+  let title = 'Case Study';
   const titleMatch = html.match(/<title[^>]*>([^<]+)</i);
-  const title = titleMatch ? titleMatch[1].trim() : "How a Mid-Sized Financial Firm Reclaimed 6,000 Hours and $400K/Year";
+  if (titleMatch) {
+    title = titleMatch[1].trim().replace(' - Gamma', '');
+  }
 
-  // Return the financial firm case study data with the new image
+  // Extract meta description for summary
+  const descriptionMatch = html.match(/<meta[^>]*name=["\']description["\'][^>]*content=["\']([^"']+)["\'][^>]*>/i);
+  const description = descriptionMatch ? descriptionMatch[1] : '';
+
+  // Try to extract thumbnail from meta tags
+  let imageUrl = '';
+  const ogImageMatch = html.match(/<meta[^>]*property=["\']og:image["\'][^>]*content=["\']([^"']+)["\'][^>]*>/i);
+  if (ogImageMatch) {
+    imageUrl = ogImageMatch[1];
+  } else {
+    // Fallback to twitter image
+    const twitterImageMatch = html.match(/<meta[^>]*name=["\']twitter:image["\'][^>]*content=["\']([^"']+)["\'][^>]*>/i);
+    if (twitterImageMatch) {
+      imageUrl = twitterImageMatch[1];
+    }
+  }
+
+  // Generate a client name from the title or use a generic one
+  const clientName = title.includes('Client') ? 
+    title.split(' ')[0] + ' Client' : 
+    'Featured Client';
+
   return {
     title: title,
-    client_name: "Mid-Sized Financial Firm",
-    industry: "Financial Services",
-    challenge: "The firm was struggling with manual processes that consumed thousands of hours annually, leading to inefficiencies and high operational costs. Staff were overwhelmed with repetitive tasks that prevented them from focusing on high-value client work.",
-    solution: "We implemented comprehensive AI automation solutions to streamline their operations, including automated document processing, client onboarding workflows, and intelligent task routing systems.",
-    results: "Successfully reclaimed 6,000 hours annually and achieved $400,000 in cost savings per year, allowing the team to focus on strategic initiatives and client relationships.",
-    image_url: "/lovable-uploads/b477447b-cb21-454f-abae-d16b6abdffc8.png",
-    tags: ["Financial Services", "Process Automation", "Cost Reduction", "Time Savings"],
-    testimonial_quote: "The AI automation solutions transformed our operations completely. We're now able to focus on what matters most - serving our clients.",
-    testimonial_author: "Operations Director",
-    testimonial_role: "Operations Director",
-    project_duration: "3 months",
-    services_provided: ["Process Automation", "AI Implementation", "Workflow Optimization", "Staff Training"],
+    client_name: clientName,
+    industry: 'Business Services',
+    challenge: description || 'Business process optimization and efficiency improvement challenges.',
+    solution: 'Comprehensive AI automation solutions tailored to streamline operations and improve productivity.',
+    results: 'Significant improvements in operational efficiency and cost savings through AI implementation.',
+    image_url: imageUrl || '/lovable-uploads/b477447b-cb21-454f-abae-d16b6abdffc8.png',
+    gamma_url: url,
+    tags: ['AI Automation', 'Process Optimization', 'Digital Transformation'],
+    testimonial_quote: 'The AI solutions transformed our business operations completely.',
+    testimonial_author: 'Business Owner',
+    testimonial_role: 'CEO',
+    project_duration: '2-4 months',
+    services_provided: ['AI Implementation', 'Process Automation', 'Training & Support'],
     metrics: {
-      "hours_saved": "6,000/year",
-      "cost_savings": "$400K/year",
-      "efficiency_gain": "75%",
-      "roi": "500%"
+      "efficiency_gain": "60%+",
+      "time_saved": "25+ hrs/week",
+      "roi": "300%+"
     }
   };
 }

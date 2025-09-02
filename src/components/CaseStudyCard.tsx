@@ -1,6 +1,8 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 import { CaseStudy } from "@/hooks/useCaseStudies";
 
 interface CaseStudyCardProps {
@@ -8,19 +10,38 @@ interface CaseStudyCardProps {
 }
 
 export const CaseStudyCard = ({ caseStudy }: CaseStudyCardProps) => {
+  const handleViewPresentation = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (caseStudy.gamma_url) {
+      window.open(caseStudy.gamma_url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
-    <Card className="h-full hover:shadow-lg transition-shadow duration-300">
+    <Card className="h-full hover:shadow-lg transition-shadow duration-300 cursor-pointer group">
       {caseStudy.image_url && (
         <div className="relative h-48 overflow-hidden rounded-t-lg">
           <img
             src={caseStudy.image_url}
             alt={caseStudy.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
           {caseStudy.featured && (
             <Badge className="absolute top-4 left-4" variant="default">
               Featured
             </Badge>
+          )}
+          {caseStudy.gamma_url && (
+            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <Button
+                size="sm"
+                variant="secondary"
+                onClick={handleViewPresentation}
+                className="bg-white/90 hover:bg-white text-gray-900"
+              >
+                <ExternalLink className="w-4 h-4" />
+              </Button>
+            </div>
           )}
         </div>
       )}
@@ -38,7 +59,9 @@ export const CaseStudyCard = ({ caseStudy }: CaseStudyCardProps) => {
             <Badge variant="outline">{caseStudy.industry}</Badge>
           )}
         </div>
-        <CardTitle className="text-xl">{caseStudy.title}</CardTitle>
+        <CardTitle className="text-xl group-hover:text-[#9b87f5] transition-colors">
+          {caseStudy.title}
+        </CardTitle>
         <p className="text-sm text-muted-foreground font-medium">
           {caseStudy.client_name}
         </p>
@@ -100,6 +123,18 @@ export const CaseStudyCard = ({ caseStudy }: CaseStudyCardProps) => {
                 {caseStudy.testimonial_role && `, ${caseStudy.testimonial_role}`}
               </cite>
             )}
+          </div>
+        )}
+
+        {caseStudy.gamma_url && (
+          <div className="pt-4 border-t">
+            <Button 
+              onClick={handleViewPresentation}
+              className="w-full bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
+            >
+              View Full Presentation
+              <ExternalLink className="w-4 h-4 ml-2" />
+            </Button>
           </div>
         )}
       </CardContent>

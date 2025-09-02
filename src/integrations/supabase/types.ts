@@ -171,6 +171,7 @@ export type Database = {
           client_name: string
           created_at: string
           featured: boolean
+          gamma_url: string | null
           id: string
           image_url: string | null
           industry: string | null
@@ -193,6 +194,7 @@ export type Database = {
           client_name: string
           created_at?: string
           featured?: boolean
+          gamma_url?: string | null
           id?: string
           image_url?: string | null
           industry?: string | null
@@ -215,6 +217,7 @@ export type Database = {
           client_name?: string
           created_at?: string
           featured?: boolean
+          gamma_url?: string | null
           id?: string
           image_url?: string | null
           industry?: string | null

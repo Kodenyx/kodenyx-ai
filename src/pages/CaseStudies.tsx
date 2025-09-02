@@ -1,6 +1,7 @@
 
 import { useCaseStudies } from "@/hooks/useCaseStudies";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
+import { AddCaseStudyForm } from "@/components/AddCaseStudyForm";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Loader2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +9,7 @@ import { useState } from "react";
 
 const CaseStudies = () => {
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
+  const [showAddForm, setShowAddForm] = useState(false);
   const { data: caseStudies, isLoading, error } = useCaseStudies(showFeaturedOnly);
 
   return (
@@ -29,10 +31,19 @@ const CaseStudies = () => {
           </div>
         </section>
 
+        {/* Add Case Study Form - Hidden by default, can be shown with URL param or toggle */}
+        {(showAddForm || window.location.search.includes('admin=true')) && (
+          <section className="py-8 bg-gray-100 border-b">
+            <div className="container mx-auto px-4">
+              <AddCaseStudyForm />
+            </div>
+          </section>
+        )}
+
         {/* Filter Section */}
         <section className="py-8 bg-gray-50">
           <div className="container mx-auto px-4">
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-4 flex-wrap">
               <Badge
                 variant={!showFeaturedOnly ? "default" : "outline"}
                 className={`cursor-pointer px-6 py-2 text-sm font-medium transition-colors ${
@@ -55,6 +66,16 @@ const CaseStudies = () => {
               >
                 Featured Only
               </Badge>
+              {/* Admin toggle - hidden by default */}
+              {window.location.search.includes('debug=true') && (
+                <Badge
+                  variant="outline"
+                  className="cursor-pointer px-6 py-2 text-sm font-medium transition-colors border-gray-400 text-gray-600 hover:bg-gray-400 hover:text-white bg-white"
+                  onClick={() => setShowAddForm(!showAddForm)}
+                >
+                  {showAddForm ? 'Hide' : 'Show'} Add Form
+                </Badge>
+              )}
             </div>
           </div>
         </section>
