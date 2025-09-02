@@ -1,12 +1,12 @@
 
 import { supabase } from '@/integrations/supabase/client';
 
-export const addCaseStudyFromLink = async (url: string) => {
+export const addCaseStudyFromLink = async (url: string, title?: string, image_url?: string) => {
   try {
-    console.log('Adding case study from URL:', url);
+    console.log('Adding case study from URL:', { url, title, image_url });
     
     const { data, error } = await supabase.functions.invoke('add-case-study-from-link', {
-      body: { url }
+      body: { url, title, image_url }
     });
 
     if (error) {

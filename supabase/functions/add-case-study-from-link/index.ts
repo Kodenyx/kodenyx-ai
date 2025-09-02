@@ -36,7 +36,7 @@ Deno.serve(async (req) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     );
 
-    const { url } = await req.json();
+    const { url, title, image_url } = await req.json();
     
     if (!url) {
       return new Response(
@@ -48,14 +48,14 @@ Deno.serve(async (req) => {
       );
     }
 
-    console.log('Processing URL:', url);
+    console.log('Processing manual case study creation:', { url, title, image_url });
 
     // Check if this case study already exists by URL
     const { data: existingCaseStudy } = await supabase
       .from('case_studies')
       .select('id')
       .eq('gamma_url', url)
-      .single();
+      .maybeSingle();
 
     if (existingCaseStudy) {
       console.log('Case study already exists, skipping insertion');
@@ -68,16 +68,10 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Fetch the content from the provided URL
-    const response = await fetch(url);
-    const html = await response.text();
+    // Create case study data with manual inputs
+    const caseStudyData = createCaseStudyData(url, title, image_url);
     
-    console.log('Fetched HTML content, length:', html.length);
-
-    // Extract case study data from the HTML
-    const caseStudyData = extractCaseStudyData(html, url);
-    
-    console.log('Extracted case study data:', caseStudyData);
+    console.log('Created case study data:', caseStudyData);
 
     // Insert into database
     const { data, error } = await supabase
@@ -123,104 +117,50 @@ Deno.serve(async (req) => {
   }
 });
 
-function extractCaseStudyData(html: string, url: string): CaseStudyData {
-  console.log('Extracting data from HTML for URL:', url);
+function createCaseStudyData(url: string, customTitle?: string, customImageUrl?: string): CaseStudyData {
+  console.log('Creating case study data with manual inputs:', { url, customTitle, customImageUrl });
   
-  // Extract title from various possible sources - try multiple approaches
-  let title = 'Case Study';
+  // Use custom title or generate from URL
+  let title = customTitle || 'Case Study';
   
-  // Try to get title from <title> tag first
-  const titleMatch = html.match(/<title[^>]*>([^<]+)</i);
-  if (titleMatch) {
-    title = titleMatch[1].trim().replace(' - Gamma', '').replace('Gamma - ', '');
-    console.log('Extracted title from <title> tag:', title);
-  }
-  
-  // Try to get title from Open Graph meta tag
-  const ogTitleMatch = html.match(/<meta[^>]*property=["\']og:title["\'][^>]*content=["\']([^"']+)["\'][^>]*>/i);
-  if (ogTitleMatch && ogTitleMatch[1] !== title) {
-    title = ogTitleMatch[1].trim();
-    console.log('Extracted title from og:title:', title);
-  }
-
-  // Try to extract from URL path as fallback
-  if (title === 'Case Study' || title.includes('Gamma')) {
+  if (!customTitle) {
+    // Generate title from URL as fallback
     const urlParts = url.split('/');
     const lastPart = urlParts[urlParts.length - 1];
     if (lastPart && lastPart.includes('-')) {
-      // Convert URL slug to readable title
       title = lastPart.split('-')
-        .filter(part => part.length > 2) // Remove short connector words
+        .filter(part => part.length > 2)
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
-      console.log('Generated title from URL:', title);
     }
   }
 
-  // Extract meta description for summary
-  const descriptionMatch = html.match(/<meta[^>]*name=["\']description["\'][^>]*content=["\']([^"']+)["\'][^>]*>/i);
-  const description = descriptionMatch ? descriptionMatch[1] : '';
-  console.log('Extracted description:', description);
-
-  // Try to extract thumbnail from meta tags
-  let imageUrl = '';
-  const ogImageMatch = html.match(/<meta[^>]*property=["\']og:image["\'][^>]*content=["\']([^"']+)["\'][^>]*>/i);
-  if (ogImageMatch) {
-    imageUrl = ogImageMatch[1];
-    console.log('Extracted og:image:', imageUrl);
-  } else {
-    // Fallback to twitter image
-    const twitterImageMatch = html.match(/<meta[^>]*name=["\']twitter:image["\'][^>]*content=["\']([^"']+)["\'][^>]*>/i);
-    if (twitterImageMatch) {
-      imageUrl = twitterImageMatch[1];
-      console.log('Extracted twitter:image:', imageUrl);
-    }
-  }
-
-  // Generate more specific client name based on title
+  // Generate client name from title
   let clientName = 'Featured Client';
   if (title && title !== 'Case Study') {
-    // Try to extract company/client name from title
     const words = title.split(' ');
-    if (words.length > 2) {
-      // Take first 1-2 words as potential client name
+    if (words.length > 1) {
       clientName = words.slice(0, 2).join(' ');
     }
   }
 
-  // Try to determine industry from title/description
-  let industry = 'Business Services';
-  const titleLower = title.toLowerCase();
-  const descLower = description.toLowerCase();
-  const combined = `${titleLower} ${descLower}`;
-  
-  if (combined.includes('financial') || combined.includes('finance') || combined.includes('bank')) {
-    industry = 'Financial Services';
-  } else if (combined.includes('marketing') || combined.includes('digital') || combined.includes('agency')) {
-    industry = 'Marketing & Advertising';
-  } else if (combined.includes('tech') || combined.includes('software') || combined.includes('ai')) {
-    industry = 'Technology';
-  } else if (combined.includes('healthcare') || combined.includes('medical')) {
-    industry = 'Healthcare';
-  } else if (combined.includes('retail') || combined.includes('ecommerce') || combined.includes('e-commerce')) {
-    industry = 'Retail & E-commerce';
-  }
+  // Use custom image or fallback
+  const imageUrl = customImageUrl || '/lovable-uploads/b477447b-cb21-454f-abae-d16b6abdffc8.png';
 
-  console.log('Final extracted data:', {
+  console.log('Final case study data:', {
     title,
     clientName,
-    industry,
-    imageUrl: imageUrl || '/lovable-uploads/b477447b-cb21-454f-abae-d16b6abdffc8.png'
+    imageUrl
   });
 
   return {
     title: title,
     client_name: clientName,
-    industry: industry,
-    challenge: description || 'Business process optimization and efficiency improvement challenges.',
+    industry: 'Business Services',
+    challenge: 'Business process optimization and efficiency improvement challenges.',
     solution: 'Comprehensive AI automation solutions tailored to streamline operations and improve productivity.',
     results: 'Significant improvements in operational efficiency and cost savings through AI implementation.',
-    image_url: imageUrl || '/lovable-uploads/b477447b-cb21-454f-abae-d16b6abdffc8.png',
+    image_url: imageUrl,
     gamma_url: url,
     tags: ['AI Automation', 'Process Optimization', 'Digital Transformation'],
     testimonial_quote: 'The AI solutions transformed our business operations completely.',
