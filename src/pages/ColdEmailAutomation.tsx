@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -52,10 +53,10 @@ const ColdEmailAutomation = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Book A Call
+              Ready To See How It Works?
             </h2>
             <p className="text-lg text-gray-700 mb-8">
-              Ready to see how this works for your business? Let's talk.
+              Cold outreach, if done right, can generate dozens of leads on autopilot every month.
             </p>
             <a 
               href="https://cal.com/aarti-anand82" 
@@ -65,7 +66,7 @@ const ColdEmailAutomation = () => {
             >
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-4">
                 <Calendar className="mr-2 h-5 w-5" />
-                Schedule Your Call
+                Book A Call
               </Button>
             </a>
           </div>
