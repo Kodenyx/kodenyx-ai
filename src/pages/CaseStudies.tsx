@@ -68,17 +68,6 @@ const CaseStudies = () => {
           <div className="container mx-auto px-4">
             <div className="flex justify-center gap-4 flex-wrap">
               <Badge
-                variant={!showFeaturedOnly ? "default" : "outline"}
-                className={`cursor-pointer px-6 py-2 text-sm font-medium transition-colors ${
-                  !showFeaturedOnly 
-                    ? "bg-[#9b87f5] text-white border-[#9b87f5]" 
-                    : "border-[#9b87f5] text-[#9b87f5] hover:bg-[#9b87f5] hover:text-white bg-white"
-                }`}
-                onClick={() => setShowFeaturedOnly(false)}
-              >
-                All Case Studies
-              </Badge>
-              <Badge
                 variant={showFeaturedOnly ? "default" : "outline"}
                 className={`cursor-pointer px-6 py-2 text-sm font-medium transition-colors ${
                   showFeaturedOnly 
