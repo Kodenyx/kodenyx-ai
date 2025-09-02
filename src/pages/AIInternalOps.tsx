@@ -260,10 +260,16 @@ const AIInternalOps = () => {
               Limited Time: Setup includes a free trial for 30 days (normally $499)
             </Badge>
           </div>
-          <Button size="lg" variant="secondary" className="px-8 py-6 text-lg">
-            Book Your Operations Audit
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+          <a 
+            href="https://cal.com/aarti-anand82"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button size="lg" variant="secondary" className="px-8 py-6 text-lg">
+              Book Your Operations Audit
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </a>
           <p className="text-sm mt-4 opacity-75">
             30-minute consultation • No commitment required • See immediate improvement opportunities
           </p>
