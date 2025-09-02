@@ -68,7 +68,7 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Create case study data with manual inputs
+    // Create case study data with only provided inputs - no fake data
     const caseStudyData = createCaseStudyData(url, title, image_url);
     
     console.log('Created case study data:', caseStudyData);
@@ -120,58 +120,32 @@ Deno.serve(async (req) => {
 function createCaseStudyData(url: string, customTitle?: string, customImageUrl?: string): CaseStudyData {
   console.log('Creating case study data with manual inputs:', { url, customTitle, customImageUrl });
   
-  // Use custom title or generate from URL
-  let title = customTitle || 'Case Study';
+  // Only use provided title or generate a basic one from URL
+  const title = customTitle || 'New Case Study';
   
-  if (!customTitle) {
-    // Generate title from URL as fallback
-    const urlParts = url.split('/');
-    const lastPart = urlParts[urlParts.length - 1];
-    if (lastPart && lastPart.includes('-')) {
-      title = lastPart.split('-')
-        .filter(part => part.length > 2)
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-    }
-  }
-
-  // Generate client name from title
-  let clientName = 'Featured Client';
-  if (title && title !== 'Case Study') {
-    const words = title.split(' ');
-    if (words.length > 1) {
-      clientName = words.slice(0, 2).join(' ');
-    }
-  }
-
-  // Use custom image or fallback
-  const imageUrl = customImageUrl || '/lovable-uploads/b477447b-cb21-454f-abae-d16b6abdffc8.png';
+  // Only use provided image URL
+  const imageUrl = customImageUrl;
 
   console.log('Final case study data:', {
     title,
-    clientName,
     imageUrl
   });
 
   return {
     title: title,
-    client_name: clientName,
-    industry: 'Business Services',
-    challenge: 'Business process optimization and efficiency improvement challenges.',
-    solution: 'Comprehensive AI automation solutions tailored to streamline operations and improve productivity.',
-    results: 'Significant improvements in operational efficiency and cost savings through AI implementation.',
+    client_name: '', // Empty - to be filled manually
+    industry: '', // Empty - to be filled manually  
+    challenge: '', // Empty - to be filled manually
+    solution: '', // Empty - to be filled manually
+    results: '', // Empty - to be filled manually
     image_url: imageUrl,
     gamma_url: url,
-    tags: ['AI Automation', 'Process Optimization', 'Digital Transformation'],
-    testimonial_quote: 'The AI solutions transformed our business operations completely.',
-    testimonial_author: 'Business Owner',
-    testimonial_role: 'CEO',
-    project_duration: '2-4 months',
-    services_provided: ['AI Implementation', 'Process Automation', 'Training & Support'],
-    metrics: {
-      "efficiency_gain": "60%+",
-      "time_saved": "25+ hrs/week",
-      "roi": "300%+"
-    }
+    tags: [], // Empty array
+    testimonial_quote: '', // Empty - to be filled manually
+    testimonial_author: '', // Empty - to be filled manually
+    testimonial_role: '', // Empty - to be filled manually
+    project_duration: '', // Empty - to be filled manually
+    services_provided: [], // Empty array
+    metrics: {} // Empty object
   };
 }
