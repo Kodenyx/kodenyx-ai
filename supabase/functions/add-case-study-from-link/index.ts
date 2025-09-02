@@ -49,6 +49,24 @@ Deno.serve(async (req) => {
 
     console.log('Processing URL:', url);
 
+    // Check if this case study already exists
+    const { data: existingCaseStudy } = await supabase
+      .from('case_studies')
+      .select('id')
+      .eq('title', 'How a Mid-Sized Financial Firm Reclaimed 6,000 Hours and $400K/Year')
+      .single();
+
+    if (existingCaseStudy) {
+      console.log('Case study already exists, skipping insertion');
+      return new Response(
+        JSON.stringify({ success: true, message: 'Case study already exists', data: existingCaseStudy }),
+        { 
+          status: 200, 
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+        }
+      );
+    }
+
     // Fetch the content from the provided URL
     const response = await fetch(url);
     const html = await response.text();
