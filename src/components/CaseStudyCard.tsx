@@ -37,7 +37,7 @@ export const CaseStudyCard = ({ caseStudy }: CaseStudyCardProps) => {
                 size="sm"
                 variant="secondary"
                 onClick={handleViewPresentation}
-                className="bg-white/90 hover:bg-white text-gray-900"
+                className="bg-white text-gray-900 hover:bg-gray-100 border border-gray-200 font-medium"
               >
                 <ExternalLink className="w-4 h-4" />
               </Button>
@@ -130,7 +130,7 @@ export const CaseStudyCard = ({ caseStudy }: CaseStudyCardProps) => {
           <div className="pt-4 border-t">
             <Button 
               onClick={handleViewPresentation}
-              className="w-full bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
+              className="w-full bg-[#9b87f5] hover:bg-[#7E69AB] text-white font-semibold"
             >
               View Full Presentation
               <ExternalLink className="w-4 h-4 ml-2" />

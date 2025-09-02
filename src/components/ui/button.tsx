@@ -10,17 +10,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Force strong contrast on dark backgrounds
-        default: "bg-primary text-white hover:bg-primary/90",
+        default: "bg-primary text-white hover:bg-primary/90 font-semibold",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-destructive text-white hover:bg-destructive/90 font-semibold",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        // Ensure secondary buttons remain readable on secondary/dark sections
+          "border border-input bg-background text-foreground hover:bg-accent hover:text-accent-foreground font-medium",
         secondary:
-          "bg-secondary text-white hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 font-medium",
+        ghost: "text-foreground hover:bg-accent hover:text-accent-foreground font-medium",
+        link: "text-primary underline-offset-4 hover:underline font-medium",
       },
       size: {
         default: "h-10 px-4 py-2",
