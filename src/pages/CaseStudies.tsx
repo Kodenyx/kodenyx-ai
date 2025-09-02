@@ -6,9 +6,11 @@ import { useCaseStudies } from "@/hooks/useCaseStudies";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Loader2 } from "lucide-react";
+import { SeedCaseStudy } from "@/components/SeedCaseStudy";
 
 const CaseStudies = () => {
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
+  const [showSeedComponent, setShowSeedComponent] = useState(true);
   const { data: caseStudies, isLoading, error } = useCaseStudies(showFeaturedOnly);
 
   if (isLoading) {
@@ -51,6 +53,21 @@ const CaseStudies = () => {
             Real results from real companies.
           </p>
           
+          {/* Temporary Admin Section */}
+          {showSeedComponent && (
+            <div className="max-w-md mx-auto mb-8">
+              <SeedCaseStudy />
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={() => setShowSeedComponent(false)}
+                className="mt-2"
+              >
+                Hide Admin Panel
+              </Button>
+            </div>
+          )}
+          
           {/* Filter Buttons */}
           <div className="flex justify-center gap-4 mb-8">
             <Button
@@ -81,7 +98,7 @@ const CaseStudies = () => {
               No Case Studies Yet
             </h3>
             <p className="text-gray-600 mb-8">
-              We're working on adding more success stories. Check back soon!
+              Use the admin panel above to add your first case study!
             </p>
           </div>
         )}
