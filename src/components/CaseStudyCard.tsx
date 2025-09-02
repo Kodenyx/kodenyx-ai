@@ -62,33 +62,14 @@ export const CaseStudyCard = ({ caseStudy }: CaseStudyCardProps) => {
         <CardTitle className="text-xl group-hover:text-[#9b87f5] transition-colors">
           {caseStudy.title}
         </CardTitle>
-        <p className="text-sm text-muted-foreground font-medium">
-          {caseStudy.client_name}
-        </p>
+        {caseStudy.client_name && (
+          <p className="text-sm text-muted-foreground font-medium">
+            {caseStudy.client_name}
+          </p>
+        )}
       </CardHeader>
 
       <CardContent className="space-y-4">
-        <div>
-          <h4 className="font-semibold text-sm mb-2">Challenge</h4>
-          <p className="text-sm text-muted-foreground line-clamp-3">
-            {caseStudy.challenge}
-          </p>
-        </div>
-
-        <div>
-          <h4 className="font-semibold text-sm mb-2">Solution</h4>
-          <p className="text-sm text-muted-foreground line-clamp-3">
-            {caseStudy.solution}
-          </p>
-        </div>
-
-        <div>
-          <h4 className="font-semibold text-sm mb-2">Results</h4>
-          <p className="text-sm text-muted-foreground line-clamp-3">
-            {caseStudy.results}
-          </p>
-        </div>
-
         {caseStudy.metrics && (
           <div className="grid grid-cols-2 gap-2 pt-4 border-t">
             {Object.entries(caseStudy.metrics).map(([key, value]) => (
