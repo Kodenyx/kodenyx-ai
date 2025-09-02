@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -48,30 +47,27 @@ const ColdEmailAutomation = () => {
         </div>
       </section>
 
-      {/* Lead Capture */}
+      {/* Book A Call CTA */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Ready to See How It Works?
+              Book A Call
             </h2>
             <p className="text-lg text-gray-700 mb-8">
-              Get the full walkthrough and see sample results
+              Ready to see how this works for your business? Let's talk.
             </p>
-            <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 border-gray-300"
-                required
-              />
-              <Button type="submit" size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold">
-                <Zap className="mr-2 h-4 w-4" />
-                Get Details
+            <a 
+              href="https://cal.com/aarti-anand82" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-4">
+                <Calendar className="mr-2 h-5 w-5" />
+                Schedule Your Call
               </Button>
-            </form>
+            </a>
           </div>
         </div>
       </section>
