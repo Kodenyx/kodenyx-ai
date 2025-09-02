@@ -3,6 +3,7 @@ import { CaseStudyCard } from "@/components/CaseStudyCard";
 import { useCaseStudies } from "@/hooks/useCaseStudies";
 import { Loader2 } from "lucide-react";
 import { UpdateCaseStudyImage } from "@/components/UpdateCaseStudyImage";
+import { SeedCaseStudy } from "@/components/SeedCaseStudy";
 
 const CaseStudies = () => {
   const { data: caseStudies, isLoading, error } = useCaseStudies();
@@ -36,9 +37,10 @@ const CaseStudies = () => {
           </p>
         </div>
 
-        {/* Quick update tool */}
-        <div className="mb-8 flex justify-center">
+        {/* Admin tools */}
+        <div className="mb-8 flex justify-center gap-4">
           <UpdateCaseStudyImage />
+          <SeedCaseStudy />
         </div>
 
         {caseStudies && caseStudies.length > 0 ? (
