@@ -1,7 +1,7 @@
 
+
 import SimpleNavbar from "@/components/SimpleNavbar";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import { Button } from "@/components/ui/button";
 
 const Testimonials = () => {
   return (
@@ -50,16 +50,6 @@ const Testimonials = () => {
                 <br />
                 Let's unlock your next level.
               </p>
-              
-              <div className="flex justify-center">
-                <Button 
-                  size="lg" 
-                  className="bg-[#9b87f5] text-white hover:bg-[#7E69AB] font-semibold px-8 py-4 text-lg"
-                  onClick={() => window.location.href = '/ai-audit-b2b'}
-                >
-                  Book a Free AI Audit
-                </Button>
-              </div>
             </div>
           </div>
         </section>
@@ -69,3 +59,4 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+
