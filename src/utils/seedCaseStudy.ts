@@ -9,7 +9,7 @@ export const seedFinancialFirmCaseStudy = async () => {
     challenge: "The firm was struggling with manual processes that consumed thousands of hours annually, leading to inefficiencies and high operational costs. Staff were overwhelmed with repetitive tasks that prevented them from focusing on high-value client work.",
     solution: "We implemented comprehensive AI automation solutions to streamline their operations, including automated document processing, client onboarding workflows, and intelligent task routing systems.",
     results: "Successfully reclaimed 6,000 hours annually and achieved $400,000 in cost savings per year, allowing the team to focus on strategic initiatives and client relationships.",
-    image_url: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2026&q=80",
+    image_url: "/lovable-uploads/8ee4b126-5904-4ad2-a895-c9673bbe869b.png",
     client_logo_url: null,
     tags: ["Financial Services", "Process Automation", "Cost Reduction", "Time Savings"],
     testimonial_quote: "The AI automation solutions transformed our operations completely. We're now able to focus on what matters most - serving our clients.",
