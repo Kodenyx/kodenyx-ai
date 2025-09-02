@@ -2,6 +2,7 @@
 import { useCaseStudies } from "@/hooks/useCaseStudies";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
 import { AddCaseStudyForm } from "@/components/AddCaseStudyForm";
+import { CaseStudyManager } from "@/components/CaseStudyManager";
 import SimpleNavbar from "@/components/SimpleNavbar";
 import { Loader2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -10,7 +11,11 @@ import { useState } from "react";
 const CaseStudies = () => {
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
   const [showAddForm, setShowAddForm] = useState(false);
+  const [showManager, setShowManager] = useState(false);
   const { data: caseStudies, isLoading, error } = useCaseStudies(showFeaturedOnly);
+
+  const isAdmin = window.location.search.includes('admin=true');
+  const isDebug = window.location.search.includes('debug=true');
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -31,11 +36,29 @@ const CaseStudies = () => {
           </div>
         </section>
 
-        {/* Add Case Study Form - Hidden by default, can be shown with URL param or toggle */}
-        {(showAddForm || window.location.search.includes('admin=true')) && (
+        {/* Admin Tools */}
+        {isAdmin && (
           <section className="py-8 bg-gray-100 border-b">
             <div className="container mx-auto px-4">
-              <AddCaseStudyForm />
+              <div className="flex justify-center gap-4 flex-wrap mb-6">
+                <Badge
+                  variant={showManager ? "default" : "outline"}
+                  className="cursor-pointer px-6 py-2 text-sm font-medium transition-colors"
+                  onClick={() => setShowManager(!showManager)}
+                >
+                  {showManager ? 'Hide' : 'Show'} Case Study Manager
+                </Badge>
+                <Badge
+                  variant={showAddForm ? "default" : "outline"}
+                  className="cursor-pointer px-6 py-2 text-sm font-medium transition-colors"
+                  onClick={() => setShowAddForm(!showAddForm)}
+                >
+                  {showAddForm ? 'Hide' : 'Show'} Add Form
+                </Badge>
+              </div>
+              
+              {showManager && <CaseStudyManager />}
+              {showAddForm && <AddCaseStudyForm />}
             </div>
           </section>
         )}
@@ -66,16 +89,6 @@ const CaseStudies = () => {
               >
                 Featured Only
               </Badge>
-              {/* Admin toggle - hidden by default */}
-              {window.location.search.includes('debug=true') && (
-                <Badge
-                  variant="outline"
-                  className="cursor-pointer px-6 py-2 text-sm font-medium transition-colors border-gray-400 text-gray-600 hover:bg-gray-400 hover:text-white bg-white"
-                  onClick={() => setShowAddForm(!showAddForm)}
-                >
-                  {showAddForm ? 'Hide' : 'Show'} Add Form
-                </Badge>
-              )}
             </div>
           </div>
         </section>
