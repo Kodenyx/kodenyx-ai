@@ -33,6 +33,7 @@ import BackupLandingPage from "./pages/BackupLandingPage";
 import ColdEmailAutomation from "./pages/ColdEmailAutomation";
 import ColdEmailAutomationOffer from "./pages/ColdEmailAutomationOffer";
 import TrustedPartner from "./pages/TrustedPartner";
+import CaseStudies from "./pages/CaseStudies";
 
 const queryClient = new QueryClient();
 
@@ -72,6 +73,7 @@ const App = () => (
           <Route path="/cold-email-automation" element={<ColdEmailAutomation />} />
           <Route path="/cold-email-automation-offer" element={<ColdEmailAutomationOffer />} />
           <Route path="/trusted-partner" element={<TrustedPartner />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
