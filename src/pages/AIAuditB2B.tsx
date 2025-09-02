@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -257,7 +256,7 @@ const AIAuditB2B = () => {
                   </div>
                   <div className="flex items-start">
                     <Check className="w-5 h-5 text-primary mt-1 mr-4 flex-shrink-0" />
-                    <span className="text-lg text-gray-700">Workflow maps for top 3-5 systems</span>
+                    <span className="text-lg text-gray-700">AI-First Implementation Ready Designs for Highest ROI Workflows</span>
                   </div>
                 </div>
                 <div className="space-y-4">
