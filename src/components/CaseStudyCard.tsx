@@ -6,14 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ExternalLink } from "lucide-react";
 import { CaseStudy } from "@/hooks/useCaseStudies";
+import { useLazyCaseStudyImage } from "@/hooks/useLazyCaseStudyImage";
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudy;
 }
 
 export const CaseStudyCard = ({ caseStudy }: CaseStudyCardProps) => {
-  const [imageLoading, setImageLoading] = useState(true);
-  const [imageError, setImageError] = useState(false);
+  const { ref, imageUrl, loading: imageLoading } = useLazyCaseStudyImage(caseStudy.id);
 
   const handleViewPresentation = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -24,43 +24,39 @@ export const CaseStudyCard = ({ caseStudy }: CaseStudyCardProps) => {
 
   return (
     <Card className="h-full hover:shadow-lg transition-shadow duration-300 cursor-pointer group">
-      {caseStudy.image_url && !imageError && (
-        <div className="relative h-48 overflow-hidden rounded-t-lg">
-          {imageLoading && (
-            <Skeleton className="w-full h-full absolute inset-0" />
-          )}
+      <div ref={ref} className="relative h-48 overflow-hidden rounded-t-lg">
+        {(!imageUrl || imageLoading) && (
+          <Skeleton className="w-full h-full absolute inset-0" />
+        )}
+        {imageUrl && (
           <img
-            src={caseStudy.image_url}
+            src={imageUrl}
             alt={caseStudy.title}
             loading="lazy"
             className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${
               imageLoading ? 'opacity-0' : 'opacity-100'
             }`}
-            onLoad={() => setImageLoading(false)}
-            onError={() => {
-              setImageError(true);
-              setImageLoading(false);
-            }}
+            onLoad={() => {/* handled by hook visibility; keep simple */}}
           />
-          {caseStudy.featured && (
-            <Badge className="absolute top-4 left-4 z-10" variant="default">
-              Featured
-            </Badge>
-          )}
-          {caseStudy.gamma_url && !imageLoading && (
-            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <Button
-                size="sm"
-                variant="secondary"
-                onClick={handleViewPresentation}
-                className="bg-white text-gray-900 hover:bg-gray-100 border border-gray-200 font-medium"
-              >
-                <ExternalLink className="w-4 h-4" />
-              </Button>
-            </div>
-          )}
-        </div>
-      )}
+        )}
+        {caseStudy.featured && (
+          <Badge className="absolute top-4 left-4 z-10" variant="default">
+            Featured
+          </Badge>
+        )}
+        {caseStudy.gamma_url && !imageLoading && (
+          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <Button
+              size="sm"
+              variant="secondary"
+              onClick={handleViewPresentation}
+              className="bg-white text-gray-900 hover:bg-gray-100 border border-gray-200 font-medium"
+            >
+              <ExternalLink className="w-4 h-4" />
+            </Button>
+          </div>
+        )}
+      </div>
       
       <CardHeader>
         <div className="flex items-center justify-between mb-2">
@@ -130,7 +126,6 @@ export const CaseStudyCard = ({ caseStudy }: CaseStudyCardProps) => {
               className="w-full bg-[#9b87f5] hover:bg-[#7E69AB] text-white font-semibold"
             >
               View Full Presentation
-              <ExternalLink className="w-4 h-4 ml-2" />
             </Button>
           </div>
         )}

@@ -30,9 +30,31 @@ export const useCaseStudies = (featuredOnly = false) => {
   return useQuery({
     queryKey: ['case-studies', featuredOnly],
     queryFn: async () => {
+      // Fetch only lightweight fields for instant load (exclude image_url)
       let query = supabase
         .from('case_studies')
-        .select('*')
+        .select(`
+          id,
+          title,
+          client_name,
+          industry,
+          challenge,
+          solution,
+          results,
+          client_logo_url,
+          gamma_url,
+          tags,
+          testimonial_quote,
+          testimonial_author,
+          testimonial_role,
+          project_duration,
+          services_provided,
+          metrics,
+          is_published,
+          featured,
+          created_at,
+          updated_at
+        `)
         .eq('is_published', true)
         .order('created_at', { ascending: false });
 
