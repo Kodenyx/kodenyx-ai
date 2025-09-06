@@ -1,7 +1,9 @@
 
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { ExternalLink } from "lucide-react";
 import { CaseStudy } from "@/hooks/useCaseStudies";
 
@@ -10,6 +12,9 @@ interface CaseStudyCardProps {
 }
 
 export const CaseStudyCard = ({ caseStudy }: CaseStudyCardProps) => {
+  const [imageLoading, setImageLoading] = useState(true);
+  const [imageError, setImageError] = useState(false);
+
   const handleViewPresentation = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (caseStudy.gamma_url) {
@@ -19,19 +24,30 @@ export const CaseStudyCard = ({ caseStudy }: CaseStudyCardProps) => {
 
   return (
     <Card className="h-full hover:shadow-lg transition-shadow duration-300 cursor-pointer group">
-      {caseStudy.image_url && (
+      {caseStudy.image_url && !imageError && (
         <div className="relative h-48 overflow-hidden rounded-t-lg">
+          {imageLoading && (
+            <Skeleton className="w-full h-full absolute inset-0" />
+          )}
           <img
             src={caseStudy.image_url}
             alt={caseStudy.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+            className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${
+              imageLoading ? 'opacity-0' : 'opacity-100'
+            }`}
+            onLoad={() => setImageLoading(false)}
+            onError={() => {
+              setImageError(true);
+              setImageLoading(false);
+            }}
           />
           {caseStudy.featured && (
-            <Badge className="absolute top-4 left-4" variant="default">
+            <Badge className="absolute top-4 left-4 z-10" variant="default">
               Featured
             </Badge>
           )}
-          {caseStudy.gamma_url && (
+          {caseStudy.gamma_url && !imageLoading && (
             <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <Button
                 size="sm"
