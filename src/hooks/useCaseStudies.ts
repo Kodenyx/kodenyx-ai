@@ -30,9 +30,31 @@ export const useCaseStudies = (featuredOnly = false) => {
   return useQuery({
     queryKey: ['case-studies', featuredOnly],
     queryFn: async () => {
+      // Only select essential fields, excluding heavy image data for faster loading
       let query = supabase
         .from('case_studies')
-        .select('*')
+        .select(`
+          id,
+          title,
+          client_name,
+          industry,
+          challenge,
+          solution,
+          results,
+          client_logo_url,
+          gamma_url,
+          tags,
+          testimonial_quote,
+          testimonial_author,
+          testimonial_role,
+          project_duration,
+          services_provided,
+          metrics,
+          is_published,
+          featured,
+          created_at,
+          updated_at
+        `)
         .eq('is_published', true)
         .order('created_at', { ascending: false });
 
@@ -47,8 +69,9 @@ export const useCaseStudies = (featuredOnly = false) => {
         throw error;
       }
 
-      console.log('Fetched case studies:', data);
       return data as CaseStudy[];
     },
+    staleTime: 5 * 60 * 1000, // Consider data fresh for 5 minutes
+    gcTime: 10 * 60 * 1000, // Keep in cache for 10 minutes
   });
 };
