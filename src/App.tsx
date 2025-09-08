@@ -34,6 +34,7 @@ import ColdEmailAutomation from "./pages/ColdEmailAutomation";
 import ColdEmailAutomationOffer from "./pages/ColdEmailAutomationOffer";
 import TrustedPartner from "./pages/TrustedPartner";
 import CaseStudies from "./pages/CaseStudies";
+import FreeAIWorkshopRegistration from "./pages/FreeAIWorkshopRegistration";
 
 const queryClient = new QueryClient();
 
@@ -74,6 +75,7 @@ const App = () => (
           <Route path="/cold-email-automation-offer" element={<ColdEmailAutomationOffer />} />
           <Route path="/trusted-partner" element={<TrustedPartner />} />
           <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/free-ai-workshop" element={<FreeAIWorkshopRegistration />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
